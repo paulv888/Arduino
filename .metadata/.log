@@ -5703,3 +5703,247 @@ java.lang.NullPointerException
 	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:439)
 	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2014-10-16 01:45:10.721 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.ui 4 0 2014-10-16 01:54:54.397
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.getProgrammers(AVRDudeConfigEditor.java:624)
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.addProgrammersComposite(AVRDudeConfigEditor.java:309)
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.createDialogArea(AVRDudeConfigEditor.java:169)
+	at org.eclipse.jface.dialogs.Dialog.createContents(Dialog.java:760)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.dialogs.Dialog.create(Dialog.java:1089)
+	at org.eclipse.jface.dialogs.StatusDialog.create(StatusDialog.java:203)
+	at org.eclipse.jface.window.Window.open(Window.java:790)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor.editButtonAction(ProgConfigListFieldEditor.java:474)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor.access$7(ProgConfigListFieldEditor.java:438)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor$4.widgetSelected(ProgConfigListFieldEditor.java:384)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:240)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:215)
+	at org.eclipse.ui.internal.handlers.ShowPreferencePageHandler.execute(ShowPreferencePageHandler.java:54)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:293)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:476)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.ui.internal.handlers.HandlerService.executeCommand(HandlerService.java:169)
+	at org.eclipse.ui.internal.handlers.SlaveHandlerService.executeCommand(SlaveHandlerService.java:241)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:157)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+
+!ENTRY org.eclipse.ui 4 0 2014-10-16 01:54:57.472
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.getProgrammers(AVRDudeConfigEditor.java:624)
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.addProgrammersComposite(AVRDudeConfigEditor.java:309)
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.createDialogArea(AVRDudeConfigEditor.java:169)
+	at org.eclipse.jface.dialogs.Dialog.createContents(Dialog.java:760)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.dialogs.Dialog.create(Dialog.java:1089)
+	at org.eclipse.jface.dialogs.StatusDialog.create(StatusDialog.java:203)
+	at org.eclipse.jface.window.Window.open(Window.java:790)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor.editButtonAction(ProgConfigListFieldEditor.java:474)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor.access$7(ProgConfigListFieldEditor.java:438)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor$4.widgetSelected(ProgConfigListFieldEditor.java:384)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:240)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:215)
+	at org.eclipse.ui.internal.handlers.ShowPreferencePageHandler.execute(ShowPreferencePageHandler.java:54)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:293)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:476)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.ui.internal.handlers.HandlerService.executeCommand(HandlerService.java:169)
+	at org.eclipse.ui.internal.handlers.SlaveHandlerService.executeCommand(SlaveHandlerService.java:241)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:157)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+
+!ENTRY org.eclipse.ui 4 0 2014-10-16 01:55:01.865
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.getProgrammers(AVRDudeConfigEditor.java:624)
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.addProgrammersComposite(AVRDudeConfigEditor.java:309)
+	at it.baeyens.avreclipse.ui.preferences.AVRDudeConfigEditor.createDialogArea(AVRDudeConfigEditor.java:169)
+	at org.eclipse.jface.dialogs.Dialog.createContents(Dialog.java:760)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.dialogs.Dialog.create(Dialog.java:1089)
+	at org.eclipse.jface.dialogs.StatusDialog.create(StatusDialog.java:203)
+	at org.eclipse.jface.window.Window.open(Window.java:790)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor.editButtonAction(ProgConfigListFieldEditor.java:474)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor.access$7(ProgConfigListFieldEditor.java:438)
+	at it.baeyens.avreclipse.ui.preferences.ProgConfigListFieldEditor$4.widgetSelected(ProgConfigListFieldEditor.java:384)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:240)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:215)
+	at org.eclipse.ui.internal.handlers.ShowPreferencePageHandler.execute(ShowPreferencePageHandler.java:54)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:293)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:476)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.ui.internal.handlers.HandlerService.executeCommand(HandlerService.java:169)
+	at org.eclipse.ui.internal.handlers.SlaveHandlerService.executeCommand(SlaveHandlerService.java:241)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:157)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:01:46.121
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:01:46.122
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:439)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:03:46.858
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:03:46.860
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:439)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:04:12.961
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:04:12.963
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:439)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:06:33.443
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:06:33.445
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:439)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:06:55.695
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 02:06:55.695
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:439)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
