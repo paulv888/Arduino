@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project RFNetwork ****
+
+make clean 
+rm -rf  ./RF24Network/RF24Network.o ./RF24Network/Sync.o  ./RF24/RF24.o  libRFNetwork.lss  ./RF24Network/RF24Network.d ./RF24Network/Sync.d  ./RF24/RF24.d  sizedummy  libRFNetwork.a
+ 
+
+**** Build Finished ****

@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project ARDBrigde ****
+
+make clean 
+rm -rf  ./Webduino/WebServer.o  ./Utils/ArrayHandler.o ./Utils/InternalTemp.o ./Utils/MemoryFree.o ./Utils/Utils.o  ./SPI/SPI.o  ./ARDBrigde.o ./command.o ./device.o ./rf.o ./web.o  ARDBrigde.eep  ARDBrigde.hex  ARDBrigde.lss  ./Webduino/WebServer.d  ./Utils/ArrayHandler.d ./Utils/InternalTemp.d ./Utils/MemoryFree.d ./Utils/Utils.d  ./SPI/SPI.d  ./ARDBrigde.d ./command.d ./device.d ./rf.d ./web.d  sizedummy  ARDBrigde.elf
+ 
+
+**** Build Finished ****

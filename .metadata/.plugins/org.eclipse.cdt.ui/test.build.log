@@ -1,0 +1,11 @@
+
+**** Rebuild of configuration Debug for project TEST ****
+
+**** Internal Builder is used for build               ****
+cl /c /EHs /MD /Zi /nologo /Fomain.obj ..\main.cpp
+Internal Builder: Cannot run program "cl": Launching failed
+Error: Program "cl" is not found in PATH
+
+PATH=[D:\WinAVR-20100110\bin;D:\WinAVR-20100110\utils\bin;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Mail Enable\BIN;C:\Perl64\site\bin;C:\Perl64\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Mail Enable\BIN64;C:\Program Files\Microsoft Network Monitor 3\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Windows Live\Shared]
+Build error occurred, build is stopped
+Time consumed: 78  ms.  

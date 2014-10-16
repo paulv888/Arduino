@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project Mine_ATmega328__3_3V_Ext_8_MHz ****
+
+make clean 
+rm -rf  ./arduino/CDC.o ./arduino/HID.o ./arduino/HardwareSerial.o ./arduino/IPAddress.o ./arduino/Print.o ./arduino/Stream.o ./arduino/Tone.o ./arduino/USBCore.o ./arduino/WInterrupts.o ./arduino/WMath.o ./arduino/WString.o ./arduino/main.o ./arduino/new.o ./arduino/wiring.o ./arduino/wiring_analog.o ./arduino/wiring_digital.o ./arduino/wiring_pulse.o ./arduino/wiring_shift.o  ./arduino/WInterrupts.d ./arduino/wiring.d ./arduino/wiring_analog.d ./arduino/wiring_digital.d ./arduino/wiring_pulse.d ./arduino/wiring_shift.d  libMine_ATmega328__3_3V_Ext_8_MHz.lss  ./arduino/CDC.d ./arduino/HID.d ./arduino/HardwareSerial.d ./arduino/IPAddress.d ./arduino/Print.d ./arduino/Stream.d ./arduino/Tone.d ./arduino/USBCore.d ./arduino/WMath.d ./arduino/WString.d ./arduino/main.d ./arduino/new.d  sizedummy  libMine_ATmega328__3_3V_Ext_8_MHz.a
+ 
+
+**** Build Finished ****

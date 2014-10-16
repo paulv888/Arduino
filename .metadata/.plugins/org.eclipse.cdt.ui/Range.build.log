@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project Range ****
+
+make clean 
+rm -rf  ./Utils/MemoryFree.o ./Utils/SimpleTimer.o ./Utils/Utils.o  ./Timer/Event.o ./Timer/Timer.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Led.o ./Range.o ./command.o ./rf.o ./sensors.o  Range.eep  Range.hex  Range.lss  ./Utils/MemoryFree.d ./Utils/SimpleTimer.d ./Utils/Utils.d  ./Timer/Event.d ./Timer/Timer.d  ./SPI/SPI.d  ./DHT11/dht11.d  ./Led.d ./Range.d ./command.d ./rf.d ./sensors.d  sizedummy  Range.elf
+ 
+
+**** Build Finished ****

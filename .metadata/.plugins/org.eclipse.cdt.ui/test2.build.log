@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project test2 ****
+
+make clean 
+rm -rf  ./Flash/Flash.o  ./test2.o  test2.eep  test2.hex  test2.lss  ./Flash/Flash.d  ./test2.d  sizedummy  test2.elf
+ 
+
+**** Build Finished ****

@@ -1,0 +1,137 @@
+
+**** Build of configuration Release for project ARDBrigdeOld ****
+
+make all 
+Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigdeOld" -I../ARDBrigdeOld/SPI -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -D__IN_ECLIPSE__=1 -DARDUINO=101 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Webduino/WebServer.d" -MT"Webduino/WebServer.d"  -c -o "Webduino/WebServer.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp"
+In file included from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:31,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:3:22: error: Arduino.h: No such file or directory
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:4:19: error: Print.h: No such file or directory
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:5:20: error: Client.h: No such file or directory
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:6:23: error: IPAddress.h: No such file or directory
+In file included from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:32,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:4:20: error: Server.h: No such file or directory
+In file included from D:\Users\pvloon\My Sources\E-Arduino\ARDBrigdeOld/web.h:9,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:33,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:5:14: warning: .h: No such file or directory
+In file included from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:33,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:\Users\pvloon\My Sources\E-Arduino\ARDBrigdeOld/web.h:10:17: warning: SPI.h: No such file or directory
+In file included from D:\Users\pvloon\My Sources\E-Arduino\ARDBrigdeOld/web.h:14,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:33,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:\Users\pvloon\My Sources\E-Arduino\ARDBrigdeOld/rf.h:11:25: error: RF24Network.h: No such file or directory
+D:\Users\pvloon\My Sources\E-Arduino\ARDBrigdeOld/rf.h:12:18: error: RF24.h: No such file or directory
+In file included from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:31,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:8: error: expected class-name before '{' token
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:12: error: expected `)' before 'sock'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:14: error: 'uint8_t' does not name a type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:15: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:15: error: 'uint16_t' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:16: error: 'uint16_t' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: error: 'uint8_t' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:18: error: expected ',' or '...' before '*' token
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:18: error: ISO C++ forbids declaration of 'uint8_t' with no type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:18: error: 'virtual size_t EthernetClient::write(int)' cannot be overloaded
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: error: with 'virtual size_t EthernetClient::write(int)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:21: error: 'uint8_t' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:25: error: 'uint8_t' does not name a type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:30: error: 'Print' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:33: error: 'uint16_t' does not name a type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:34: error: 'uint8_t' does not name a type
+In file included from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:32,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:9: error: expected class-name before '{' token
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:11: error: 'uint16_t' does not name a type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:14: error: field 'uint16_t' has incomplete type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:17: error: 'uint8_t' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:18: error: expected ',' or '...' before '*' token
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:18: error: ISO C++ forbids declaration of 'uint8_t' with no type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:18: error: 'virtual size_t EthernetServer::write(int)' cannot be overloaded
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:17: error: with 'virtual size_t EthernetServer::write(int)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:19: error: 'Print' has not been declared
+In file included from D:\Users\pvloon\My Sources\E-Arduino\ARDBrigdeOld/web.h:9,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:33,
+                 from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:18: error: 'IPAddress' does not name a type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:27: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:28: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:28: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:29: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:29: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:29: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:30: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:30: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:30: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:30: error: 'IPAddress' has not been declared
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:33: error: 'IPAddress' does not name a type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:34: error: 'IPAddress' does not name a type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:35: error: 'IPAddress' does not name a type
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/Ethernet.h:36: error: 'IPAddress' does not name a type
+In file included from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:150: warning: 'typedef' was ignored in this declaration
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:153: error: expected class-name before '{' token
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h: In constructor 'WebServer::WebServer(const char*, int)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:290: warning: 'WebServer::m_server' will be initialized after
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:287: warning:   'EthernetClient WebServer::m_client'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:9: warning:   when initialized here
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:307: warning: 'WebServer::m_cmdCount' will be initialized after
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:296: warning:   'int WebServer::m_contentLength'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:9: warning:   when initialized here
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:10: error: no matching function for call to 'EthernetClient::EthernetClient(int)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:11: note: candidates are: EthernetClient::EthernetClient()
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:8: note:                 EthernetClient::EthernetClient(const EthernetClient&)
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:10: error: no matching function for call to 'EthernetServer::EthernetServer(int&)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:9: note: candidates are: EthernetServer::EthernetServer(const EthernetServer&)
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetServer.h:9: note:                 EthernetServer::EthernetServer()
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::addCommand(const char*, void (*)(WebServer&, WebServer::ConnectionType, char*, bool))':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:29: warning: comparison between signed and unsigned integer expressions
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:30: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:31: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'virtual size_t WebServer::write(const char*)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:40: error: invalid conversion from 'const char*' to 'int'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:40: error:   initializing argument 1 of 'virtual size_t EthernetClient::write(int)'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'virtual size_t WebServer::write(const uint8_t*, size_t)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:44: error: no matching function for call to 'EthernetClient::write(const uint8_t*&, size_t&)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: note: candidates are: virtual size_t EthernetClient::write(int)
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'size_t WebServer::write(const char*, size_t)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:48: error: no matching function for call to 'EthernetClient::write(const uint8_t*, size_t&)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: note: candidates are: virtual size_t EthernetClient::write(int)
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::writeP(const prog_uchar*, size_t)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:59: error: no matching function for call to 'EthernetClient::write(uint8_t [32], int)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: note: candidates are: virtual size_t EthernetClient::write(int)
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:66: error: no matching function for call to 'EthernetClient::write(uint8_t [32], size_t&)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: note: candidates are: virtual size_t EthernetClient::write(int)
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::printP(const prog_uchar*)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:75: warning: suggest parentheses around assignment used as truth value
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:77: error: no matching function for call to 'EthernetClient::write(uint8_t [32], int)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: note: candidates are: virtual size_t EthernetClient::write(int)
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:83: error: no matching function for call to 'EthernetClient::write(uint8_t [32], unsigned int)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: note: candidates are: virtual size_t EthernetClient::write(int)
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::printCRLF()':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:87: error: no matching function for call to 'EthernetClient::write(const uint8_t*, int)'
+D:\Users\pvloon\My Sources\E-Arduino\Ethernet/EthernetClient.h:17: note: candidates are: virtual size_t EthernetClient::write(int)
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'bool WebServer::dispatchCommand(WebServer::ConnectionType, char*, bool)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:94: warning: deprecated conversion from string constant to 'char*'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:120: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:120: warning: comparison between signed and unsigned integer expressions
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:120: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:123: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::httpFail()':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:199: warning: only initialized variables can be placed into program memory area
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::httpSuccess(const char*, const char*)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:262: warning: only initialized variables can be placed into program memory area
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:268: error: 'print' was not declared in this scope
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'int WebServer::read()':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:284: error: 'class EthernetClient' has no member named 'connected'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:331: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::push(int)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:338: warning: array subscript has type 'char'
+make: *** [Webduino/WebServer.o] Error 1
+
+**** Build Finished ****

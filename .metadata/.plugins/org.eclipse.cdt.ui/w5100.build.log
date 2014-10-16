@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project w5100 ****
+
+make clean 
+rm -rf  ./socket.o ./w5100.o  libw5100.lss  ./socket.d ./w5100.d  sizedummy  libw5100.a
+ 
+
+**** Build Finished ****

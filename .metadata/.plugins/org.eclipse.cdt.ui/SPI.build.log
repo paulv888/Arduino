@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project SPI ****
+
+make clean 
+rm -rf  ./SPI.o  libSPI.lss  ./SPI.d  sizedummy  libSPI.a
+ 
+
+**** Build Finished ****

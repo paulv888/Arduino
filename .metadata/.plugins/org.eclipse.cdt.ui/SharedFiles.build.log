@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project SharedFiles ****
+
+make clean 
+rm -rf  ./ArrayHandler.o ./Dummy.o ./InternalTemp.o ./MemoryFree.o ./SimpleTimer.o ./Utils.o  SharedFiles.eep  SharedFiles.hex  SharedFiles.lss  ./ArrayHandler.d ./Dummy.d ./InternalTemp.d ./MemoryFree.d ./SimpleTimer.d ./Utils.d  sizedummy  SharedFiles.elf
+ 
+
+**** Build Finished ****

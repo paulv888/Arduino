@@ -1,0 +1,20 @@
+
+**** Build of configuration Release for project Blink ****
+
+make all 
+Building file: ../Blink.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\Users\pvloon\My Sources\E-Arduino\Blink" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=101 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Blink.d" -MT"Blink.d"  -c -o "Blink.o" -x c++ "../Blink.cpp"
+In file included from ../Blink.cpp:2:
+../Blink.h:9:21: error: Arduino.h: No such file or directory
+../Blink.cpp: In function 'void setup()':
+../Blink.cpp:23: error: 'OUTPUT' was not declared in this scope
+../Blink.cpp:23: error: 'pinMode' was not declared in this scope
+../Blink.cpp: In function 'void loop()':
+../Blink.cpp:31: error: 'HIGH' was not declared in this scope
+../Blink.cpp:31: error: 'digitalWrite' was not declared in this scope
+../Blink.cpp:32: error: 'delay' was not declared in this scope
+../Blink.cpp:33: error: 'LOW' was not declared in this scope
+make: *** [Blink.o] Error 1
+
+**** Build Finished ****
