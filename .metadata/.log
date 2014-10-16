@@ -4832,3 +4832,874 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+
+!ENTRY org.eclipse.search 4 0 2014-10-16 01:31:21.940
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.940
+!MESSAGE File 'SharedFiles/SimpleTimer.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/SharedFiles/SimpleTimer.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SharedFiles/SimpleTimer.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.940
+!MESSAGE Resource is out of sync with the file system: '/SharedFiles/SimpleTimer.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.940
+!MESSAGE File 'SharedFiles/SimpleTimer.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/SharedFiles/SimpleTimer.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SharedFiles/SimpleTimer.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.940
+!MESSAGE Resource is out of sync with the file system: '/SharedFiles/SimpleTimer.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.940
+!MESSAGE File 'SharedFiles/Dummy.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/SharedFiles/Dummy.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SharedFiles/Dummy.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.941
+!MESSAGE Resource is out of sync with the file system: '/SharedFiles/Dummy.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.941
+!MESSAGE File 'SharedFiles/Dummy.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/SharedFiles/Dummy.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SharedFiles/Dummy.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.941
+!MESSAGE Resource is out of sync with the file system: '/SharedFiles/Dummy.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.941
+!MESSAGE File 'SharedFiles/.project' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/SharedFiles/.project'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SharedFiles/.project'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.941
+!MESSAGE Resource is out of sync with the file system: '/SharedFiles/.project'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.941
+!MESSAGE File 'SharedFiles/.cproject' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/SharedFiles/.cproject'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SharedFiles/.cproject'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.941
+!MESSAGE Resource is out of sync with the file system: '/SharedFiles/.cproject'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.941
+!MESSAGE File 'RemoteSystemsTempFiles/.project' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/RemoteSystemsTempFiles/.project'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/RemoteSystemsTempFiles/.project'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.942
+!MESSAGE Resource is out of sync with the file system: '/RemoteSystemsTempFiles/.project'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.942
+!MESSAGE File 'Range/sensors.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/sensors.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/sensors.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.942
+!MESSAGE Resource is out of sync with the file system: '/Range/sensors.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.942
+!MESSAGE File 'Range/sensors.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/sensors.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/sensors.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.942
+!MESSAGE Resource is out of sync with the file system: '/Range/sensors.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.942
+!MESSAGE File 'Range/rf.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/rf.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/rf.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.943
+!MESSAGE Resource is out of sync with the file system: '/Range/rf.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.943
+!MESSAGE File 'Range/rf.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/rf.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/rf.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.943
+!MESSAGE Resource is out of sync with the file system: '/Range/rf.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.943
+!MESSAGE File 'Range/configuration.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/configuration.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/configuration.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.943
+!MESSAGE Resource is out of sync with the file system: '/Range/configuration.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.943
+!MESSAGE File 'Range/command.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/command.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/command.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.943
+!MESSAGE Resource is out of sync with the file system: '/Range/command.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.943
+!MESSAGE File 'Range/command.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/command.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/command.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.944
+!MESSAGE Resource is out of sync with the file system: '/Range/command.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.944
+!MESSAGE File 'Range/Utils/SimpleTimer.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Utils/SimpleTimer.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Utils/SimpleTimer.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.944
+!MESSAGE Resource is out of sync with the file system: '/Range/Utils/SimpleTimer.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.944
+!MESSAGE File 'Range/Utils/SimpleTimer.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Utils/SimpleTimer.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Utils/SimpleTimer.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.944
+!MESSAGE Resource is out of sync with the file system: '/Range/Utils/SimpleTimer.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.944
+!MESSAGE File 'Range/Timer/keywords.txt' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Timer/keywords.txt'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Timer/keywords.txt'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.945
+!MESSAGE Resource is out of sync with the file system: '/Range/Timer/keywords.txt'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.945
+!MESSAGE File 'Range/Timer/examples/read_A0_flashLED/read_A0_flashLED.pde' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Timer/examples/read_A0_flashLED/read_A0_flashLED.pde'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Timer/examples/read_A0_flashLED/read_A0_flashLED.pde'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.945
+!MESSAGE Resource is out of sync with the file system: '/Range/Timer/examples/read_A0_flashLED/read_A0_flashLED.pde'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.945
+!MESSAGE File 'Range/Timer/examples/pin_high_10_mins/pin_high_10_mins.pde' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Timer/examples/pin_high_10_mins/pin_high_10_mins.pde'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Timer/examples/pin_high_10_mins/pin_high_10_mins.pde'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.946
+!MESSAGE Resource is out of sync with the file system: '/Range/Timer/examples/pin_high_10_mins/pin_high_10_mins.pde'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.946
+!MESSAGE File 'Range/Timer/examples/kitchen_sink/kitchen_sink.pde' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Timer/examples/kitchen_sink/kitchen_sink.pde'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Timer/examples/kitchen_sink/kitchen_sink.pde'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.946
+!MESSAGE Resource is out of sync with the file system: '/Range/Timer/examples/kitchen_sink/kitchen_sink.pde'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.946
+!MESSAGE File 'Range/Timer/Timer.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Timer/Timer.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Timer/Timer.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.947
+!MESSAGE Resource is out of sync with the file system: '/Range/Timer/Timer.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.947
+!MESSAGE File 'Range/Timer/Timer.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Timer/Timer.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Timer/Timer.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.947
+!MESSAGE Resource is out of sync with the file system: '/Range/Timer/Timer.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.947
+!MESSAGE File 'Range/Timer/Event.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Timer/Event.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Timer/Event.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.947
+!MESSAGE Resource is out of sync with the file system: '/Range/Timer/Event.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.947
+!MESSAGE File 'Range/Timer/Event.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Timer/Event.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Timer/Event.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.947
+!MESSAGE Resource is out of sync with the file system: '/Range/Timer/Event.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.947
+!MESSAGE File 'Range/Range.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Range.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Range.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.948
+!MESSAGE Resource is out of sync with the file system: '/Range/Range.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.948
+!MESSAGE File 'Range/Range.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Range.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Range.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.948
+!MESSAGE Resource is out of sync with the file system: '/Range/Range.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.948
+!MESSAGE File 'Range/Led.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Led.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Led.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.948
+!MESSAGE Resource is out of sync with the file system: '/Range/Led.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.948
+!MESSAGE File 'Range/Led.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/Led.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/Led.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.948
+!MESSAGE Resource is out of sync with the file system: '/Range/Led.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.948
+!MESSAGE File 'Range/DHT11/examples/DHTtester/DHTtester.pde' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/DHT11/examples/DHTtester/DHTtester.pde'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/DHT11/examples/DHTtester/DHTtester.pde'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.949
+!MESSAGE Resource is out of sync with the file system: '/Range/DHT11/examples/DHTtester/DHTtester.pde'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.949
+!MESSAGE File 'Range/DHT11/dht11.h' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/DHT11/dht11.h'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/DHT11/dht11.h'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.949
+!MESSAGE Resource is out of sync with the file system: '/Range/DHT11/dht11.h'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.949
+!MESSAGE File 'Range/DHT11/dht11.cpp' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/DHT11/dht11.cpp'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/DHT11/dht11.cpp'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.949
+!MESSAGE Resource is out of sync with the file system: '/Range/DHT11/dht11.cpp'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.949
+!MESSAGE File 'Range/.project' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/.project'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/.project'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.950
+!MESSAGE Resource is out of sync with the file system: '/Range/.project'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.950
+!MESSAGE File 'Range/.cproject' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Range/.cproject'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Range/.cproject'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.950
+!MESSAGE Resource is out of sync with the file system: '/Range/.cproject'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.950
+!MESSAGE File 'Coop/Release/Webduino/WebServer.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/Webduino/WebServer.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/Webduino/WebServer.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.950
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/Webduino/WebServer.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.950
+!MESSAGE File 'Coop/Release/Utils/Utils.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/Utils/Utils.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/Utils/Utils.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.950
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/Utils/Utils.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.950
+!MESSAGE File 'Coop/Release/Utils/MemoryFree.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/Utils/MemoryFree.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/Utils/MemoryFree.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.951
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/Utils/MemoryFree.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.951
+!MESSAGE File 'Coop/Release/Utils/InternalTemp.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/Utils/InternalTemp.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/Utils/InternalTemp.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.951
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/Utils/InternalTemp.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.951
+!MESSAGE File 'Coop/Release/Utils/ArrayHandler.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/Utils/ArrayHandler.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/Utils/ArrayHandler.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.951
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/Utils/ArrayHandler.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-10-16 01:31:21.951
+!MESSAGE File 'Coop/Release/SPI/SPI.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-10-16 01:31:21.951
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 01:33:47.875
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 01:33:47.876
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:439)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 01:35:04.181
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-10-16 01:35:04.182
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:439)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

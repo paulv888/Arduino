@@ -16,7 +16,6 @@
 //add your includes for the project command here
 #include "configuration.h"
 #include "share_commands.h"
-#include "rf.h"
 #include "device.h"
 #include "Utils.h"
 #include "MemoryFree.h"

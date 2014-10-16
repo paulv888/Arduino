@@ -11,7 +11,6 @@
 #include "share_commands.h"
 #include "device.h"
 #include <Ethernet.h>
-#include "rf.h"
 #include "Web.h"
 //#include "Timer.h"
 #include "SimpleTimer.h"

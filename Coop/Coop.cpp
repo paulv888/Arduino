@@ -1,5 +1,5 @@
 // Do not remove the include below
-#include "ARDBrigde.h"
+#include "Coop.h"
 
 
 DEVICE devices[DEVICE_COUNT];
@@ -28,7 +28,7 @@ void setup() {
 	// initialize the Ethernet adapter
 	Ethernet.begin(mac, ip, dns, gw, sn );
 
-	if (DEBUG_MAIN) Serial.print("server is at ");
+	if (DEBUG_MAIN) Serial.print("Coop server is at ");
 	if (DEBUG_MAIN) Serial.println(Ethernet.localIP());
 
 //	 // fill in the UART file descriptor with pointer to writer.
