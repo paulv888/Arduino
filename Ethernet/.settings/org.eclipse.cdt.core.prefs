@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINOBOARDNAME/delimiter=;
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINOBOARDNAME/operation=replace
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINOBOARDNAME/value=Arduino_Uno
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINOBOARDVARIANT/delimiter=;
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINOBOARDVARIANT/operation=replace
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINOBOARDVARIANT/value=standard
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINO_CORE_FOLDER/delimiter=;
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINO_CORE_FOLDER/operation=replace
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/ARDUINO_CORE_FOLDER/value=arduino
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/append=true
+environment/project/it.baeyens.avreclipse.configuration.lib.release.1929178987/appendContributed=true
