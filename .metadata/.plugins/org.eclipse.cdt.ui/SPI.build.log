@@ -1,8 +1,36 @@
 
-**** Clean-only build of configuration Release for project SPI ****
+**** Build of configuration Release for project SPI ****
 
-make clean 
-rm -rf  ./SPI.o  libSPI.lss  ./SPI.d  sizedummy  libSPI.a
+make all 
+Building file: ../SPI.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SPI" -Wall -Os -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"SPI.d" -MT"SPI.d" -c -o "SPI.o" "../SPI.cpp"
+Finished building: ../SPI.cpp
+ 
+Building target: libSPI.a
+Invoking: AVR Archiver
+avr-ar -r  "libSPI.a"  ./SPI.o  
+d:\arduino-1.0.6\hardware\tools\avr\bin\avr-ar.exe: creating libSPI.a
+Finished building target: libSPI.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libSPI.a  >"libSPI.lss"
+Finished building: libSPI.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 libSPI.a
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
  
 
 **** Build Finished ****

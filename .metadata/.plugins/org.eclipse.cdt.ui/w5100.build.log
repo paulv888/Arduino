@@ -1,8 +1,52 @@
 
-**** Clean-only build of configuration Release for project w5100 ****
+**** Build of configuration Release for project w5100 ****
 
-make clean 
-rm -rf  ./socket.o ./w5100.o  libw5100.lss  ./socket.d ./w5100.d  sizedummy  libw5100.a
+make all 
+Building file: ../socket.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\Users\pvloon\My Sources\E-Arduino\w5100" -Wall -Os -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"socket.d" -MT"socket.d" -c -o "socket.o" "../socket.cpp"
+Finished building: ../socket.cpp
+ 
+Building file: ../w5100.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\Users\pvloon\My Sources\E-Arduino\w5100" -Wall -Os -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"w5100.d" -MT"w5100.d" -c -o "w5100.o" "../w5100.cpp"
+Finished building: ../w5100.cpp
+ 
+Building target: libw5100.a
+Invoking: AVR Archiver
+avr-ar -r  "libw5100.a"  ./socket.o ./w5100.o  
+d:\arduino-1.0.6\hardware\tools\avr\bin\avr-ar.exe: creating libw5100.a
+Finished building target: libw5100.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libw5100.a  >"libw5100.lss"
+Finished building: libw5100.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 libw5100.a
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1810 bytes (11.0% Full)
+(.text + .data + .bootloader)
+
+Data:          2 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1102 bytes (6.7% Full)
+(.text + .data + .bootloader)
+
+Data:         16 bytes (1.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
  
 
 **** Build Finished ****

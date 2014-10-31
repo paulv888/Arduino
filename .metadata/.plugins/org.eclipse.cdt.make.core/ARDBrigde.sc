@@ -2,6 +2,11 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.6562741;it.baeyens.avreclipse.tool.cppcompiler.app.release.1239426286;it.baeyens.avreclipse.cppcompiler.input.1899849905">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
 <includePath path="d:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
@@ -125,6 +130,11 @@
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.6562741">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
 <includePath path="d:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
@@ -244,6 +254,11 @@
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.;it.baeyens.avreclipse.tool.compiler.winavr.app.release.1677379678;it.baeyens.avreclipse.compiler.winavr.input.472891441">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
 <includePath path="d:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
@@ -363,6 +378,11 @@
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
 <includePath path="d:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
@@ -491,6 +511,11 @@
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.;it.baeyens.avreclipse.tool.cppcompiler.app.release.265767624;it.baeyens.avreclipse.cppcompiler.input.1732456011">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
 <includePath path="d:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
@@ -623,6 +648,11 @@
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.6562741;it.baeyens.avreclipse.tool.compiler.winavr.app.release.62642206;it.baeyens.avreclipse.compiler.winavr.input.318654290">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
 <includePath path="d:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
 <includePath path="d:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>

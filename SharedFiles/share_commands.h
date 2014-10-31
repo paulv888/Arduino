@@ -63,9 +63,6 @@ struct payLoad_DeviceStatus {
 	/* shared between payloads */
 	double upTime;
 	int freeMemory;
-	unsigned int rfTransmitPackets;
-	unsigned int rfReceivePackets;
-	unsigned int rfSendErrors;
 };
 
 #endif /* RF_COMMANDS_H_ */

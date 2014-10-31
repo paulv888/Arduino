@@ -84,7 +84,7 @@ void updateTempSensors() {
 		payLoad_Simple command;
 		command.command = (currentStatus>0) ? COMMAND_ON : COMMAND_OFF;
 		command.data = currentStatus;
-		if (sendMessageRF(RF_BASE_STATION, command)) previousStatus = currentStatus; 	// Updatestatus if send succesfull else try again
+//		if (sendMessageRF(RF_BASE_STATION, command)) previousStatus = currentStatus; 	// Updatestatus if send succesfull else try again
 	}
 }
 
@@ -215,7 +215,7 @@ void calibrate(bool forceCalibrate) {
 	payLoad_Simple scommand;
 	scommand.command = 	COMMAND_CALIBRATED;
 	scommand.data = 0;
-	sendMessageRF(RF_BASE_STATION, scommand);
+//	sendMessageRF(RF_BASE_STATION, scommand);
 	return;
 
 	errorHandler: for (int sensorid = 0; sensorid <= 5; sensorid++) {

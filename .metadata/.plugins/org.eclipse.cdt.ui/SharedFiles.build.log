@@ -1,8 +1,72 @@
 
-**** Clean-only build of configuration Release for project SharedFiles ****
+**** Build of configuration Release for project SharedFiles ****
 
-make clean 
-rm -rf  ./ArrayHandler.o ./Dummy.o ./InternalTemp.o ./MemoryFree.o ./SimpleTimer.o ./Utils.o  SharedFiles.eep  SharedFiles.hex  SharedFiles.lss  ./ArrayHandler.d ./Dummy.d ./InternalTemp.d ./MemoryFree.d ./SimpleTimer.d ./Utils.d  sizedummy  SharedFiles.elf
+make all 
+Building file: ../ArrayHandler.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"ArrayHandler.d" -MT"ArrayHandler.d"  -c -o "ArrayHandler.o" -x c++ "../ArrayHandler.cpp"
+Finished building: ../ArrayHandler.cpp
+ 
+Building file: ../Dummy.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Dummy.d" -MT"Dummy.d"  -c -o "Dummy.o" -x c++ "../Dummy.cpp"
+Finished building: ../Dummy.cpp
+ 
+Building file: ../InternalTemp.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"InternalTemp.d" -MT"InternalTemp.d"  -c -o "InternalTemp.o" -x c++ "../InternalTemp.cpp"
+Finished building: ../InternalTemp.cpp
+ 
+Building file: ../MemoryFree.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"MemoryFree.d" -MT"MemoryFree.d"  -c -o "MemoryFree.o" -x c++ "../MemoryFree.cpp"
+Finished building: ../MemoryFree.cpp
+ 
+Building file: ../SimpleTimer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"SimpleTimer.d" -MT"SimpleTimer.d"  -c -o "SimpleTimer.o" -x c++ "../SimpleTimer.cpp"
+../SimpleTimer.cpp: In member function 'void SimpleTimer::run()':
+../SimpleTimer.cpp:64: warning: comparison between signed and unsigned integer expressions
+Finished building: ../SimpleTimer.cpp
+ 
+Building file: ../Utils.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Utils.d" -MT"Utils.d"  -c -o "Utils.o" -x c++ "../Utils.cpp"
+../Utils.cpp: In function 'int millisRollover()':
+../Utils.cpp:44: warning: operation on 'numRollovers' may be undefined
+Finished building: ../Utils.cpp
+ 
+Building target: SharedFiles.elf
+Invoking: AVR C++ Linker
+avr-gcc -Os -Wl,--gc-sections  -L"D:\Users\pvloon\My Sources\E-Arduino\Arduino_Uno/Release" -mmcu=atmega328p  -o"SharedFiles.elf"  ./ArrayHandler.o ./Dummy.o ./InternalTemp.o ./MemoryFree.o ./SimpleTimer.o ./Utils.o   -l"Arduino_Uno" -lm
+Finished building target: SharedFiles.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SharedFiles.elf  >"SharedFiles.lss"
+Finished building: SharedFiles.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex SharedFiles.elf  "SharedFiles.hex"
+Finished building: SharedFiles.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex SharedFiles.elf  "SharedFiles.eep"
+Finished building: SharedFiles.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p SharedFiles.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     472 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:          9 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
  
 
 **** Build Finished ****

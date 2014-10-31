@@ -1,8 +1,101 @@
 
-**** Clean-only build of configuration Release for project Range ****
+**** Build of configuration Release for project Range ****
 
-make clean 
-rm -rf  ./Utils/MemoryFree.o ./Utils/SimpleTimer.o ./Utils/Utils.o  ./Timer/Event.o ./Timer/Timer.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Led.o ./Range.o ./command.o ./rf.o ./sensors.o  Range.eep  Range.hex  Range.lss  ./Utils/MemoryFree.d ./Utils/SimpleTimer.d ./Utils/Utils.d  ./Timer/Event.d ./Timer/Timer.d  ./SPI/SPI.d  ./DHT11/dht11.d  ./Led.d ./Range.d ./command.d ./rf.d ./sensors.d  sizedummy  Range.elf
+make all 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Utils/MemoryFree.d" -MT"Utils/MemoryFree.d"  -c -o "Utils/MemoryFree.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp"
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/SimpleTimer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Utils/SimpleTimer.d" -MT"Utils/SimpleTimer.d"  -c -o "Utils/SimpleTimer.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/SimpleTimer.cpp"
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/SimpleTimer.cpp
+D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/SimpleTimer.cpp: In member function 'void SimpleTimer::run()':
+ 
+D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/SimpleTimer.cpp:64: warning: comparison between signed and unsigned integer expressions
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Utils/Utils.d" -MT"Utils/Utils.d"  -c -o "Utils/Utils.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp"
+D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp: In function 'int millisRollover()':
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Timer/Event.d" -MT"Timer/Event.d"  -c -o "Timer/Event.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp"
+D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp:44: warning: operation on 'numRollovers' may be undefined
+Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp
+Invoking: AVR C++ Compiler
+D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp: In member function 'void Event::update()':
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Timer/Timer.d" -MT"Timer/Timer.d"  -c -o "Timer/Timer.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp"
+D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp:37: warning: comparison between signed and unsigned integer expressions
+Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp
+ 
+Building file: D:/arduino-1.0.6/libraries/SPI/SPI.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SPI/SPI.d" -MT"SPI/SPI.d"  -c -o "SPI/SPI.o" -x c++ "D:/arduino-1.0.6/libraries/SPI/SPI.cpp"
+Finished building: D:/arduino-1.0.6/libraries/SPI/SPI.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"DHT11/dht11.d" -MT"DHT11/dht11.d"  -c -o "DHT11/dht11.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp"
+Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp
+ 
+Building file: ../Led.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.d"  -c -o "Led.o" -x c++ "../Led.cpp"
+Finished building: ../Led.cpp
+ 
+Building file: ../Range.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Range.d" -MT"Range.d"  -c -o "Range.o" -x c++ "../Range.cpp"
+In file included from ../Range.cpp:1:
+Finished building: ../Range.cpp
+ 
+Building file: ../command.cpp
+Invoking: AVR C++ Compiler
+../Range.h:16:16: warning: rf.h: No such file or directory
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"command.d" -MT"command.d"  -c -o "command.o" -x c++ "../command.cpp"
+Finished building: ../command.cpp
+ 
+Building file: ../sensors.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Range" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"sensors.d" -MT"sensors.d"  -c -o "sensors.o" -x c++ "../sensors.cpp"
+Finished building: ../sensors.cpp
+ 
+Building target: Range.elf
+Invoking: AVR C++ Linker
+avr-gcc -Os -Wl,--gc-sections  -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork\Release" -mmcu=atmega328p  -o"Range.elf"  ./Utils/MemoryFree.o ./Utils/SimpleTimer.o ./Utils/Utils.o  ./Timer/Event.o ./Timer/Timer.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Led.o ./Range.o ./command.o ./sensors.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lRFNetwork -lm
+Finished building target: Range.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Range.elf  >"Range.lss"
+Finished building: Range.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Range.elf  "Range.hex"
+Finished building: Range.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Range.elf  "Range.eep"
+Finished building: Range.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p Range.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:    3656 bytes (11.2% Full)
+(.text + .data + .bootloader)
+
+Data:        497 bytes (24.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
  
 
 **** Build Finished ****

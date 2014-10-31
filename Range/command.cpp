@@ -19,18 +19,18 @@ void sendValues(uint16_t from,payLoad_Value_Pair command) {
 		command.sensor = SENSOR_THERMISTOR_0 + sensorid;
 		command.value = sensorValue[sensorid][0];
 		command.age = freezetime - sensorAge[sensorid];
-		sendMessageRF(from, command);
+//		sendMessageRF(from, command);
 	}
 	command.sensor = SENSOR_DHT11_0;
 	command.value = sensorValue[6][0];
 	command.age = freezetime - sensorAge[6];
 
-	sendMessageRF(from, command);
+//	sendMessageRF(from, command);
 	for (byte switchid = 0; switchid <= 5; switchid++) {
 		command.sensor = SENSOR_SWITCH_0 + switchid;
 		command.value = switchValue[switchid][0];
 		command.age = freezetime - sensorAge[switchid];
-		sendMessageRF(from, command);
+//		sendMessageRF(from, command);
 	}
 }
 
@@ -50,7 +50,7 @@ void handle_commandIn(uint16_t from, payLoad_Simple &command) {
 	case COMMAND_DEVICE_STATUS: {
 		payLoad_DeviceStatus acommand;
 		packCommandRF(acommand);
-		sendMessageRF(from, acommand);
+//		sendMessageRF(from, acommand);
 	}
 		break;
 	case COMMAND_CALIBRATE: {

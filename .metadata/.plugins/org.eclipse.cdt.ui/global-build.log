@@ -1,9 +1,9 @@
 
-**** Build of configuration Release for project Arduino_Uno ****
+**** Build of configuration Release for project Mine_ATmega328__3_3V_Ext_8_MHz ****
 
 make all 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega328p libArduino_Uno.a
+avr-size --format=avr --mcu=atmega328p libMine_ATmega328__3_3V_Ext_8_MHz.a
 AVR Memory Usage
 ----------------
 Device: atmega328p
@@ -232,9 +232,14 @@ Finished building: sizedummy
 **** Build of configuration Release for project Coop ****
 
 make all 
+Building file: ../Led.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.d"  -c -o "Led.o" -x c++ "../Led.cpp"
+Finished building: ../Led.cpp
+ 
 Building target: Coop.elf
 Invoking: AVR C++ Linker
-avr-gcc -Os -Wl,--gc-sections  -L"D:\Users\pvloon\My Sources\E-Arduino\Arduino_Uno/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -L"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork\Release" -mmcu=atmega328p  -o"Coop.elf"  ./Webduino/WebServer.o  ./Utils/ArrayHandler.o ./Utils/InternalTemp.o ./Utils/MemoryFree.o ./Utils/Utils.o  ./SPI/SPI.o  ./Coop.o ./command.o ./device.o ./web.o   -l"Arduino_Uno" -lEthernet -lm
+avr-gcc -Os -Wl,--gc-sections  -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -mmcu=atmega328p  -o"Coop.elf"  ./Webduino/WebServer.o  ./Utils/InternalTemp.o ./Utils/MemoryFree.o ./Utils/Utils.o  ./Timer/Event.o ./Timer/Timer.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Coop.o ./Led.o ./device.o ./sensors.o ./web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
 Finished building target: Coop.elf
  
 Invoking: AVR Create Extended Listing
@@ -255,10 +260,10 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   19852 bytes (60.6% Full)
+Program:    7932 bytes (24.2% Full)
 (.text + .data + .bootloader)
 
-Data:       1009 bytes (49.3% Full)
+Data:       1113 bytes (54.3% Full)
 (.data + .bss + .noinit)
 
 

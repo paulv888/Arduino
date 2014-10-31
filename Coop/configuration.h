@@ -7,22 +7,34 @@
 #ifndef CONFIGURATION_H_
 #define CONFIGURATION_H_
 #include "Arduino.h"
-// nRF24L01(+) radio attached using Getting Started board
-#define RF_CE_PIN 5
-#define RF_CSN_PIN 8
-#define LED_PIN 13
-
-
-// Address of our node
-#define RF_THIS_NODE 0
+///////////////////////////////////
+//  Pin definitions
+#define DHT11_PIN  6
+#define LED_PIN 7
 
 ///////////////////////////////////
 // init debugging
 #define DEBUG_MAIN true
-#define DEBUG_RF true
+#define DEBUG_SENSORS true
 #define DEBUG_COMMAND true
 #define DEBUG_WEB true
 
+
+// Sensor setting
+#define SENSOR_POL_TIME (long)10*1000		// 10 Sec
+#define SENSOR_CALIBRATION_INTERVAL (long)12*60*60*1000		// 12 Hours
+#define SENSOR_THERMISTOR 1
+#define SENSOR_DHT11 2
+#define SWITCH_0 0
+#define SENSOR_THRESHOLD 30
+
+// Device setting
+#define ALIVE_TIMER (long)60*60*1000		// 1 Hour
+
+// Local Errors
+#define INFO_NORMAL 100
+#define INFO_CALIBRATING 101
+// Returned errors are in share_command.h
 
 ///////////////////////////////////
 // Device Types
@@ -47,13 +59,9 @@
 #define MAX_SENSORS_2 3
 
 
-#define ALIVE_TIMER (long)60*(long)60*(long)1000			// 1 Hour
 //#define ALIVE_TIMER (long)60*(long)60*(long)1000			// 15 min
 #define FIND_BY_NODE_ADDRESS 1
 #define FIND_BY_DEVICE_ID 2
-
-#define RF_MAX_WAIT_FOR_RESPONSE 10000
-#define RF_QUIET_WAIT_TIME 200
 
 #define WEB_POST_TYPE_VALUES 1
 #define WEB_POST_TYPE_STATUS 2
@@ -65,7 +73,6 @@
 #define WEB_RESULT_UNKNOWN_COMMAND 101
 #define WEB_RESULT_UNKNOWN_DEV_COM 102
 #define WEB_RESULT_DEV_TIMEOUT 103
-#define WEB_RESULT_RF_SEND_FAILED 104
 //#define WEB_RESULT_ 10
 //#define WEB_RESULT_ 10
 

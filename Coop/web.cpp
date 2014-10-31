@@ -161,21 +161,18 @@ void printDeviceStatus(WebServer &server, byte deviceidx) {
 
 		server.printP(OpenTag);
 		server.printP(sRFPacketsSent);
-		server.print((int) (devices[deviceidx].rfTransmitPackets));
 		server.printP(CloseTag);
 		server.printP(sRFPacketsSent);
 		server.printP(Tail_end);
 
 		server.printP(OpenTag);
 		server.printP(sRFPacketsReceived);
-		server.print((int) (devices[deviceidx].rfReceivePackets));
 		server.printP(CloseTag);
 		server.printP(sRFPacketsReceived);
 		server.printP(Tail_end);
 
 		server.printP(OpenTag);
 		server.printP(sRFSendErrors);
-		server.print(devices[deviceidx].rfSendErrors);
 		server.printP(CloseTag);
 		server.printP(sRFSendErrors);
 		server.printP(Tail_end);

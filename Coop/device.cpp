@@ -24,9 +24,6 @@ void DEVICE::clearValues() {
 	}
 	uptime = 0;
 	freememory = 0;
-	rfSendErrors = 0;
-	rfTransmitPackets = 0;
-	rfReceivePackets = 0;
 }
 
 byte DEVICE::getType() {
@@ -38,9 +35,6 @@ void DEVICE::setUptime(unsigned long _uptime) {
 }
 
 double DEVICE::getUptime() {
-	if (node_address == RF_THIS_NODE) {
-		return millis() / 1000;
-	}
 	return uptime / 1000;
 }
 
@@ -49,9 +43,6 @@ void DEVICE::setInternalTemp(unsigned long _internaltemp) {
 }
 
 double DEVICE::getInternalTemp() {
-	if (node_address == RF_THIS_NODE) {
-		return GetInternalTemp();
-	}
 	return internaltemp;
 }
 void DEVICE::setCommand(byte _command) {
@@ -64,9 +55,6 @@ void DEVICE::setFreeMemory(int _freememory) {
 	freememory = _freememory;
 }
 int DEVICE::getFreeMemory() {
-	if (node_address == RF_THIS_NODE) {
-		return freeMemory();
-	}
 	return freememory;
 }
 

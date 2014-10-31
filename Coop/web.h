@@ -11,9 +11,9 @@
 #include "avr/pgmspace.h" // new include
 //add your includes for the project command here
 #include "configuration.h"
-#include "command.h"
 #include "WebServer.h"
 #include "Utils.h"
+#include "device.h"
 #include "MemoryFree.h"
 #include <avr/io.h>
 #include <avr/wdt.h>
@@ -40,6 +40,7 @@ void setup();
 void setupWeb();
 void updateWeb();
 void postMessage( byte deviceidx, byte cmdType ) ;
+extern DEVICE devices[];
 
 
 //Do not add code below this line

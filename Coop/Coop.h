@@ -12,8 +12,8 @@
 #include "device.h"
 #include <Ethernet.h>
 #include "Web.h"
-//#include "Timer.h"
-#include "SimpleTimer.h"
+#include "Led.h"
+#include <Timer.h>
 
 
 //end of add your includes here
@@ -28,6 +28,10 @@ void setup();
 
 //add your function definitions for the project ARDBrigde here
 byte findDevice(uint16_t findwhat, byte bywhat);
+void displayError() ;
+boolean read_button(int buttonid);
+extern int readsensor(int sensorid);
+extern float readDHT11() ;
 
 
 

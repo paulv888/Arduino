@@ -17,7 +17,6 @@
 #include "share_commands.h"
 #include "configuration.h"
 #include "MemoryFree.h"
-#include "rf.h"
 #include "sensors.h"
 
 //end of add your includes here

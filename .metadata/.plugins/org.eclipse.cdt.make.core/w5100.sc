@@ -2,6 +2,11 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="it.baeyens.avreclipse.configuration.lib.release.1407392754;it.baeyens.avreclipse.configuration.lib.release.1407392754.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
@@ -123,6 +128,11 @@
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.lib.release.1407392754;it.baeyens.avreclipse.configuration.lib.release.1407392754.;it.baeyens.avreclipse.tool.cppcompiler.lib.release.808285842;it.baeyens.avreclipse.cppcompiler.input.1607249324">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__cplusplus=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
@@ -248,6 +258,11 @@
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.lib.release.1407392754;it.baeyens.avreclipse.configuration.lib.release.1407392754.;it.baeyens.avreclipse.tool.compiler.winavr.lib.release.368299615;it.baeyens.avreclipse.compiler.winavr.input.1298584233">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:\arduino-1.0.6\hardware\tools\avr\bin\../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../lib/gcc/avr/4.3.2/include-fixed"/>
+<includePath path="d:/arduino-1.0.6/hardware/tools/avr/lib/gcc/../../avr/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>

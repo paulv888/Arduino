@@ -3,6 +3,7 @@
 
 
 DEVICE devices[DEVICE_COUNT];
+Timer timer;
 
 //template<class T> inline Print &operator <<(Print &obj, T arg) { obj.print(arg); return obj; }
 
@@ -18,18 +19,22 @@ void aliveMessage() ;
 
 long eventTimeout=ALIVE_TIMER;
 
+//The setup function is called once at startup of the sketch
 void setup() {
-	Serial.begin(57600);
+//	Serial.begin(57600);
 
-	devices[0].begin(DEVICE_0_ID, DEVICE_0_TYPE, DEVICE_0_NODE_ID, MAX_SENSORS_0);
-	devices[1].begin(DEVICE_1_ID, DEVICE_1_TYPE, DEVICE_1_NODE_ID, MAX_SENSORS_1);
+//	devices[0].begin(DEVICE_0_ID, DEVICE_0_TYPE, DEVICE_0_NODE_ID, MAX_SENSORS_0);
+//	devices[1].begin(DEVICE_1_ID, DEVICE_1_TYPE, DEVICE_1_NODE_ID, MAX_SENSORS_1);
 	//devices[1].begin( DEVICE_2_ID, DEVICE_2_TYPE);
 
 	// initialize the Ethernet adapter
-	Ethernet.begin(mac, ip, dns, gw, sn );
+//	Ethernet.begin(mac, ip, dns, gw, sn );
 
-	if (DEBUG_MAIN) Serial.print("Coop server is at ");
-	if (DEBUG_MAIN) Serial.println(Ethernet.localIP());
+	showStatus(INFO_NORMAL);
+
+
+//	if (DEBUG_MAIN) Serial.print("Coop server is at ");
+//	if (DEBUG_MAIN) Serial.println(Ethernet.localIP());
 
 //	 // fill in the UART file descriptor with pointer to writer.
 //	   fdev_setup_stream (&uartout, uart_putchar, NULL, _FDEV_SETUP_WRITE);
@@ -38,22 +43,29 @@ void setup() {
 //	   stdout = &uartout ;
 
 	// Init Web
-	setupWeb();
+//	setupWeb();
 
-	aliveMessage();
+//	aliveMessage();
 
 }
 //int show1 = 0;
 
+// The loop function is called in an endless loop
 void loop() {
 
-	// Is there anything ready for us?
-	updateWeb();
 
-	if((long)millis()-eventTimeout>=0) {
-		eventTimeout=(long)millis()+ALIVE_TIMER;
-		aliveMessage();
-	}
+
+	// the loop function runs over and over again forever
+
+	timer.update();		// AliveMessage, Poll Sensors, UpdateLed, StreamData
+
+	// Is there anything ready for us?
+//	updateWeb();
+
+//	if((long)millis()-eventTimeout>=0) {
+//		eventTimeout=(long)millis()+ALIVE_TIMER;
+//		aliveMessage();
+//}
 }
 
 void aliveMessage() {

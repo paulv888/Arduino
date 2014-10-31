@@ -22,7 +22,7 @@ void showStatus(int Error) {
 			payLoad_Simple scommand;
 			scommand.command = COMMAND_RESULT_ERROR;
 			scommand.data = ERROR_READ_SENSOR;
-			sendMessageRF(RF_BASE_STATION, scommand);
+//			sendMessageRF(RF_BASE_STATION, scommand);
 			eSensorSend=true;
 		}
 	}
@@ -33,7 +33,7 @@ void showStatus(int Error) {
 		payLoad_Simple scommand;
 		scommand.command = COMMAND_RESULT_ERROR;
 		scommand.data = ERROR_CALIBRATE;
-		sendMessageRF(RF_BASE_STATION, scommand);
+//		sendMessageRF(RF_BASE_STATION, scommand);
 	}
 		break;
 	case WARNING_RF_SEND:

@@ -124,6 +124,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.;it.baeyens.avreclipse.tool.cppcompiler.app.release.265767624;it.baeyens.avreclipse.cppcompiler.input.1732456011">
@@ -254,6 +255,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.;it.baeyens.avreclipse.tool.compiler.winavr.app.release.1677379678;it.baeyens.avreclipse.compiler.winavr.input.472891441">
@@ -380,6 +382,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.6562741;it.baeyens.avreclipse.tool.cppcompiler.app.release.1239426286;it.baeyens.avreclipse.cppcompiler.input.1899849905">
@@ -510,6 +513,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.6562741">
@@ -636,6 +640,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.6562741;it.baeyens.avreclipse.tool.compiler.winavr.app.release.62642206;it.baeyens.avreclipse.compiler.winavr.input.318654290">
@@ -762,6 +767,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 </scannerInfo>

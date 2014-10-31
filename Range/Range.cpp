@@ -11,24 +11,24 @@ void setup() {
 	if (DEBUG_MAIN || DEBUG_RF || DEBUG_SENSORS || DEBUG_COMMAND ) Serial.begin(57600);
 
 	// Use analog ref
-	analogReference(EXTERNAL);
+	// analogReference(EXTERNAL);
 
 	// Setup RF communication
-	setupRF();
+	// setupRF();
 
 	// Init Input switches
-	setupSwitches();
+	// setupSwitches();
 
 	// Calibrate NTC's
-	calibrate(true);
-	timer.every(SENSOR_CALIBRATION_INTERVAL, calibratetimer);
+	// calibrate(true);
+	// timer.every(SENSOR_CALIBRATION_INTERVAL, calibratetimer);
 
 	showStatus(INFO_NORMAL);
 
-	timer.every(SENSOR_POL_TIME, updateTempSensors);
+	// timer.every(SENSOR_POL_TIME, updateTempSensors);
 
-	timer.every(ALIVE_TIMER, aliveMessage);
-	aliveMessage();
+	// timer.every(ALIVE_TIMER, aliveMessage);
+	// aliveMessage();
 
 }
 
@@ -36,7 +36,7 @@ void setup() {
 void loop() {
 
 	updateSwitches();
-	updateRF();
+//	updateRF();
 	timer.update();		// AliveMessage, Poll Sensors, UpdateLed, StreamData
 
 }
@@ -46,6 +46,7 @@ void aliveMessage() {
 	payLoad_Simple command;
 	command.command = (currentStatus > 0) ? COMMAND_STATUSON : COMMAND_STATUSOFF;
 	command.data = currentStatus;
-	sendMessageRF(RF_BASE_STATION, command);
+	showStatus(INFO_NORMAL);
+//	sendMessageRF(RF_BASE_STATION, command);
 }
 

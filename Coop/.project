@@ -3,7 +3,7 @@
 	<name>Coop</name>
 	<comment></comment>
 	<projects>
-		<project>Arduino_Uno</project>
+		<project>Mine_ATmega328__3_3V_Ext_8_MHz</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -84,9 +84,19 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>DHT11</name>
+			<type>2</type>
+			<locationURI>PivateLibPath/DHT11</locationURI>
+		</link>
+		<link>
 			<name>SPI</name>
 			<type>2</type>
 			<locationURI>ArduinoLibPath/SPI</locationURI>
+		</link>
+		<link>
+			<name>Timer</name>
+			<type>2</type>
+			<locationURI>PivateLibPath/Timer</locationURI>
 		</link>
 		<link>
 			<name>Webduino</name>
@@ -97,16 +107,6 @@
 			<name>share_commands.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/share_commands.h</locationURI>
-		</link>
-		<link>
-			<name>Utils/ArrayHandler.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/ArrayHandler.cpp</locationURI>
-		</link>
-		<link>
-			<name>Utils/ArrayHandler.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/ArrayHandler.h</locationURI>
 		</link>
 		<link>
 			<name>Utils/InternalTemp.cpp</name>

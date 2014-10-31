@@ -38,10 +38,6 @@ public:
 	unsigned int getSensorAge(byte _sensorid);
 	int getSensorValue(byte _sensorid);
 
-	unsigned int rfTransmitPackets;
-	unsigned int rfReceivePackets;
-	unsigned int rfSendErrors;
-
 	void clearValues();
 	byte needpost; 												// received new values
 

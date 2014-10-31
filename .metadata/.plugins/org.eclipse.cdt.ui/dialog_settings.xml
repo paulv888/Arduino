@@ -64,6 +64,9 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="SimpleTimer"/>
+			<item value="devices"/>
+			<item value="RF"/>
 			<item value="bridge"/>
 			<item value="rf"/>
 			<item value="OFF"/>
