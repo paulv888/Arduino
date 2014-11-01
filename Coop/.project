@@ -11,6 +11,10 @@
 			<triggers>clean,full,incremental,</triggers>
 			<arguments>
 				<dictionary>
+					<key>?children?</key>
+					<value>?name?=outputEntries\|?children?=?name?=entry\\\\\\\|\\\|\||</value>
+				</dictionary>
+				<dictionary>
 					<key>?name?</key>
 					<value></value>
 				</dictionary>
@@ -97,11 +101,6 @@
 			<name>Timer</name>
 			<type>2</type>
 			<locationURI>PivateLibPath/Timer</locationURI>
-		</link>
-		<link>
-			<name>Webduino</name>
-			<type>2</type>
-			<locationURI>PivateLibPath/Webduino</locationURI>
 		</link>
 		<link>
 			<name>share_commands.h</name>

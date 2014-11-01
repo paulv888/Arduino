@@ -18,27 +18,17 @@
 class DEVICE {
 public:
 	DEVICE();
-	int begin(uint16_t _deviceid, byte _type, uint16_t _node_address, int max_sensors);
+	int begin(uint16_t _deviceid, byte _type);
 	byte getType();
-	uint16_t getNodeAddress();
 	uint16_t getDeviceid();
-	void setUptime(unsigned long _uptime);
 	double getUptime();
-	void setInternalTemp(unsigned long internaltemp);
 	double getInternalTemp();
-	void setFreeMemory(int _freememory);
 	int getFreeMemory();
-	void setData(byte _data);
 	byte getData();
 	void setCommand(byte _command);
+	void setValue(byte _myvalue);
 	byte getCommand();
-	void setMaxSensors(int _maxSensor);
-	int getMaxSensors();
-	void setSensorValue(byte _sensorid, int _Value, unsigned int _Age);
-	unsigned int getSensorAge(byte _sensorid);
-	int getSensorValue(byte _sensorid);
 
-	void clearValues();
 	byte needpost; 												// received new values
 
 
@@ -48,14 +38,12 @@ protected:
 	byte type;
 	bool status;
 	byte command;
+	byte value;
 	unsigned long uptime;
 	int freememory;
 	uint16_t node_address;
 	byte data;
 	double internaltemp;
-	byte maxSensor;
-	int* sensorValue;
-	unsigned int* sensorValueAge;
 };
 
 #endif /* DEVICE_H_ */

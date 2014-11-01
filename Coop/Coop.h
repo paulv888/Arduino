@@ -11,6 +11,8 @@
 #include "share_commands.h"
 #include "device.h"
 #include <Ethernet.h>
+#include <EthernetClient.h>
+#include <EthernetServer.h>
 #include "Web.h"
 #include "Led.h"
 #include <Timer.h>

@@ -7,11 +7,12 @@
 #define WEB_H_
 #include "Arduino.h"
 #include <Ethernet.h>
+#include <EthernetClient.h>
+#include <EthernetServer.h>
 #include <SPI.h>
 #include "avr/pgmspace.h" // new include
 //add your includes for the project command here
 #include "configuration.h"
-#include "WebServer.h"
 #include "Utils.h"
 #include "device.h"
 #include "MemoryFree.h"
@@ -32,16 +33,11 @@ void setup();
 } // extern "C"
 #endif
 //add your function definitions for the project test1 here
-#define WEBDUINO_FAVICON_DATA ""
-#define WEBDUINO_FAIL_MESSAGE ""
-#define VERSION_STRING "0.1"
-
-
 void setupWeb();
 void updateWeb();
 void postMessage( byte deviceidx, byte cmdType ) ;
 extern DEVICE devices[];
-
+byte findDevice(uint16_t findwhat);
 
 //Do not add code below this line
 #endif /* WEB_H_ */
