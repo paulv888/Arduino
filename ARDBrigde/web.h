@@ -7,11 +7,12 @@
 #define WEB_H_
 #include "Arduino.h"
 #include <Ethernet.h>
+#include <EthernetClient.h>
+#include <EthernetServer.h>
 #include <SPI.h>
 #include "avr/pgmspace.h" // new include
 //add your includes for the project command here
 #include "configuration.h"
-#include "rf.h"
 #include "command.h"
 #include "WebServer.h"
 #include "Utils.h"

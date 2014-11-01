@@ -1,8 +1,6 @@
 #ifndef ethernet_h
 #define ethernet_h
 
-
-
 #include <inttypes.h>
 //#include "w5100.h"
 #include "IPAddress.h"
@@ -15,7 +13,7 @@
 class EthernetClass {
 private:
   IPAddress _dnsServerAddress;
- // DhcpClass* _dhcp;
+//  DhcpClass* _dhcp;
 public:
   static uint8_t _state[MAX_SOCK_NUM];
   static uint16_t _server_port[MAX_SOCK_NUM];

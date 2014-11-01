@@ -1,8 +1,152 @@
 
-**** Clean-only build of configuration Release for project ARDBrigde ****
+**** Build of configuration Release for project ARDBrigde ****
 
-make clean 
-rm -rf  ./Webduino/WebServer.o  ./Utils/ArrayHandler.o ./Utils/InternalTemp.o ./Utils/MemoryFree.o ./Utils/Utils.o  ./SPI/SPI.o  ./ARDBrigde.o ./command.o ./device.o ./rf.o ./web.o  ARDBrigde.eep  ARDBrigde.hex  ARDBrigde.lss  ./Webduino/WebServer.d  ./Utils/ArrayHandler.d ./Utils/InternalTemp.d ./Utils/MemoryFree.d ./Utils/Utils.d  ./SPI/SPI.d  ./ARDBrigde.d ./command.d ./device.d ./rf.d ./web.d  sizedummy  ARDBrigde.elf
+make all 
+Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Webduino/WebServer.d" -MT"Webduino/WebServer.d"  -c -o "Webduino/WebServer.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp"
+In file included from D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:7:
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:151: warning: 'typedef' was ignored in this declaration
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h: In constructor 'WebServer::WebServer(const char*, int)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:291: warning: 'WebServer::m_server' will be initialized after
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:288: warning:   'EthernetClient WebServer::m_client'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:9: warning:   when initialized here
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:308: warning: 'WebServer::m_cmdCount' will be initialized after
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.h:297: warning:   'int WebServer::m_contentLength'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:9: warning:   when initialized here
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::addCommand(const char*, void (*)(WebServer&, WebServer::ConnectionType, char*, bool))':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:29: warning: comparison between signed and unsigned integer expressions
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:30: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:31: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::printP(const prog_char*)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:75: warning: suggest parentheses around assignment used as truth value
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'bool WebServer::dispatchCommand(WebServer::ConnectionType, char*, bool)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:94: warning: deprecated conversion from string constant to 'char*'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:120: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:120: warning: comparison between signed and unsigned integer expressions
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:120: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:123: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::httpFail()':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:199: warning: only initialized variables can be placed into program memory area
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::httpSuccess(const char*, const char*)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:262: warning: only initialized variables can be placed into program memory area
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'int WebServer::read()':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:331: warning: array subscript has type 'char'
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp: In member function 'void WebServer::push(int)':
+D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp:338: warning: array subscript has type 'char'
+Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/Webduino/WebServer.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/ArrayHandler.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Utils/ArrayHandler.d" -MT"Utils/ArrayHandler.d"  -c -o "Utils/ArrayHandler.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/ArrayHandler.cpp"
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/ArrayHandler.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Utils/InternalTemp.d" -MT"Utils/InternalTemp.d"  -c -o "Utils/InternalTemp.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp"
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Utils/MemoryFree.d" -MT"Utils/MemoryFree.d"  -c -o "Utils/MemoryFree.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp"
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Utils/Utils.d" -MT"Utils/Utils.d"  -c -o "Utils/Utils.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp"
+D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp: In function 'int millisRollover()':
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp
+D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp:44: warning: operation on 'numRollovers' may be undefined
+ 
+Building file: D:/arduino-1.0.6/libraries/SPI/SPI.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"SPI/SPI.d" -MT"SPI/SPI.d"  -c -o "SPI/SPI.o" -x c++ "D:/arduino-1.0.6/libraries/SPI/SPI.cpp"
+Finished building: D:/arduino-1.0.6/libraries/SPI/SPI.cpp
+ 
+Building file: ../ARDBrigde.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"ARDBrigde.d" -MT"ARDBrigde.d"  -c -o "ARDBrigde.o" -x c++ "../ARDBrigde.cpp"
+In file included from ../Web.h:15,
+Finished building: ../ARDBrigde.cpp
+                 from ../ARDBrigde.h:14,
+ 
+Building file: ../command.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"command.d" -MT"command.d"  -c -o "command.o" -x c++ "../command.cpp"
+                 from ../ARDBrigde.cpp:2:
+Finished building: ../command.cpp
+D:\Users\pvloon\My Sources\Arduino\libraries\Webduino/WebServer.h:151: warning: 'typedef' was ignored in this declaration
+ 
+In file included from ../web.h:15,
+Building file: ../device.cpp
+Invoking: AVR C++ Compiler
+                 from ../command.h:22,
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"device.d" -MT"device.d"  -c -o "device.o" -x c++ "../device.cpp"
+                 from ../command.cpp:8:
+Finished building: ../device.cpp
+ 
+Building file: ../web.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\ARDBrigde" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24" -I"D:\Users\pvloon\My Sources\Arduino\libraries\RF24Network" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"web.d" -MT"web.d"  -c -o "web.o" -x c++ "../web.cpp"
+D:\Users\pvloon\My Sources\Arduino\libraries\Webduino/WebServer.h:151: warning: 'typedef' was ignored in this declaration
+In file included from ../Web.h:15,
+                 from ../web.cpp:7:
+D:\Users\pvloon\My Sources\Arduino\libraries\Webduino/WebServer.h:151: warning: 'typedef' was ignored in this declaration
+../web.cpp:16: warning: only initialized variables can be placed into program memory area
+../web.cpp:17: warning: only initialized variables can be placed into program memory area
+../web.cpp:18: warning: only initialized variables can be placed into program memory area
+../web.cpp:19: warning: only initialized variables can be placed into program memory area
+../web.cpp:20: warning: only initialized variables can be placed into program memory area
+../web.cpp:21: warning: only initialized variables can be placed into program memory area
+../web.cpp:22: warning: only initialized variables can be placed into program memory area
+../web.cpp:23: warning: only initialized variables can be placed into program memory area
+../web.cpp:24: warning: only initialized variables can be placed into program memory area
+../web.cpp:25: warning: only initialized variables can be placed into program memory area
+../web.cpp:26: warning: only initialized variables can be placed into program memory area
+../web.cpp:27: warning: only initialized variables can be placed into program memory area
+../web.cpp:28: warning: only initialized variables can be placed into program memory area
+../web.cpp:29: warning: only initialized variables can be placed into program memory area
+../web.cpp:30: warning: only initialized variables can be placed into program memory area
+../web.cpp:31: warning: only initialized variables can be placed into program memory area
+../web.cpp:32: warning: only initialized variables can be placed into program memory area
+../web.cpp:33: warning: only initialized variables can be placed into program memory area
+../web.cpp: In function 'int printP(const prog_char*, bool)':
+../web.cpp:43: warning: suggest parentheses around assignment used as truth value
+../web.cpp: In function 'void processCmd(WebServer&, WebServer::ConnectionType, char*, bool)':
+../web.cpp:271: warning: 'i' may be used uninitialized in this function
+Finished building: ../web.cpp
+ 
+Building target: ARDBrigde.elf
+Invoking: AVR C++ Linker
+avr-gcc -Os -Wl,--gc-sections  -L"D:\Users\pvloon\My Sources\E-Arduino\Arduino_Uno/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -L"D:\Users\pvloon\My Sources\E-Arduino\RFNetwork\Release" -mmcu=atmega328p  -o"ARDBrigde.elf"  ./Webduino/WebServer.o  ./Utils/ArrayHandler.o ./Utils/InternalTemp.o ./Utils/MemoryFree.o ./Utils/Utils.o  ./SPI/SPI.o  ./ARDBrigde.o ./command.o ./device.o ./web.o   -l"Arduino_Uno" -lRFNetwork -lEthernet -lm
+Finished building target: ARDBrigde.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ARDBrigde.elf  >"ARDBrigde.lss"
+Finished building: ARDBrigde.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex ARDBrigde.elf  "ARDBrigde.hex"
+Finished building: ARDBrigde.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex ARDBrigde.elf  "ARDBrigde.eep"
+Finished building: ARDBrigde.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p ARDBrigde.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:   13676 bytes (41.7% Full)
+(.text + .data + .bootloader)
+
+Data:       1007 bytes (49.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
  
 
 **** Build Finished ****

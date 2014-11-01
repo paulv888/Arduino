@@ -64,6 +64,11 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="str"/>
+			<item value="cmdid"/>
+			<item value="DDRB"/>
+			<item value="10"/>
+			<item value="DEBUG_MAIN"/>
 			<item value="SimpleTimer"/>
 			<item value="devices"/>
 			<item value="RF"/>

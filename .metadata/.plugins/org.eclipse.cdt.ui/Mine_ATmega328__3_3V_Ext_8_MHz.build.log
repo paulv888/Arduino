@@ -2,6 +2,20 @@
 **** Build of configuration Release for project Mine_ATmega328__3_3V_Ext_8_MHz ****
 
 make all 
+Building file: ../Mine_ATmega328__3_3V_Ext_8_MHz.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Mine_ATmega328__3_3V_Ext_8_MHz.d" -MT"Mine_ATmega328__3_3V_Ext_8_MHz.d"  -c -o "Mine_ATmega328__3_3V_Ext_8_MHz.o" "../Mine_ATmega328__3_3V_Ext_8_MHz.cpp"
+Finished building: ../Mine_ATmega328__3_3V_Ext_8_MHz.cpp
+ 
+Building target: libMine_ATmega328__3_3V_Ext_8_MHz.a
+Invoking: AVR Archiver
+avr-ar -r  "libMine_ATmega328__3_3V_Ext_8_MHz.a"  ./arduino/avr-libc/malloc.o ./arduino/avr-libc/realloc.o  ./arduino/CDC.o ./arduino/HID.o ./arduino/HardwareSerial.o ./arduino/IPAddress.o ./arduino/Print.o ./arduino/Stream.o ./arduino/Tone.o ./arduino/USBCore.o ./arduino/WInterrupts.o ./arduino/WMath.o ./arduino/WString.o ./arduino/main.o ./arduino/new.o ./arduino/wiring.o ./arduino/wiring_analog.o ./arduino/wiring_digital.o ./arduino/wiring_pulse.o ./arduino/wiring_shift.o  ./Mine_ATmega328__3_3V_Ext_8_MHz.o  
+Finished building target: libMine_ATmega328__3_3V_Ext_8_MHz.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libMine_ATmega328__3_3V_Ext_8_MHz.a  >"libMine_ATmega328__3_3V_Ext_8_MHz.lss"
+Finished building: libMine_ATmega328__3_3V_Ext_8_MHz.lss
+ 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega328p libMine_ATmega328__3_3V_Ext_8_MHz.a
 AVR Memory Usage
@@ -144,6 +158,17 @@ Program:       1 bytes (0.0% Full)
 (.text + .data + .bootloader)
 
 Data:          1 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
 (.data + .bss + .noinit)
 
 
