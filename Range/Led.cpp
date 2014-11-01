@@ -19,21 +19,21 @@ void showStatus(int Error) {
 		timer.oscillate(LED_PIN, HIGH, 100, 50, 10);
 		Serial.println("SENSOR ERROR!");
 		if (eSensorSend++ % 400 == 0) {														// do not flood (about every hour)
-			payLoad_Simple scommand;
+/*			payLoad_Simple scommand;
 			scommand.command = COMMAND_RESULT_ERROR;
 			scommand.data = ERROR_READ_SENSOR;
 //			sendMessageRF(RF_BASE_STATION, scommand);
-			eSensorSend=true;
+			eSensorSend=true;*/
 		}
 	}
 		break;
 	case ERROR_CALIBRATE: {
 		timer.oscillate(LED_PIN, HIGH, 500, 50, 10);
 		Serial.println("CALIBRATE ERROR!");
-		payLoad_Simple scommand;
+/*		payLoad_Simple scommand;
 		scommand.command = COMMAND_RESULT_ERROR;
 		scommand.data = ERROR_CALIBRATE;
-//		sendMessageRF(RF_BASE_STATION, scommand);
+//		sendMessageRF(RF_BASE_STATION, scommand);*/
 	}
 		break;
 	case WARNING_RF_SEND:

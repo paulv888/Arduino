@@ -125,7 +125,16 @@
 <definedSymbol symbol="__AVR__=1"/>
 <definedSymbol symbol="AVR=1"/>
 <definedSymbol symbol="__AVR_ARCH__=2"/>
+<definedSymbol symbol="__AVR_ARCH__=5"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
+<definedSymbol symbol="__AVR_ATmega328P__=1"/>
+<definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
+<definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
+<definedSymbol symbol="__AVR_ENHANCED__=1"/>
+<definedSymbol symbol="__AVR_HAVE_MUL__=1"/>
+<definedSymbol symbol="__AVR_MEGA__=1"/>
+<definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
+<definedSymbol symbol="F_CPU=16000000UL"/>
 </collector>
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.6562741">
@@ -249,7 +258,16 @@
 <definedSymbol symbol="__AVR__=1"/>
 <definedSymbol symbol="AVR=1"/>
 <definedSymbol symbol="__AVR_ARCH__=2"/>
+<definedSymbol symbol="__AVR_ARCH__=5"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
+<definedSymbol symbol="__AVR_ATmega328P__=1"/>
+<definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
+<definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
+<definedSymbol symbol="__AVR_ENHANCED__=1"/>
+<definedSymbol symbol="__AVR_HAVE_MUL__=1"/>
+<definedSymbol symbol="__AVR_MEGA__=1"/>
+<definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
+<definedSymbol symbol="F_CPU=16000000UL"/>
 </collector>
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.;it.baeyens.avreclipse.tool.compiler.winavr.app.release.1677379678;it.baeyens.avreclipse.compiler.winavr.input.472891441">
@@ -373,7 +391,16 @@
 <definedSymbol symbol="__AVR__=1"/>
 <definedSymbol symbol="AVR=1"/>
 <definedSymbol symbol="__AVR_ARCH__=2"/>
+<definedSymbol symbol="__AVR_ARCH__=5"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
+<definedSymbol symbol="__AVR_ATmega328P__=1"/>
+<definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
+<definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
+<definedSymbol symbol="__AVR_ENHANCED__=1"/>
+<definedSymbol symbol="__AVR_HAVE_MUL__=1"/>
+<definedSymbol symbol="__AVR_MEGA__=1"/>
+<definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
+<definedSymbol symbol="F_CPU=16000000UL"/>
 </collector>
 </instance>
 <instance id="it.baeyens.avreclipse.configuration.app.release.980545052;it.baeyens.avreclipse.configuration.app.release.980545052.">
@@ -767,7 +794,16 @@
 <definedSymbol symbol="__AVR__=1"/>
 <definedSymbol symbol="AVR=1"/>
 <definedSymbol symbol="__AVR_ARCH__=2"/>
+<definedSymbol symbol="__AVR_ARCH__=5"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
+<definedSymbol symbol="__AVR_ATmega328P__=1"/>
+<definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
+<definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
+<definedSymbol symbol="__AVR_ENHANCED__=1"/>
+<definedSymbol symbol="__AVR_HAVE_MUL__=1"/>
+<definedSymbol symbol="__AVR_MEGA__=1"/>
+<definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
+<definedSymbol symbol="F_CPU=16000000UL"/>
 </collector>
 </instance>
 </scannerInfo>

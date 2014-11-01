@@ -25,23 +25,19 @@ int EthernetClient::connect(const char* host, uint16_t port) {
   int ret = 0;
 //  DNSClient dns;
   IPAddress remote_addr;
-  	 //Serial.println("dhcp connect");
 
 //  dns.begin(Ethernet.dnsServerIP());
 //  ret = dns.getHostByName(host, remote_addr);
-//  if (ret == 1) {
+  if (ret == 1) {
     return connect(remote_addr, port);
-//  } else {
-//    return ret;
-//  }
+  } else {
+    return ret;
+  }
 }
 
 int EthernetClient::connect(IPAddress ip, uint16_t port) {
   if (_sock != MAX_SOCK_NUM)
     return 0;
-
-	 //Serial.println("ip connect");
-
 
   for (int i = 0; i < MAX_SOCK_NUM; i++) {
     uint8_t s = W5100.readSnSR(i);
@@ -166,4 +162,8 @@ uint8_t EthernetClient::status() {
 
 EthernetClient::operator bool() {
   return _sock != MAX_SOCK_NUM;
+}
+
+bool EthernetClient::operator==(const EthernetClient& rhs) {
+  return _sock == rhs._sock && _sock != MAX_SOCK_NUM && rhs._sock != MAX_SOCK_NUM;
 }

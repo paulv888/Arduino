@@ -15,11 +15,13 @@
 #include "configuration.h"
 #include "Utils.h"
 #include "device.h"
-#include "MemoryFree.h"
 #include <avr/io.h>
 #include <avr/wdt.h>
 
 #define Reset_AVR() wdt_enable(WDTO_30MS); while(1) {}
+
+// declare a static string
+#define P(name)  static const prog_char name[] PROGMEM
 
 
 
@@ -35,7 +37,7 @@ void setup();
 //add your function definitions for the project test1 here
 void setupWeb();
 void updateWeb();
-void postMessage( byte deviceidx, byte cmdType ) ;
+void postMessage( byte deviceidx);
 extern DEVICE devices[];
 byte findDevice(uint16_t findwhat);
 

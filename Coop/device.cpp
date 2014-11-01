@@ -9,47 +9,63 @@
 DEVICE::DEVICE() {
 }
 
-int DEVICE::begin(uint16_t _deviceid, byte _type) {
+int DEVICE::begin(uint16_t _deviceid, byte _type, long period, void (*callback)()) {
 	deviceid = _deviceid;
 	type = _type;
+	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		_name[i] == VALUE_NONE;
+	}
+	timer.every(period, callback);
 	return 0;
 }
-
 
 byte DEVICE::getType() {
 	return type;
 }
 
-double DEVICE::getUptime() {
-	return uptime / 1000;
+int DEVICE::setValue(int valtype, String _value) {
+	int i = findValueIndex(valtype);
+	if (i == -1) return -1;
+	_name[i] = valtype;
+//	_value[i] = (String)_value;
+	return true;
 }
 
-double DEVICE::getInternalTemp() {
-	return internaltemp;
+String DEVICE::getValue(int valtype) {
+	int i = findValueIndex(valtype);
+	if (i == -1) return "-1";
+	return 	_value[i];
+;
 }
 
-void DEVICE::setCommand(byte _command) {
-	command = _command;
-}
-
-void DEVICE::setValue(byte _myvalue) {
-	value = _myvalue;
-}
-
-byte DEVICE::getCommand() {
-	return command;
-}
-
-int DEVICE::getFreeMemory() {
-	return freememory;
-}
-
-byte DEVICE::getData(void) {
-	return data;
+String DEVICE::getValuebyIndex(int _idx) {
+	val = _value[_idx];
+	return val;
+;
 }
 
 uint16_t DEVICE::getDeviceid() {
 	return deviceid;
 }
 
+/*byte findDevice(uint16_t findwhat) {
+	//printf ("Find: '%u'", findwhat);
+	for (byte i = 0; i < DEVICE_COUNT; i++) {
+		if (findwhat == devices[i].getDeviceid()) return i;
+		break;
+	}
+	return -1;
+}*/
 
+int DEVICE::findValueIndex(int valtype) {
+	int firstfree = -1;
+	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		if (_name[i] == valtype) {
+			return i;
+		}
+		if (_name[i] == VALUE_NONE) {
+			firstfree = i;
+		}
+	}
+	return firstfree;
+}

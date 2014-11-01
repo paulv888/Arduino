@@ -17,9 +17,6 @@ void unpackCommandRF(byte deviceidx, payLoad_DeviceStatus &command) {
 	devices[deviceidx].setData(command.data);
 	devices[deviceidx].setUptime(command.upTime);
 	devices[deviceidx].setFreeMemory(command.freeMemory);
-	devices[deviceidx].rfSendErrors = command.rfSendErrors;
-	devices[deviceidx].rfReceivePackets = command.rfReceivePackets;
-	devices[deviceidx].rfTransmitPackets = command.rfTransmitPackets;
 	if (DEBUG_COMMAND) Serial.print("Device Unpack: ");
 	if (DEBUG_COMMAND) Serial.print(devices[deviceidx].getDeviceid());
 	if (DEBUG_COMMAND) Serial.print(" Uptime: ");

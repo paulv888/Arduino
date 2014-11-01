@@ -2,14 +2,96 @@
 **** Build of configuration Release for project Coop ****
 
 make all 
+Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Timer/Event.d" -MT"Timer/Event.d"  -c -o "Timer/Event.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp"
+D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp: In member function 'void Event::update()':
+D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp:37: warning: comparison between signed and unsigned integer expressions
+Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Timer/Timer.d" -MT"Timer/Timer.d"  -c -o "Timer/Timer.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp"
+Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SharedFiles/InternalTemp.d" -MT"SharedFiles/InternalTemp.d"  -c -o "SharedFiles/InternalTemp.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp"
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SharedFiles/MemoryFree.d" -MT"SharedFiles/MemoryFree.d"  -c -o "SharedFiles/MemoryFree.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp"
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SharedFiles/Utils.d" -MT"SharedFiles/Utils.d"  -c -o "SharedFiles/Utils.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp"
+D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp: In function 'int millisRollover()':
+D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp:44: warning: operation on 'numRollovers' may be undefined
+Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp
+ 
+Building file: D:/arduino-1.0.6/libraries/SPI/SPI.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SPI/SPI.d" -MT"SPI/SPI.d"  -c -o "SPI/SPI.o" -x c++ "D:/arduino-1.0.6/libraries/SPI/SPI.cpp"
+Finished building: D:/arduino-1.0.6/libraries/SPI/SPI.cpp
+ 
+Building file: D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"DHT11/dht11.d" -MT"DHT11/dht11.d"  -c -o "DHT11/dht11.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp"
+Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp
+ 
+Building file: ../Coop.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Coop.d" -MT"Coop.d"  -c -o "Coop.o" -x c++ "../Coop.cpp"
+Finished building: ../Coop.cpp
+ 
 Building file: ../Led.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Webduino" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.d"  -c -o "Led.o" -x c++ "../Led.cpp"
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.d"  -c -o "Led.o" -x c++ "../Led.cpp"
 Finished building: ../Led.cpp
+ 
+Building file: ../device.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"device.d" -MT"device.d"  -c -o "device.o" -x c++ "../device.cpp"
+../device.cpp: In member function 'int DEVICE::begin(uint16_t, byte, long int, void (*)())':
+../device.cpp:16: warning: statement has no effect
+Finished building: ../device.cpp
+ 
+Building file: ../sensors.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"sensors.d" -MT"sensors.d"  -c -o "sensors.o" -x c++ "../sensors.cpp"
+Finished building: ../sensors.cpp
+../sensors.cpp:84:1: warning: "/*" within comment
+../sensors.cpp:22: warning: 'previousStatus' defined but not used
+../sensors.cpp:23: warning: 'sensorType' defined but not used
+../sensors.cpp:25: warning: 'float readDHT11(int)' declared 'static' but never defined
+../sensors.cpp:26: warning: 'void detectState()' declared 'static' but never defined
+../sensors.cpp:27: warning: 'int readSensor(int)' declared 'static' but never defined
+../sensors.cpp:28: warning: 'sensorCalibrate' defined but not used
+../sensors.cpp:29: warning: 'calibrate_average' defined but not used
+ 
+Building file: ../web.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"web.d" -MT"web.d"  -c -o "web.o" -x c++ "../web.cpp"
+../web.cpp:22: warning: only initialized variables can be placed into program memory area
+../web.cpp:23: warning: only initialized variables can be placed into program memory area
+../web.cpp:24: warning: only initialized variables can be placed into program memory area
+../web.cpp:25: warning: only initialized variables can be placed into program memory area
+../web.cpp:26: warning: only initialized variables can be placed into program memory area
+../web.cpp:27: warning: only initialized variables can be placed into program memory area
+../web.cpp:28: warning: only initialized variables can be placed into program memory area
+../web.cpp:29: warning: only initialized variables can be placed into program memory area
+../web.cpp:30: warning: only initialized variables can be placed into program memory area
+../web.cpp:31: warning: only initialized variables can be placed into program memory area
+../web.cpp:32: warning: only initialized variables can be placed into program memory area
+../web.cpp: In function 'int printP(const prog_char*, bool)':
+../web.cpp:42: warning: suggest parentheses around assignment used as truth value
+Finished building: ../web.cpp
  
 Building target: Coop.elf
 Invoking: AVR C++ Linker
-avr-gcc -Os -Wl,--gc-sections  -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -mmcu=atmega328p  -o"Coop.elf"  ./Webduino/WebServer.o  ./Utils/InternalTemp.o ./Utils/MemoryFree.o ./Utils/Utils.o  ./Timer/Event.o ./Timer/Timer.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Coop.o ./Led.o ./device.o ./sensors.o ./web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
+avr-gcc -Os -Wl,--gc-sections  -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -mmcu=atmega328p  -o"Coop.elf"  ./Timer/Event.o ./Timer/Timer.o  ./SharedFiles/InternalTemp.o ./SharedFiles/MemoryFree.o ./SharedFiles/Utils.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Coop.o ./Led.o ./device.o ./sensors.o ./web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
 Finished building target: Coop.elf
  
 Invoking: AVR Create Extended Listing
@@ -30,10 +112,10 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:    7932 bytes (24.2% Full)
+Program:   17698 bytes (54.0% Full)
 (.text + .data + .bootloader)
 
-Data:       1113 bytes (54.3% Full)
+Data:       1770 bytes (86.4% Full)
 (.data + .bss + .noinit)
 
 

@@ -21,8 +21,15 @@ long eventTimeout=ALIVE_TIMER;
 void setup() {
 	Serial.begin(57600);
 
-	devices[0].begin(DEVICE_0_ID, DEVICE_0_TYPE, DEVICE_0_NODE_ID, MAX_SENSORS_0);
-	devices[1].begin(DEVICE_1_ID, DEVICE_1_TYPE, DEVICE_1_NODE_ID, MAX_SENSORS_1);
+	  while (!Serial) {
+	    ; // wait for serial port to connect. Needed for Leonardo only
+	  }
+
+	  // prints title with ending line break
+	  Serial.println("ASCII Table ~ Character Map");
+
+//	devices[0].begin(DEVICE_0_ID, DEVICE_0_TYPE, DEVICE_0_NODE_ID, MAX_SENSORS_0);
+//	devices[1].begin(DEVICE_1_ID, DEVICE_1_TYPE, DEVICE_1_NODE_ID, MAX_SENSORS_1);
 	//devices[1].begin( DEVICE_2_ID, DEVICE_2_TYPE);
 
 	// initialize the Ethernet adapter
@@ -38,12 +45,12 @@ void setup() {
 //	   stdout = &uartout ;
 
 	// Init RF
-	setupRF();
+
 
 	// Init Web
-	setupWeb();
+//	setupWeb();
 
-	aliveMessage();
+//	aliveMessage();
 
 }
 //int show1 = 0;
@@ -51,7 +58,6 @@ void setup() {
 void loop() {
 
 	// Is there anything ready for us?
-	updateRF(true);
 	updateWeb();
 
 	if((long)millis()-eventTimeout>=0) {

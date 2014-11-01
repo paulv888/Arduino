@@ -4,33 +4,24 @@
 make all 
 Building file: ../SPI.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SPI" -Wall -Os -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"SPI.d" -MT"SPI.d" -c -o "SPI.o" "../SPI.cpp"
-Finished building: ../SPI.cpp
- 
-Building target: libSPI.a
-Invoking: AVR Archiver
-avr-ar -r  "libSPI.a"  ./SPI.o  
-d:\arduino-1.0.6\hardware\tools\avr\bin\avr-ar.exe: creating libSPI.a
-Finished building target: libSPI.a
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S libSPI.a  >"libSPI.lss"
-Finished building: libSPI.lss
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 libSPI.a
-AVR Memory Usage
-----------------
-Device: atmega16
-
-Program:       0 bytes (0.0% Full)
-(.text + .data + .bootloader)
-
-Data:          0 bytes (0.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
+avr-g++ -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\Users\pvloon\My Sources\E-Arduino\SPI" -Wall -Os -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"SPI.d" -MT"SPI.d" -c -o "SPI.o" "../SPI.cpp"
+../SPI.cpp:11:26: warning: pins_arduino.h: No such file or directory
+In file included from ../SPI.cpp:12:
+../SPI.h:15:21: warning: Arduino.h: No such file or directory
+In file included from ../SPI.cpp:12:
+../SPI.h:38: error: 'byte' does not name a type
+../SPI.h:55: error: 'byte' does not name a type
+../SPI.cpp: In static member function 'static void SPIClass::begin()':
+../SPI.cpp:23: error: 'SCK' was not declared in this scope
+../SPI.cpp:23: error: 'OUTPUT' was not declared in this scope
+../SPI.cpp:23: error: 'pinMode' was not declared in this scope
+../SPI.cpp:24: error: 'MOSI' was not declared in this scope
+../SPI.cpp:25: error: 'SS' was not declared in this scope
+../SPI.cpp:27: error: 'LOW' was not declared in this scope
+../SPI.cpp:27: error: 'digitalWrite' was not declared in this scope
+../SPI.cpp:29: error: 'HIGH' was not declared in this scope
+../SPI.cpp: In static member function 'static void SPIClass::setBitOrder(uint8_t)':
+../SPI.cpp:44: error: 'LSBFIRST' was not declared in this scope
+make: *** [SPI.o] Error 1
 
 **** Build Finished ****

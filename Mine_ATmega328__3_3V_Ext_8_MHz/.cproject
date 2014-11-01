@@ -33,8 +33,8 @@
 									<listOptionValue builtIn="false" value="ARDUINO=${ARDUINO_IDE_VERSION}"/>
 								</option>
 								<option id="it.baeyens.avreclipse.compiler.option.incpath.1597481223" name="Include Paths (-I)" superClass="it.baeyens.avreclipse.compiler.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Mine_ATmega328__3_3V_Ext_8_MHz/arduino}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Mine_ATmega328__3_3V_Ext_8_MHz/standard}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINO_CORE_FOLDER}}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINOBOARDVARIANT}}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.avreclipse.compiler.winavr.input.695727881" name="C Source Files" superClass="it.baeyens.avreclipse.compiler.winavr.input"/>
 							</tool>
@@ -52,8 +52,8 @@
 									<listOptionValue builtIn="false" value="ARDUINO=${ARDUINO_IDE_VERSION}"/>
 								</option>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.incpath.64000769" name="Include Paths (-I)" superClass="it.baeyens.avreclipse.cppcompiler.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Mine_ATmega328__3_3V_Ext_8_MHz/arduino}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Mine_ATmega328__3_3V_Ext_8_MHz/standard}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINO_CORE_FOLDER}}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINOBOARDVARIANT}}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.avreclipse.cppcompiler.input.2064355297" superClass="it.baeyens.avreclipse.cppcompiler.input"/>
 							</tool>

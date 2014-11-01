@@ -15,6 +15,8 @@
 #include <EthernetServer.h>
 #include "Web.h"
 #include "Led.h"
+#include "MemoryFree.h"
+#include "InternalTemp.h"
 #include <Timer.h>
 
 

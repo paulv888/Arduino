@@ -9,6 +9,9 @@
 //static uint8_t vlosite[] = { 192, 168, 2, 110 };
 static uint8_t vlosite[] = { 192, 168, 2, 101 };
 
+EthernetServer server(80);                             //server port
+
+
 EthernetClient myclient;
 // ROM-based messages used by the application
 // These are needed to avoid having the strings use up our limited
@@ -266,25 +269,21 @@ void processCmd(WebServer &server, WebServer::ConnectionType type, char *url_tai
 			if (DEBUG_WEB) Serial.print(" value: ");
 			if (DEBUG_WEB) Serial.println(myvalue);
 			if (commandid > 0 && deviceid > 0) {
-				i = findDevice(deviceid, FIND_BY_DEVICE_ID);
+//				i = findDevice(deviceid, FIND_BY_DEVICE_ID);
 				if (i >= 0) {
 					devices[i].setCommand(commandid);
 					devices[i].setData(myvalue);
 					//  Different response based on command, should be flexible and command independent, this is a bridge
 					if (commandid == COMMAND_STATUSREQUEST) { // Now only Range
-						sendMessageRF(i, true);
 						server.httpSuccess();
 						printSensorValues(server.m_client, i);
 					} else if (commandid == COMMAND_DEVICE_STATUS) { // Freemem etc
-						sendMessageRF(i, true);
 						server.httpSuccess();
 						printDeviceStatus(server, i);
 					} else if (commandid == COMMAND_CALIBRATE) { // Simple response
-						sendMessageRF(i, true);
 						server.httpSuccess();
 						printSimpleResponse(server.m_client, i);
 					} else {
-						sendMessageRF(i, false);
 						server.httpSuccess();
 					}
 					return;
@@ -311,14 +310,8 @@ void processCmd(WebServer &server, WebServer::ConnectionType type, char *url_tai
 
 void setupWeb() {
 
-	/* setup our default command that will be run when the user accesses
-	 * a page NOT on the server */
-	//webserver.setFailureCommand(&my_failCmd);
-	/*This command  is called if you try to load /raw.html */
-	webserver.addCommand("p.html", &processCmd);
+	server.begin();
 
-	/* start the webserver */
-	webserver.begin();
 }
 
 void updateWeb() {

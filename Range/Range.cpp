@@ -11,7 +11,7 @@ void setup() {
 	if (DEBUG_MAIN || DEBUG_RF || DEBUG_SENSORS || DEBUG_COMMAND ) Serial.begin(57600);
 
 	// Use analog ref
-	// analogReference(EXTERNAL);
+	analogReference(EXTERNAL);
 
 	// Setup RF communication
 	// setupRF();

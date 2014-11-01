@@ -14,7 +14,85 @@ static uint8_t dns[] = { 192, 168, 2, 1 };
 static uint8_t vlosite[] = { 192, 168, 2, 101 };
 
 static 	EthernetServer server(80);      //server port
+static EthernetClient client;
+
 String readString;
+
+
+P(OpenTag) = "{";
+P(CloseTag) = "}";
+P(Quote) = "\"";
+P(Colon) = " : ";
+P(Comma) = " , ";
+P(DeviceID) = "device";
+P(CommandID) = "command";
+P(sValue) = "commandvalue";
+P(Uptime) = "uptime";
+P(sFreeMemory) = "memory";
+P(sInternalTemp) = "internaltemp";
+
+int printP(const prog_char *str, bool getLen = false) {
+	// copy data out of program memory into local storage, write out in
+	// chunks of 32 bytes to avoid extra short TCP/IP packets
+
+	if (!getLen) {
+
+		uint8_t buffer[32];
+		size_t bufferEnd = 0;
+		while (buffer[bufferEnd++] = pgm_read_byte(str++)) {
+			if (bufferEnd == 32) {
+				client.write(buffer, 32);
+				bufferEnd = 0;
+			}
+		}
+
+		// write out everything left but trailing NUL
+		if (bufferEnd > 1) client.write(buffer, bufferEnd - 1);
+	}
+	return strlen_P(str);
+}
+
+int printV(char * variable, bool getLen = false) {
+	if (!getLen) client.print(variable);
+	return strlen(variable);
+}
+
+int printV(int variable, bool getLen = false) {
+	if (!getLen) client.print(variable);
+	char buffer[16];
+	itoa(variable, buffer, 10);
+	int a = strlen(buffer);
+	return a;
+}
+
+int printResponse(EthernetClient client, byte deviceidx, bool getLen = false) {
+
+	int len = 0;
+
+	len += printP(OpenTag, getLen);
+
+	len += printP(Quote, getLen);
+	len += printP(DeviceID, getLen);
+	len += printP(Quote, getLen);
+	len += printP(Colon, getLen);
+	len += printP(Quote, getLen);
+	len += printV(devices[deviceidx].getDeviceid(), getLen);
+	len += printP(Quote, getLen);
+	len += printP(CloseTag, getLen);
+
+	len += printP(Comma, getLen);
+
+	len += printP(Quote, getLen);
+	len += printP(sValue, getLen);
+	len += printP(Quote, getLen);
+	len += printP(Colon, getLen);
+	len += printP(Quote, getLen);
+	len += printV(devices[deviceidx].getDeviceid(), getLen);
+	len += printP(Quote, getLen);
+	len += printP(CloseTag, getLen);
+
+	return len;
+}
 
 void setupWeb(){
 	// initialize the Ethernet adapter
@@ -40,7 +118,7 @@ void updateWeb(){
 
 	         //if HTTP request has ended
 	         if (c == '\n') {
-	           Serial.println(readString); //print to serial monitor for debuging
+	     		if (DEBUG_WEB) Serial.println(readString); //print to serial monitor for debuging
 
 	           client.println("HTTP/1.1 200 OK"); //send new page
 	           client.println("Content-Type: text/html");
@@ -89,10 +167,6 @@ void updateWeb(){
 	           if (readString.indexOf("/d/1/20") >0){
 	               digitalWrite(LED_PIN, LOW);
 	           }
-	           if (readString.indexOf("?button2on") >0){
-	           }
-	           if (readString.indexOf("?button2off") >0){
-	           }
 	            //clearing string for next read
 	            readString="";
 
@@ -102,9 +176,7 @@ void updateWeb(){
 	}
 }
 
-static EthernetClient client;
-
-void postMessage(byte deviceidx, byte cmdType) {
+void postMessage(byte deviceidx) {
 
 	if (!client.connected()) {
 		client.connect(vlosite, 80);
@@ -129,18 +201,11 @@ void postMessage(byte deviceidx, byte cmdType) {
 		client.println("Content-Type: text/html");
 		client.println("Connection: close");
 		client.print("Content-Length: ");
-		//cmdType = PAYLOAD_TYPE_SIMPLE;
-		if (cmdType == WEB_POST_TYPE_VALUES) {
-			len = printSensorValues(client, deviceidx, true);
-			client.println(len);
-			client.println();
-			printSensorValues(client, deviceidx);
-		} else if (cmdType == WEB_POST_TYPE_SIMPLE) {
-			len = printSimpleResponse(client, deviceidx, true);
-			client.println(len);
-			client.println();
-			printSimpleResponse(client, deviceidx);
-		}
+
+		len = printResponse(client, deviceidx, true);
+		client.println(len);
+		client.println();
+		printResponse(client, deviceidx);
 
 		if (DEBUG_WEB) Serial.print("POST ");
 		if (DEBUG_WEB) Serial.print(WEB_POST_TO_URL);
@@ -164,9 +229,8 @@ void postMessage(byte deviceidx, byte cmdType) {
 		if (DEBUG_WEB) Serial.println("Failed to connect-1");
 	}
 
-	delay(10);
+	delay(1);
 	if (DEBUG_WEB) Serial.println("disconnecting.");
 	client.stop();
 //if (retry==0) Reset_AVR();
 }
-

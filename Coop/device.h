@@ -12,38 +12,30 @@
 #include "Utils.h"
 #include "MemoryFree.h"
 #include "share_commands.h"
-#include "InternalTemp.h"
+#include "Timer.h"
 
+#define MAX_NUMBER_OF_VALUES 5
 
 class DEVICE {
 public:
 	DEVICE();
 	int begin(uint16_t _deviceid, byte _type);
+	int begin(uint16_t _deviceid, byte _type, long period, void (*callback)());
 	byte getType();
 	uint16_t getDeviceid();
-	double getUptime();
-	double getInternalTemp();
-	int getFreeMemory();
-	byte getData();
-	void setCommand(byte _command);
-	void setValue(byte _myvalue);
-	byte getCommand();
-
-	byte needpost; 												// received new values
-
-
+	int setValue(int _name, String _value);
+	String getValue(int _name);
+	String getValuebyIndex(int _idx);
 
 protected:
 	uint16_t deviceid;
 	byte type;
 	bool status;
-	byte command;
-	byte value;
-	unsigned long uptime;
-	int freememory;
-	uint16_t node_address;
-	byte data;
-	double internaltemp;
+	int _name[MAX_NUMBER_OF_VALUES];
+	String _value[MAX_NUMBER_OF_VALUES];
+	int findValueIndex(int _name);
+	String val;
 };
+extern Timer timer;
 
 #endif /* DEVICE_H_ */

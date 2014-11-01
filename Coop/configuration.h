@@ -28,12 +28,11 @@
 #define SWITCH_0 0
 #define SENSOR_THRESHOLD 30
 
-// Device setting
-#define ALIVE_TIMER (long)5*60*1000		// 1 Hour
 
 // Local Errors
 #define INFO_NORMAL 100
 #define INFO_CALIBRATING 101
+
 // Returned errors are in share_command.h
 
 ///////////////////////////////////
@@ -41,11 +40,17 @@
 #define DHT11 11
 
 #define DEVICE_COUNT 1					// not counting myself
+
+#define DEVICE_0_IDX 0 					// this node
 #define DEVICE_0_ID 98 					// this node
 #define DEVICE_0_TYPE 16
+#define DEVICE_0_CALLBACK aliveMessage
+#define DEVICE_0_UPDATE_TIMER (long)5*60*1000
+//#define ALIVE_TIMER (long)5*60*1000		// 1 Hour
 
 #define DEVICE_1_ID 201 					// dht 11 TEMP/HUM
 #define DEVICE_1_TYPE 11
+#define DEVICE_1_CALLBACK aliveMessage
 
 #define WEB_POST_TYPE_VALUES 1
 #define WEB_POST_TYPE_STATUS 2
