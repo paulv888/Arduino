@@ -13,7 +13,7 @@ int DEVICE::begin(uint16_t _deviceid, byte _type, long period, void (*callback)(
 	deviceid = _deviceid;
 	type = _type;
 	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		_name[i] == VALUE_NONE;
+		_name[i] = NO_VALUE;
 	}
 	timer.every(period, callback);
 	return 0;
@@ -63,7 +63,7 @@ int DEVICE::findValueIndex(int valtype) {
 		if (_name[i] == valtype) {
 			return i;
 		}
-		if (_name[i] == VALUE_NONE) {
+		if (_name[i] == NO_VALUE) {
 			firstfree = i;
 		}
 	}

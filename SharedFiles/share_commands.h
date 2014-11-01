@@ -35,7 +35,7 @@
 #define ERROR_CALIBRATE 127
 
 // Value constants
-#define VALUE_NONE 0
+#define NO_VALUE 0
 #define FREEMEMORY 1
 #define UPTIME 2
 #define INTERNALTEMP 3

@@ -1,6 +1,6 @@
-Arduino\ Board=Mine ATmega328  3.3V Ext 8 MHz
+Arduino\ Board=Arduino Uno
 Arduino\ IDE\ Version=1.0.6
 Arduino\ Path=D\:\\arduino-1.0.6
-Arduino\ Port=COM10
+Arduino\ Port=COM9
 Private\ Library\ Path=D\:\\Users\\pvloon\\My Sources\\Arduino\\libraries
 eclipse.preferences.version=1

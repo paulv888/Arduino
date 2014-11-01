@@ -15,6 +15,7 @@
 #include "Timer.h"
 
 #define MAX_NUMBER_OF_VALUES 5
+#define NO_VALUE 0
 
 class DEVICE {
 public:
