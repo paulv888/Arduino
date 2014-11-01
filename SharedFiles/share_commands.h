@@ -14,54 +14,36 @@
 #define COMMAND_CALIBRATE 86
 
 // Commands from Device
-#define COMMAND_RESULT_OK 1
+#define COMMAND_PING 151
+
+/*#define COMMAND_RESULT_OK 1
 #define COMMAND_RESULT_ERROR 2
 #define COMMAND_STATUSON 8
 #define COMMAND_STATUSOFF 6
 #define COMMAND_CALIBRATED 92
+*/
 
 // Either
-#define COMMAND_OFF 20
-#define COMMAND_ON 17
+#define STATUS_ON 1
+#define STATUS_OFF 0
+#define STATUS_UNKNOWN 2
+#define STATUS_ERROR -1
+#define STATUS_NOT_DEFINED 10		// Used for defining status on commands
+
+// Internal Errors
+#define ERROR_READ_SENSOR 130
+#define ERROR_CALIBRATE 127
+
+// Value constants
+#define NO_VALUE 0
+#define FREEMEMORY 1
+#define UPTIME 2
+#define INTERNALTEMP 3
 
 // Errors, passed in data field
-#define ERROR_CALIBRATE 127					// Fix this is a status and not a command Status Err?
+/*#define ERROR_CALIBRATE 127					// Fix this is a status and not a command Status Err?
 #define ERROR_RF_TIMEOUT 128
 #define ERROR_RF_SEND_FAILED 129
-#define ERROR_READ_SENSOR 130
+*/
+#endif /* SHARE_COMMANDS_H_ */
 
-// Sensor #'s
-#define SENSOR_THERMISTOR_0 0			// 6x; 0-5
-#define SENSOR_DHT11_0 6 				// 1 time
-#define SENSOR_SWITCH_0 7				// 6x; 7-13
-
-// Structure of our command
-#define PAYLOAD_TYPE_SIMPLE 1
-struct payLoad_Simple {
-	byte command;
-	byte data;
-	/* shared between payloads */
-};
-
-// Structure of our command
-#define PAYLOAD_TYPE_VALUES 2
-struct payLoad_Value_Pair {
-	byte command;
-	byte data;
-	/* shared between payloads */
-	byte sensor;
-	int value;
-	unsigned int age;
-};
-
-// Structure of our command
-#define PAYLOAD_TYPE_DEVICE_STATUS 3
-struct payLoad_DeviceStatus {
-	byte command;
-	byte data;
-	/* shared between payloads */
-	double upTime;
-	int freeMemory;
-};
-
-#endif /* RF_COMMANDS_H_ */

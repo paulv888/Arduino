@@ -10,13 +10,13 @@
 void streamData();
 int streamDataEvent;
 
-void sendValues(uint16_t from,payLoad_Value_Pair command) {
+/*void sendValues(uint16_t from,payLoad_Value_Pair command) {
 //#define SENSOR_THERMISTOR_0 0			// 6x; 0-5
 //#define SENSOR_DHT11_0 6 				// 1 time
 //#define SENSOR_SWITCH_0 7				// 6x; 7-13
 	unsigned long freezetime = millis();
 	for (byte sensorid = 0; sensorid <= 5; sensorid++) {
-		command.sensor = SENSOR_THERMISTOR_0 + sensorid;
+/*		command.sensor = SENSOR_THERMISTOR_0 + sensorid;
 		command.value = sensorValue[sensorid][0];
 		command.age = freezetime - sensorAge[sensorid];
 //		sendMessageRF(from, command);

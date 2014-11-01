@@ -18,14 +18,20 @@
 							<option id="it.baeyens.avreclipse.toolchain.options.toolchain.objdump.lib.release.585969840" name="Generate Extended Listing (Source + generated Assembler)" superClass="it.baeyens.avreclipse.toolchain.options.toolchain.objdump.lib.release"/>
 							<option id="it.baeyens.avreclipse.toolchain.options.toolchain.size.lib.release.1294808437" name="Print Size" superClass="it.baeyens.avreclipse.toolchain.options.toolchain.size.lib.release"/>
 							<targetPlatform id="it.baeyens.avreclipse.targetplatform.winavr.lib.release.298684836" name="AVR Cross-Target" superClass="it.baeyens.avreclipse.targetplatform.winavr.lib.release"/>
-							<builder buildPath="${workspace_loc:/Ethernet/Release}" id="it.baeyens.avreclipse.target.builder.winavr.lib.release.567401173" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="AVR GNU Make Builder" superClass="it.baeyens.avreclipse.target.builder.winavr.lib.release"/>
+							<builder buildPath="${workspace_loc:/Ethernet/Release}" id="it.baeyens.avreclipse.target.builder.winavr.lib.release.567401173" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="AVR GNU Make Builder" superClass="it.baeyens.avreclipse.target.builder.winavr.lib.release">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
+								</outputEntries>
+							</builder>
 							<tool id="it.baeyens.avreclipse.tool.assembler.winavr.lib.release.397855148" name="AVR Assembler" superClass="it.baeyens.avreclipse.tool.assembler.winavr.lib.release">
 								<option id="it.baeyens.avreclipse.assembler.option.debug.level.1896062537" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.assembler.option.debug.level" value="it.baeyens.avreclipse.assembler.option.debug.level.none" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.asm.option.include.paths.1742156728" name="#include paths for preprocessor(-I)" superClass="it.baeyens.avreclipse.asm.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SPI}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/w5100}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Arduino_Uno/arduino}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Arduino_Uno/standard}&quot;"/>
+									<listOptionValue builtIn="false" value="../SPI"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/w5100}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/Arduino_Uno/arduino}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/Arduino_Uno/standard}&quot;"/>
+									<listOptionValue builtIn="false" value="../utility"/>
+									<listOptionValue builtIn="false" value="../Ethernet/SPI"/>
 								</option>
 								<inputType id="it.baeyens.avreclipse.tool.assembler.input.2034158259" superClass="it.baeyens.avreclipse.tool.assembler.input"/>
 							</tool>
@@ -33,10 +39,10 @@
 								<option id="it.baeyens.avreclipse.compiler.option.debug.level.758755159" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.compiler.option.debug.level" value="it.baeyens.avreclipse.compiler.option.debug.level.none" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.compiler.option.optimize.184632159" name="Optimization Level" superClass="it.baeyens.avreclipse.compiler.option.optimize" value="it.baeyens.avreclipse.compiler.optimize.size" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.compiler.option.incpath.1480863446" name="Include Paths (-I)" superClass="it.baeyens.avreclipse.compiler.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SPI}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/w5100}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Arduino_Uno/arduino}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Arduino_Uno/standard}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINO_CORE_FOLDER}}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINOBOARDVARIANT}}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/w5100}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/SPI}&quot;"/>
 								</option>
 								<option id="it.baeyens.avreclipse.compiler.option.optimize.packstruct.241101552" name="Pack structs (-fpack-struct)" superClass="it.baeyens.avreclipse.compiler.option.optimize.packstruct" value="false" valueType="boolean"/>
 								<option id="it.baeyens.avreclipse.compiler.option.optimize.shortenums.932342965" name="Short enums (-fshort-enums)" superClass="it.baeyens.avreclipse.compiler.option.optimize.shortenums" value="false" valueType="boolean"/>
@@ -49,10 +55,11 @@
 								<option id="it.baeyens.avreclipse.cppcompiler.option.debug.level.481657967" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.cppcompiler.option.debug.level" value="it.baeyens.avreclipse.cppcompiler.option.debug.level.none" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.optimize.1149454666" name="Optimization Level" superClass="it.baeyens.avreclipse.cppcompiler.option.optimize" value="it.baeyens.avreclipse.cppcompiler.optimize.size" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.incpath.128900635" name="Include Paths (-I)" superClass="it.baeyens.avreclipse.cppcompiler.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SPI}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/w5100}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Arduino_Uno/arduino}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Arduino_Uno/standard}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINO_CORE_FOLDER}}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINOBOARDVARIANT}}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/utility}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/w5100}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/SPI}&quot;"/>
 								</option>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.optimize.packstruct.264524767" name="Pack structs (-fpack-struct)" superClass="it.baeyens.avreclipse.cppcompiler.option.optimize.packstruct" value="false" valueType="boolean"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.optimize.shortenums.1280439884" name="Short enums (-fshort-enums)" superClass="it.baeyens.avreclipse.cppcompiler.option.optimize.shortenums" value="false" valueType="boolean"/>
@@ -69,7 +76,8 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="SPI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="?xamples/*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="SPI"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

@@ -8,8 +8,6 @@
 //
 // Difference: 14 bytes (13 ascii chars + null terminator)
 
-// 14-bytes string
-//char str[] = "Hello, world!";
 #include "MemoryFree.h"
 
 

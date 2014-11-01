@@ -31,13 +31,57 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<<<<<<< HEAD
+=======
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
 </presentation>
 </folder>
 </info>
 </editorArea>
+<<<<<<< HEAD
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="web.cpp" partName="web.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/web.cpp" title="web.cpp" tooltip="Coop/web.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/web.cpp"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1575"/>
+=======
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Coop.cpp" partName="Coop.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Coop.cpp" title="Coop.cpp" tooltip="Coop/Coop.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Coop.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="501" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="web.cpp" partName="web.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/web.cpp" title="web.cpp" tooltip="Coop/web.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/web.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="1" selectionOffset="4879" selectionTopPixel="1710"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="web.h" partName="web.h" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/web.h" title="web.h" tooltip="Coop/web.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/web.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="181"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Led.h" partName="Led.h" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Led.h" title="Led.h" tooltip="Coop/Led.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Led.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Led.cpp" partName="Led.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Led.cpp" title="Led.cpp" tooltip="Coop/Led.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Led.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="configuration.h" partName="configuration.h" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/configuration.h" title="configuration.h" tooltip="Coop/configuration.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/configuration.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="7" selectionOffset="249" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="w5100.cpp" partName="w5100.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Ethernet/utility/w5100.cpp" title="w5100.cpp" tooltip="Ethernet/utility/w5100.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Ethernet/utility/w5100.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="643" selectionTopPixel="2269"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="SPI.h" partName="SPI.h" path="D:/arduino-1.0.6/libraries/SPI/SPI.h" title="SPI.h" tooltip="Ethernet/SPI/SPI.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Ethernet/SPI/SPI.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
 </editor>
 </editors>
 <views>
@@ -92,7 +136,11 @@
 <viewState/>
 </view>
 </views>
+<<<<<<< HEAD
 <perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
+=======
+<perspectives activePart="org.eclipse.ui.views.ProblemView" activePerspective="org.eclipse.cdt.ui.CPerspective">
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.cdt.internal.ui.CPerspectiveFactory" id="org.eclipse.cdt.ui.CPerspective" label="C/C++"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -183,7 +231,11 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.14300682" ratioLeft="273" ratioRight="1636" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottom" ratio="0.65524626" ratioLeft="612" ratioRight="322" relationship="4" relative="org.eclipse.ui.editorss">
+<<<<<<< HEAD
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+=======
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
@@ -222,6 +274,7 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Coop.cpp"/>
+<<<<<<< HEAD
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ARDBrigde/web.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test1/web.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/web.cpp"/>
@@ -386,6 +439,171 @@
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item active="true" historyLabel="web.cpp" index="10">
+=======
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/web.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ARDBrigde/web.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/web.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/configuration.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test1/web.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test1/web.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Arduino_Uno/arduino/Print.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/web.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/web.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Led.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Led.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/configuration.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Ethernet/utility/w5100.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Ethernet/SPI/SPI.h"/>
+</editors>
+<item historyLabel="configuration.h" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="configuration.h" index="4">
+<position info="not_deleted" x="1464" y="0"/>
+</item>
+<item historyLabel="web.h" index="1">
+<position info="not_deleted" x="932" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="2498" y="6"/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="329" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="2474" y="43"/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="2549" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="4884" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="2756" y="10"/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="2474" y="43"/>
+</item>
+<item historyLabel="web.h" index="5">
+<position info="not_deleted" x="932" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="6">
+<position/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="3178" y="0"/>
+</item>
+<item historyLabel="web.h" index="1">
+<position info="not_deleted" x="817" y="87"/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="3051" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="6">
+<position/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="3051" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="2">
+<position/>
+</item>
+<item historyLabel="web.cpp" index="2">
+<position/>
+</item>
+<item historyLabel="web.cpp" index="3">
+<position info="not_deleted" x="3051" y="0"/>
+</item>
+<item historyLabel="Print.h" index="7">
+<position info="not_deleted" x="1041" y="11"/>
+</item>
+<item historyLabel="Coop.cpp" index="0">
+<position info="not_deleted" x="1243" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="0">
+<position info="not_deleted" x="558" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="0">
+<position info="not_deleted" x="206" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="391" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="0">
+<position info="not_deleted" x="468" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="391" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="0">
+<position info="not_deleted" x="529" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="690" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="0">
+<position info="not_deleted" x="533" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="690" y="0"/>
+</item>
+<item historyLabel="web.h" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="339" y="0"/>
+</item>
+<item historyLabel="Led.h" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Led.cpp" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="configuration.h" index="12">
+<position info="not_deleted" x="249" y="7"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="3475" y="7"/>
+</item>
+<item historyLabel="configuration.h" index="12">
+<position info="not_deleted" x="249" y="7"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="3595" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="0">
+<position info="not_deleted" x="501" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="3121" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="6">
+<position info="not_deleted" x="4969" y="1594"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="5890" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="6">
+<position info="not_deleted" x="5264" y="0"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="3878" y="2012"/>
+</item>
+<item historyLabel="web.cpp" index="2">
+<position info="not_deleted" x="9415" y="2012"/>
+</item>
+<item historyLabel="web.cpp" index="8">
+<position info="not_deleted" x="3878" y="2012"/>
+</item>
+<item historyLabel="w5100.cpp" index="13">
+<position info="not_deleted" x="643" y="11"/>
+</item>
+<item active="true" historyLabel="SPI.h" index="14">
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
 <position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
@@ -394,6 +612,7 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<<<<<<< HEAD
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="topLeft"/>
 </trimArea>
@@ -401,6 +620,8 @@
 <trimItem IMemento.internal.id="bottom"/>
 <trimItem IMemento.internal.id="topRight"/>
 </trimArea>
+=======
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -413,17 +634,45 @@
 </trimLayout>
 </window>
 <mruList>
+<<<<<<< HEAD
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="web.cpp" tooltip="Coop/web.cpp">
 <persistable path="/Coop/web.cpp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Coop.h" tooltip="Coop/Coop.h">
 <persistable path="/Coop/Coop.h"/>
+=======
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="SPI.h" tooltip="Ethernet/SPI/SPI.h">
+<persistable path="/Ethernet/SPI/SPI.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="w5100.cpp" tooltip="Ethernet/utility/w5100.cpp">
+<persistable path="/Ethernet/utility/w5100.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="configuration.h" tooltip="Coop/configuration.h">
+<persistable path="/Coop/configuration.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Led.cpp" tooltip="Coop/Led.cpp">
+<persistable path="/Coop/Led.cpp"/>
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Led.h" tooltip="Coop/Led.h">
+<persistable path="/Coop/Led.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="web.h" tooltip="Coop/web.h">
+<persistable path="/Coop/web.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="web.cpp" tooltip="Coop/web.cpp">
+<persistable path="/Coop/web.cpp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Coop.cpp" tooltip="Coop/Coop.cpp">
 <persistable path="/Coop/Coop.cpp"/>
 </file>
+<<<<<<< HEAD
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sensors.cpp" tooltip="Coop/sensors.cpp">
 <persistable path="/Coop/sensors.cpp"/>
+=======
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Print.h" tooltip="Arduino_Uno/arduino/Print.h">
+<persistable path="/Arduino_Uno/arduino/Print.h"/>
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Led.h" tooltip="Coop/Led.h">
 <persistable path="/Coop/Led.h"/>
@@ -431,6 +680,7 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Led.cpp" tooltip="Coop/Led.cpp">
 <persistable path="/Coop/Led.cpp"/>
 </file>
+<<<<<<< HEAD
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="web.h" tooltip="Coop/web.h">
 <persistable path="/Coop/web.h"/>
 </file>
@@ -457,6 +707,22 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Event.h" tooltip="Coop/Timer/Event.h">
 <persistable path="/Coop/Timer/Event.h"/>
+=======
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="EthernetClient.cpp" tooltip="Ethernet/EthernetClient.cpp">
+<persistable path="/Ethernet/EthernetClient.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Ethernet.h" tooltip="Ethernet/Ethernet.h">
+<persistable path="/Ethernet/Ethernet.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Ethernet.cpp" tooltip="Ethernet/Ethernet.cpp">
+<persistable path="/Ethernet/Ethernet.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Event.h" tooltip="Coop/Timer/Event.h">
+<persistable path="/Coop/Timer/Event.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Event.cpp" tooltip="Coop/Timer/Event.cpp">
+<persistable path="/Coop/Timer/Event.cpp"/>
+>>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
 </file>
 </mruList>
 </workbench>

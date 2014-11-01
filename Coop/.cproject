@@ -30,16 +30,14 @@
 							<tool command="avr-gcc" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GASErrorParser" id="it.baeyens.avreclipse.tool.assembler.winavr.app.release.2056035817" name="AVR Assembler" superClass="it.baeyens.avreclipse.tool.assembler.winavr.app.release">
 								<option id="it.baeyens.avreclipse.assembler.option.debug.level.22469911" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.assembler.option.debug.level" value="it.baeyens.avreclipse.assembler.option.debug.level.none" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.asm.option.include.paths.1193182990" name="#include paths for preprocessor(-I)" superClass="it.baeyens.avreclipse.asm.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="../Coop/Ethernet"/>
-									<listOptionValue builtIn="false" value="../Coop/SharedFiles"/>
-									<listOptionValue builtIn="false" value="../Coop/Mine_ATmega328__3_3V_Ext_8_MHz/arduino"/>
-									<listOptionValue builtIn="false" value="../Coop/Mine_ATmega328__3_3V_Ext_8_MHz/standard"/>
-									<listOptionValue builtIn="false" value="../Coop/Coop"/>
-									<listOptionValue builtIn="false" value="../Coop/Coop/Timer"/>
-									<listOptionValue builtIn="false" value="../Coop/Coop/DHT11"/>
-									<listOptionValue builtIn="false" value="../Coop/Coop/SPI"/>
-									<listOptionValue builtIn="false" value="&quot;D:/Users/pvloon/My Sources/E-Arduino/Coop/Coop/Webduino&quot;"/>
-									<listOptionValue builtIn="false" value="../Coop/Coop/Webduino-Master"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/Mine_ATmega328__3_3V_Ext_8_MHz/arduino}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/Mine_ATmega328__3_3V_Ext_8_MHz/standard}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/Ethernet}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/SharedFiles}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/Coop/Timer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/Coop/DHT11}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/Coop/SPI}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.avreclipse.tool.assembler.input.237159600" superClass="it.baeyens.avreclipse.tool.assembler.input"/>
 							</tool>
@@ -47,14 +45,14 @@
 								<option id="it.baeyens.avreclipse.compiler.option.debug.level.1349471076" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.compiler.option.debug.level" value="it.baeyens.avreclipse.compiler.option.debug.level.none" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.compiler.option.optimize.1229451333" name="Optimization Level" superClass="it.baeyens.avreclipse.compiler.option.optimize" value="it.baeyens.avreclipse.compiler.optimize.size" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.compiler.option.incpath.83382774" name="Include Paths (-I)" superClass="it.baeyens.avreclipse.compiler.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="../Coop/Coop"/>
-									<listOptionValue builtIn="false" value="../Coop/SharedFiles"/>
-									<listOptionValue builtIn="false" value="../Coop/Ethernet"/>
-									<listOptionValue builtIn="false" value="../Coop/Mine_ATmega328__3_3V_Ext_8_MHz/arduino"/>
-									<listOptionValue builtIn="false" value="../Coop/Mine_ATmega328__3_3V_Ext_8_MHz/standard"/>
-									<listOptionValue builtIn="false" value="../Coop/Coop/Timer"/>
-									<listOptionValue builtIn="false" value="../Coop/Coop/DHT11"/>
-									<listOptionValue builtIn="false" value="../Coop/Coop/SPI"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINO_CORE_FOLDER}}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINOBOARDVARIANT}}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/SharedFiles}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/Timer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/DHT11}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Coop/SPI}&quot;"/>
 								</option>
 								<option id="it.baeyens.avreclipse.compiler.option.def.1485111403" name="Define Syms (-D)" superClass="it.baeyens.avreclipse.compiler.option.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__IN_ECLIPSE__=1"/>
@@ -108,7 +106,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}}/${ConfigName}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/Release}&quot;"/>
 								</option>
-								<option id="it.baeyens.avreclipse.cpplinker.option.genmap.1519069921" name="Map Filename" superClass="it.baeyens.avreclipse.cpplinker.option.genmap" value="" valueType="string"/>
+								<option id="it.baeyens.avreclipse.cpplinker.option.genmap.1519069921" name="Map Filename" superClass="it.baeyens.avreclipse.cpplinker.option.genmap" value="&quot;D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt&quot;" valueType="string"/>
 								<option id="it.baeyens.avreclipse.cpplinker.option.otherlinkargs.534329913" name="Other Arguments" superClass="it.baeyens.avreclipse.cpplinker.option.otherlinkargs" value="" valueType="string"/>
 								<inputType id="it.baeyens.avreclipse.tool.cpplinker.input.306845630" name="OBJ Files" superClass="it.baeyens.avreclipse.tool.cpplinker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -123,37 +121,9 @@
 							<tool id="it.baeyens.avreclipse.tool.avrdude.app.release.165671477" name="AVRDude" superClass="it.baeyens.avreclipse.tool.avrdude.app.release"/>
 						</toolChain>
 					</folderInfo>
-					<folderInfo id="it.baeyens.avreclipse.configuration.app.release.980545052.6562741" name="/" resourcePath="Utils">
-						<toolChain id="it.baeyens.avreclipse.toolchain.winavr.app.release.927338406" name="AVR-GCC Toolchain" superClass="it.baeyens.avreclipse.toolchain.winavr.app.release" unusedChildren="">
-							<option id="it.baeyens.avreclipse.toolchain.options.toolchain.objcopy.flash.app.release.1046730981.748658650" name="Generate HEX file for Flash memory" superClass="it.baeyens.avreclipse.toolchain.options.toolchain.objcopy.flash.app.release.1046730981"/>
-							<option id="it.baeyens.avreclipse.toolchain.options.toolchain.objcopy.eeprom.app.release.219589584.1363863732" name="Generate HEX file for EEPROM" superClass="it.baeyens.avreclipse.toolchain.options.toolchain.objcopy.eeprom.app.release.219589584"/>
-							<option id="it.baeyens.avreclipse.toolchain.options.toolchain.objdump.app.release.615307235.2003821047" name="Generate Extended Listing (Source + generated Assembler)" superClass="it.baeyens.avreclipse.toolchain.options.toolchain.objdump.app.release.615307235"/>
-							<option id="it.baeyens.avreclipse.toolchain.options.toolchain.size.app.release.1878891254.2007686266" name="Print Size" superClass="it.baeyens.avreclipse.toolchain.options.toolchain.size.app.release.1878891254"/>
-							<option id="it.baeyens.avreclipse.toolchain.options.toolchain.avrdude.app.release.1381992110.1879779336" name="AVRDude" superClass="it.baeyens.avreclipse.toolchain.options.toolchain.avrdude.app.release.1381992110"/>
-							<targetPlatform id="it.baeyens.avreclipse.targetplatform.winavr.app.release" name="AVR Cross-Target" superClass="it.baeyens.avreclipse.targetplatform.winavr.app.release"/>
-							<tool id="it.baeyens.avreclipse.tool.assembler.winavr.app.release.1434428181" name="AVR Assembler" superClass="it.baeyens.avreclipse.tool.assembler.winavr.app.release.2056035817">
-								<inputType id="it.baeyens.avreclipse.tool.assembler.input.2028286321" superClass="it.baeyens.avreclipse.tool.assembler.input"/>
-							</tool>
-							<tool id="it.baeyens.avreclipse.tool.compiler.winavr.app.release.62642206" name="AVR Compiler" superClass="it.baeyens.avreclipse.tool.compiler.winavr.app.release.1677379678">
-								<inputType id="it.baeyens.avreclipse.compiler.winavr.input.318654290" name="C Source Files" superClass="it.baeyens.avreclipse.compiler.winavr.input"/>
-							</tool>
-							<tool id="it.baeyens.avreclipse.tool.cppcompiler.app.release.1239426286" name="AVR C++ Compiler" superClass="it.baeyens.avreclipse.tool.cppcompiler.app.release.265767624">
-								<inputType id="it.baeyens.avreclipse.cppcompiler.input.1899849905" superClass="it.baeyens.avreclipse.cppcompiler.input"/>
-							</tool>
-							<tool id="it.baeyens.avreclipse.tool.linker.winavr.app.release.1601412021" name="AVR C Linker" superClass="it.baeyens.avreclipse.tool.linker.winavr.app.release.1782124606"/>
-							<tool id="it.baeyens.avreclipse.tool.cpplinker.app.release.200723737" name="AVR C++ Linker" superClass="it.baeyens.avreclipse.tool.cpplinker.app.release.1612619751"/>
-							<tool id="it.baeyens.avreclipse.tool.archiver.winavr.base.1927767622" name="AVR Archiver" superClass="it.baeyens.avreclipse.tool.archiver.winavr.base.2145680251"/>
-							<tool id="it.baeyens.avreclipse.tool.objdump.winavr.app.release.184942819" name="AVR Create Extended Listing" superClass="it.baeyens.avreclipse.tool.objdump.winavr.app.release.382856739"/>
-							<tool id="it.baeyens.avreclipse.tool.objcopy.flash.winavr.app.release.209955174" name="AVR Create Flash image" superClass="it.baeyens.avreclipse.tool.objcopy.flash.winavr.app.release.696142376"/>
-							<tool id="it.baeyens.avreclipse.tool.objcopy.eeprom.winavr.app.release.1802045503" name="AVR Create EEPROM image" superClass="it.baeyens.avreclipse.tool.objcopy.eeprom.winavr.app.release.1178986446"/>
-							<tool id="it.baeyens.avreclipse.tool.size.winavr.app.release.1941983709" name="Print Size" superClass="it.baeyens.avreclipse.tool.size.winavr.app.release.456436652"/>
-							<tool id="it.baeyens.avreclipse.tool.avrdude.app.release.1816266900" name="AVRDude" superClass="it.baeyens.avreclipse.tool.avrdude.app.release.165671477"/>
-						</toolChain>
-					</folderInfo>
 					<sourceEntries>
-						<entry excluding="SPI|Webduino|Utils|DHT11|lTimer|Webduino-Master|Timer" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Webduino-Master|SPI|Timer|Utils|Webduino|lTimer|DHT11" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="?xamples/*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SPI"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Utils"/>
 						<entry excluding="?xamples/*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="DHT11"/>
 						<entry excluding="?xamples/*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Timer"/>
 					</sourceEntries>
