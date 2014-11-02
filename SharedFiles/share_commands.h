@@ -4,6 +4,8 @@
  *  Created on: Sep 7, 2012
  *      Author: pvloon
  */
+// These values are shared with vlohome site
+
 
 #ifndef SHARE_COMMANDS_H_
 #define SHARE_COMMANDS_H_
@@ -34,11 +36,14 @@
 #define ERROR_READ_SENSOR 130
 #define ERROR_CALIBRATE 127
 
-// Value constants
-#define NO_VALUE 0
-#define FREEMEMORY 1
-#define UPTIME 2
-#define INTERNALTEMP 3
+// Device Types
+#define DEV_TYPE_ARDUINO 16
+#define DEV_TYPE_TEMP_HUM 11
+#define DEV_TYPE_DIMMER_MOTOR 6
+#define DEV_TYPE_SWITCH 3
+#define DEV_TYPE_THERMOSTAT_HEAT 19
+#define DEV_TYPE_DIMMER 1
+
 
 // Errors, passed in data field
 /*#define ERROR_CALIBRATE 127					// Fix this is a status and not a command Status Err?

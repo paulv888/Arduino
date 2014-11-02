@@ -15,26 +15,33 @@
 #include "Timer.h"
 
 #define MAX_NUMBER_OF_VALUES 5
-#define NO_VALUE 0
-
-class DEVICE {
+class Device {
 public:
-	DEVICE();
-	int begin(uint16_t _deviceid, byte _type);
-	int begin(uint16_t _deviceid, byte _type, long period, void (*callback)());
+	Device();
+	int begin(const char* _name, int _deviceid, byte _type, long period, void (*callback)(), void (*_commandHandler)());
+	void test(void (*_commandHandler)(void *d, void *c, void *v));
+
 	byte getType();
-	uint16_t getDeviceid();
-	int setValueFloat(int _name, double _value);
-	int setValue(int _name, int _value);
-	char *getValue(int _name);
+	void setName(char _name[]);
+	const char *getName();
+	int getDeviceid();
+	int setValueFloat(int _valuetype, double _value);
+	int setValueInt(int _valuetype, int _value);
+	int setValueUL(int _valuetype, unsigned long _value);
+	char *getValue(int _valuetype);
+	char *getValuebyInd(int Idx);
+	int getValueTypebyInd(int Idx);
+	void (*commandHandler)(int d, int c, int v) ;
+//	void (*commandHandler)() ;
 
 protected:
-	uint16_t deviceid;
+	int deviceid;
 	byte type;
 	bool status;
-	int _name[MAX_NUMBER_OF_VALUES];
-	char  *_value[MAX_NUMBER_OF_VALUES];
-	int findValueIndex(int _name);
+	char* name;
+	int valtype[MAX_NUMBER_OF_VALUES];
+	char  *value[MAX_NUMBER_OF_VALUES];
+	int findValueIndex(int _valtype);
 };
 extern Timer timer;
 

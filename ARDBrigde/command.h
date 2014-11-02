@@ -15,11 +15,10 @@
 
 //add your includes for the project command here
 #include "configuration.h"
-#include "share_commands.h"
+#include "rf.h"
 #include "device.h"
-#include "Utils.h"
-#include "MemoryFree.h"
-#include "web.h"
+#include "Utils/Utils.h"
+#include "Utils/MemoryFree.h"
 
 
 //end of add your includes here
@@ -34,7 +33,10 @@ void setup();
 
 
 //add your function definitions for the project command here
-void unpackCommandRF(byte deviceidx, payLoad_DeviceStatus &command) ;
+void handle_commandRF(uint16_t from, command_tRF command);
+//extern void sendMessageRF(uint16_t, command_tRF);
+extern int findDevice(uint16_t findwhat, int bywhat) ;
+void sendWeb(uint16_t from, command_tRF command) ;
 extern DEVICE devices[];
 
 //Do not add code below this line

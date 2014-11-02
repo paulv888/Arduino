@@ -47,3 +47,9 @@ int millisRollover() {
   return numRollovers;
 }
 
+char* malcpy(const char* s) {
+    char* c = (char*)malloc(strlen(s)+1);
+    strcpy(c,s);
+    return c;
+}
+

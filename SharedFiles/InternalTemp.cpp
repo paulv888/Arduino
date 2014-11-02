@@ -38,7 +38,8 @@ double GetInternalTemp(void)
   wADC = ADCW;
 
   // The offset of 324.31 could be wrong. It is just an indication.
-  t = (wADC - 324.31 ) / 1.22;
+  //t = (wADC - 324.31 ) / 1.22;
+  t = wADC ;
 
   // The returned temperature is in degrees Celcius.
   return (t);

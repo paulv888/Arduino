@@ -93,50 +93,5 @@
 			<type>2</type>
 			<locationURI>PivateLibPath/Webduino</locationURI>
 		</link>
-		<link>
-			<name>share_commands.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/share_commands.h</locationURI>
-		</link>
-		<link>
-			<name>Utils/ArrayHandler.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/ArrayHandler.cpp</locationURI>
-		</link>
-		<link>
-			<name>Utils/ArrayHandler.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/ArrayHandler.h</locationURI>
-		</link>
-		<link>
-			<name>Utils/InternalTemp.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/InternalTemp.cpp</locationURI>
-		</link>
-		<link>
-			<name>Utils/InternalTemp.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/InternalTemp.h</locationURI>
-		</link>
-		<link>
-			<name>Utils/MemoryFree.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/MemoryFree.cpp</locationURI>
-		</link>
-		<link>
-			<name>Utils/MemoryFree.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/MemoryFree.h</locationURI>
-		</link>
-		<link>
-			<name>Utils/Utils.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/Utils.cpp</locationURI>
-		</link>
-		<link>
-			<name>Utils/Utils.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/Utils.h</locationURI>
-		</link>
 	</linkedResources>
 </projectDescription>

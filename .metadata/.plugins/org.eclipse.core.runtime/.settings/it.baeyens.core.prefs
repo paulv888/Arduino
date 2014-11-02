@@ -1,3 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=125768ac305c9e34f3d3cd5be1027b03631b55e2
 avrdude/avrdudeconf=D\:\\arduino-1.0.6\\hardware\\tools\\avr\\etc\\avrdude.conf
 avrdude/configs/programmerconfig.1/baudrate=57600
 avrdude/configs/programmerconfig.1/description=AVReclipse controlled arduino settings. You should not changes this manually
@@ -15,8 +18,6 @@ avrdude/configs/programmerconfig.10/postAvrdudeDelayMs=
 avrdude/configs/programmerconfig.10/ppresetline=
 avrdude/configs/programmerconfig.10/ppvccline=
 avrdude/configs/programmerconfig.10/programmer=arduino
-<<<<<<< HEAD
-=======
 avrdude/configs/programmerconfig.11/baudrate=115200
 avrdude/configs/programmerconfig.11/description=AVReclipse controlled arduino settings. You should not changes this manually
 avrdude/configs/programmerconfig.11/name=AVR Eclipse controlled Arduino settings for project Ethernet
@@ -25,7 +26,14 @@ avrdude/configs/programmerconfig.11/postAvrdudeDelayMs=
 avrdude/configs/programmerconfig.11/ppresetline=
 avrdude/configs/programmerconfig.11/ppvccline=
 avrdude/configs/programmerconfig.11/programmer=arduino
->>>>>>> 125768ac305c9e34f3d3cd5be1027b03631b55e2
+avrdude/configs/programmerconfig.12/baudrate=115200
+avrdude/configs/programmerconfig.12/description=AVReclipse controlled arduino settings. You should not changes this manually
+avrdude/configs/programmerconfig.12/name=AVR Eclipse controlled Arduino settings for project ARDBridge-1
+avrdude/configs/programmerconfig.12/port=COM9
+avrdude/configs/programmerconfig.12/postAvrdudeDelayMs=
+avrdude/configs/programmerconfig.12/ppresetline=
+avrdude/configs/programmerconfig.12/ppvccline=
+avrdude/configs/programmerconfig.12/programmer=arduino
 avrdude/configs/programmerconfig.13/baudrate=115200
 avrdude/configs/programmerconfig.13/description=AVReclipse controlled arduino settings. You should not changes this manually
 avrdude/configs/programmerconfig.13/name=AVR Eclipse controlled Arduino settings for project ARDBridge

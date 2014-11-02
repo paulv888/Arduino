@@ -11,6 +11,6 @@
 
 
 int millisRollover();
-
+char* malcpy(const char* s);
 
 #endif /* UTILS_H_ */

@@ -13,10 +13,7 @@
 #include <Ethernet.h>
 #include <EthernetClient.h>
 #include <EthernetServer.h>
-#include "Web.h"
-#include "Led.h"
-#include "MemoryFree.h"
-#include "InternalTemp.h"
+#include "sensors.h"
 #include <Timer.h>
 
 

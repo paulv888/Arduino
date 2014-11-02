@@ -30,6 +30,14 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="DEBUG"/>
+			<item value="FREEMEMORY"/>
+			<item value="status"/>
+			<item value="strlen_P"/>
+			<item value="string"/>
+			<item value="sting"/>
+			<item value="millis"/>
+			<item value="GetInternalTemp"/>
 			<item value="str"/>
 			<item value="cmdid"/>
 			<item value="DDRB"/>

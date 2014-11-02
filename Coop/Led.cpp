@@ -10,7 +10,7 @@ void showStatus(int Error) {
 	static int eSensorSend = 0;
 	switch (Error) {
 	case INFO_NORMAL:
-		timer.oscillate(LED_PIN, HIGH, 500, 2);
+		timer.oscillate(LED_PIN, HIGH, 500, 2, 3);
 		break;
 	case INFO_CALIBRATING:
 		timer.oscillate(LED_PIN, HIGH, 500, 50, 3);

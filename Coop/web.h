@@ -17,11 +17,13 @@
 #include "device.h"
 #include <avr/io.h>
 #include <avr/wdt.h>
+#include "MemoryFree.h"
+#include "InternalTemp.h"
 
 #define Reset_AVR() wdt_enable(WDTO_30MS); while(1) {}
 
 // declare a static string
-#define P(name)  static const prog_char name[] PROGMEM
+#define P(name) static const prog_char name[] PROGMEM
 
 
 
@@ -38,7 +40,8 @@ void setup();
 void setupWeb();
 void updateWeb();
 void postMessage( byte deviceidx);
-extern DEVICE devices[];
+void postMessage1();
+extern Device devices[];
 byte findDevice(uint16_t findwhat);
 
 //Do not add code below this line

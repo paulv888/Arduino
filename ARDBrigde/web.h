@@ -7,21 +7,15 @@
 #define WEB_H_
 #include "Arduino.h"
 #include <Ethernet.h>
-#include <EthernetClient.h>
-#include <EthernetServer.h>
 #include <SPI.h>
 #include "avr/pgmspace.h" // new include
 //add your includes for the project command here
 #include "configuration.h"
+#include "rf.h"
 #include "command.h"
 #include "WebServer.h"
-#include "Utils.h"
-#include "MemoryFree.h"
-#include <avr/io.h>
-#include <avr/wdt.h>
-
-#define Reset_AVR() wdt_enable(WDTO_30MS); while(1) {}
-
+#include "Utils/Utils.h"
+#include "Utils/MemoryFree.h"
 
 
 //end of add your includes here
@@ -41,8 +35,9 @@ void setup();
 
 void setupWeb();
 void updateWeb();
-void postMessage( byte deviceidx, byte cmdType ) ;
-
+extern int findDevice(uint16_t findwhat, int bywhat) ;
+extern unsigned long rfLastSuccesful;
+extern unsigned long rfSendErrors;
 
 //Do not add code below this line
 #endif /* WEB_H_ */

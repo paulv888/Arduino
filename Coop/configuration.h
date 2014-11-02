@@ -7,10 +7,6 @@
 #ifndef CONFIGURATION_H_
 #define CONFIGURATION_H_
 #include "Arduino.h"
-///////////////////////////////////
-//  Pin definitions
-#define DHT11_PIN  6
-#define LED_PIN 7
 
 ///////////////////////////////////
 // init debugging
@@ -19,52 +15,61 @@
 #define DEBUG_COMMAND true
 #define DEBUG_WEB true
 
+///////////////////////////////////
+// Device Types
+#define DEVICE_COUNT 3
 
-// Sensor setting
-#define SENSOR_POL_TIME (long)10*1000		// 10 Sec
-#define SENSOR_CALIBRATION_INTERVAL (long)12*60*60*1000		// 12 Hours
-#define SENSOR_THERMISTOR 1
-#define SENSOR_DHT11 2
-#define SWITCH_0 0
-#define SENSOR_THRESHOLD 30
+// Arduino Module
+#define DEVICE_0_NAME "Arduino"
+#define DEVICE_0_IDX 0
+#define DEVICE_0_ID 98 							// Shared with vlohome
+#define DEVICE_0_TYPE DEV_TYPE_ARDUINO
+#define DEVICE_0_UPDATE_TIMER (long)5*60*1000
+#define DEVICE_0_CALLBACK aliveMessage
+#define DEVICE_0_COMMANDHANDLER NULL
 
+// DHT11 Temp Hum Sensore
+#define DEVICE_1_NAME "DHT11"
+#define DEVICE_1_IDX 1
+#define DEVICE_1_ID 201 					 	// Shared with vlohome
+#define DEVICE_1_TYPE DEV_TYPE_TEMP_HUM
+#define DEVICE_1_UPDATE_TIMER (long)15*60*1000
+#define DEVICE_1_CALLBACK getTempHumidity
+#define DEVICE_1_COMMANDHANDLER NULL
+#define DHT11_PIN  6
+
+// The little LED
+#define DEVICE_2_NAME "Little Led"
+#define DEVICE_2_IDX 2
+#define DEVICE_2_ID 209 					 	// Shared with vlohome
+#define DEVICE_2_TYPE DEV_TYPE_DIMMER
+#define DEVICE_2_UPDATE_TIMER (long)0
+#define DEVICE_2_CALLBACK NULL
+//#define DEVICE_2_COMMANDHANDLER ledOnOff(deviceID, commandID, commandvalue)
+#define LED_PIN 7
+
+// Value constants
+#define NO_VALUE -1
+#define STATUS 0
+#define FREEMEMORY 1
+#define UPTIME 2
+#define TEMPERATURE 3
+#define HUMIDITY 4
+#endif /* CONFIGURATION_H_ */
 
 // Local Errors
 #define INFO_NORMAL 100
 #define INFO_CALIBRATING 101
 
-// Returned errors are in share_command.h
 
-///////////////////////////////////
-// Device Types
-#define DHT11 11
-
-#define DEVICE_COUNT 1					// not counting myself
-
-#define DEVICE_0_IDX 0 					// this node
-#define DEVICE_0_ID 98 					// this node
-#define DEVICE_0_TYPE 16
-#define DEVICE_0_CALLBACK aliveMessage
-#define DEVICE_0_UPDATE_TIMER (long)5*60*1000
-//#define ALIVE_TIMER (long)5*60*1000		// 1 Hour
-
-#define DEVICE_1_ID 201 					// dht 11 TEMP/HUM
-#define DEVICE_1_TYPE 11
-#define DEVICE_1_CALLBACK aliveMessage
-
-#define WEB_POST_TYPE_VALUES 1
-#define WEB_POST_TYPE_STATUS 2
-#define WEB_POST_TYPE_SIMPLE 3
+// Sensor setting
+/*#define SENSOR_POL_TIME (long)10*1000		// 10 Sec
+#define SENSOR_CALIBRATION_INTERVAL (long)12*60*60*1000		// 12 Hours
+#define SENSOR_THERMISTOR 1
+#define SENSOR_DHT11 2
+#define SWITCH_0 0
+#define SENSOR_THRESHOLD 30
+*/
 
 
-#define WEB_RESULT_OK 200
-#define WEB_RESULT_UNKNOWN_DEVICE 100
-#define WEB_RESULT_UNKNOWN_COMMAND 101
-#define WEB_RESULT_UNKNOWN_DEV_COM 102
-#define WEB_RESULT_DEV_TIMEOUT 103
-//#define WEB_RESULT_ 10
-//#define WEB_RESULT_ 10
 
-#define WEB_POST_TO_URL "/cronjobs/70D455DC-ACB4-4525-8A85-E6009AE93AF4/a.php"
-
-#endif /* CONFIGURATION_H_ */

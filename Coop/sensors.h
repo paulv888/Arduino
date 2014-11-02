@@ -10,7 +10,12 @@
 #include "configuration.h"
 #include "dht11.h"
 #include "Led.h"
+#include "device.h"
 #include <math.h>
+#include "MemoryFree.h"
+#include "InternalTemp.h"
+#include "Web.h"
+#include "Led.h"
 
 //end of add your includes here
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ void setup();
 } // extern "C"
 #endif
 
-void calibratetimer();
-void calibrate(bool forcecalibrate);
-void updateTempSensors();
-void setupSwitches();
-void updateSwitches();
+void aliveMessage();
+void getTempHumidity();
+void ledOnOff();
+
+void ledOnOff(void *deviceID, void *commandID, void *commandvalue) ;
+
+
+extern Device devices[];
 
 #endif /* SENSORS_H_ */

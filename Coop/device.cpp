@@ -6,65 +6,181 @@
  */
 #include "device.h"
 
-DEVICE::DEVICE() {
+Device::Device() {
 }
 
-int DEVICE::begin(uint16_t _deviceid, byte _type, long period, void (*callback)()) {
+int Device::begin(const char* _name, int _deviceid, byte _type, long period, void (*_callback)(), void (*_commandHandler)()) {
 	deviceid = _deviceid;
 	type = _type;
+	name = malcpy(_name);
+//	if (_commandHandler != NULL ) commandHandler = _commandHandler;
 	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		_name[i] = NO_VALUE;
+		valtype[i] = NO_VALUE;
 	}
-	timer.every(period, callback);
+	if (period > 0) {
+			timer.every(period, _callback);	// Only for polling devices
+	}
 	return 0;
 }
 
-byte DEVICE::getType() {
+void Device::test(void (*_commandHandler)(void *d, void *c, void *v)){
+
+}
+
+
+byte Device::getType() {
 	return type;
 }
 
-int DEVICE::setValueFloat(int valtype, double _value) {
-	int i = findValueIndex(valtype);
+void Device::setName(char _name[]) {
+	name = malcpy(_name);
+	return;
+}
+
+const char *Device::getName() {
+	return name;
+}
+
+int Device::setValueFloat(int _valtype, double _value) {
+	int i = findValueIndex(_valtype);
 	if (i == -1) return -1;
-	_name[i] = valtype;
+	valtype[i] = _valtype;
+
+	char a[10];
+	int temp1 = (_value - (int)_value) * 100;
+	sprintf(a, "%0d.%d", (int)_value, temp1);
+
+	free (value[i]);
+	value[i] = 	malcpy(a);
+
+	Serial.println();
+	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		Serial.print("**Dump Fl** ");
+		Serial.print(i);
+		Serial.print(" type: ");
+		Serial.print(valtype[i]);
+		Serial.print(" value: ");
+		Serial.print(value[i]);
+		Serial.println();
+	}
 	return true;
 }
 
-int DEVICE::setValue(int valtype, int _value) {
-	int i = findValueIndex(valtype);
+int Device::setValueUL(int _valtype, unsigned long _value) {
+	int i = findValueIndex(_valtype);
 	if (i == -1) return -1;
-	_name[i] = valtype;
+	valtype[i] = _valtype;
+
+	char a[10];
+	sprintf( a ,"%lu", _value );
+
+	free (value[i]);
+	value[i] = 	malcpy(a);
+
+	Serial.println();
+	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		Serial.print("**Dump UL** ");
+		Serial.print(i);
+		Serial.print(" type: ");
+		Serial.print(valtype[i]);
+		Serial.print(" value: ");
+		Serial.print(value[i]);
+		Serial.println();
+	}
+	return true;
+
+}
+
+int Device::setValueInt(int _valtype, int _value) {
+	int i = findValueIndex(_valtype);
+	if (i == -1) return -1;
+	valtype[i] = _valtype;
+
+	char a[10];
+	sprintf( a ,"%i", _value );
+
+	free (value[i]);
+	value[i] = 	malcpy(a);
+
+	Serial.println();
+	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		Serial.print("**Dump I** ");
+		Serial.print(i);
+		Serial.print(" type: ");
+		Serial.print(valtype[i]);
+		Serial.print(" value: ");
+		Serial.print(value[i]);
+		Serial.println();
+	}
+
+
 	return true;
 }
 
-char *DEVICE::getValue(int valtype) {
-	int i = findValueIndex(valtype);
+char *Device::getValue(int _valtype) {
+	Serial.println();
+	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		Serial.print("**Dump getValue** ");
+		Serial.print(i);
+		Serial.print(" type: ");
+		Serial.print(valtype[i]);
+		Serial.print(" value: ");
+		Serial.print(value[i]);
+		Serial.print(" _valtype ");
+		Serial.print(_valtype);
+		Serial.println();
+	}
+	int i = findValueIndex(_valtype);
 	if (i == -1) return "-1";
-	return 	_value[i];
-;
+	return 	value[i];
 }
 
-uint16_t DEVICE::getDeviceid() {
+char *Device::getValuebyInd(int Idx) {
+	Serial.println();
+	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		Serial.print("**Dump by Idx** ");
+		Serial.print(i);
+		Serial.print(" type: ");
+		Serial.print(valtype[i]);
+		Serial.print(" value: ");
+		Serial.print(value[i]);
+		Serial.print(" Idx ");
+		Serial.print(Idx);
+		Serial.println();
+	}
+	return 	value[Idx];
+}
+
+int Device::getValueTypebyInd(int Idx) {
+	Serial.println();
+	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		Serial.print("**Dump type by Ind** ");
+		Serial.print(i);
+		Serial.print(" type: ");
+		Serial.print(valtype[i]);
+		Serial.print(" value: ");
+		Serial.print(value[i]);
+		Serial.print(" Idx ");
+		Serial.print(Idx);
+		Serial.println();
+	}
+	return 	valtype[Idx];
+}
+
+
+int Device::getDeviceid() {
 	return deviceid;
 }
 
-/*byte findDevice(uint16_t findwhat) {
-	//printf ("Find: '%u'", findwhat);
-	for (byte i = 0; i < DEVICE_COUNT; i++) {
-		if (findwhat == devices[i].getDeviceid()) return i;
-		break;
-	}
-	return -1;
-}*/
-
-int DEVICE::findValueIndex(int valtype) {
+int Device::findValueIndex(int _valtype) {
 	int firstfree = -1;
 	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		if (_name[i] == valtype) {
+		if (valtype[i] == _valtype) {
 			return i;
 		}
-		if (_name[i] == NO_VALUE) {
+		if (valtype[i] == NO_VALUE) {
 			firstfree = i;
+			break;
 		}
 	}
 	return firstfree;
