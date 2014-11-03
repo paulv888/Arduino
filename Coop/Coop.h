@@ -13,7 +13,7 @@
 #include <Ethernet.h>
 #include <EthernetClient.h>
 #include <EthernetServer.h>
-#include "sensors.h"
+#include "deviceaction.h"
 #include <Timer.h>
 
 
@@ -26,16 +26,6 @@ void setup();
 #ifdef __cplusplus
 } // extern "C"
 #endif
-
-//add your function definitions for the project ARDBrigde here
-byte findDevice(uint16_t findwhat, byte bywhat);
-void displayError() ;
-boolean read_button(int buttonid);
-extern int readsensor(int sensorid);
-extern float readDHT11() ;
-
-
-
 
 //Do not add code below this line
 #endif /* ARDBrigde_H_ */

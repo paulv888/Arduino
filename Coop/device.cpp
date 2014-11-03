@@ -9,27 +9,17 @@
 Device::Device() {
 }
 
-int Device::begin(const char* _name, int _deviceid, byte _type, long period, void (*_callback)(), void (*_commandHandler)()) {
+void Device::begin(const char* _name, int _deviceid, byte _type, long period, void (*_callback)(), int (*_commandHandler)(int,int,int)) {
 	deviceid = _deviceid;
 	type = _type;
 	name = malcpy(_name);
-//	if (_commandHandler != NULL ) commandHandler = _commandHandler;
+	commandHandler = _commandHandler;
 	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
 		valtype[i] = NO_VALUE;
 	}
 	if (period > 0) {
 			timer.every(period, _callback);	// Only for polling devices
 	}
-	return 0;
-}
-
-void Device::test(void (*_commandHandler)(void *d, void *c, void *v)){
-
-}
-
-
-byte Device::getType() {
-	return type;
 }
 
 void Device::setName(char _name[]) {
@@ -53,15 +43,17 @@ int Device::setValueFloat(int _valtype, double _value) {
 	free (value[i]);
 	value[i] = 	malcpy(a);
 
-	Serial.println();
-	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		Serial.print("**Dump Fl** ");
-		Serial.print(i);
-		Serial.print(" type: ");
-		Serial.print(valtype[i]);
-		Serial.print(" value: ");
-		Serial.print(value[i]);
+	if (DEBUG_DEVICE) {
 		Serial.println();
+		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+			Serial.print("**Dump Fl** ");
+			Serial.print(i);
+			Serial.print(" type: ");
+			Serial.print(valtype[i]);
+			Serial.print(" value: ");
+			Serial.print(value[i]);
+			Serial.println();
+		}
 	}
 	return true;
 }
@@ -77,15 +69,17 @@ int Device::setValueUL(int _valtype, unsigned long _value) {
 	free (value[i]);
 	value[i] = 	malcpy(a);
 
-	Serial.println();
-	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		Serial.print("**Dump UL** ");
-		Serial.print(i);
-		Serial.print(" type: ");
-		Serial.print(valtype[i]);
-		Serial.print(" value: ");
-		Serial.print(value[i]);
+	if (DEBUG_DEVICE) {
 		Serial.println();
+		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+			Serial.print("**Dump UL** ");
+			Serial.print(i);
+			Serial.print(" type: ");
+			Serial.print(valtype[i]);
+			Serial.print(" value: ");
+			Serial.print(value[i]);
+			Serial.println();
+		}
 	}
 	return true;
 
@@ -102,15 +96,17 @@ int Device::setValueInt(int _valtype, int _value) {
 	free (value[i]);
 	value[i] = 	malcpy(a);
 
-	Serial.println();
-	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		Serial.print("**Dump I** ");
-		Serial.print(i);
-		Serial.print(" type: ");
-		Serial.print(valtype[i]);
-		Serial.print(" value: ");
-		Serial.print(value[i]);
+	if (DEBUG_DEVICE) {
 		Serial.println();
+		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+			Serial.print("**Dump I** ");
+			Serial.print(i);
+			Serial.print(" type: ");
+			Serial.print(valtype[i]);
+			Serial.print(" value: ");
+			Serial.print(value[i]);
+			Serial.println();
+		}
 	}
 
 
@@ -118,17 +114,19 @@ int Device::setValueInt(int _valtype, int _value) {
 }
 
 char *Device::getValue(int _valtype) {
-	Serial.println();
-	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		Serial.print("**Dump getValue** ");
-		Serial.print(i);
-		Serial.print(" type: ");
-		Serial.print(valtype[i]);
-		Serial.print(" value: ");
-		Serial.print(value[i]);
-		Serial.print(" _valtype ");
-		Serial.print(_valtype);
+	if (DEBUG_DEVICE) {
 		Serial.println();
+		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+			Serial.print("**Dump getValue** ");
+			Serial.print(i);
+			Serial.print(" type: ");
+			Serial.print(valtype[i]);
+			Serial.print(" value: ");
+			Serial.print(value[i]);
+			Serial.print(" _valtype ");
+			Serial.print(_valtype);
+			Serial.println();
+		}
 	}
 	int i = findValueIndex(_valtype);
 	if (i == -1) return "-1";
@@ -136,33 +134,37 @@ char *Device::getValue(int _valtype) {
 }
 
 char *Device::getValuebyInd(int Idx) {
-	Serial.println();
-	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		Serial.print("**Dump by Idx** ");
-		Serial.print(i);
-		Serial.print(" type: ");
-		Serial.print(valtype[i]);
-		Serial.print(" value: ");
-		Serial.print(value[i]);
-		Serial.print(" Idx ");
-		Serial.print(Idx);
+	if (DEBUG_DEVICE) {
 		Serial.println();
+		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+			Serial.print("**Dump by Idx** ");
+			Serial.print(i);
+			Serial.print(" type: ");
+			Serial.print(valtype[i]);
+			Serial.print(" value: ");
+			Serial.print(value[i]);
+			Serial.print(" Idx ");
+			Serial.print(Idx);
+			Serial.println();
+		}
 	}
 	return 	value[Idx];
 }
 
 int Device::getValueTypebyInd(int Idx) {
-	Serial.println();
-	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		Serial.print("**Dump type by Ind** ");
-		Serial.print(i);
-		Serial.print(" type: ");
-		Serial.print(valtype[i]);
-		Serial.print(" value: ");
-		Serial.print(value[i]);
-		Serial.print(" Idx ");
-		Serial.print(Idx);
+	if (DEBUG_DEVICE) {
 		Serial.println();
+		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+			Serial.print("**Dump type by Ind** ");
+			Serial.print(i);
+			Serial.print(" type: ");
+			Serial.print(valtype[i]);
+			Serial.print(" value: ");
+			Serial.print(value[i]);
+			Serial.print(" Idx ");
+			Serial.print(Idx);
+			Serial.println();
+		}
 	}
 	return 	valtype[Idx];
 }

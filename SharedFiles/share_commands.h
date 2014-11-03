@@ -10,18 +10,24 @@
 #ifndef SHARE_COMMANDS_H_
 #define SHARE_COMMANDS_H_
 
-// Commands from Web
+// Commands from Web OUT for server
 #define COMMAND_STATUSREQUEST 5
 #define COMMAND_DEVICE_STATUS 85
 #define COMMAND_CALIBRATE 86
+#define COMMAND_ON 17
+#define COMMAND_OFF 20
+#define COMMAND_GET_VALUE 136
 
-// Commands from Device
+// Command direct (seen from server view)
+#define COMMAND_IO_RECV 1 		// Received or Incoming
+#define COMMAND_IO_SEND 2		// Send or Outgoing
+
+// Commands from Device IN for server
 #define COMMAND_PING 151
+#define COMMAND_SET_RESULT 285
 
 /*#define COMMAND_RESULT_OK 1
 #define COMMAND_RESULT_ERROR 2
-#define COMMAND_STATUSON 8
-#define COMMAND_STATUSOFF 6
 #define COMMAND_CALIBRATED 92
 */
 

@@ -14,14 +14,11 @@
 #include "share_commands.h"
 #include "Timer.h"
 
-#define MAX_NUMBER_OF_VALUES 5
+#define MAX_NUMBER_OF_VALUES 10
 class Device {
 public:
 	Device();
-	int begin(const char* _name, int _deviceid, byte _type, long period, void (*callback)(), void (*_commandHandler)());
-	void test(void (*_commandHandler)(void *d, void *c, void *v));
-
-	byte getType();
+	void begin(const char* _name, int _deviceid, byte _type, long period, void (*callback)(), int (*_commandHandler)(int,int,int));
 	void setName(char _name[]);
 	const char *getName();
 	int getDeviceid();
@@ -31,8 +28,7 @@ public:
 	char *getValue(int _valuetype);
 	char *getValuebyInd(int Idx);
 	int getValueTypebyInd(int Idx);
-	void (*commandHandler)(int d, int c, int v) ;
-//	void (*commandHandler)() ;
+	int (*commandHandler)(int, int, int) ;
 
 protected:
 	int deviceid;

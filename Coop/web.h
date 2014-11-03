@@ -15,6 +15,8 @@
 #include "configuration.h"
 #include "Utils.h"
 #include "device.h"
+#include "deviceaction.h"
+#include "coop.h"
 #include <avr/io.h>
 #include <avr/wdt.h>
 #include "MemoryFree.h"

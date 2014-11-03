@@ -24,9 +24,13 @@ P(TXTQUOTE) = "\"";
 P(TXTCOLON) = " : ";
 P(TXTCOMMA) = " , ";
 P(TXTDEVICEID) = "Device";
-P(HEADER1) = "HTTP/1.1 200 OK\nContent-Type: text/html\n";
-P(HEADER2) = "<HTML>\n<HEAD>\n<meta name='apple-mobile-web-app-capable' content='yes' />\n<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\n<link rel='stylesheet' type='text/css' href='http://vlohome.homeip.net/templates/protostar-mod/css/template.css' />\n<TITLE>Aynur's Chicken Coop</TITLE>\n</HEAD>";
+P(HEADER_OK) = "HTTP/1.1 200 OK\nContent-Type: text/html\n";
+P(HEADER_ERR) = "HTTP/1.1 422 ERROR\nContent-Type: text/html\n";
+P(HEADERPG2) = "<HTML>\n<HEAD>\n<meta name='apple-mobile-web-app-capable' content='yes' />\n<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\n<link rel='stylesheet' type='text/css' href='http://vlohome.homeip.net/templates/protostar-mod/css/template.css' />\n<TITLE>Aynur's Chicken Coop</TITLE>\n</HEAD>";
+P(HEADERPG3) = "<BODY class=\"site\">\n<div class=\"body\">\n<H1>Aynur's Beautiful Coop</H1>\n<br /><br />";
+P(HEADERPGEND) = "</DIV></BODY>\n</HTML>";
 P(TXTPOST) = "POST /cronjobs/70D455DC-ACB4-4525-8A85-E6009AE93AF4/a.php HTTP/1.1\nHost: vlohome.homeip.net\nContent-Type: text/html\nConnection: close\nContent-Length: ";
+P(HEADER_ERR_MESS) = "ARD-COOP: Message parse error, check deviceID and commandID";
 
 
 /*#define NO_VALUE -1
@@ -34,7 +38,7 @@ P(TXTPOST) = "POST /cronjobs/70D455DC-ACB4-4525-8A85-E6009AE93AF4/a.php HTTP/1.1
 #define FREEMEMORY 1
 #define UPTIME 2
 #define INTERNALTEMP 3*/
-static const char *varNames[] = {"Status","FreeMemory","Uptime","Temperature","Humidity"};
+static const char *varNames[] = {"Status","FreeMemory","Uptime","Temperature","Humidity","Command", "InOut"};
 
 
 int printP(EthernetClient client, const prog_char *str, bool getLen = false) {
@@ -142,77 +146,89 @@ void updateWeb(){
 	         if (c == '\n') {
 	     		if (DEBUG_WEB) Serial.println(readString); //print to serial monitor for debuging
 
-	     		printP(client, HEADER1);
-	     		client.println();
-/*	     		printP(client, HEADER2);
-	     		client.println("<BODY>");
-				client.println("<H1>Aynur's Chicken Coop</H1>");
-				client.println("<hr />");
-				client.println("<br />");
-				client.println("<H3>Current Status</H3>");
-				client.println("<br />");
-				client.println("<H6>");
-				client.println("<p>Eggs in Basket : 3</p>");
-				client.println("<p>Coop Door : Open</p>");
-				client.println("<p>Temperature : 5 C</p>");
-				client.println("<p>Humidity : 60%</p>");
-				client.println("<p>Fan : Off</p>");
-				client.println("<p>Red Light : On</p>");
-				client.println("<p>Water Heater : Off</p>");
-				for (int d = 0 ; d<DEVICE_COUNT ;  d++ ) {
-					client.println(devices[d].getName());
-					client.println("<br />");
-					for (int i = 0 ;i < MAX_NUMBER_OF_VALUES && devices[d].getValueTypebyInd(i)!=NO_VALUE ;  i++ ) {
-						printVstr(client, varNames[devices[d].getValueTypebyInd(i)]);
-						printP(client, TXTCOLON);
-						printVstr(client, devices[d].getValuebyInd(i));
-						client.println("<br />");
+        		if (strstr(readString,"GET / ")) { 		// Root requested, then give page, else try to parse post parameters
+    	     		printP(client, HEADER_OK);
+    	     		client.println();
+    	     		printP(client, HEADERPG2);
+    	     		printP(client, HEADERPG3);
+    				/*    				client.println("<hr />");
+    				client.println("<br />");
+    				client.println("<H3>Current Status</H3>");
+    				client.println("<br />");
+    				client.println("<p>Eggs in Basket : 3</p>");
+    				client.println("<p>Coop Door : Open</p>");
+    				client.println("<p>Temperature : 5 C</p>");
+    				client.println("<p>Humidity : 60%</p>");
+    				client.println("<p>Fan : Off</p>");
+    				client.println("<p>Red Light : On</p>");
+    				client.println("<p>Water Heater : Off</p>"); */
+    				client.println("<H6>");
+    				for (int d = 0 ; d<DEVICE_COUNT ;  d++ ) {
+        				client.println("<H3>");
+    					client.println(devices[d].getName());
+        				client.println("</H3>");
+        				client.println("<H6>");
+    					for (int i = 0 ;i < MAX_NUMBER_OF_VALUES && devices[d].getValueTypebyInd(i)!=NO_VALUE ;  i++ ) {
+    						printVstr(client, varNames[devices[d].getValueTypebyInd(i)]);
+    						printP(client, TXTCOLON);
+    						printVstr(client, devices[d].getValuebyInd(i));
+    						client.println("<br />");
+    					}
+    					client.println("<br />");
+        				client.println("</H6>");
+    				}
+/*    				client.println("<br />");
+    				client.println("<br />");
+    				client.println("<a href=\"/d/1/19\"\">Open Door</a>");
+    				client.println("<a href=\"/d/1/20\"\">Close Door</a><br />");
+    				client.println("<br />");
+    				client.println("<br />");
+    				client.println("<a href=\"http://vlosite\">VloHome</a>");
+    				client.println("<a href=\"http://vlosite\">Chicks Cam-1</a>");
+    				client.println("<a href=\"http://vlosite\">Chicks Cam-2</a>");
+    				client.println("<br />");
+*/
+    	     		printP(client, HEADERPGEND);
+        		} else {												// parse
+
+					// parse url POST /d/203/c/23/v/12 HTTP/1.1
+				   int deviceID = 0;
+				   int commandID = 0;
+				   int commandvalue = 0;
+				   char * token = strtok(readString, " "); // GET /d/203/c/23/v/12 HTTP/1.1
+				   token = strtok(NULL, " "); // Second part
+				   token = strtok(token, "/"); // d
+				   token = strtok(NULL, "/"); // deviceID
+				   deviceID = atoi(token);
+				   token = strtok(NULL, "/"); // c
+				   token = strtok(NULL, "/"); // commandID
+				   commandID = atoi(token);
+				   token = strtok(NULL, "/"); // value ?
+				   if (token != NULL) {
+					   token = strtok(NULL, "/"); // value ?
+					   commandvalue = atoi(token);
+				   }
+					int (*handler)(int,int,int);
+					int deviceidx = findDeviceIndex(deviceID);
+					int result = -1;
+					if (deviceidx >= 0) {
+						handler = devices[deviceidx].commandHandler;
+						result = (*handler)(deviceidx, commandID, commandvalue);
+					} // return error?
+					if ( deviceidx < 0 || result == HNDLR_ERROR) {
+						printP(client, HEADER_ERR);
+						client.println();
+						printP(client, HEADER_ERR_MESS);
+					} else {
+						printP(client, HEADER_OK);
+						client.println();
+						printResponse(client, deviceidx);
 					}
-					client.println("<br />");
-				}
-				client.println("</H6>");
-				client.println("<br />");
-				client.println("<br />");
-				client.println("<a href=\"/d/1/19\"\">Open Door</a>");
-				client.println("<a href=\"/d/1/20\"\">Close Door</a><br />");
-				client.println("<br />");
-				client.println("<br />");
-				client.println("<a href=\"http://vlosite\">VloHome</a>");
-				client.println("<a href=\"http://vlosite\">Chicks Cam-1</a>");
-				client.println("<a href=\"http://vlosite\">Chicks Cam-2</a>");
-				client.println("<br />");
-				client.println("</BODY>");
-				*/
-				client.println("</HTML>");
-
-
-	           delay(1);
-	           //stopping client
-	           client.stop();
-	           //controls the Arduino if you press the buttons
-
-	           /* get the first token */
-
-	           char * token = strtok(readString, "/");
-
-	           /* walk through other tokens */
-        	   int deviceID = 0;
-        	   int commandID = 0;
-    		   int commandvalue = 0;
-        	   token = strtok(NULL, "/"); // d
-        	   token = strtok(NULL, "/"); // deviceID
-        	   deviceID = atoi(token);
-        	   token = strtok(NULL, "/"); // c
-        	   token = strtok(NULL, "/"); // commandID
-        	   commandID = atoi(token);
-        	   token = strtok(NULL, "/"); // value ?
-        	   if (token != NULL) {
-            	   token = strtok(NULL, "/"); // value ?
-        		   commandvalue = atoi(token);
-        	   }
-        	   devices[2].commandHandler(deviceID, commandID, commandvalue);
-
-	            //clearing string for next read
+        		}
+				delay(1);
+				//stopping client
+				client.stop();
+        		//clearing string for next read
 	            cptr = 0;
 	            readString[cptr] = '\0';
 

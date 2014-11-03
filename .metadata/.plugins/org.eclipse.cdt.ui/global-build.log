@@ -243,18 +243,6 @@ Finished building: sizedummy
 **** Build of configuration Release for project Coop ****
 
 make all 
-Building file: ../device.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"device.d" -MT"device.d"  -c -o "device.o" -x c++ "../device.cpp"
-../device.cpp: In member function 'char* Device::getValue(int)':
-../device.cpp:134: warning: deprecated conversion from string constant to 'char*'
-Finished building: ../device.cpp
- 
-Building file: ../sensors.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"sensors.d" -MT"sensors.d"  -c -o "sensors.o" -x c++ "../sensors.cpp"
-Finished building: ../sensors.cpp
- 
 Building file: ../web.cpp
 Invoking: AVR C++ Compiler
 avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"web.d" -MT"web.d"  -c -o "web.o" -x c++ "../web.cpp"
@@ -267,13 +255,17 @@ avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\
 ../web.cpp:27: warning: only initialized variables can be placed into program memory area
 ../web.cpp:28: warning: only initialized variables can be placed into program memory area
 ../web.cpp:29: warning: only initialized variables can be placed into program memory area
+../web.cpp:30: warning: only initialized variables can be placed into program memory area
+../web.cpp:31: warning: only initialized variables can be placed into program memory area
+../web.cpp:32: warning: only initialized variables can be placed into program memory area
+../web.cpp:33: warning: only initialized variables can be placed into program memory area
 ../web.cpp: In function 'int printP(EthernetClient, const prog_char*, bool)':
-../web.cpp:48: warning: suggest parentheses around assignment used as truth value
+../web.cpp:52: warning: suggest parentheses around assignment used as truth value
 Finished building: ../web.cpp
  
 Building target: Coop.elf
 Invoking: AVR C++ Linker
-avr-gcc -Os -Wl,--gc-sections  -Wl,-Map,"D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt",--cref -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -mmcu=atmega328p  -o"Coop.elf"  ./Timer/Event.o ./Timer/Timer.o  ./SharedFiles/InternalTemp.o ./SharedFiles/MemoryFree.o ./SharedFiles/Utils.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Coop.o ./Led.o ./device.o ./sensors.o ./web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
+avr-gcc -Os -Wl,--gc-sections  -Wl,-Map,"D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt",--cref -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -mmcu=atmega328p  -o"Coop.elf"  ./Timer/Event.o ./Timer/Timer.o  ./SharedFiles/InternalTemp.o ./SharedFiles/MemoryFree.o ./SharedFiles/Utils.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Coop.o ./Led.o ./device.o ./deviceaction.o ./web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
 Finished building target: Coop.elf
  
 Invoking: AVR Create Extended Listing
@@ -294,10 +286,10 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   19462 bytes (59.4% Full)
+Program:   21258 bytes (64.9% Full)
 (.text + .data + .bootloader)
 
-Data:       1187 bytes (58.0% Full)
+Data:       1199 bytes (58.5% Full)
 (.data + .bss + .noinit)
 
 
