@@ -18,26 +18,26 @@
 class Device {
 public:
 	Device();
-	void begin(const char* _name, int _deviceid, byte _type, long period, void (*callback)(), int (*_commandHandler)(int,int,int));
-	void setName(char _name[]);
+	void begin(const char* _name, const int _deviceid, uint8_t _type, const long period, void (*_init)(), void (*_callback)(), uint8_t (*_commandHandler)(const uint8_t,const int,const int));
 	const char *getName();
 	int getDeviceid();
-	int setValueFloat(int _valuetype, double _value);
-	int setValueInt(int _valuetype, int _value);
-	int setValueUL(int _valuetype, unsigned long _value);
-	char *getValue(int _valuetype);
-	char *getValuebyInd(int Idx);
-	int getValueTypebyInd(int Idx);
-	int (*commandHandler)(int, int, int) ;
+	uint8_t setValueFloat(const uint8_t _valuetype, const double _value);
+	uint8_t setValueStr(const uint8_t _valtype, const char _value[]);
+	uint8_t setValueInt(const uint8_t _valuetype, const int _value);
+	uint8_t setValueUL(const uint8_t _valuetype, const unsigned long _value);
+	char *getValue(const uint8_t _valuetype);
+	char *getValuebyInd(const uint8_t Idx);
+	uint8_t getValueTypebyInd(const uint8_t Idx);
+	uint8_t (*commandHandler)(const uint8_t, const int, const int) ;
 
 protected:
 	int deviceid;
-	byte type;
+	uint8_t type;
 	bool status;
 	char* name;
-	int valtype[MAX_NUMBER_OF_VALUES];
+	uint8_t valtype[MAX_NUMBER_OF_VALUES];
 	char  *value[MAX_NUMBER_OF_VALUES];
-	int findValueIndex(int _valtype);
+	uint8_t findValueIndex(const uint8_t _valtype);
 };
 extern Timer timer;
 

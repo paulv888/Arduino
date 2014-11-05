@@ -6,8 +6,8 @@
  */
 #include <Led.h>
 
-void showStatus(int Error) {
-	static int eSensorSend = 0;
+void showStatus(uint8_t Error) {
+	static uint8_t eSensorSend = 0;
 	switch (Error) {
 	case INFO_NORMAL:
 		timer.oscillate(LED_PIN, HIGH, 500, 2, 3);
@@ -17,7 +17,7 @@ void showStatus(int Error) {
 		break;
 	case ERROR_READ_SENSOR: {
 		timer.oscillate(LED_PIN, HIGH, 100, 50, 10);
-		Serial.println("SENSOR ERROR!");
+		//Serial.println("SENSOR ERROR!");
 		if (eSensorSend++ % 400 == 0) {														// do not flood (about every hour)
 /*			payLoad_Simple scommand;
 			scommand.command = COMMAND_RESULT_ERROR;
@@ -29,7 +29,7 @@ void showStatus(int Error) {
 		break;
 	case ERROR_CALIBRATE: {
 		timer.oscillate(LED_PIN, HIGH, 500, 50, 10);
-		Serial.println("CALIBRATE ERROR!");
+		//Serial.println("CALIBRATE ERROR!");
 /*		payLoad_Simple scommand;
 		scommand.command = COMMAND_RESULT_ERROR;
 		scommand.data = ERROR_CALIBRATE;*/

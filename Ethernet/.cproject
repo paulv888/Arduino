@@ -25,14 +25,7 @@
 							</builder>
 							<tool id="it.baeyens.avreclipse.tool.assembler.winavr.lib.release.397855148" name="AVR Assembler" superClass="it.baeyens.avreclipse.tool.assembler.winavr.lib.release">
 								<option id="it.baeyens.avreclipse.assembler.option.debug.level.1896062537" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.assembler.option.debug.level" value="it.baeyens.avreclipse.assembler.option.debug.level.none" valueType="enumerated"/>
-								<option id="it.baeyens.avreclipse.asm.option.include.paths.1742156728" name="#include paths for preprocessor(-I)" superClass="it.baeyens.avreclipse.asm.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="../SPI"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/w5100}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/Arduino_Uno/arduino}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Ethernet/Arduino_Uno/standard}&quot;"/>
-									<listOptionValue builtIn="false" value="../utility"/>
-									<listOptionValue builtIn="false" value="../Ethernet/SPI"/>
-								</option>
+								<option id="it.baeyens.avreclipse.asm.option.include.paths.1742156728" name="#include paths for preprocessor(-I)" superClass="it.baeyens.avreclipse.asm.option.include.paths" valueType="includePath"/>
 								<inputType id="it.baeyens.avreclipse.tool.assembler.input.2034158259" superClass="it.baeyens.avreclipse.tool.assembler.input"/>
 							</tool>
 							<tool id="it.baeyens.avreclipse.tool.compiler.winavr.lib.release.365373258" name="AVR Compiler" superClass="it.baeyens.avreclipse.tool.compiler.winavr.lib.release">
@@ -52,7 +45,7 @@
 								<inputType id="it.baeyens.avreclipse.compiler.winavr.input.553312774" name="C Source Files" superClass="it.baeyens.avreclipse.compiler.winavr.input"/>
 							</tool>
 							<tool id="it.baeyens.avreclipse.tool.cppcompiler.lib.release.886848981" name="AVR C++ Compiler" superClass="it.baeyens.avreclipse.tool.cppcompiler.lib.release">
-								<option id="it.baeyens.avreclipse.cppcompiler.option.debug.level.481657967" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.cppcompiler.option.debug.level" value="it.baeyens.avreclipse.cppcompiler.option.debug.level.none" valueType="enumerated"/>
+								<option id="it.baeyens.avreclipse.cppcompiler.option.debug.level.481657967" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.cppcompiler.option.debug.level" value="it.baeyens.avreclipse.cppcompiler.option.debug.level.g2" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.optimize.1149454666" name="Optimization Level" superClass="it.baeyens.avreclipse.cppcompiler.option.optimize" value="it.baeyens.avreclipse.cppcompiler.optimize.size" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.incpath.128900635" name="Include Paths (-I)" superClass="it.baeyens.avreclipse.cppcompiler.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINO_CORE_FOLDER}}&quot;"/>
@@ -77,7 +70,6 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="SPI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="?xamples/*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="SPI"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

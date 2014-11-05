@@ -8,6 +8,7 @@ extern "C" {
 #endif
 
 int freeMemory();
+long check_mem();
 
 #ifdef  __cplusplus
 }

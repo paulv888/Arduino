@@ -39,13 +39,13 @@
 								<inputType id="it.baeyens.avreclipse.compiler.winavr.input.695727881" name="C Source Files" superClass="it.baeyens.avreclipse.compiler.winavr.input"/>
 							</tool>
 							<tool commandLinePattern="${COMMAND} ${FLAGS} ${ARDUINO_C_COMPILE_OPTIONS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="it.baeyens.avreclipse.tool.cppcompiler.lib.release.619351668" name="AVR C++ Compiler" superClass="it.baeyens.avreclipse.tool.cppcompiler.lib.release">
-								<option id="it.baeyens.avreclipse.cppcompiler.option.debug.level.925389418" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.cppcompiler.option.debug.level" value="it.baeyens.avreclipse.cppcompiler.option.debug.level.none" valueType="enumerated"/>
+								<option id="it.baeyens.avreclipse.cppcompiler.option.debug.level.925389418" name="Generate Debugging Info" superClass="it.baeyens.avreclipse.cppcompiler.option.debug.level" value="it.baeyens.avreclipse.cppcompiler.option.debug.level.g2" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.optimize.1428752225" name="Optimization Level" superClass="it.baeyens.avreclipse.cppcompiler.option.optimize" value="it.baeyens.avreclipse.cppcompiler.optimize.size" valueType="enumerated"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.optimize.packstruct.180989752" name="Pack structs (-fpack-struct)" superClass="it.baeyens.avreclipse.cppcompiler.option.optimize.packstruct" value="false" valueType="boolean"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.optimize.shortenums.1193930929" name="Short enums (-fshort-enums)" superClass="it.baeyens.avreclipse.cppcompiler.option.optimize.shortenums" value="false" valueType="boolean"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.language.uchar.1003099475" name="char is unsigned (-funsigned-char)" superClass="it.baeyens.avreclipse.cppcompiler.option.language.uchar" value="false" valueType="boolean"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.language.ubitfields.474866444" name="bitfields are unsigned (-funsigned-bitfields)" superClass="it.baeyens.avreclipse.cppcompiler.option.language.ubitfields" value="false" valueType="boolean"/>
-								<option id="it.baeyens.avreclipse.cppcompiler.option.otherflags.1791627973" name="Other flags" superClass="it.baeyens.avreclipse.cppcompiler.option.otherflags" value="-g  -ffunction-sections  -fdata-sections" valueType="string"/>
+								<option id="it.baeyens.avreclipse.cppcompiler.option.otherflags.1791627973" name="Other flags" superClass="it.baeyens.avreclipse.cppcompiler.option.otherflags" value="" valueType="string"/>
 								<option id="it.baeyens.avreclipse.cppcompiler.option.def.1194968967" name="Define Syms (-D)" superClass="it.baeyens.avreclipse.cppcompiler.option.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="USB_PID=${ARDUINO_PID_VALUE}"/>
 									<listOptionValue builtIn="false" value="USB_VID=${ARDUINO_VID_VALUE}"/>
@@ -55,6 +55,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINO_CORE_FOLDER}}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ARDUINOBOARDNAME}/${ARDUINOBOARDVARIANT}}&quot;"/>
 								</option>
+								<option id="it.baeyens.avreclipse.cppcompiler.option.optimize.other.1921811819" name="Other Optimization Flags" superClass="it.baeyens.avreclipse.cppcompiler.option.optimize.other" value="-ffunction-sections -fdata-sections " valueType="string"/>
 								<inputType id="it.baeyens.avreclipse.cppcompiler.input.2064355297" superClass="it.baeyens.avreclipse.cppcompiler.input"/>
 							</tool>
 							<tool id="it.baeyens.avreclipse.tool.linker.winavr.base.656287009" name="AVR C Linker" superClass="it.baeyens.avreclipse.tool.linker.winavr.base"/>

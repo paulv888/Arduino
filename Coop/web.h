@@ -41,10 +41,13 @@ void setup();
 //add your function definitions for the project test1 here
 void setupWeb();
 void updateWeb();
-void postMessage( byte deviceidx);
+void postMessage( uint8_t deviceidx);
 void postMessage1();
-extern Device devices[];
-byte findDevice(uint16_t findwhat);
+//extern Device mdevices[];
+extern uint8_t * heapptr;
+extern uint8_t * stackptr;
+
+uint8_t findDevice(uint16_t findwhat);
 
 //Do not add code below this line
 #endif /* WEB_H_ */

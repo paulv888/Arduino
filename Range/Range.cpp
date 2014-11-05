@@ -1,6 +1,6 @@
 #include "Range.h"
 
-void aliveMessage();
+void arduinoCallback();
 
 Timer timer;
 
@@ -27,8 +27,8 @@ void setup() {
 
 	// timer.every(SENSOR_POL_TIME, updateTempSensors);
 
-	// timer.every(ALIVE_TIMER, aliveMessage);
-	// aliveMessage();
+	// timer.every(ALIVE_TIMER, arduinoCallback);
+	// arduinoCallback();
 
 }
 
@@ -37,11 +37,11 @@ void loop() {
 
 	updateSwitches();
 //	updateRF();
-	timer.update();		// AliveMessage, Poll Sensors, UpdateLed, StreamData
+	timer.update();		// arduinoCallback, Poll Sensors, UpdateLed, StreamData
 
 }
 
-void aliveMessage() {
+void arduinoCallback() {
 	if (DEBUG_MAIN) Serial.println("*Alive Message");
 	payLoad_Simple command;
 	command.command = (currentStatus > 0) ? COMMAND_STATUSON : COMMAND_STATUSOFF;

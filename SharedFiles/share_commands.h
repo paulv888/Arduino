@@ -49,7 +49,7 @@
 #define DEV_TYPE_SWITCH 3
 #define DEV_TYPE_THERMOSTAT_HEAT 19
 #define DEV_TYPE_DIMMER 1
-
+#define DEV_AUTO_DOOR 30
 
 // Errors, passed in data field
 /*#define ERROR_CALIBRATE 127					// Fix this is a status and not a command Status Err?

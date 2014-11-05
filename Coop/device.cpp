@@ -5,38 +5,63 @@
  *      Author: pvloon
  */
 #include "device.h"
+#ifndef NULL
+#define NULL   ((void *) 0)
+#endif
 
 Device::Device() {
 }
 
-void Device::begin(const char* _name, int _deviceid, byte _type, long period, void (*_callback)(), int (*_commandHandler)(int,int,int)) {
+void Device::begin(const char* _name, const int _deviceid, uint8_t _type, const long period, void (*_init)(), void (*_callback)(), uint8_t (*_commandHandler)(const uint8_t, const int, const int)) {
 	deviceid = _deviceid;
 	type = _type;
-	name = malcpy(_name);
-	commandHandler = _commandHandler;
-	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
-		valtype[i] = NO_VALUE;
+	if (DEBUG_MEMORY) {
+		Serial.print("bg 1 ");
+		Serial.print((int)name);
+		Serial.print("  ");
+		Serial.println(freeMemory());
 	}
-	if (period > 0) {
-			timer.every(period, _callback);	// Only for polling devices
-	}
-}
+	name = malcpy(_name);			// PVTODO:: Do not use heap, per init vars. Put in progmem?
 
-void Device::setName(char _name[]) {
-	name = malcpy(_name);
-	return;
+	if (DEBUG_MEMORY) {
+		Serial.print("bg 2 ");
+		Serial.print((int)name);
+		Serial.print("  ");
+		Serial.println(freeMemory());
+	}
+	commandHandler = _commandHandler;
+	if (_init != NULL ) _init();
+
+	if (DEBUG_MEMORY) {
+		Serial.print("bg 3 ");
+		Serial.println(freeMemory());
+	}
+
+	for (uint8_t i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		valtype[i] = ERROR;
+	}
+
+	if (DEBUG_MEMORY) {
+		Serial.print("bg 4 ");
+		Serial.println(freeMemory());
+	}
+
+	if (period > 0) {
+		timer.every(period, _callback);	// Only for polling mdevices
+	}
 }
 
 const char *Device::getName() {
 	return name;
 }
 
-int Device::setValueFloat(int _valtype, double _value) {
-	int i = findValueIndex(_valtype);
-	if (i == -1) return -1;
+uint8_t Device::setValueFloat(const uint8_t _valtype, const double _value) {
+	uint8_t i = findValueIndex(_valtype);
+	if (i == ERROR) return ERROR;
 	valtype[i] = _valtype;
 
 	char a[10];
+
 	int temp1 = (_value - (int)_value) * 100;
 	sprintf(a, "%0d.%d", (int)_value, temp1);
 
@@ -45,7 +70,7 @@ int Device::setValueFloat(int _valtype, double _value) {
 
 	if (DEBUG_DEVICE) {
 		Serial.println();
-		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		for (uint8_t i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
 			Serial.print("**Dump Fl** ");
 			Serial.print(i);
 			Serial.print(" type: ");
@@ -58,9 +83,34 @@ int Device::setValueFloat(int _valtype, double _value) {
 	return true;
 }
 
-int Device::setValueUL(int _valtype, unsigned long _value) {
-	int i = findValueIndex(_valtype);
-	if (i == -1) return -1;
+uint8_t Device::setValueStr(const uint8_t _valtype, const char _value[]) {
+	uint8_t i = findValueIndex(_valtype);
+	if (i == ERROR) return ERROR;
+
+	valtype[i] = _valtype;
+
+	free (value[i]);
+
+	value[i] = 	malcpy(_value);
+
+	if (DEBUG_DEVICE) {
+		Serial.println();
+		for (uint8_t i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+			Serial.print("**Dump Fl** ");
+			Serial.print(i);
+			Serial.print(" type: ");
+			Serial.print(valtype[i]);
+			Serial.print(" value: ");
+			Serial.print(value[i]);
+			Serial.println();
+		}
+	}
+	return true;
+}
+
+uint8_t Device::setValueUL(const uint8_t _valtype, const unsigned long _value) {
+	uint8_t i = findValueIndex(_valtype);
+	if (i == ERROR) return ERROR;
 	valtype[i] = _valtype;
 
 	char a[10];
@@ -71,7 +121,7 @@ int Device::setValueUL(int _valtype, unsigned long _value) {
 
 	if (DEBUG_DEVICE) {
 		Serial.println();
-		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
+		for (uint8_t i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
 			Serial.print("**Dump UL** ");
 			Serial.print(i);
 			Serial.print(" type: ");
@@ -85,16 +135,35 @@ int Device::setValueUL(int _valtype, unsigned long _value) {
 
 }
 
-int Device::setValueInt(int _valtype, int _value) {
-	int i = findValueIndex(_valtype);
-	if (i == -1) return -1;
+uint8_t Device::setValueInt(const uint8_t _valtype, const int _value) {
+	uint8_t i = findValueIndex(_valtype);
+	if (i == ERROR) return ERROR;
 	valtype[i] = _valtype;
+
+	if (DEBUG_MEMORY) {
+		Serial.print("in 1 ");
+		Serial.println(freeMemory());
+	}
 
 	char a[10];
 	sprintf( a ,"%i", _value );
+	if (DEBUG_MEMORY) {
+		Serial.print("in 2 ");
+		Serial.println(freeMemory());
+	}
 
 	free (value[i]);
+
+	if (DEBUG_MEMORY) {
+		Serial.print("in 3 ");
+		Serial.println(freeMemory());
+	}
 	value[i] = 	malcpy(a);
+
+	if (DEBUG_MEMORY) {
+		Serial.print("in 4 ");
+		Serial.println(freeMemory());
+	}
 
 	if (DEBUG_DEVICE) {
 		Serial.println();
@@ -113,7 +182,7 @@ int Device::setValueInt(int _valtype, int _value) {
 	return true;
 }
 
-char *Device::getValue(int _valtype) {
+char *Device::getValue(const uint8_t _valtype) {
 	if (DEBUG_DEVICE) {
 		Serial.println();
 		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
@@ -128,12 +197,12 @@ char *Device::getValue(int _valtype) {
 			Serial.println();
 		}
 	}
-	int i = findValueIndex(_valtype);
-	if (i == -1) return "-1";
+	uint8_t i = findValueIndex(_valtype);
+	if (i == ERROR) return "ERROR";
 	return 	value[i];
 }
 
-char *Device::getValuebyInd(int Idx) {
+char *Device::getValuebyInd(const uint8_t Idx) {
 	if (DEBUG_DEVICE) {
 		Serial.println();
 		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
@@ -151,7 +220,7 @@ char *Device::getValuebyInd(int Idx) {
 	return 	value[Idx];
 }
 
-int Device::getValueTypebyInd(int Idx) {
+uint8_t Device::getValueTypebyInd(const uint8_t Idx) {
 	if (DEBUG_DEVICE) {
 		Serial.println();
 		for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
@@ -174,13 +243,13 @@ int Device::getDeviceid() {
 	return deviceid;
 }
 
-int Device::findValueIndex(int _valtype) {
-	int firstfree = -1;
+uint8_t Device::findValueIndex(const uint8_t _valtype) {
+	int firstfree = ERROR;
 	for (int i = 0; i < MAX_NUMBER_OF_VALUES; i++) {
 		if (valtype[i] == _valtype) {
 			return i;
 		}
-		if (valtype[i] == NO_VALUE) {
+		if (valtype[i] == ERROR) {
 			firstfree = i;
 			break;
 		}

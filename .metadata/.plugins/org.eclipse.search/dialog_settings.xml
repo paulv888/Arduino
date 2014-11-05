@@ -47,7 +47,7 @@
 		<item value="12" key="HISTORY_SIZE"/>
 		<section name="HISTORY11">
 			<item value="false" key="isRegExSearch"/>
-			<item value="getNodeAddress" key="textPattern"/>
+			<item value="printP" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -62,7 +62,7 @@
 		</section>
 		<section name="HISTORY2">
 			<item value="false" key="isRegExSearch"/>
-			<item value="switch" key="textPattern"/>
+			<item value="NO_VALUE" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -73,8 +73,8 @@
 		</section>
 		<section name="HISTORY3">
 			<item value="false" key="isRegExSearch"/>
-			<item value="getType" key="textPattern"/>
-			<item value="0" key="scope"/>
+			<item value="int" key="textPattern"/>
+			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -84,7 +84,7 @@
 		</section>
 		<section name="HISTORY0">
 			<item value="false" key="isRegExSearch"/>
-			<item value="sensors.h" key="textPattern"/>
+			<item value="serial" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -95,7 +95,7 @@
 		</section>
 		<section name="HISTORY10">
 			<item value="false" key="isRegExSearch"/>
-			<item value="findDevice" key="textPattern"/>
+			<item value="printResponse" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -106,8 +106,8 @@
 		</section>
 		<section name="HISTORY1">
 			<item value="false" key="isRegExSearch"/>
-			<item value="txtdeviceid" key="textPattern"/>
-			<item value="0" key="scope"/>
+			<item value="HNDLR_ERROR" key="textPattern"/>
+			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -117,7 +117,7 @@
 		</section>
 		<section name="HISTORY9">
 			<item value="false" key="isRegExSearch"/>
-			<item value="write" key="textPattern"/>
+			<item value="postMessage" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -128,7 +128,7 @@
 		</section>
 		<section name="HISTORY8">
 			<item value="false" key="isRegExSearch"/>
-			<item value="ADMUX" key="textPattern"/>
+			<item value="check_mem" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -139,8 +139,8 @@
 		</section>
 		<section name="HISTORY5">
 			<item value="false" key="isRegExSearch"/>
-			<item value="ftoa" key="textPattern"/>
-			<item value="0" key="scope"/>
+			<item value="printV" key="textPattern"/>
+			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -150,8 +150,8 @@
 		</section>
 		<section name="HISTORY4">
 			<item value="false" key="isRegExSearch"/>
-			<item value="DEBUG" key="textPattern"/>
-			<item value="0" key="scope"/>
+			<item value="strcmp" key="textPattern"/>
+			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -161,7 +161,7 @@
 		</section>
 		<section name="HISTORY7">
 			<item value="false" key="isRegExSearch"/>
-			<item value="server" key="textPattern"/>
+			<item value="DEVICE_0_COMMANDHANDLER" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -172,8 +172,8 @@
 		</section>
 		<section name="HISTORY6">
 			<item value="false" key="isRegExSearch"/>
-			<item value="string" key="textPattern"/>
-			<item value="0" key="scope"/>
+			<item value="byte" key="textPattern"/>
+			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -183,10 +183,11 @@
 		</section>
 	</section>
 	<section name="SearchDialog.ScopePart">
-		<item value="0" key="scope"/>
+		<item value="3" key="scope"/>
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="ERROR"/>
 			<item value="payLoad_Range_Values"/>
 		</list>
 	</section>

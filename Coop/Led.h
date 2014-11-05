@@ -22,7 +22,7 @@ extern "C" {
 #endif
 
 //add your function definitions for the project Led here
-void showStatus(int Error);
+void showStatus(uint8_t Error);
 extern Timer timer;
 
 #endif /* Led_H_ */

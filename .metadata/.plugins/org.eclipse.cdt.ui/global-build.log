@@ -243,25 +243,10 @@ Finished building: sizedummy
 **** Build of configuration Release for project Coop ****
 
 make all 
-Building file: ../web.cpp
+Building file: ../Coop.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"web.d" -MT"web.d"  -c -o "web.o" -x c++ "../web.cpp"
-../web.cpp:21: warning: only initialized variables can be placed into program memory area
-../web.cpp:22: warning: only initialized variables can be placed into program memory area
-../web.cpp:23: warning: only initialized variables can be placed into program memory area
-../web.cpp:24: warning: only initialized variables can be placed into program memory area
-../web.cpp:25: warning: only initialized variables can be placed into program memory area
-../web.cpp:26: warning: only initialized variables can be placed into program memory area
-../web.cpp:27: warning: only initialized variables can be placed into program memory area
-../web.cpp:28: warning: only initialized variables can be placed into program memory area
-../web.cpp:29: warning: only initialized variables can be placed into program memory area
-../web.cpp:30: warning: only initialized variables can be placed into program memory area
-../web.cpp:31: warning: only initialized variables can be placed into program memory area
-../web.cpp:32: warning: only initialized variables can be placed into program memory area
-../web.cpp:33: warning: only initialized variables can be placed into program memory area
-../web.cpp: In function 'int printP(EthernetClient, const prog_char*, bool)':
-../web.cpp:52: warning: suggest parentheses around assignment used as truth value
-Finished building: ../web.cpp
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Coop.d" -MT"Coop.d"  -c -o "Coop.o" -x c++ "../Coop.cpp"
+Finished building: ../Coop.cpp
  
 Building target: Coop.elf
 Invoking: AVR C++ Linker
@@ -286,10 +271,10 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   21258 bytes (64.9% Full)
+Program:   19838 bytes (60.5% Full)
 (.text + .data + .bootloader)
 
-Data:       1199 bytes (58.5% Full)
+Data:       1300 bytes (63.5% Full)
 (.data + .bss + .noinit)
 
 
