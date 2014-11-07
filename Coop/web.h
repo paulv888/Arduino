@@ -11,16 +11,15 @@
 #include <EthernetServer.h>
 #include <SPI.h>
 #include "avr/pgmspace.h" // new include
+#include <avr/io.h>
+#include <avr/wdt.h>
 //add your includes for the project command here
 #include "configuration.h"
 #include "Utils.h"
 #include "device.h"
 #include "deviceaction.h"
 #include "coop.h"
-#include <avr/io.h>
-#include <avr/wdt.h>
 #include "MemoryFree.h"
-#include "InternalTemp.h"
 
 #define Reset_AVR() wdt_enable(WDTO_30MS); while(1) {}
 
@@ -41,13 +40,12 @@ void setup();
 //add your function definitions for the project test1 here
 void setupWeb();
 void updateWeb();
-void postMessage( uint8_t deviceidx);
-void postMessage1();
+void postMessage( byte deviceidx);
 //extern Device mdevices[];
-extern uint8_t * heapptr;
-extern uint8_t * stackptr;
+extern byte * heapptr;
+extern byte * stackptr;
 
-uint8_t findDevice(uint16_t findwhat);
+byte findDevice(uint16_t findwhat);
 
 //Do not add code below this line
 #endif /* WEB_H_ */

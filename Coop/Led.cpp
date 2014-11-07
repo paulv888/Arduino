@@ -6,8 +6,8 @@
  */
 #include <Led.h>
 
-void showStatus(uint8_t Error) {
-	static uint8_t eSensorSend = 0;
+void showStatus(byte Error) {
+	static byte eSensorSend = 0;
 	switch (Error) {
 	case INFO_NORMAL:
 		timer.oscillate(LED_PIN, HIGH, 500, 2, 3);

@@ -7,6 +7,64 @@ Invoking: AVR C++ Compiler
 avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Coop.d" -MT"Coop.d"  -c -o "Coop.o" -x c++ "../Coop.cpp"
 Finished building: ../Coop.cpp
  
+Building file: ../Led.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.d"  -c -o "Led.o" -x c++ "../Led.cpp"
+Finished building: ../Led.cpp
+ 
+Building file: ../device.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"device.d" -MT"device.d"  -c -o "device.o" -x c++ "../device.cpp"
+Finished building: ../device.cpp
+ 
+Building file: ../deviceaction.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"deviceaction.d" -MT"deviceaction.d"  -c -o "deviceaction.o" -x c++ "../deviceaction.cpp"
+../deviceaction.cpp: In function 'byte arduinoHandler(byte, int, int)':
+../deviceaction.cpp:64: warning: deprecated conversion from string constant to 'char*'
+../deviceaction.cpp: In function 'byte dht11Handler(byte, int, int)':
+../deviceaction.cpp:125: warning: deprecated conversion from string constant to 'char*'
+../deviceaction.cpp: In function 'byte doorHandler(byte, int, int)':
+../deviceaction.cpp:174: warning: deprecated conversion from string constant to 'char*'
+../deviceaction.cpp: In function 'void doorTimer()':
+../deviceaction.cpp:249: warning: deprecated conversion from string constant to 'char*'
+../deviceaction.cpp:259: warning: unused variable 'top'
+../deviceaction.cpp:260: warning: unused variable 'bottom'
+Finished building: ../deviceaction.cpp
+ 
+Building file: ../web.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"web.d" -MT"web.d"  -c -o "web.o" -x c++ "../web.cpp"
+../web.cpp:24: warning: only initialized variables can be placed into program memory area
+../web.cpp:25: warning: only initialized variables can be placed into program memory area
+../web.cpp:26: warning: only initialized variables can be placed into program memory area
+../web.cpp:27: warning: only initialized variables can be placed into program memory area
+../web.cpp:28: warning: only initialized variables can be placed into program memory area
+../web.cpp:29: warning: only initialized variables can be placed into program memory area
+../web.cpp:30: warning: only initialized variables can be placed into program memory area
+../web.cpp:31: warning: only initialized variables can be placed into program memory area
+../web.cpp:32: warning: only initialized variables can be placed into program memory area
+../web.cpp:33: warning: only initialized variables can be placed into program memory area
+../web.cpp:34: warning: only initialized variables can be placed into program memory area
+../web.cpp:35: warning: only initialized variables can be placed into program memory area
+../web.cpp:36: warning: only initialized variables can be placed into program memory area
+../web.cpp:37: warning: only initialized variables can be placed into program memory area
+../web.cpp:38: warning: only initialized variables can be placed into program memory area
+../web.cpp:39: warning: only initialized variables can be placed into program memory area
+../web.cpp:40: warning: only initialized variables can be placed into program memory area
+../web.cpp:41: warning: only initialized variables can be placed into program memory area
+../web.cpp:42: warning: only initialized variables can be placed into program memory area
+../web.cpp:43: warning: only initialized variables can be placed into program memory area
+../web.cpp:44: warning: only initialized variables can be placed into program memory area
+../web.cpp:45: warning: only initialized variables can be placed into program memory area
+../web.cpp:46: warning: only initialized variables can be placed into program memory area
+../web.cpp: In function 'void updateWeb()':
+../web.cpp:235: warning: deprecated conversion from string constant to 'char*'
+../web.cpp:269: warning: deprecated conversion from string constant to 'char*'
+../web.cpp: In function 'void postMessage(byte)':
+../web.cpp:326: warning: deprecated conversion from string constant to 'char*'
+Finished building: ../web.cpp
+ 
 Building target: Coop.elf
 Invoking: AVR C++ Linker
 avr-gcc -Os -Wl,--gc-sections  -Wl,-Map,"D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt",--cref -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -mmcu=atmega328p  -o"Coop.elf"  ./Timer/Event.o ./Timer/Timer.o  ./SharedFiles/InternalTemp.o ./SharedFiles/MemoryFree.o ./SharedFiles/Utils.o  ./SPI/SPI.o  ./DHT11/dht11.o  ./Coop.o ./Led.o ./device.o ./deviceaction.o ./web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
@@ -30,10 +88,10 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   19838 bytes (60.5% Full)
+Program:   19940 bytes (60.9% Full)
 (.text + .data + .bootloader)
 
-Data:       1300 bytes (63.5% Full)
+Data:       1468 bytes (71.7% Full)
 (.data + .bss + .noinit)
 
 

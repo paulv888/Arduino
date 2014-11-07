@@ -6,12 +6,12 @@
  */
 #include "Web.h"
 
-static uint8_t mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-static uint8_t ip[] = { 192, 168, 2, 126 };
-static uint8_t sn[] = { 255, 255, 255, 0 };
-static uint8_t gw[] = { 192, 168, 2, 1 };
-static uint8_t dns[] = { 192, 168, 2, 1 };
-static uint8_t vlosite[] = { 192, 168, 2, 101 };
+static byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+static byte ip[] = { 192, 168, 2, 126 };
+static byte sn[] = { 255, 255, 255, 0 };
+static byte gw[] = { 192, 168, 2, 1 };
+static byte dns[] = { 192, 168, 2, 1 };
+static byte vlosite[] = { 192, 168, 2, 101 };
 
 static EthernetServer server(80);      //server port
 static EthernetClient client_recv;
@@ -34,21 +34,25 @@ P(HEADERPG3) = "<BODY class=\"site\">\n<div class=\"body\">\n<H1>Aynur's Beautif
 P(HEADERPGEND) = "</DIV></BODY>\n</HTML>";
 P(TXTPOST) = "POST /cronjobs/70D455DC-ACB4-4525-8A85-E6009AE93AF4/a.php HTTP/1.1\nHost: vlohome.homeip.net\nContent-Type: text/html\nConnection: close\nContent-Length: ";
 P(HEADER_ERR_MESS) = "ARD-COOP: Message parse error, check deviceID and commandID";
+P(AOPEN) = "<";
+P(ACLOSE) = ">";
+P(H3) = "H3";
+P(H6) = "H6";
+P(BR) = "BR";
+P(SLASH) = "/";
+P(TXTSTATUS) = "Status";
+P(TXTCOMMAND) = "Command";
+P(TXTINOUT) = "InOut";
+P(TXTEXTDATA) = "ExtData";
 
-const char *varNames[] = {"Status","FreeMemory","Uptime","Temperature","Humidity","Command", "InOut", "ExtData"}; // PVTODO:: To Progmem???
-#define STATUS 0
-#define FREEMEMORY 1
-#define UPTIME 2
-#define INTERNALTEMP 3*/
 
-
-int printP(const uint8_t clientsel, const prog_char *str, const bool getLen = false) {
+int printP(const byte clientsel, const prog_char *str, const bool getLen = false) {
 	// copy data out of program memory into local storage, write out in
 	// chunks of 32 bytes to avoid extra short TCP/IP packets
 
 	if (!getLen) {
 
-		uint8_t buffer[32];					// PVTODO:: Share buffer
+		byte buffer[32];					// PVTODO:: Share buffer
 		size_t bufferEnd = 0;
 		while ((buffer[bufferEnd++] = pgm_read_byte(str++))) {
 			if (bufferEnd == 32) {
@@ -75,7 +79,7 @@ int printP(const uint8_t clientsel, const prog_char *str, const bool getLen = fa
 	return strlen_P(str);
 }
 
-int printVstr(const uint8_t clientsel, const char *variable, const bool getLen = false) {
+int printVstr(const byte clientsel, const char *variable, const bool getLen = false) {
 	if (!getLen) {
 		if (clientsel == COMMAND_IO_RECV) {
 			client_recv.print(variable);
@@ -87,7 +91,7 @@ int printVstr(const uint8_t clientsel, const char *variable, const bool getLen =
 	return strlen(variable);
 }
 
-int printV(const uint8_t clientsel, const int variable, const bool getLen = false) {
+int printV(const byte clientsel, const int variable, const bool getLen = false) {
 	if (!getLen) {
 		if (clientsel == COMMAND_IO_RECV) {
 			client_recv.print(variable);
@@ -98,36 +102,98 @@ int printV(const uint8_t clientsel, const int variable, const bool getLen = fals
 	}
 	char buffer[16];
 	itoa(variable, buffer, 10);
-	uint8_t a = strlen(buffer);
+	byte a = strlen(buffer);
 	return a;
 }
 
-int printResponse(const uint8_t clientsel, const uint8_t deviceidx, const bool getLen = false) {
+int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, const bool getLen = false) {
 
 	int len = 0;
 
-	len += printP(clientsel, TXTSBRACKETOPEN, getLen);
+	if (JSON) len += printP(clientsel, TXTSBRACKETOPEN, getLen);
 
-	len += printP(clientsel, TXTQUOTE, getLen);
+	// DeviceID
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTDEVICEID, getLen);
-	len += printP(clientsel, TXTQUOTE, getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTCOLON, getLen);
-	len += printP(clientsel, TXTQUOTE, getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printV(clientsel, mdevices[deviceidx].getDeviceid(), getLen);
-	len += printP(clientsel, TXTQUOTE, getLen);
-
-	for (uint8_t i = 0 ; i < MAX_NUMBER_OF_VALUES && mdevices[deviceidx].getValueTypebyInd(i)!=ERROR ;  i++ ) {
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	// CommandID
+	if (JSON) {
 		len += printP(clientsel, TXTCOMMA, getLen);
-		len += printP(clientsel, TXTQUOTE, getLen);
-		len += printVstr(clientsel, varNames[mdevices[deviceidx].getValueTypebyInd(i)] , getLen);
-		len += printP(clientsel, TXTQUOTE, getLen);
-		len += printP(clientsel, TXTCOLON, getLen);
-		len += printP(clientsel, TXTQUOTE, getLen);
-		len += printVstr(clientsel, mdevices[deviceidx].getValuebyInd(i), getLen);
-		len += printP(clientsel, TXTQUOTE, getLen);
 	}
+	else {
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTCOMMAND , getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTCOLON, getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printVstr(clientsel, mdevices[deviceidx].getCommand(), getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 
-	len += printP(clientsel, TXTSBRACKETCLOSE, getLen);
+	// Status
+	if (JSON) {
+		len += printP(clientsel, TXTCOMMA, getLen);
+	}
+	else {
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTSTATUS , getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	if (JSON) len += printP(clientsel, TXTCOLON, getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printVstr(clientsel, mdevices[deviceidx].getStatus(), getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+
+	// InOut
+	if (JSON) {
+		len += printP(clientsel, TXTCOMMA, getLen);
+	}
+	else {
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTINOUT , getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTCOLON, getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printVstr(clientsel, mdevices[deviceidx].getInOut(), getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+
+	// ExtData
+	if (JSON) {
+		len += printP(clientsel, TXTCOMMA, getLen);
+	}
+	else {
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTEXTDATA , getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTCOLON, getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printVstr(clientsel, mdevices[deviceidx].getExtData(), getLen);
+	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+
+	if (JSON) len += printP(clientsel, TXTSBRACKETCLOSE, getLen);
+	if (DEBUG_WEB) Serial.println();
 
 	return len;
 }
@@ -141,15 +207,13 @@ void setupWeb(){
 }
 
 void updateWeb(){
-/*Serial.print(" Web 1 ");
-check_mem();
-Serial.print(" heapptr ");
-Serial.print((long)heapptr);
-Serial.print(" stackptr ");
-Serial.println((long)stackptr);
-*/
-	client_recv = server.available();
-	uint8_t cptr;
+//if (DEBUG_MEMORY) printMem(" Web 1 ");
+
+client_recv = server.available();
+	byte cptr;
+	const char *slash = "/";
+	const char *space = " ";
+
 	if (client_recv) {
 		while (client_recv.connected()) {
 			if (client_recv.available()) {
@@ -168,51 +232,62 @@ Serial.println((long)stackptr);
 					if (DEBUG_WEB) Serial.println(readString); //print to serial monitor for debuging
 
 					if (strstr(readString,"GET / ")) { 		// Root requested, then give page, else try to parse post parameters
+						if (DEBUG_MEMORY) printMem(" Web Get ");
 	    	     		printP(COMMAND_IO_RECV, HEADER_OK);
 						client_recv.println();
 	    	     		printP(COMMAND_IO_RECV, HEADERPG2);
 	    	     		printP(COMMAND_IO_RECV, HEADERPG3);
 
-	    	     		client_recv.println("<H6>");
-						for (uint8_t d = 0 ; d<DEVICE_COUNT ;  d++ ) {
-    						client_recv.println("<H3>");
+						for (byte d = 0 ; d<DEVICE_COUNT ;  d++ ) {
+		    	     		printP(COMMAND_IO_RECV, AOPEN);
+		    	     		printP(COMMAND_IO_RECV, H3);					// <H3>
+		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 							client_recv.println(mdevices[d].getName());
-							client_recv.println("</H3>");
-    						client_recv.println("<H6>");
-    						for (uint8_t i = 0 ;i < MAX_NUMBER_OF_VALUES && mdevices[d].getValueTypebyInd(i)!=ERROR ;  i++ ) {
-    							printVstr(COMMAND_IO_RECV, varNames[mdevices[d].getValueTypebyInd(i)]);
-    							printP(COMMAND_IO_RECV, TXTCOLON);
-    							printVstr(COMMAND_IO_RECV, mdevices[d].getValuebyInd(i));
-    							client_recv.println("<br />");
-    						}
-							client_recv.println("<br />");
-							client_recv.println("</H6>");		// PVTODO:: check if still loosing bytes for these call, if not to progmem
+		    	     		printP(COMMAND_IO_RECV, AOPEN);
+		    	     		printP(COMMAND_IO_RECV, SLASH);
+		    	     		printP(COMMAND_IO_RECV, H3);					// </H3>
+		    	     		printP(COMMAND_IO_RECV, ACLOSE);
+		    	     		printP(COMMAND_IO_RECV, AOPEN);
+		    	     		printP(COMMAND_IO_RECV, H6);					// <h6>
+		    	     		printP(COMMAND_IO_RECV, ACLOSE);
+
+							printResponse(COMMAND_IO_RECV, d, false, false);
+
+		    	     		printP(COMMAND_IO_RECV, AOPEN);
+		    	     		printP(COMMAND_IO_RECV, BR);
+		    	     		printP(COMMAND_IO_RECV, SLASH);
+		    	     		printP(COMMAND_IO_RECV, ACLOSE);
+		    	     		printP(COMMAND_IO_RECV, AOPEN);
+		    	     		printP(COMMAND_IO_RECV, SLASH);
+		    	     		printP(COMMAND_IO_RECV, H6);					// </h6>
+		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 						}
 						printP(COMMAND_IO_RECV, HEADERPGEND);
 					} else {												// parse
 
 						// parse url POST /d/203/c/23/v/12 HTTP/1.1
+						if (DEBUG_MEMORY) printMem(" Web Post ");
 						int deviceID = 0;
 						int commandID = 0;
 						int commandvalue = 0;
 						//readString = strtok(readString, " "); // POST /d/203/c/23/v/12 HTTP/1.1
-						char * token = strtok(readString, " "); // POST /d/203/c/23/v/12 HTTP/1.1
-						uint8_t deviceIdx = ERROR;
-						uint8_t result = ERROR;
+						char * token = strtok(readString, space); // POST /d/203/c/23/v/12 HTTP/1.1
+						byte deviceIdx = ERROR;
+						byte result = ERROR;
 						if (strcmp(token,"POST") == 0) {
-							token = strtok(NULL, " "); // Second part
-							token = strtok(token, "/"); // d
-							token = strtok(NULL, "/"); // deviceID
+							token = strtok(NULL, space); // Second part
+							token = strtok(token, slash); // d
+							token = strtok(NULL, slash); // deviceID
 							deviceID = atoi(token);
-							token = strtok(NULL, "/"); // c
-							token = strtok(NULL, "/"); // commandID
+							token = strtok(NULL, slash); // c
+							token = strtok(NULL, slash); // commandID
 							commandID = atoi(token);
-							token = strtok(NULL, "/"); // value ?
+							token = strtok(NULL, slash); // value ?
 							if (token != NULL) {
-								token = strtok(NULL, "/"); // value ?
+								token = strtok(NULL, slash); // value ?
 								commandvalue = atoi(token);
 							}
-							uint8_t (*handler)(const uint8_t ,const int,const int);
+							byte (*handler)(const byte ,const int,const int);
 
 							deviceIdx = findDeviceIndex(deviceID);
 							if (DEBUG_WEB) Serial.print("deviceIdx");
@@ -231,7 +306,7 @@ Serial.println((long)stackptr);
 						} else {
 							printP(COMMAND_IO_RECV, HEADER_OK);
 							client_recv.println();
-							printResponse(COMMAND_IO_RECV, deviceIdx);
+							printResponse(COMMAND_IO_RECV, deviceIdx, true, false);
 						}
 					}
 					delay(1);
@@ -246,7 +321,9 @@ Serial.println((long)stackptr);
 	}
 }
 
-void postMessage(const uint8_t deviceidx) {
+void postMessage(const byte deviceidx) {
+
+	if (DEBUG_MEMORY) printMem(" postMessage ");
 
 	if (client_send.connect(vlosite, 80)) {
 	if (DEBUG_WEB) Serial.println("New connection");
@@ -254,12 +331,12 @@ void postMessage(const uint8_t deviceidx) {
 		int len = 0;
 
 		printP(COMMAND_IO_SEND, TXTPOST);
-		len = printResponse(COMMAND_IO_SEND, deviceidx, true);
+		len = printResponse(COMMAND_IO_SEND, deviceidx, true, true);
 		client_send.println(len);
 		if (DEBUG_WEB) Serial.println(len);
 		client_send.println();
 		if (DEBUG_WEB) Serial.println();
-		printResponse(COMMAND_IO_SEND, deviceidx);
+		printResponse(COMMAND_IO_SEND, deviceidx, true,  false);
 		client_send.println();
 
 		delay (3);

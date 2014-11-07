@@ -138,16 +138,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/Utils.h</locationURI>
 		</link>
 		<link>
-			<name>Utils/InternalTemp.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/InternalTemp.cpp</locationURI>
-		</link>
-		<link>
-			<name>Utils/InternalTemp.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/InternalTemp.h</locationURI>
-		</link>
-		<link>
 			<name>Utils/MemoryFree.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/MemoryFree.cpp</locationURI>

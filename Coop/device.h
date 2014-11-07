@@ -14,30 +14,33 @@
 #include "share_commands.h"
 #include "Timer.h"
 
-#define MAX_NUMBER_OF_VALUES 10
 class Device {
 public:
 	Device();
-	void begin(const char* _name, const int _deviceid, uint8_t _type, const long period, void (*_init)(), void (*_callback)(), uint8_t (*_commandHandler)(const uint8_t,const int,const int));
+	void begin(const char* _name, const int _deviceid, byte _type, uint8_t _Idx, const long period, void (*_init)(const byte), void (*_callback)(), byte (*_commandHandler)(const byte,const int,const int));
 	const char *getName();
 	int getDeviceid();
-	uint8_t setValueFloat(const uint8_t _valuetype, const double _value);
-	uint8_t setValueStr(const uint8_t _valtype, const char _value[]);
-	uint8_t setValueInt(const uint8_t _valuetype, const int _value);
-	uint8_t setValueUL(const uint8_t _valuetype, const unsigned long _value);
-	char *getValue(const uint8_t _valuetype);
-	char *getValuebyInd(const uint8_t Idx);
-	uint8_t getValueTypebyInd(const uint8_t Idx);
-	uint8_t (*commandHandler)(const uint8_t, const int, const int) ;
+	byte getIndex();
+	void setStatus(const int _value);
+	char *getStatus();
+	void setCommand(const int _value);
+	char *getCommand();
+	void setInOut(const byte _value);
+	char *getInOut();
+	void setExtData(const char _value[]);
+	char *getExtData();
+	byte (*commandHandler)(const byte, const int, const int) ;
 
 protected:
+	char name[25];
 	int deviceid;
-	uint8_t type;
-	bool status;
-	char* name;
-	uint8_t valtype[MAX_NUMBER_OF_VALUES];
-	char  *value[MAX_NUMBER_OF_VALUES];
-	uint8_t findValueIndex(const uint8_t _valtype);
+	byte type;
+	byte index;
+	byte status;
+	int command;
+	int inout;
+	char extdata[MAX_EXT_DATA];
+	char temp[10];
 };
 extern Timer timer;
 
