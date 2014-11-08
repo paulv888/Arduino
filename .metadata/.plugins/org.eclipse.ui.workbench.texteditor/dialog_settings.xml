@@ -2,37 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="360" key="DIALOG_Y_ORIGIN"/>
-		<item value="1928" key="DIALOG_X_ORIGIN"/>
+		<item value="346" key="DIALOG_Y_ORIGIN"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="2053" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="ExtData" key="selection"/>
+		<item value="InOut" key="selection"/>
 		<list key="findhistory">
-			<item value="extdata"/>
-			<item value="&#x09;&#x09;sprintf(a, &quot;\&quot;T\&quot;: \&quot;%0d.%d\&quot; , \&quot;H\&quot; : \&quot;%0d.%d\&quot;&quot;, (int)dht11.temperature, temp1, (int)dht11.humidity, temp2);"/>
-			<item value="ExtData"/>
-			<item value="millis"/>
+			<item value="inout"/>
 			<item value="InOut"/>
 			<item value="INOUT"/>
-			<item value="inout"/>
-			<item value="postMessage"/>
+			<item value="getpin"/>
+			<item value="RELAY"/>
+			<item value="relay"/>
+			<item value="dht"/>
+			<item value="dth"/>
 		</list>
 		<list key="replacehistory">
+			<item value="commandID"/>
+			<item value="commandvalue"/>
 			<item value="check_mem"/>
 			<item value="2"/>
 			<item value="NO_VALUE"/>
 			<item value="uint8_t"/>
 			<item value="client_recv"/>
 			<item value="mdevices"/>
-			<item value="COMMAND_IO_RECV"/>
-			<item value="DEBUG_SENSORS"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

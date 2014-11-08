@@ -22,10 +22,10 @@ long check_mem() {
 
 void printMem(char *name) {
 	Serial.print(name);
-	Serial.print(" free ");
+	Serial.print("Free ");
 	Serial.print(check_mem());
-	Serial.print(" heapptr ");
+	Serial.print(" Heap ");
 	Serial.print((long)heapptr);
-	Serial.print(" stackptr ");
+	Serial.print(" Stack ");
 	Serial.println((long)stackptr);
 }

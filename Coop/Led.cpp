@@ -19,8 +19,8 @@ void showStatus(byte Error, byte deviceIDidx) {
 		timer.oscillate(LED_PIN, HIGH, 500, 50, 4);
 		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
 		mdevices[deviceIDidx].setCommand(COMMAND_SET_RESULT);
-		mdevices[deviceIDidx].setStatus(ERROR);
-		sprintf(a, "{\"E\" : \"%i\", \"M\" : \"%s\" , \"D\" : \"%i\"}", SENSOR_ERROR, "Sensor error on Dev: ", mdevices[deviceIDidx].getDeviceid());
+		mdevices[deviceIDidx].setStatus(STATUS_ERROR);
+		sprintf(a, "{\"E\":\"%i\",\"M\":\"%s\",\"D\":\"%i\"}", SENSOR_ERROR, "Read Sensor", mdevices[deviceIDidx].getDeviceid());
     	mdevices[deviceIDidx].setExtData(a);
 		postMessage(deviceIDidx);
 		break;

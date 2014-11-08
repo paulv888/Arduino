@@ -31,7 +31,7 @@ void setup() {
 	showStatus(INFO_NORMAL, 0);
 
 	// Use analog ref
-	analogReference(EXTERNAL);
+	//analogReference(EXTERNAL);
 
 }
 

@@ -48,6 +48,10 @@ void Device::setStatus(const int _value) {
 }
 char *Device::getStatus() {
 	sprintf(temp, "%i", status);
+	if (DEBUG_DEVICE) Serial.print("Status: ");
+	if (DEBUG_DEVICE) Serial.println(status);
+	if (DEBUG_DEVICE) Serial.print("Status: ");
+	if (DEBUG_DEVICE) Serial.println(temp);
 	return 	temp;
 }
 
@@ -91,5 +95,8 @@ char *Device::getExtData() {
 
 
 int Device::getDeviceid() {
+	if (DEBUG_DEVICE) Serial.print("DeviceID: ");
+	if (DEBUG_DEVICE) Serial.println(deviceid);
+
 	return deviceid;
 }

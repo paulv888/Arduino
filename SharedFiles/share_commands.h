@@ -40,19 +40,16 @@
 #define STATUS_ERROR -1
 #define STATUS_NOT_DEFINED 10		// Used for defining status on commands
 
-// Internal Errors
-#define ERROR_READ_SENSOR 130
-#define ERROR_CALIBRATE 127
-
 // Device Types
-#define DEV_TYPE_ARDUINO 16
+/*#define DEV_TYPE_ARDUINO 16
 #define DEV_TYPE_TEMP_HUM 11
 #define DEV_TYPE_DIMMER_MOTOR 6
 #define DEV_TYPE_SWITCH 3
 #define DEV_TYPE_THERMOSTAT_HEAT 19
 #define DEV_TYPE_DIMMER 1
 #define DEV_AUTO_DOOR 30
-
+*
+*/
 // Errors, passed in data field
 /*#define ERROR_CALIBRATE 127					// Fix this is a status and not a command Status Err?
 #define ERROR_RF_TIMEOUT 128

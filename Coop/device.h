@@ -39,7 +39,7 @@ protected:
 	char *extdata;
 	int deviceid;
 	byte index;
-	byte status;
+	int status;
 	int command;
 	byte pin;
 	char temp[10];

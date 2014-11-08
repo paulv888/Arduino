@@ -9,8 +9,8 @@
 	<section name="DialogBounds_SearchDialog">
 		<item value="564" key="DIALOG_WIDTH"/>
 		<item value="157" key="DIALOG_Y_ORIGIN"/>
-		<item value="442" key="DIALOG_HEIGHT"/>
 		<item value="892" key="DIALOG_X_ORIGIN"/>
+		<item value="442" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="Search">
@@ -29,16 +29,11 @@
 			<item value="org.eclipse.egit.ui.commitSearchPage"/>
 		</list>
 	</section>
-	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
-		<item value="true" key="showEnclosingDefinitions"/>
-	</section>
 	<section name="org.eclipse.search.text.FileSearchResultPage">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
 	</section>
-	<section name="DialogBounds_SearchHistorySelectionDialog">
-		<item value="486" key="DIALOG_WIDTH"/>
-		<item value="404" key="DIALOG_HEIGHT"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
+		<item value="true" key="showEnclosingDefinitions"/>
 	</section>
 	<section name="TextSearchPage">
 		<item value="false" key="CASE_SENSITIVE"/>
@@ -47,8 +42,19 @@
 		<item value="12" key="HISTORY_SIZE"/>
 		<section name="HISTORY11">
 			<item value="false" key="isRegExSearch"/>
-			<item value="uint8_t" key="textPattern"/>
+			<item value="P(STATUS)" key="textPattern"/>
 			<item value="3" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY2">
+			<item value="false" key="isRegExSearch"/>
+			<item value="strcpy" key="textPattern"/>
+			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -60,51 +66,7 @@
 			<item value="IPAddress.h" key="1"/>
 			<item value="*" key="0"/>
 		</section>
-		<section name="HISTORY2">
-			<item value="false" key="isRegExSearch"/>
-			<item value="millis" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
 		<section name="HISTORY3">
-			<item value="false" key="isRegExSearch"/>
-			<item value="sprintf" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY0">
-			<item value="false" key="isRegExSearch"/>
-			<item value="strcpy" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY10">
-			<item value="false" key="isRegExSearch"/>
-			<item value="MAX_NUMBER_OF_VALUES" key="textPattern"/>
-			<item value="3" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY1">
 			<item value="false" key="isRegExSearch"/>
 			<item value="extdata" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -115,18 +77,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY9">
-			<item value="false" key="isRegExSearch"/>
-			<item value="P(STATUS)" key="textPattern"/>
-			<item value="3" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY8">
+		<section name="HISTORY10">
 			<item value="false" key="isRegExSearch"/>
 			<item value="arduinoInit" key="textPattern"/>
 			<item value="3" key="scope"/>
@@ -137,9 +88,9 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY5">
+		<section name="HISTORY0">
 			<item value="false" key="isRegExSearch"/>
-			<item value="float" key="textPattern"/>
+			<item value="a0" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -148,9 +99,9 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY4">
+		<section name="HISTORY1">
 			<item value="false" key="isRegExSearch"/>
-			<item value="findDeviceIndex" key="textPattern"/>
+			<item value="type" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -159,7 +110,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY7">
+		<section name="HISTORY9">
 			<item value="false" key="isRegExSearch"/>
 			<item value="dhtInit" key="textPattern"/>
 			<item value="3" key="scope"/>
@@ -170,7 +121,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY6">
+		<section name="HISTORY8">
 			<item value="false" key="isRegExSearch"/>
 			<item value="postmessa" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -181,9 +132,55 @@
 			<list key="workingSets">
 			</list>
 		</section>
+		<section name="HISTORY5">
+			<item value="false" key="isRegExSearch"/>
+			<item value="sprintf" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY4">
+			<item value="false" key="isRegExSearch"/>
+			<item value="millis" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item value="false" key="isRegExSearch"/>
+			<item value="float" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item value="false" key="isRegExSearch"/>
+			<item value="findDeviceIndex" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
 	</section>
-	<section name="SearchDialog.ScopePart">
-		<item value="0" key="scope"/>
+	<section name="DialogBounds_SearchHistorySelectionDialog">
+		<item value="486" key="DIALOG_WIDTH"/>
+		<item value="404" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
@@ -191,5 +188,8 @@
 			<item value="ERROR"/>
 			<item value="payLoad_Range_Values"/>
 		</list>
+	</section>
+	<section name="SearchDialog.ScopePart">
+		<item value="0" key="scope"/>
 	</section>
 </section>
