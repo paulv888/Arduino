@@ -29,7 +29,7 @@ P(TXTCOMMA) = " , ";
 P(TXTDEVICEID) = "Device";
 P(HEADER_OK) = "HTTP/1.1 200 OK\nContent-Type: text/html\nConnection: close\n";
 P(HEADER_ERR) = "HTTP/1.1 422 ERROR\nContent-Type: text/html\nConnection: close\n";
-P(HEADERPG2) = "<HTML>\n<HEAD>\n<meta name='apple-mobile-web-app-capable' content='yes' />\n<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\n<link rel='stylesheet' type='text/css' href='http://vlohome.homeip.net/templates/protostar-mod/css/template.css' />\n<TITLE>Aynur's Chicken Coop</TITLE>\n</HEAD>";
+P(HEADERPG2) = "<HTML>\n<HEAD>\n<meta name='apple-mobile-web-app-capable' content='yes' />\n<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\n<link rel='stylesheet' type='text/css' href='http://vlohome.homeip.net/templates/protostar-mod/css/template.css' />\n<TITLE>Aynur's Beautiful Coop</TITLE>\n</HEAD>";
 P(HEADERPG3) = "<BODY class=\"site\">\n<div class=\"body\">\n<H1>Aynur's Beautiful Coop</H1>\n<br /><br />";
 P(HEADERPGEND) = "</DIV></BODY>\n</HTML>";
 P(TXTPOST) = "POST /cronjobs/70D455DC-ACB4-4525-8A85-E6009AE93AF4/a.php HTTP/1.1\nHost: vlohome.homeip.net\nContent-Type: text/html\nConnection: close\nContent-Length: ";
@@ -41,6 +41,7 @@ P(H6) = "H6";
 P(BR) = "BR";
 P(SLASH) = "/";
 P(TXTSTATUS) = "Status";
+P(TXTVALUE) = "Value";
 P(TXTCOMMAND) = "Command";
 P(TXTINOUT) = "InOut";
 P(TXTEXTDATA) = "ExtData";
@@ -120,6 +121,7 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printV(clientsel, mdevices[deviceidx].getDeviceid(), getLen);
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+
 	// CommandID
 	if (JSON) {
 		len += printP(clientsel, TXTCOMMA, getLen);
@@ -151,46 +153,60 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTSTATUS , getLen);
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	if (JSON) len += printP(clientsel, TXTCOLON, getLen);
+	len += printP(clientsel, TXTCOLON, getLen);
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printVstr(clientsel, mdevices[deviceidx].getStatus(), getLen);
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 
+	// Value
+	if (mdevices[deviceidx].commandvalue != NO_VALUE) {
+		if (JSON) {
+			len += printP(clientsel, TXTCOMMA, getLen);
+		}
+		else {
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
+		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTVALUE , getLen);
+		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTCOLON, getLen);
+		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printVstr(clientsel, mdevices[deviceidx].getValue(), getLen);
+		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	}
+
 	// InOut
 	if (JSON) {
 		len += printP(clientsel, TXTCOMMA, getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTINOUT , getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTCOLON, getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
+		len += printVstr(clientsel, "1", getLen);
+		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	}
-	else {
-		printP(clientsel, AOPEN);
-		printP(clientsel, BR);
-		printP(clientsel, SLASH);
-		printP(clientsel, ACLOSE);
-	}
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	len += printP(clientsel, TXTINOUT , getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	len += printP(clientsel, TXTCOLON, getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	len += printVstr(clientsel, mdevices[deviceidx].getInOut(), getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 
 	// ExtData
-	if (JSON) {
-		len += printP(clientsel, TXTCOMMA, getLen);
+	if (printVstr(clientsel, mdevices[deviceidx].getExtData(), true) > 0) {
+		if (JSON) {
+			len += printP(clientsel, TXTCOMMA, getLen);
+		}
+		else {
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
+		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTEXTDATA , getLen);
+		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTCOLON, getLen);
+		len += printVstr(clientsel, mdevices[deviceidx].getExtData(), getLen);
 	}
-	else {
-		printP(clientsel, AOPEN);
-		printP(clientsel, BR);
-		printP(clientsel, SLASH);
-		printP(clientsel, ACLOSE);
-	}
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	len += printP(clientsel, TXTEXTDATA , getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	len += printP(clientsel, TXTCOLON, getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	len += printVstr(clientsel, mdevices[deviceidx].getExtData(), getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 
 	if (JSON) len += printP(clientsel, TXTSBRACKETCLOSE, getLen);
 	if (DEBUG_WEB) Serial.println();
@@ -306,7 +322,7 @@ client_recv = server.available();
 						} else {
 							printP(COMMAND_IO_RECV, HEADER_OK);
 							client_recv.println();
-							printResponse(COMMAND_IO_RECV, deviceIdx, true, false);
+							if ( result == HNDLR_WRITE_RESULT) printResponse(COMMAND_IO_RECV, deviceIdx, true, false);
 						}
 					}
 					delay(1);
@@ -323,10 +339,10 @@ client_recv = server.available();
 
 void postMessage(const byte deviceidx) {
 
-	if (DEBUG_MEMORY) printMem(" postMessage ");
+	if (DEBUG_MEMORY) printMem("Post");
 
 	if (client_send.connect(vlosite, 80)) {
-	if (DEBUG_WEB) Serial.println("New connection");
+	if (DEBUG_WEB) Serial.println("NewC");
 
 		int len = 0;
 
@@ -346,11 +362,11 @@ void postMessage(const byte deviceidx) {
 		}
 
 	} else {
-		if (DEBUG_WEB) Serial.println("Failed to connect-1");
+		if (DEBUG_WEB) Serial.println("Fail");
 	}
 
 	delay(1);
-	if (DEBUG_WEB) Serial.println("disconnecting.");
+	if (DEBUG_WEB) Serial.println("Disc");
 	client_send.stop();
 //if (retry==0) Reset_AVR();
 }

@@ -9,20 +9,26 @@
 #include "Arduino.h"
 //add your includes for the project Led here
 #include "share_commands.h"
-#include "configuration.h"
+#include "Configuration.h"
 #include <Event.h>
 #include <Timer.h>
+#include "Web.h"
 
 //end of add your includes here
 #ifdef __cplusplus
 extern "C" {
 #endif
+void loop();
+void setup();
 #ifdef __cplusplus
 } // extern "C"
 #endif
 
 //add your function definitions for the project Led here
-void showStatus(byte Error);
+void showStatus(byte Error, byte Idx);
 extern Timer timer;
+
+//extern Device mdevices[];
+
 
 #endif /* Led_H_ */

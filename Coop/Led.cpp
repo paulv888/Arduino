@@ -4,10 +4,10 @@
  *  Created on: Aug 29, 2012
  *      Author: pvloon
  */
-#include <Led.h>
+#include "Led.h"
 
-void showStatus(byte Error) {
-	static byte eSensorSend = 0;
+void showStatus(byte Error, byte deviceIDidx) {
+	char a[MAX_EXT_DATA];
 	switch (Error) {
 	case INFO_NORMAL:
 		timer.oscillate(LED_PIN, HIGH, 500, 2, 3);
@@ -15,26 +15,14 @@ void showStatus(byte Error) {
 	case INFO_CALIBRATING:
 		timer.oscillate(LED_PIN, HIGH, 500, 50, 3);
 		break;
-	case ERROR_READ_SENSOR: {
-		timer.oscillate(LED_PIN, HIGH, 100, 50, 10);
-		//Serial.println("SENSOR ERROR!");
-		if (eSensorSend++ % 400 == 0) {														// do not flood (about every hour)
-/*			payLoad_Simple scommand;
-			scommand.command = COMMAND_RESULT_ERROR;
-			scommand.data = ERROR_READ_SENSOR;*/
-//			sendMessageRF(RF_BASE_STATION, scommand);
-			eSensorSend=true;
-		}
-	}
-		break;
-	case ERROR_CALIBRATE: {
-		timer.oscillate(LED_PIN, HIGH, 500, 50, 10);
-		//Serial.println("CALIBRATE ERROR!");
-/*		payLoad_Simple scommand;
-		scommand.command = COMMAND_RESULT_ERROR;
-		scommand.data = ERROR_CALIBRATE;*/
-//		sendMessageRF(RF_BASE_STATION, scommand);
-	}
+	case SENSOR_ERROR:
+		timer.oscillate(LED_PIN, HIGH, 500, 50, 4);
+		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
+		mdevices[deviceIDidx].setCommand(COMMAND_SET_RESULT);
+		mdevices[deviceIDidx].setStatus(ERROR);
+		sprintf(a, "{\"E\" : \"%i\", \"M\" : \"%s\" , \"D\" : \"%i\"}", SENSOR_ERROR, "Sensor error on Dev: ", mdevices[deviceIDidx].getDeviceid());
+    	mdevices[deviceIDidx].setExtData(a);
+		postMessage(deviceIDidx);
 		break;
 	}
 }

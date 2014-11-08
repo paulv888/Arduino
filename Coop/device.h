@@ -17,7 +17,7 @@
 class Device {
 public:
 	Device();
-	void begin(const char* _name, const int _deviceid, byte _type, uint8_t _Idx, const long period, void (*_init)(const byte), void (*_callback)(), byte (*_commandHandler)(const byte,const int,const int));
+	void begin(const char* _name, const int _deviceid,  uint8_t _Idx, const long period, void (*_init)(const byte), void (*_callback)(), byte (*_commandHandler)(const byte,const int,const int));
 	const char *getName();
 	int getDeviceid();
 	byte getIndex();
@@ -25,21 +25,23 @@ public:
 	char *getStatus();
 	void setCommand(const int _value);
 	char *getCommand();
-	void setInOut(const byte _value);
-	char *getInOut();
+	void setValue(const int _value);
+	char *getValue();
+	void setPin(const byte _value);
+	byte getPin();
 	void setExtData(const char _value[]);
 	char *getExtData();
 	byte (*commandHandler)(const byte, const int, const int) ;
+	int commandvalue;
 
 protected:
-	char name[25];
+	char *name;
+	char *extdata;
 	int deviceid;
-	byte type;
 	byte index;
 	byte status;
 	int command;
-	int inout;
-	char extdata[MAX_EXT_DATA];
+	byte pin;
 	char temp[10];
 };
 extern Timer timer;

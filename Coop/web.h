@@ -14,19 +14,23 @@
 #include <avr/io.h>
 #include <avr/wdt.h>
 //add your includes for the project command here
-#include "configuration.h"
-#include "Utils.h"
-#include "device.h"
-#include "deviceaction.h"
-#include "coop.h"
+#include "Configuration.h"
+#include "Device.h"
+#include "Deviceaction.h"
+//#include "Coop.h"
 #include "MemoryFree.h"
+#include "Utils.h"
 
 #define Reset_AVR() wdt_enable(WDTO_30MS); while(1) {}
 
 // declare a static string
 #define P(name) static const prog_char name[] PROGMEM
 
-
+// Workaround for http://gcc.gnu.org/bugzilla/show_bug.cgi?id=34734
+#ifdef PROGMEM
+#undef PROGMEM
+#define PROGMEM __attribute__((section(".progmem.data")))
+#endif
 
 //end of add your includes here
 #ifdef __cplusplus

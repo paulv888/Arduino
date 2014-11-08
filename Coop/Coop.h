@@ -6,24 +6,25 @@
 #ifndef Coop_H_
 #define Coop_H_
 #include "Arduino.h"
-#include "configuration.h"
-#include "share_commands.h"
 #include <Ethernet.h>
 #include <EthernetClient.h>
 #include <EthernetServer.h>
 #include <Timer.h>
-#include "device.h"
-#include "deviceaction.h"
+#include "Configuration.h"
+#include "Device.h"
+#include "Deviceaction.h"
+
 //end of add your includes here
 
+//end of add your includes here
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+void loop();
+void setup();
 #ifdef __cplusplus
 } // extern "C"
 #endif
-
 
 
 //Do not add code below this line

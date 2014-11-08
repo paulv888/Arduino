@@ -13,12 +13,12 @@
 #define DEBUG_MAIN true
 #define DEBUG_DEVICE_HAND true
 #define DEBUG_WEB true
-#define DEBUG_DEVICE false
+#define DEBUG_DEVICE true
 #define DEBUG_MEMORY true
 
 ///////////////////////////////////
 // Device Types
-#define DEVICE_COUNT 3
+#define DEVICE_COUNT 9
 
 // Arduino Module
 #define LED_PIN 7
@@ -35,15 +35,25 @@
 // Local Errors
 #define INFO_NORMAL 100
 #define INFO_CALIBRATING 101
+#define TIMER_ERROR 102
+#define SENSOR_ERROR 103
 
 // Handler return values
 #define HNDLR_WRITE_RESULT 1
 #define ERROR 255
 #define HNDLR_OK 2
-
+#define NO_VALUE -12399
 
 #define MAX_EXT_DATA 40
 #define MAX_NAME_LEN 10
+
+#define RELAY_0_IDX 3
+#define RELAY_1_IDX 4
+#define RELAY_2_IDX 5
+
+#define NTC_0_IDX 7
+#define NTC_1_IDX 8
+
 
 #endif /* ARDBrigde_H_ */
 

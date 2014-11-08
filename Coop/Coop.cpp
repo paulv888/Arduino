@@ -12,28 +12,36 @@ void setup() {
 	setupWeb();
 
 	if (DEBUG_MAIN || DEBUG_DEVICE_HAND || DEBUG_WEB || DEBUG_DEVICE || DEBUG_MEMORY) Serial.begin(57600);
-	mdevices[0].begin("Arduino", 98, DEV_TYPE_ARDUINO, 0, (long)60*60*1000, arduinoInit, arduinoCallbackT, arduinoHandler);
-	mdevices[1].begin("DHT11", 201, DEV_TYPE_TEMP_HUM, 1, (long)15*60*1000, dht11Init, dht11CallbackT, dht11Handler);
-	mdevices[2].begin("Automatic Door", 203, DEV_AUTO_DOOR, 2, (long)0, doorInit, NULL, doorHandler);
-//	mdevices[3].begin("Coop Door", DEVICE_3_ID, DEVICE_3_TYPE, DEVICE_3_UPDATE_TIMER, DEVICE_3_INIT, DEVICE_3_CALLBACK, DEVICE_3_COMMANDHANDLER);
+	mdevices[0].begin("Arduino", 98, 0, (long)60*60*1000, arduinoInit, arduinoCallbackT, arduinoHandler);
+	mdevices[1].begin("DHT11", 201, 1, (long)15*60*1000, dht11Init, dht11CallbackT, dht11Handler);
+	mdevices[2].begin("Door", 203, 2, (long)(long)12*60*60*1000, doorInit, doorCallbackT, doorHandler);
+	mdevices[RELAY_0_IDX].setPin(A3);
+	mdevices[RELAY_0_IDX].begin("Fan", 204, RELAY_0_IDX, (long)0, relayInit, NULL, relayHandler);		// Special Timer taking care off all simple devices
+	mdevices[RELAY_1_IDX].setPin(A4);
+	mdevices[RELAY_1_IDX].begin("Red Light", 205, RELAY_1_IDX, (long)0, relayInit, NULL, relayHandler);
+	mdevices[RELAY_2_IDX].setPin(A5);
+	mdevices[RELAY_2_IDX].begin("Coop Light", 206, RELAY_2_IDX, (long)12*60*60*1000, relayInit, relayCallbackT, relayHandler);
+	//mdevices[6].begin("Heater", 207, 6, (long)12*60*60*1000, relayInit, relayCallbackT, relayHandler);
+	mdevices[NTC_0_IDX].setPin(A0);
+	mdevices[NTC_0_IDX].begin("NTC 1", 208, NTC_0_IDX, (long)0, NULL, NULL, ntcHandler);
+	mdevices[NTC_1_IDX].setPin(A1);
+	mdevices[NTC_1_IDX].begin("NTC 2", 209, NTC_1_IDX, (long)0, NULL, NULL, ntcHandler);
+	relayCallbackT();
 
+	showStatus(INFO_NORMAL, 0);
 
-
-	showStatus(INFO_NORMAL);
-
-	arduinoCallback(0);
+	// Use analog ref
+	analogReference(EXTERNAL);
 
 }
 
 // The loop function is called in an endless loop
 void loop() {
 
-	// Is there anything ready for us?
 	//if (DEBUG_MEMORY) printMem(" Main ");
 
 	updateWeb();
 
-	// arduinoCallback, Poll Sensors, UpdateLed, StreamData
 	timer.update();
 
 }
