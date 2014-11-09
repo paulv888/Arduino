@@ -6863,3 +6863,422 @@ java.lang.NullPointerException
 	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
 	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2014-11-09 13:13:12.603 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.search 4 0 2014-11-09 13:19:17.550
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:19:17.550
+!MESSAGE File 'Coop/Release/mapfile.txt' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/mapfile.txt'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/mapfile.txt'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:19:17.552
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/mapfile.txt'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:19:17.552
+!MESSAGE File 'Coop/Release/SharedFiles/dht11.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SharedFiles/dht11.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SharedFiles/dht11.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:19:17.552
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SharedFiles/dht11.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:19:17.553
+!MESSAGE File 'Coop/Release/SharedFiles/Utils.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SharedFiles/Utils.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SharedFiles/Utils.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:19:17.553
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SharedFiles/Utils.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:19:17.553
+!MESSAGE File 'Coop/Release/SharedFiles/MemoryFree.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SharedFiles/MemoryFree.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SharedFiles/MemoryFree.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:19:17.554
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SharedFiles/MemoryFree.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:19:17.554
+!MESSAGE File 'Coop/Release/SharedFiles/InternalTemp.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SharedFiles/InternalTemp.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SharedFiles/InternalTemp.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:19:17.554
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SharedFiles/InternalTemp.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:19:17.554
+!MESSAGE File 'Coop/Release/SPI/SPI.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:19:17.554
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:19:17.554
+!MESSAGE File 'Coop/Release/EEPROM/EEPROM.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/EEPROM/EEPROM.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/EEPROM/EEPROM.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:19:17.554
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/EEPROM/EEPROM.d'.
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:24:50.216
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:24:50.219
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:25:16.045
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:25:16.049
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:28:31.011
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:28:31.011
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:28:37.521
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:28:37.524
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:28:51.692
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:28:51.693
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:35:11.584
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:35:11.584
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.search 4 0 2014-11-09 13:40:12.496
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:40:12.496
+!MESSAGE File 'Coop/Release/mapfile.txt' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/mapfile.txt'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/mapfile.txt'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:40:12.496
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/mapfile.txt'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:40:12.496
+!MESSAGE File 'Coop/Release/SharedFiles/dht11.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SharedFiles/dht11.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SharedFiles/dht11.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:40:12.496
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SharedFiles/dht11.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:40:12.496
+!MESSAGE File 'Coop/Release/SharedFiles/Utils.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SharedFiles/Utils.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SharedFiles/Utils.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:40:12.497
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SharedFiles/Utils.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:40:12.497
+!MESSAGE File 'Coop/Release/SharedFiles/MemoryFree.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SharedFiles/MemoryFree.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SharedFiles/MemoryFree.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:40:12.497
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SharedFiles/MemoryFree.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:40:12.497
+!MESSAGE File 'Coop/Release/SharedFiles/InternalTemp.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SharedFiles/InternalTemp.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SharedFiles/InternalTemp.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:40:12.497
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SharedFiles/InternalTemp.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:40:12.497
+!MESSAGE File 'Coop/Release/SPI/SPI.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:40:12.497
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/SPI/SPI.d'.
+!SUBENTRY 1 org.eclipse.search 4 4 2014-11-09 13:40:12.498
+!MESSAGE File 'Coop/Release/EEPROM/EEPROM.d' has been skipped, problem while reading: ('Resource is out of sync with the file system: '/Coop/Release/EEPROM/EEPROM.d'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Coop/Release/EEPROM/EEPROM.d'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.getInputStream(FileCharSequenceProvider.java:283)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:277)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:40)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:260)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFiles(TextSearchVisitor.java:196)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:172)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.search(TextSearchVisitor.java:184)
+	at org.eclipse.search.core.text.TextSearchEngine$1.search(TextSearchEngine.java:54)
+	at org.eclipse.search.internal.ui.text.FileSearchQuery.run(FileSearchQuery.java:182)
+	at org.eclipse.search2.internal.ui.InternalSearchUI$InternalSearchJob.run(InternalSearchUI.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.core.resources 4 274 2014-11-09 13:40:12.498
+!MESSAGE Resource is out of sync with the file system: '/Coop/Release/EEPROM/EEPROM.d'.
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:40:41.405
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:40:41.406
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:44:43.550
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:44:43.552
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:48:32.263
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2014-11-09 13:48:32.264
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

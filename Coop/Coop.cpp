@@ -16,11 +16,11 @@ void setup() {
 	mdevices[THERMO_IDX].begin(  "Heater"    , 202, THERMO_IDX  , (long)1*1000       , thermoInit , thermoCallbackT , thermoHandler   );
 	mdevices[DOOR_IDX].begin(    "Door"      , 203, DOOR_IDX    , (long)(long)300    , doorInit   , doorCallbackT   , doorHandler     );
 	mdevices[DHT11_IDX].begin(   "DHT11"     , 201, DHT11_IDX   , (long)15*60*1000   , dht11Init  , dht11CallbackT  , dht11Handler    );
-	mdevices[RELAY_0_IDX].setPin(A3);
+	mdevices[RELAY_0_IDX].setPin(RELAY_0_PIN);
 	mdevices[RELAY_0_IDX].begin( "Fan"       , 204, RELAY_0_IDX , (long)0            , relayInit  , NULL            , relayHandler    );// Special Timer taking care off all simple devices
-	mdevices[RELAY_1_IDX].setPin(A4);
+	mdevices[RELAY_1_IDX].setPin(RELAY_1_PIN);
 	mdevices[RELAY_1_IDX].begin( "Red Light" , 205, RELAY_1_IDX , (long)0            , relayInit  , NULL            , relayHandler    );
-	mdevices[RELAY_2_IDX].setPin(A5);
+	mdevices[RELAY_2_IDX].setPin(RELAY_2_PIN);
 	mdevices[RELAY_2_IDX].begin( "Coop Light", 206, RELAY_2_IDX , (long)12*60*60*1000, relayInit  , relayCallbackT  , relayHandler    );
 	mdevices[NTC_0_IDX].setPin(NTC_0_PIN);
 	mdevices[NTC_0_IDX].begin(   "NTC 1"     , 208, NTC_0_IDX   , (long)0            , NULL       , NULL            , ntcHandler      );

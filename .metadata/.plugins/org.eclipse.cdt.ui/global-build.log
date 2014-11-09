@@ -549,50 +549,15 @@ Finished building: sizedummy
 **** Build of configuration Release for project Coop ****
 
 make all 
-Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Timer/Timer.d" -MT"Timer/Timer.d"  -c -o "Timer/Timer.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp"
-Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp
- 
-Building file: ../Coop.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Coop.d" -MT"Coop.d"  -c -o "Coop.o" -x c++ "../Coop.cpp"
-Finished building: ../Coop.cpp
- 
-Building file: ../Device.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Device.d" -MT"Device.d"  -c -o "Device.o" -x c++ "../Device.cpp"
-Finished building: ../Device.cpp
- 
-Building file: ../DeviceAction.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"DeviceAction.d" -MT"DeviceAction.d"  -c -o "DeviceAction.o" -x c++ "../DeviceAction.cpp"
-Finished building: ../DeviceAction.cpp
- 
-Building file: ../Door.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Door.d" -MT"Door.d"  -c -o "Door.o" -x c++ "../Door.cpp"
-Finished building: ../Door.cpp
- 
-Building file: ../Led.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.d"  -c -o "Led.o" -x c++ "../Led.cpp"
-Finished building: ../Led.cpp
- 
 Building file: ../Thermo.cpp
 Invoking: AVR C++ Compiler
 avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Thermo.d" -MT"Thermo.d"  -c -o "Thermo.o" -x c++ "../Thermo.cpp"
-../Thermo.cpp: In function 'void thermoCallback(byte)':
-../Thermo.cpp:35: warning: comparison between signed and unsigned integer expressions
-../Thermo.cpp:42: warning: comparison between signed and unsigned integer expressions
 Finished building: ../Thermo.cpp
  
-Building file: ../Web.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Web.d" -MT"Web.d"  -c -o "Web.o" -x c++ "../Web.cpp"
-Finished building: ../Web.cpp
- 
 Building target: Coop.elf
+../Thermo.cpp: In function 'void thermoCallback(byte)':
+../Thermo.cpp:37: warning: comparison between signed and unsigned integer expressions
+../Thermo.cpp:45: warning: comparison between signed and unsigned integer expressions
 Invoking: AVR C++ Linker
 avr-gcc -Os -Wl,--gc-sections  -Wl,-Map,"D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt",--cref -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -Lm -mmcu=atmega328p  -o"Coop.elf"  ./Timer/Event.o ./Timer/Timer.o  ./SharedFiles/InternalTemp.o ./SharedFiles/MemoryFree.o ./SharedFiles/Utils.o ./SharedFiles/dht11.o  ./SPI/SPI.o  ./EEPROM/EEPROM.o  ./Coop.o ./Device.o ./DeviceAction.o ./Door.o ./Led.o ./Thermo.o ./Web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
 Finished building target: Coop.elf
@@ -615,10 +580,10 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   21576 bytes (65.8% Full)
+Program:   21718 bytes (66.3% Full)
 (.text + .data + .bootloader)
 
-Data:       1315 bytes (64.2% Full)
+Data:       1323 bytes (64.6% Full)
 (.data + .bss + .noinit)
 
 

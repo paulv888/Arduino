@@ -48,6 +48,8 @@
 #define THERMO_IDX 1
 #define THERMO_THRESHOLD 10
 #define NTC_0_PIN A0
+#define RELAY_HEAT A2
+
 // Automatic Door
 #define DOOR_IDX 2
 #define DIRECTION_RELAY 2
@@ -59,8 +61,11 @@
 #define DHT11_PIN  6
 // Relays
 #define RELAY_0_IDX 4
+#define RELAY_0_PIN A3
 #define RELAY_1_IDX 5
+#define RELAY_1_PIN A4
 #define RELAY_2_IDX 6
+#define RELAY_2_PIN A5
 // NTCs
 #define NTC_0_IDX 7
 //#define NTC_0_PIN A0
@@ -78,7 +83,7 @@
 #define HNDLR_WRITE_RESULT 1
 #define ERROR 255
 #define HNDLR_OK 2
-#define NO_VALUE -12399
+#define NO_VALUE -888
 
 #define MAX_EXT_DATA 40
 #define MAX_NAME_LEN 10

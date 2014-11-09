@@ -45,6 +45,7 @@ void relayInit(const byte deviceIDidx) {
 	if (DEBUG_DEVICE_HAND) Serial.print("*RelI ");
 	if (DEBUG_DEVICE_HAND) Serial.println(mdevices[deviceIDidx].getPin());
 	pinMode(mdevices[deviceIDidx].getPin(), OUTPUT);
+	pinMode(mdevices[deviceIDidx].getPin(), OUTPUT);
 	// relayCallbackT(); Cannot init for each callback shared
 }
 
