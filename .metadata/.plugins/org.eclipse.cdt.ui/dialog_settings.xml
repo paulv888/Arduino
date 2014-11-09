@@ -30,6 +30,8 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="serial"/>
+			<item value="ardi"/>
 			<item value="DEVICE_COUNT"/>
 			<item value="getInOut"/>
 			<item value="sprintf"/>

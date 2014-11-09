@@ -14,7 +14,7 @@ void setup() {
 	if (DEBUG_MAIN || DEBUG_DEVICE_HAND || DEBUG_WEB || DEBUG_DEVICE || DEBUG_MEMORY) Serial.begin(57600);
 	mdevices[0].begin("Arduino", 98, 0, (long)60*60*1000, arduinoInit, arduinoCallbackT, arduinoHandler);
 	mdevices[1].begin("DHT11", 201, 1, (long)15*60*1000, dht11Init, dht11CallbackT, dht11Handler);
-	mdevices[2].begin("Door", 203, 2, (long)(long)12*60*60*1000, doorInit, doorCallbackT, doorHandler);
+	mdevices[2].begin("Door", 203, 2, (long)(long)300, doorInit, doorCallbackT, doorHandler);
 	mdevices[RELAY_0_IDX].setPin(A3);
 	mdevices[RELAY_0_IDX].begin("Fan", 204, RELAY_0_IDX, (long)0, relayInit, NULL, relayHandler);		// Special Timer taking care off all simple devices
 	mdevices[RELAY_1_IDX].setPin(A4);

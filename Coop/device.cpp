@@ -10,6 +10,7 @@
 #endif
 
 Device::Device() {
+	commandvalue = NO_VALUE;
 }
 
 void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const long period, void (*_init)(const byte), void (*_callback)(), uint8_t (*_commandHandler)(const uint8_t, const int, const int)) {
@@ -48,10 +49,6 @@ void Device::setStatus(const int _value) {
 }
 char *Device::getStatus() {
 	sprintf(temp, "%i", status);
-	if (DEBUG_DEVICE) Serial.print("Status: ");
-	if (DEBUG_DEVICE) Serial.println(status);
-	if (DEBUG_DEVICE) Serial.print("Status: ");
-	if (DEBUG_DEVICE) Serial.println(temp);
 	return 	temp;
 }
 
@@ -95,8 +92,5 @@ char *Device::getExtData() {
 
 
 int Device::getDeviceid() {
-	if (DEBUG_DEVICE) Serial.print("DeviceID: ");
-	if (DEBUG_DEVICE) Serial.println(deviceid);
-
 	return deviceid;
 }

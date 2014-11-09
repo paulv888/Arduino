@@ -18,7 +18,7 @@ static EthernetClient client_recv;
 static EthernetClient client_send;
 
 //char *readString = "123456789012345678901234567890";
-char readString[30] ;
+char readString[MAX_POST_PARAMS] ;
 
 
 P(TXTSBRACKETOPEN) = "{";
@@ -236,7 +236,7 @@ client_recv = server.available();
 				char c = client_recv.read();
 				//read char by char HTTP request
 
-				if (cptr < 29) {
+				if (cptr < MAX_POST_PARAMS-1) {
 					readString[cptr++] = c;
 				} else {
 					cptr = 0;
@@ -248,7 +248,7 @@ client_recv = server.available();
 					if (DEBUG_WEB) Serial.println(readString); //print to serial monitor for debuging
 
 					if (strstr(readString,"GET / ")) { 		// Root requested, then give page, else try to parse post parameters
-						if (DEBUG_MEMORY) printMem(" Web Get ");
+						if (DEBUG_MEMORY) printMem("WebG ");
 	    	     		printP(COMMAND_IO_RECV, HEADER_OK);
 						client_recv.println();
 	    	     		printP(COMMAND_IO_RECV, HEADERPG2);
@@ -282,7 +282,7 @@ client_recv = server.available();
 					} else {												// parse
 
 						// parse url POST /d/203/c/23/v/12 HTTP/1.1
-						if (DEBUG_MEMORY) printMem(" Web Post ");
+						if (DEBUG_MEMORY) printMem("WebP ");
 						int deviceID = 0;
 						int commandID = 0;
 						int commandvalue = 0;
@@ -298,7 +298,7 @@ client_recv = server.available();
 							token = strtok(NULL, slash); // c
 							token = strtok(NULL, slash); // commandID
 							commandID = atoi(token);
-							token = strtok(NULL, slash); // value ?
+							token = strtok(NULL, slash); // v
 							if (token != NULL) {
 								token = strtok(NULL, slash); // value ?
 								commandvalue = atoi(token);
@@ -336,6 +336,7 @@ client_recv = server.available();
 		}
 	}
 }
+
 
 void postMessage(const byte deviceidx) {
 

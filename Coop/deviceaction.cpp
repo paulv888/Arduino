@@ -13,40 +13,14 @@
 Dht11 dht11;
 
 
-void doorInit(const byte deviceIDidx) {
-	if (DEBUG_DEVICE_HAND) Serial.println("DoorI");
-	if (DEBUG_DEVICE_HAND) Serial.println(deviceIDidx);
-
-	pinMode(POWER_RELAY, OUTPUT);
-	pinMode(DIRECTION_RELAY, OUTPUT);
-
-	pinMode(TOP_SWITCH, INPUT);
-	digitalWrite(TOP_SWITCH, HIGH); // connect internal pull-up
-
-	pinMode(BOTTOM_SWITCH, INPUT);
-	digitalWrite(BOTTOM_SWITCH, HIGH); // connect internal pull-up
-
-	doorCallbackT();
-}
-
-void doorCallbackT() {
-	doorCallback (2);
-}
-
-void doorCallback(const byte deviceIDidx) {
-	if (DEBUG_DEVICE_HAND) Serial.println("DoorC");
-	doorHandler(deviceIDidx, COMMAND_PING, 0);
-}
-
 void arduinoInit(const byte deviceIDidx) {
 	if (DEBUG_DEVICE_HAND) Serial.println("ArdI");
-	Serial.println(deviceIDidx);
 	pinMode(LED_PIN, OUTPUT);
 	arduinoCallback(deviceIDidx);
 }
 // DEVICE_0_CALLBACK
 void arduinoCallbackT() {
-	arduinoCallback (0);
+	arduinoCallback (ARDUINO_IDX);
 }
 
 void arduinoCallback(const byte deviceIDidx) {
@@ -59,7 +33,7 @@ void dht11Init(const byte deviceIDidx) {
 }
 
 void dht11CallbackT() {
-	dht11Callback(1);
+	dht11Callback(DHT11_IDX);
 }
 // DEVICE_1_CALLBACK
 void dht11Callback(const byte deviceIDidx) {
@@ -94,7 +68,7 @@ void ntcCallback(const byte deviceIDidx) {
 	relayHandler(NTC_1_IDX, COMMAND_PING, 0);
 }
 
-void aHndlrValues(const byte deviceIDidx, const int commandID, const int commandvalue) {
+void aHndlrValues(const byte deviceIDidx, const int commandID, const int status, const int commandvalue) {
 	byte states;
 	char a[MAX_EXT_DATA];
 	states = digitalRead(LED_PIN);
@@ -117,24 +91,24 @@ byte arduinoHandler(const byte deviceIDidx, const int commandID, const int comma
 	switch (commandID) {
 	case COMMAND_ON:
     	digitalWrite(LED_PIN, HIGH);
-    	aHndlrValues(deviceIDidx, commandID, commandvalue);
+    	aHndlrValues(deviceIDidx, commandID, digitalRead(LED_PIN), commandvalue);
 		postMessage(deviceIDidx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_OFF:
         digitalWrite(LED_PIN, LOW);
-    	aHndlrValues(deviceIDidx, commandID, commandvalue);
+    	aHndlrValues(deviceIDidx, commandID, digitalRead(LED_PIN),commandvalue);
 		postMessage(deviceIDidx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_PING:
 	case COMMAND_STATUSREQUEST:
-    	aHndlrValues(deviceIDidx, commandID, commandvalue);
+    	aHndlrValues(deviceIDidx, commandID, digitalRead(LED_PIN), commandvalue);
 		postMessage(deviceIDidx);
 		return HNDLR_WRITE_RESULT;
 		break;
 	case COMMAND_GET_VALUE:
-    	aHndlrValues(deviceIDidx, commandID, commandvalue);
+    	aHndlrValues(deviceIDidx, commandID, digitalRead(LED_PIN),commandvalue);
 		return HNDLR_WRITE_RESULT;
 		break;
 	default:
@@ -190,80 +164,6 @@ byte dht11Handler(const byte deviceIDidx, const int commandID, const int command
 		break;
 	}
 	return ERROR;
-}
-
-void dHndlrValues(const byte deviceIDidx, const int commandID, const int commandvalue) {
-	char a[MAX_EXT_DATA];
-	mdevices[deviceIDidx].setCommand(commandID);
-	mdevices[deviceIDidx].setStatus(digitalRead(POWER_RELAY));
-	sprintf(a, "{\"T\":\"%i\",\"B\":\"%i\",\"P\":\"%i\",\"D\":\"%i\"}", digitalRead(TOP_SWITCH), digitalRead(BOTTOM_SWITCH), digitalRead(POWER_RELAY), digitalRead(DIRECTION_RELAY));
-	mdevices[deviceIDidx].setExtData(a);
-}
-
-byte doorHandler(const byte deviceIDidx, const int commandID, const int commandvalue) {
-	if (DEBUG_MEMORY) printMem("doorH ");
-	if (DEBUG_DEVICE_HAND) Serial.print(deviceIDidx);
-	if (DEBUG_DEVICE_HAND) Serial.print(" Cmd ");
-	if (DEBUG_DEVICE_HAND) Serial.print(commandID);
-	if (DEBUG_DEVICE_HAND) Serial.print(" Val: ");
-	if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
-
-	switch (commandID) {
-	case COMMAND_ON:
-		digitalWrite(POWER_RELAY, HIGH);
-		dHndlrValues(deviceIDidx, commandID, commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_OK;
-		break;
-	case COMMAND_OFF:
-    	digitalWrite(POWER_RELAY, LOW);
-		dHndlrValues(deviceIDidx, commandID, commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_OK;
-		break;
-	case COMMAND_UP:
-    	digitalWrite(DIRECTION_RELAY, HIGH);
-		dHndlrValues(deviceIDidx, commandID, commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_OK;
-		break;
-	case COMMAND_DOWN:
-    	digitalWrite(DIRECTION_RELAY, LOW);
-		dHndlrValues(deviceIDidx, commandID, commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_OK;
-		break;
-	case COMMAND_STATUSREQUEST:
-	case COMMAND_PING:
-		dHndlrValues(deviceIDidx, commandID, commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_WRITE_RESULT;
-		break;
-	case COMMAND_GET_VALUE:
-		dHndlrValues(deviceIDidx, commandID, commandvalue);
-		return HNDLR_WRITE_RESULT;
-		break;
-	default:
-		return ERROR;
-		break;
-	}
-	return ERROR;
-}
-
-void doorTimer() {
-	if (DEBUG_MEMORY) printMem(" doorTimer ");
-
-	// Here is the main open/close logic
-	// Start direction
-	// Start power
-	// Wait for top/bottom to close
-	// On close stop power
-	// Detect if not moving and Alert
-	if (DEBUG_DEVICE_HAND) Serial.print("*** Door Timer: ");
-
-	byte top = digitalRead(TOP_SWITCH);
-	byte bottom = digitalRead(BOTTOM_SWITCH);
-
 }
 
 byte relayHandler(const byte deviceIDidx, const int commandID, const int commandvalue) {
@@ -345,6 +245,7 @@ byte ntcHandler(const byte deviceIDidx, const int commandID, const int commandva
 			if (DEBUG_DEVICE_HAND) Serial.print(" ");
 			if (DEBUG_DEVICE_HAND) Serial.println(value);
 			showStatus(SENSOR_ERROR, deviceIDidx);
+			return ERROR;
 		}
 		mdevices[deviceIDidx].setValue(value);
 		if (commandID == COMMAND_STATUSREQUEST) postMessage(deviceIDidx);

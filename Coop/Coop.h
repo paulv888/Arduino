@@ -13,6 +13,7 @@
 #include "Configuration.h"
 #include "Device.h"
 #include "Deviceaction.h"
+#include "Door.h"
 
 //end of add your includes here
 

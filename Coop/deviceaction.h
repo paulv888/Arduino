@@ -11,11 +11,9 @@
 #include "dht11.h"
 #include "Led.h"
 //#include "device.h"
-#include <math.h>
 #include "MemoryFree.h"
 #include "InternalTemp.h"
 #include "Web.h"
-#include "Led.h"
 
 
 //end of add your includes here
@@ -38,10 +36,6 @@ void dht11CallbackT();
 void dht11Callback(const byte deviceIDidx);
 byte dht11Handler(const byte deviceIDidx, const int commandID, const int commandvalue);
 
-void doorInit(const byte deviceIDidx) ;
-void doorCallbackT();
-void doorCallback(const byte deviceIDidx);
-byte doorHandler(const byte deviceIDidx, const int commandID, const int commandvalue);
 
 void relayInit(const byte deviceIDidx) ;
 void relayCallbackT();
@@ -52,8 +46,6 @@ byte relayHandler(const byte deviceIDidx, const int commandID, const int command
 void ntcCallbackT();
 void ntcCallback(const byte deviceIDidx);
 byte ntcHandler(const byte deviceIDidx, const int commandID, const int commandvalue);
-
-void doorTimer();
 
 byte findDeviceIndex(const int _deviceID);
 

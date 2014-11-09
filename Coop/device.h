@@ -33,13 +33,13 @@ public:
 	char *getExtData();
 	byte (*commandHandler)(const byte, const int, const int) ;
 	int commandvalue;
+	int status;
 
 protected:
 	char *name;
 	char *extdata;
 	int deviceid;
 	byte index;
-	int status;
 	int command;
 	byte pin;
 	char temp[10];

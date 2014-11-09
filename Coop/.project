@@ -93,6 +93,11 @@
 			<locationURI>PivateLibPath/DHT11</locationURI>
 		</link>
 		<link>
+			<name>EEPROM</name>
+			<type>2</type>
+			<locationURI>ArduinoLibPath/EEPROM</locationURI>
+		</link>
+		<link>
 			<name>SPI</name>
 			<type>2</type>
 			<locationURI>ArduinoLibPath/SPI</locationURI>
