@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>Mine_ATmega328__3_3V_Ext_8_MHz</project>
+		<project>Ethernet</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -88,11 +89,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>DHT11</name>
-			<type>2</type>
-			<locationURI>PivateLibPath/DHT11</locationURI>
-		</link>
-		<link>
 			<name>EEPROM</name>
 			<type>2</type>
 			<locationURI>ArduinoLibPath/EEPROM</locationURI>
@@ -143,24 +139,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/Utils.h</locationURI>
 		</link>
 		<link>
-			<name>Utils/MemoryFree.cpp</name>
+			<name>SharedFiles/dht11.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/MemoryFree.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/dht11.cpp</locationURI>
 		</link>
 		<link>
-			<name>Utils/MemoryFree.h</name>
+			<name>SharedFiles/dht11.h</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/MemoryFree.h</locationURI>
-		</link>
-		<link>
-			<name>Utils/Utils.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/Utils.cpp</locationURI>
-		</link>
-		<link>
-			<name>Utils/Utils.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/Utils.h</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/dht11.h</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

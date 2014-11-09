@@ -10,7 +10,7 @@ void showStatus(byte Error, byte deviceIDidx) {
 	char a[MAX_EXT_DATA];
 	switch (Error) {
 	case INFO_NORMAL:
-		timer.oscillate(LED_PIN, HIGH, 500, 2, 3);
+		timer.oscillate(LED_PIN, HIGH, 500, 2, 2);
 		break;
 	case INFO_CALIBRATING:
 		timer.oscillate(LED_PIN, HIGH, 500, 50, 3);

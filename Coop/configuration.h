@@ -14,7 +14,7 @@
 //#define DEBUG_DEVICE_HAND true
 //#define DEBUG_WEB true
 //#define DEBUG_DEVICE true
-//#define DEBUG_MEMORY true
+#define DEBUG_MEMORY true
 //#define DEBUG_TIMER true
 
 #ifndef DEBUG_MAIN
@@ -44,30 +44,28 @@
 // Arduino Module
 #define ARDUINO_IDX 0
 #define LED_PIN 7
-
-// DHT11 Temp Hum Sensore
-#define DHT11_IDX 1
-#define DHT11_PIN  6
-
+// Thermo
+#define THERMO_IDX 1
+#define THERMO_THRESHOLD 10
+#define NTC_0_PIN A0
 // Automatic Door
 #define DOOR_IDX 2
 #define DIRECTION_RELAY 2
 #define POWER_RELAY 3
 #define TOP_SWITCH 4
 #define BOTTOM_SWITCH 5
-#define DOOR_DELAY_ADDRESS 0
-
+// DHT11 Temp Hum Sensore
+#define DHT11_IDX 3
+#define DHT11_PIN  6
 // Relays
-#define RELAY_0_IDX 3
-#define RELAY_1_IDX 4
-#define RELAY_2_IDX 5
-
-// Heater
-#define HEATER_IDX 6
-
+#define RELAY_0_IDX 4
+#define RELAY_1_IDX 5
+#define RELAY_2_IDX 6
 // NTCs
 #define NTC_0_IDX 7
+//#define NTC_0_PIN A0
 #define NTC_1_IDX 8
+#define NTC_1_PIN A1
 
 // Local Errors
 #define INFO_NORMAL 100
@@ -85,6 +83,14 @@
 #define MAX_EXT_DATA 40
 #define MAX_NAME_LEN 10
 #define MAX_POST_PARAMS 50
+
+#define DOOR_DELAY_ADDRESS 			 0
+#define NTC_0_ADDRESS 				 2
+#define NTC_1_ADDRESS 				 4
+#define THERMO_SET_ADDRESS 			 6
+#define DOOR_MAX_RUNTIME_ADDRESS 	 8
+#define THERMO_THRESHOLD_ADDRESS 	10
+
 
 
 #endif /* ARDBrigde_H_ */

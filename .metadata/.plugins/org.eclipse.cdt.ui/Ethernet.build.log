@@ -2,43 +2,19 @@
 **** Build of configuration Release for project Ethernet ****
 
 make all 
-Building file: ../utility/socket.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\utility" -I"D:\arduino-1.0.6\libraries\SPI" -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"utility/socket.d" -MT"utility/socket.d" -c -o "utility/socket.o" "../utility/socket.cpp"
-Finished building: ../utility/socket.cpp
- 
-Building file: ../utility/w5100.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\utility" -I"D:\arduino-1.0.6\libraries\SPI" -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"utility/w5100.d" -MT"utility/w5100.d" -c -o "utility/w5100.o" "../utility/w5100.cpp"
-Finished building: ../utility/w5100.cpp
- 
-Building file: ../Ethernet.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\utility" -I"D:\arduino-1.0.6\libraries\SPI" -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Ethernet.d" -MT"Ethernet.d" -c -o "Ethernet.o" "../Ethernet.cpp"
-Finished building: ../Ethernet.cpp
- 
-Building file: ../EthernetClient.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\utility" -I"D:\arduino-1.0.6\libraries\SPI" -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"EthernetClient.d" -MT"EthernetClient.d" -c -o "EthernetClient.o" "../EthernetClient.cpp"
-Finished building: ../EthernetClient.cpp
- 
-Building file: ../EthernetServer.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\utility" -I"D:\arduino-1.0.6\libraries\SPI" -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"EthernetServer.d" -MT"EthernetServer.d" -c -o "EthernetServer.o" "../EthernetServer.cpp"
-Finished building: ../EthernetServer.cpp
- 
-Building target: libEthernet.a
-Invoking: AVR Archiver
-avr-ar -r  "libEthernet.a"  ./utility/socket.o ./utility/w5100.o  ./Ethernet.o ./EthernetClient.o ./EthernetServer.o  
-d:\arduino-1.0.6\hardware\tools\avr\bin\avr-ar.exe: creating libEthernet.a
-Finished building target: libEthernet.a
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S libEthernet.a  >"libEthernet.lss"
-Finished building: libEthernet.lss
- 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega328p libEthernet.a
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
 AVR Memory Usage
 ----------------
 Device: atmega328p

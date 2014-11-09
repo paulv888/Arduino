@@ -1,133 +1,313 @@
 
+**** Build of configuration Release for project Arduino_Uno ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p libArduino_Uno.a
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:      14 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:         14 bytes (0.7% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       1 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          1 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       1 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          1 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Ethernet ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p libEthernet.a
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****
+
 **** Build of configuration Release for project Mine_ATmega328__3_3V_Ext_8_MHz ****
 
 make all 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/malloc.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/avr-libc/malloc.d" -MT"arduino/avr-libc/malloc.d"  -c -o "arduino/avr-libc/malloc.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/malloc.c"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/malloc.c
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/realloc.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/avr-libc/realloc.d" -MT"arduino/avr-libc/realloc.d"  -c -o "arduino/avr-libc/realloc.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/realloc.c"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/realloc.c
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/CDC.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/CDC.d" -MT"arduino/CDC.d"  -c -o "arduino/CDC.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/CDC.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/CDC.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/HID.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/HID.d" -MT"arduino/HID.d"  -c -o "arduino/HID.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/HID.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/HID.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/HardwareSerial.d" -MT"arduino/HardwareSerial.d"  -c -o "arduino/HardwareSerial.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp"
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp: In function 'void store_char(unsigned char, ring_buffer*)':
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp:98: warning: comparison between signed and unsigned integer expressions
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp: In function 'void __vector_18()':
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp:127: warning: unused variable 'c'
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp: In member function 'void HardwareSerial::begin(long unsigned int, byte)':
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp:368: warning: unused variable 'current_config'
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp: In member function 'virtual size_t HardwareSerial::write(uint8_t)':
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp:467: warning: comparison between signed and unsigned integer expressions
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/IPAddress.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/IPAddress.d" -MT"arduino/IPAddress.d"  -c -o "arduino/IPAddress.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/IPAddress.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/IPAddress.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/Print.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/Print.d" -MT"arduino/Print.d"  -c -o "arduino/Print.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/Print.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/Print.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/Stream.d" -MT"arduino/Stream.d"  -c -o "arduino/Stream.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp"
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp: In member function 'bool Stream::find(char*)':
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp:78: warning: deprecated conversion from string constant to 'char*'
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/Tone.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/Tone.d" -MT"arduino/Tone.d"  -c -o "arduino/Tone.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/Tone.cpp"
-D:/arduino-1.0.6/hardware/arduino/cores/arduino/Tone.cpp:119: warning: only initialized variables can be placed into program memory area
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/Tone.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/USBCore.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/USBCore.d" -MT"arduino/USBCore.d"  -c -o "arduino/USBCore.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/USBCore.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/USBCore.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/WInterrupts.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/WInterrupts.d" -MT"arduino/WInterrupts.d"  -c -o "arduino/WInterrupts.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/WInterrupts.c"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/WInterrupts.c
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/WMath.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/WMath.d" -MT"arduino/WMath.d"  -c -o "arduino/WMath.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/WMath.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/WMath.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/WString.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/WString.d" -MT"arduino/WString.d"  -c -o "arduino/WString.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/WString.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/WString.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/main.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/main.d" -MT"arduino/main.d"  -c -o "arduino/main.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/main.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/main.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/new.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/new.d" -MT"arduino/new.d"  -c -o "arduino/new.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/new.cpp"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/new.cpp
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/wiring.d" -MT"arduino/wiring.d"  -c -o "arduino/wiring.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring.c"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring.c
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_analog.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/wiring_analog.d" -MT"arduino/wiring_analog.d"  -c -o "arduino/wiring_analog.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_analog.c"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_analog.c
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_digital.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/wiring_digital.d" -MT"arduino/wiring_digital.d"  -c -o "arduino/wiring_digital.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_digital.c"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_digital.c
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_pulse.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/wiring_pulse.d" -MT"arduino/wiring_pulse.d"  -c -o "arduino/wiring_pulse.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_pulse.c"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_pulse.c
- 
-Building file: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_shift.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"arduino/wiring_shift.d" -MT"arduino/wiring_shift.d"  -c -o "arduino/wiring_shift.o" "D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_shift.c"
-Finished building: D:/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_shift.c
- 
-Building file: ../Mine_ATmega328__3_3V_Ext_8_MHz.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -DUSB_PID= -DUSB_VID= -DARDUINO=106 -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Mine_ATmega328__3_3V_Ext_8_MHz.d" -MT"Mine_ATmega328__3_3V_Ext_8_MHz.d"  -c -o "Mine_ATmega328__3_3V_Ext_8_MHz.o" "../Mine_ATmega328__3_3V_Ext_8_MHz.cpp"
-Finished building: ../Mine_ATmega328__3_3V_Ext_8_MHz.cpp
- 
-Building target: libMine_ATmega328__3_3V_Ext_8_MHz.a
-Invoking: AVR Archiver
-avr-ar -r  "libMine_ATmega328__3_3V_Ext_8_MHz.a"  ./arduino/avr-libc/malloc.o ./arduino/avr-libc/realloc.o  ./arduino/CDC.o ./arduino/HID.o ./arduino/HardwareSerial.o ./arduino/IPAddress.o ./arduino/Print.o ./arduino/Stream.o ./arduino/Tone.o ./arduino/USBCore.o ./arduino/WInterrupts.o ./arduino/WMath.o ./arduino/WString.o ./arduino/main.o ./arduino/new.o ./arduino/wiring.o ./arduino/wiring_analog.o ./arduino/wiring_digital.o ./arduino/wiring_pulse.o ./arduino/wiring_shift.o  ./Mine_ATmega328__3_3V_Ext_8_MHz.o  
-d:\arduino-1.0.6\hardware\tools\avr\bin\avr-ar.exe: creating libMine_ATmega328__3_3V_Ext_8_MHz.a
-Finished building target: libMine_ATmega328__3_3V_Ext_8_MHz.a
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S libMine_ATmega328__3_3V_Ext_8_MHz.a  >"libMine_ATmega328__3_3V_Ext_8_MHz.lss"
-Finished building: libMine_ATmega328__3_3V_Ext_8_MHz.lss
- 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega328p libMine_ATmega328__3_3V_Ext_8_MHz.a
 AVR Memory Usage
@@ -369,83 +549,52 @@ Finished building: sizedummy
 **** Build of configuration Release for project Coop ****
 
 make all 
-Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Timer/Event.d" -MT"Timer/Event.d"  -c -o "Timer/Event.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp"
-D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp: In member function 'void Event::update()':
-D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp:37: warning: comparison between signed and unsigned integer expressions
-Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Event.cpp
- 
 Building file: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Timer/Timer.d" -MT"Timer/Timer.d"  -c -o "Timer/Timer.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp"
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Timer/Timer.d" -MT"Timer/Timer.d"  -c -o "Timer/Timer.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp"
 Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/Timer/Timer.cpp
- 
-Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SharedFiles/InternalTemp.d" -MT"SharedFiles/InternalTemp.d"  -c -o "SharedFiles/InternalTemp.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp"
-Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/InternalTemp.cpp
- 
-Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SharedFiles/MemoryFree.d" -MT"SharedFiles/MemoryFree.d"  -c -o "SharedFiles/MemoryFree.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp"
-Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/MemoryFree.cpp
- 
-Building file: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SharedFiles/Utils.d" -MT"SharedFiles/Utils.d"  -c -o "SharedFiles/Utils.o" -x c++ "D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp"
-D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp: In function 'int millisRollover()':
-Finished building: D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp
- 
-D:/Users/pvloon/My Sources/E-Arduino/SharedFiles/Utils.cpp:44: warning: operation on 'numRollovers' may be undefined
-Building file: D:/arduino-1.0.6/libraries/SPI/SPI.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"SPI/SPI.d" -MT"SPI/SPI.d"  -c -o "SPI/SPI.o" -x c++ "D:/arduino-1.0.6/libraries/SPI/SPI.cpp"
-Finished building: D:/arduino-1.0.6/libraries/SPI/SPI.cpp
- 
-Building file: D:/arduino-1.0.6/libraries/EEPROM/EEPROM.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"EEPROM/EEPROM.d" -MT"EEPROM/EEPROM.d"  -c -o "EEPROM/EEPROM.o" -x c++ "D:/arduino-1.0.6/libraries/EEPROM/EEPROM.cpp"
-Finished building: D:/arduino-1.0.6/libraries/EEPROM/EEPROM.cpp
- 
-Building file: D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"DHT11/dht11.d" -MT"DHT11/dht11.d"  -c -o "DHT11/dht11.o" -x c++ "D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp"
-Finished building: D:/Users/pvloon/My Sources/Arduino/libraries/DHT11/dht11.cpp
  
 Building file: ../Coop.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Coop.d" -MT"Coop.d"  -c -o "Coop.o" -x c++ "../Coop.cpp"
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Coop.d" -MT"Coop.d"  -c -o "Coop.o" -x c++ "../Coop.cpp"
 Finished building: ../Coop.cpp
  
 Building file: ../Device.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Device.d" -MT"Device.d"  -c -o "Device.o" -x c++ "../Device.cpp"
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Device.d" -MT"Device.d"  -c -o "Device.o" -x c++ "../Device.cpp"
 Finished building: ../Device.cpp
  
 Building file: ../DeviceAction.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"DeviceAction.d" -MT"DeviceAction.d"  -c -o "DeviceAction.o" -x c++ "../DeviceAction.cpp"
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"DeviceAction.d" -MT"DeviceAction.d"  -c -o "DeviceAction.o" -x c++ "../DeviceAction.cpp"
 Finished building: ../DeviceAction.cpp
  
 Building file: ../Door.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Door.d" -MT"Door.d"  -c -o "Door.o" -x c++ "../Door.cpp"
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Door.d" -MT"Door.d"  -c -o "Door.o" -x c++ "../Door.cpp"
 Finished building: ../Door.cpp
  
 Building file: ../Led.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.d"  -c -o "Led.o" -x c++ "../Led.cpp"
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.d"  -c -o "Led.o" -x c++ "../Led.cpp"
 Finished building: ../Led.cpp
+ 
+Building file: ../Thermo.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Thermo.d" -MT"Thermo.d"  -c -o "Thermo.o" -x c++ "../Thermo.cpp"
+../Thermo.cpp: In function 'void thermoCallback(byte)':
+../Thermo.cpp:35: warning: comparison between signed and unsigned integer expressions
+../Thermo.cpp:42: warning: comparison between signed and unsigned integer expressions
+Finished building: ../Thermo.cpp
  
 Building file: ../Web.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\Users\pvloon\My Sources\Arduino\libraries\DHT11" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Web.d" -MT"Web.d"  -c -o "Web.o" -x c++ "../Web.cpp"
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Web.d" -MT"Web.d"  -c -o "Web.o" -x c++ "../Web.cpp"
 Finished building: ../Web.cpp
  
 Building target: Coop.elf
 Invoking: AVR C++ Linker
-avr-gcc -Os -Wl,--gc-sections  -Wl,-Map,"D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt",--cref -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -mmcu=atmega328p  -o"Coop.elf"  ./Timer/Event.o ./Timer/Timer.o  ./SharedFiles/InternalTemp.o ./SharedFiles/MemoryFree.o ./SharedFiles/Utils.o  ./SPI/SPI.o  ./EEPROM/EEPROM.o  ./DHT11/dht11.o  ./Coop.o ./Device.o ./DeviceAction.o ./Door.o ./Led.o ./Web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
+avr-gcc -Os -Wl,--gc-sections  -Wl,-Map,"D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt",--cref -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -Lm -mmcu=atmega328p  -o"Coop.elf"  ./Timer/Event.o ./Timer/Timer.o  ./SharedFiles/InternalTemp.o ./SharedFiles/MemoryFree.o ./SharedFiles/Utils.o ./SharedFiles/dht11.o  ./SPI/SPI.o  ./EEPROM/EEPROM.o  ./Coop.o ./Device.o ./DeviceAction.o ./Door.o ./Led.o ./Thermo.o ./Web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
 Finished building target: Coop.elf
  
 Invoking: AVR Create Extended Listing
@@ -466,10 +615,10 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   19792 bytes (60.4% Full)
+Program:   21576 bytes (65.8% Full)
 (.text + .data + .bootloader)
 
-Data:       1184 bytes (57.8% Full)
+Data:       1315 bytes (64.2% Full)
 (.data + .bss + .noinit)
 
 

@@ -20,7 +20,8 @@
 #define COMMAND_STOP 58
 #define COMMAND_DOWN 26
 #define COMMAND_GET_VALUE 136
-#define COMMAND_DOOR_DELAY 290
+#define COMMAND_VALUE_1 290
+#define COMMAND_VALUE_2 291
 
 // Command direct (seen from server view)
 #define COMMAND_IO_RECV 1 		// Received or Incoming

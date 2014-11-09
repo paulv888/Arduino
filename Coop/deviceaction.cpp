@@ -53,22 +53,28 @@ void relayCallbackT() {
 }
 
 void relayCallback(const byte deviceIDidx) {
+	if (DEBUG_MEMORY) printMem("RlyC ");
 	relayHandler(RELAY_0_IDX, COMMAND_PING, 0);
 	relayHandler(RELAY_1_IDX, COMMAND_PING, 0);
 	relayHandler(RELAY_2_IDX, COMMAND_PING, 0);
 }
 
+void ntcInit(const byte deviceIDidx) {
+	if (DEBUG_MEMORY) printMem("ntcI ");
+	ntcCallback(deviceIDidx);
+}
+
 void ntcCallbackT() {
-	ntcCallback (ERROR);
+	ntcCallback (12);
 }
 
 void ntcCallback(const byte deviceIDidx) {
 	if (DEBUG_DEVICE_HAND) Serial.print("ntcC ");
-	relayHandler(NTC_0_IDX, COMMAND_PING, 0);
-	relayHandler(NTC_1_IDX, COMMAND_PING, 0);
+	ntcHandler(NTC_0_IDX, COMMAND_PING, 0);
+	ntcHandler(NTC_1_IDX, COMMAND_PING, 0);
 }
 
-void aHndlrValues(const byte deviceIDidx, const int commandID, const int status, const int commandvalue) {
+void aHndlrValues(const byte deviceIDidx, const int commandID, const int commandvalue) {
 	byte states;
 	char a[MAX_EXT_DATA];
 	states = digitalRead(LED_PIN);
@@ -91,24 +97,24 @@ byte arduinoHandler(const byte deviceIDidx, const int commandID, const int comma
 	switch (commandID) {
 	case COMMAND_ON:
     	digitalWrite(LED_PIN, HIGH);
-    	aHndlrValues(deviceIDidx, commandID, digitalRead(LED_PIN), commandvalue);
+    	aHndlrValues(deviceIDidx, commandID, commandvalue);
 		postMessage(deviceIDidx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_OFF:
         digitalWrite(LED_PIN, LOW);
-    	aHndlrValues(deviceIDidx, commandID, digitalRead(LED_PIN),commandvalue);
+    	aHndlrValues(deviceIDidx, commandID, commandvalue);
 		postMessage(deviceIDidx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_PING:
 	case COMMAND_STATUSREQUEST:
-    	aHndlrValues(deviceIDidx, commandID, digitalRead(LED_PIN), commandvalue);
+    	aHndlrValues(deviceIDidx, commandID, commandvalue);
 		postMessage(deviceIDidx);
 		return HNDLR_WRITE_RESULT;
 		break;
 	case COMMAND_GET_VALUE:
-    	aHndlrValues(deviceIDidx, commandID, digitalRead(LED_PIN),commandvalue);
+    	aHndlrValues(deviceIDidx, commandID, commandvalue);
 		return HNDLR_WRITE_RESULT;
 		break;
 	default:
@@ -223,16 +229,28 @@ byte findDeviceIndex(const int _deviceID) {
 
 
 byte ntcHandler(const byte deviceIDidx, const int commandID, const int commandvalue) {
-	if (DEBUG_MEMORY) printMem("ntcH ");
-	if (DEBUG_DEVICE_HAND) Serial.print(deviceIDidx);
-	if (DEBUG_DEVICE_HAND) Serial.print(" Cmd ");
-	if (DEBUG_DEVICE_HAND) Serial.print(commandID);
-	if (DEBUG_DEVICE_HAND) Serial.print(" Val ");
-	if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
+//	if (DEBUG_MEMORY) printMem("ntcH ");
+//	if (DEBUG_DEVICE_HAND) Serial.print(deviceIDidx);
+//	if (DEBUG_DEVICE_HAND) Serial.print(" Cmd ");
+//	if (DEBUG_DEVICE_HAND) Serial.print(commandID);
+//	if (DEBUG_DEVICE_HAND) Serial.print(" Val ");
+//	if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
 
 	int value;
 
 	switch (commandID) {
+	case COMMAND_VALUE_1:
+		if (deviceIDidx == NTC_0_IDX) {
+			EEPROMWriteInt(NTC_0_ADDRESS, commandvalue);
+			if (DEBUG_DEVICE_HAND) Serial.print("cval: ");
+			if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
+		} else {
+			EEPROMWriteInt(NTC_1_ADDRESS, commandvalue);
+			if (DEBUG_DEVICE_HAND) Serial.print("cval: ");
+			if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
+		}
+		return HNDLR_OK;
+		break;
 	case COMMAND_STATUSREQUEST:
 	case COMMAND_GET_VALUE:
 	case COMMAND_PING:
@@ -247,8 +265,17 @@ byte ntcHandler(const byte deviceIDidx, const int commandID, const int commandva
 			showStatus(SENSOR_ERROR, deviceIDidx);
 			return ERROR;
 		}
+		if (deviceIDidx == NTC_0_IDX) {
+			value = value + EEPROMReadInt(NTC_0_ADDRESS);
+//			if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(NTC_0_ADDRESS));
+		} else {
+			value = value + EEPROMReadInt(NTC_1_ADDRESS);
+			if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(NTC_1_ADDRESS));
+		}
+//		if (DEBUG_DEVICE_HAND) Serial.print("cval: ");
+//		if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
 		mdevices[deviceIDidx].setValue(value);
-		if (commandID == COMMAND_STATUSREQUEST) postMessage(deviceIDidx);
+		if (commandID == COMMAND_STATUSREQUEST || commandID == COMMAND_PING) postMessage(deviceIDidx);
 		return HNDLR_WRITE_RESULT;
 		break;
 	default:

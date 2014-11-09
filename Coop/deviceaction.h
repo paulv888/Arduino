@@ -10,7 +10,6 @@
 #include "configuration.h"
 #include "dht11.h"
 #include "Led.h"
-//#include "device.h"
 #include "MemoryFree.h"
 #include "InternalTemp.h"
 #include "Web.h"
@@ -43,6 +42,7 @@ void relayCallback(const byte deviceIDidx);
 byte relayHandler(const byte deviceIDidx, const int commandID, const int commandvalue);
 
 //void ntcInit(const byte deviceIDidx) ;
+void ntcInit(const byte deviceIDidx) ;
 void ntcCallbackT();
 void ntcCallback(const byte deviceIDidx);
 byte ntcHandler(const byte deviceIDidx, const int commandID, const int commandvalue);

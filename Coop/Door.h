@@ -10,7 +10,6 @@
 #include "configuration.h"
 #include "dht11.h"
 #include "Led.h"
-//#include "device.h"
 #include "MemoryFree.h"
 #include "InternalTemp.h"
 #include "Web.h"

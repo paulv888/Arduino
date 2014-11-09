@@ -2,42 +2,18 @@
 **** Build of configuration Release for project SharedFiles ****
 
 make all 
-Building file: ../MemoryFree.cpp
+Building file: ../Utils.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"MemoryFree.d" -MT"MemoryFree.d"  -c -o "MemoryFree.o" -x c++ "../MemoryFree.cpp"
-Finished building: ../MemoryFree.cpp
- 
-Building target: SharedFiles.elf
-Invoking: AVR C++ Linker
-avr-gcc -Os -Wl,--gc-sections  -L"D:\Users\pvloon\My Sources\E-Arduino\Arduino_Uno/Release" -mmcu=atmega328p  -o"SharedFiles.elf"  ./Dummy.o ./InternalTemp.o ./MemoryFree.o ./Utils.o   -l"Arduino_Uno" -lm
-Finished building target: SharedFiles.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S SharedFiles.elf  >"SharedFiles.lss"
-Finished building: SharedFiles.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -O ihex SharedFiles.elf  "SharedFiles.hex"
-Finished building: SharedFiles.hex
- 
-Create eeprom image (ihex format)
-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex SharedFiles.elf  "SharedFiles.eep"
-Finished building: SharedFiles.eep
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega328p SharedFiles.elf
-AVR Memory Usage
-----------------
-Device: atmega328p
-
-Program:    1488 bytes (4.5% Full)
-(.text + .data + .bootloader)
-
-Data:        195 bytes (9.5% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
+avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=106 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Utils.d" -MT"Utils.d"  -c -o "Utils.o" -x c++ "../Utils.cpp"
+In file included from ../Utils.cpp:7:
+../Utils.h:11:20: warning: EEPROM.h: No such file or directory
+../Utils.h:12:27: error: Configuration.h: No such file or directory
+../Utils.cpp: In function 'int millisRollover()':
+../Utils.cpp:44: warning: operation on 'numRollovers' may be undefined
+../Utils.cpp: In function 'void EEPROMWriteInt(int, int)':
+../Utils.cpp:60: error: 'EEPROM' was not declared in this scope
+../Utils.cpp: In function 'unsigned int EEPROMReadInt(int)':
+../Utils.cpp:66: error: 'EEPROM' was not declared in this scope
+make: *** [Utils.o] Error 1
 
 **** Build Finished ****

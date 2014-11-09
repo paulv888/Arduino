@@ -2,26 +2,20 @@
 **** Build of configuration Release for project SPI ****
 
 make all 
-Building file: ../SPI.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\Users\pvloon\My Sources\E-Arduino" -I"D:\Users\pvloon\My Sources\E-Arduino\SPI" -Wall -Os -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"SPI.d" -MT"SPI.d" -c -o "SPI.o" "../SPI.cpp"
-../SPI.cpp:11:26: warning: pins_arduino.h: No such file or directory
-In file included from ../SPI.cpp:12:
-../SPI.h:15:21: warning: Arduino.h: No such file or directory
-In file included from ../SPI.cpp:12:
-../SPI.h:38: error: 'byte' does not name a type
-../SPI.h:55: error: 'byte' does not name a type
-../SPI.cpp: In static member function 'static void SPIClass::begin()':
-../SPI.cpp:23: error: 'SCK' was not declared in this scope
-../SPI.cpp:23: error: 'OUTPUT' was not declared in this scope
-../SPI.cpp:23: error: 'pinMode' was not declared in this scope
-../SPI.cpp:24: error: 'MOSI' was not declared in this scope
-../SPI.cpp:25: error: 'SS' was not declared in this scope
-../SPI.cpp:27: error: 'LOW' was not declared in this scope
-../SPI.cpp:27: error: 'digitalWrite' was not declared in this scope
-../SPI.cpp:29: error: 'HIGH' was not declared in this scope
-../SPI.cpp: In static member function 'static void SPIClass::setBitOrder(uint8_t)':
-../SPI.cpp:44: error: 'LSBFIRST' was not declared in this scope
-make: *** [SPI.o] Error 1
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p SPI.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     496 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:          9 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
 
 **** Build Finished ****

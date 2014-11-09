@@ -30,7 +30,7 @@ P(TXTDEVICEID) = "Device";
 P(HEADER_OK) = "HTTP/1.1 200 OK\nContent-Type: text/html\nConnection: close\n";
 P(HEADER_ERR) = "HTTP/1.1 422 ERROR\nContent-Type: text/html\nConnection: close\n";
 P(HEADERPG2) = "<HTML>\n<HEAD>\n<meta name='apple-mobile-web-app-capable' content='yes' />\n<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\n<link rel='stylesheet' type='text/css' href='http://vlohome.homeip.net/templates/protostar-mod/css/template.css' />\n<TITLE>Aynur's Beautiful Coop</TITLE>\n</HEAD>";
-P(HEADERPG3) = "<BODY class=\"site\">\n<div class=\"body\">\n<H1>Aynur's Beautiful Coop</H1>\n<br /><br />";
+P(HEADERPG3) = "<BODY class=\"site\">\n<div class=\"body\">\n<H1>Aynur's Beautiful Coop</H1>\n";
 P(HEADERPGEND) = "</DIV></BODY>\n</HTML>";
 P(TXTPOST) = "POST /cronjobs/70D455DC-ACB4-4525-8A85-E6009AE93AF4/a.php HTTP/1.1\nHost: vlohome.homeip.net\nContent-Type: text/html\nConnection: close\nContent-Length: ";
 P(HEADER_ERR_MESS) = "ARD-COOP: Message parse error, check deviceID and commandID";
@@ -254,7 +254,7 @@ client_recv = server.available();
 	    	     		printP(COMMAND_IO_RECV, HEADERPG2);
 	    	     		printP(COMMAND_IO_RECV, HEADERPG3);
 
-						for (byte d = 0 ; d<DEVICE_COUNT ;  d++ ) {
+						for (byte d = 0 ; d < DEVICE_COUNT ;  d++ ) {
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, H3);					// <H3>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);

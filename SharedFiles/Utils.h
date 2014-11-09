@@ -14,5 +14,6 @@ int millisRollover();
 char* malcpy(const char* s);
 void EEPROMWriteInt(int p_address, int p_value);
 unsigned int EEPROMReadInt(int p_address);
+byte debounceRead(const int buttonPin);
 
 #endif /* UTILS_H_ */

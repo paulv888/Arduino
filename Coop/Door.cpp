@@ -9,8 +9,11 @@
 static byte startSwitch;
 static byte stopSwitch;
 static byte lastDoorPosition = -1;
-static boolean bcheckStuck = false;
-static boolean bbreakIsOn = false;
+static bool bcheckStuck = false;
+static bool bbreakIsOn = false;
+static int timerCheckStuck = -1;
+static int timerMaxStop = -1;
+
 
 /* Test Scenario's
  * 		Door open on command on -> do nothing
@@ -35,6 +38,22 @@ void dHndlrValues(const byte deviceIDidx, const int commandID, const int status,
 	mdevices[deviceIDidx].setExtData(a);
 }
 
+void doorInit(const byte deviceIDidx) {
+
+	if (DEBUG_DEVICE_HAND) Serial.println("DoorI");
+	if (DEBUG_DEVICE_HAND) Serial.println(deviceIDidx);
+
+	pinMode(POWER_RELAY, OUTPUT);
+	pinMode(DIRECTION_RELAY, OUTPUT);
+
+	pinMode(TOP_SWITCH, INPUT);
+	digitalWrite(TOP_SWITCH, HIGH); // connect internal pull-up
+
+	pinMode(BOTTOM_SWITCH, INPUT);
+	digitalWrite(BOTTOM_SWITCH, HIGH); // connect internal pull-up
+
+}
+
 void doorCallbackT() {
 	doorCallback (DOOR_IDX);
 }
@@ -52,9 +71,19 @@ int doorPosition () {
 void delayStopDoor () {
 
 	if (DEBUG_DEVICE_HAND) printMem("=There ");
+	timerCheckStuck = timer.stop(timerCheckStuck);
+	timerMaxStop = timer.stop(timerMaxStop);
 	digitalWrite(POWER_RELAY, LOW);
 	bbreakIsOn = false;
+}
 
+void hardStopDoor () {
+
+	if (DEBUG_DEVICE_HAND) printMem("=Max ");
+	timerCheckStuck = timer.stop(timerCheckStuck);
+	timerMaxStop = timer.stop(timerMaxStop);
+	digitalWrite(POWER_RELAY, LOW);
+	bbreakIsOn = false;
 }
 
 void doorCallback(const byte deviceIDidx) {
@@ -89,22 +118,6 @@ void doorCallback(const byte deviceIDidx) {
 	}
 }
 
-void doorInit(const byte deviceIDidx) {
-
-	if (DEBUG_DEVICE_HAND) Serial.println("DoorI");
-	if (DEBUG_DEVICE_HAND) Serial.println(deviceIDidx);
-
-	pinMode(POWER_RELAY, OUTPUT);
-	pinMode(DIRECTION_RELAY, OUTPUT);
-
-	pinMode(TOP_SWITCH, INPUT);
-	digitalWrite(TOP_SWITCH, HIGH); // connect internal pull-up
-
-	pinMode(BOTTOM_SWITCH, INPUT);
-	digitalWrite(BOTTOM_SWITCH, HIGH); // connect internal pull-up
-
-}
-
 void checkStuck() {										// Allow time for leave current position
 	if (DEBUG_DEVICE_HAND) printMem("=Strt ");
 
@@ -131,6 +144,9 @@ void startDoor (int commandID) {
 
 	byte doorDirUp = commandID == COMMAND_ON;						// up = true
 
+	timerCheckStuck = timer.stop(timerCheckStuck);
+	timerMaxStop = timer.stop(timerMaxStop);
+
 	if (doorDirUp) {
 		if (DEBUG_DEVICE_HAND) Serial.println("Up");
 		startSwitch = BOTTOM_SWITCH;
@@ -151,10 +167,14 @@ void startDoor (int commandID) {
 		// If currently closed start reach timer, else give 1 second to start leaving closed
 		if (digitalRead(startSwitch) == LOW) {							   // Currently in Starting postion
 			bcheckStuck = true;
-			if (timer.after(3000, checkStuck) < 0) {						// Starts moving timer as well (time /2 clockspeed
+			if ((timerCheckStuck = timer.after(3000, checkStuck)) < 0) {						// Starts moving timer as well (time /2 clockspeed
 				if (DEBUG_DEVICE) Serial.print("ETMR");
 				showStatus(TIMER_ERROR, DOOR_IDX);
 			}
+		}
+		if ((timerMaxStop = timer.after(EEPROMReadInt(DOOR_MAX_RUNTIME_ADDRESS), hardStopDoor)) < 0) {
+			if (DEBUG_DEVICE) Serial.print("ETMR");
+			showStatus(TIMER_ERROR, DOOR_IDX);
 		}
 		digitalWrite(POWER_RELAY, HIGH);
 		if (DEBUG_DEVICE_HAND) Serial.println("Starting");
@@ -209,8 +229,12 @@ byte doorHandler(const byte deviceIDidx, const int commandID, const int commandv
 		postMessage(deviceIDidx);
 		return HNDLR_OK;
 		break;
-	case COMMAND_DOOR_DELAY:
-	      EEPROMWriteInt(DOOR_DELAY_ADDRESS, commandvalue);
+	case COMMAND_VALUE_1:
+	     EEPROMWriteInt(DOOR_DELAY_ADDRESS, commandvalue);
+		return HNDLR_OK;
+		break;
+	case COMMAND_VALUE_2:
+	     EEPROMWriteInt(DOOR_MAX_RUNTIME_ADDRESS, commandvalue);
 		return HNDLR_OK;
 		break;
 	case COMMAND_STATUSREQUEST:
