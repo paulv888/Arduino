@@ -86,7 +86,7 @@
 #define NO_VALUE -888
 
 #define MAX_EXT_DATA 40
-#define MAX_NAME_LEN 10
+#define MAX_NAME_LEN 15
 #define MAX_POST_PARAMS 50
 
 #define DOOR_DELAY_ADDRESS 			 0

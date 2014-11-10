@@ -21,7 +21,7 @@ void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const l
     if (name == NULL) {
     	name = (char*)malloc(strlen(_name)+1);
     }
-	strncpy (name, _name, MAX_NAME_LEN);
+	strncpy (name, _name, MAX_NAME_LEN-1);
 
 	commandHandler = _commandHandler;
 	if (_init != NULL ) _init(_Idx);
