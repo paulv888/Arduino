@@ -15,7 +15,7 @@ void setup() {
 	mdevices[ARDUINO_IDX].begin( "Arduino"   ,  98, ARDUINO_IDX , (long)60*60*1000   , arduinoInit, arduinoCallbackT, arduinoHandler  );
 	mdevices[THERMO_IDX].begin(  "Heater"    , 202, THERMO_IDX  , (long)1*1000       , thermoInit , thermoCallbackT , thermoHandler   );
 	mdevices[DOOR_IDX].begin(    "Door"      , 203, DOOR_IDX    , (long)(long)300    , doorInit   , doorCallbackT   , doorHandler     );
-	mdevices[DHT11_IDX].begin(   "DHT11"     , 201, DHT11_IDX   , (long)15*60*1000   , dht11Init  , dht11CallbackT  , dht11Handler    );
+	mdevices[DHT_IDX].begin(   "DHT11"       , 201, DHT_IDX     , (long)15*60*1000   , dhtInit    , dhtCallbackT    , dhtHandler    );
 	mdevices[RELAY_0_IDX].setPin(RELAY_0_PIN);
 	mdevices[RELAY_0_IDX].begin( "Fan"       , 204, RELAY_0_IDX , (long)0            , relayInit  , NULL            , relayHandler    );// Special Timer taking care off all simple devices
 	mdevices[RELAY_1_IDX].setPin(RELAY_1_PIN);

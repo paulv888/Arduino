@@ -10,7 +10,7 @@
 
 ///////////////////////////////////
 // init DHT
-Dht11 dht11;
+DHT dht;
 
 
 void arduinoInit(const byte deviceIDidx) {
@@ -28,17 +28,17 @@ void arduinoCallback(const byte deviceIDidx) {
 	arduinoHandler(deviceIDidx, COMMAND_PING, 0);
 }
 
-void dht11Init(const byte deviceIDidx) {
-	dht11Callback(deviceIDidx);
+void dhtInit(const byte deviceIDidx) {
+	dhtCallback(deviceIDidx);
 }
 
-void dht11CallbackT() {
-	dht11Callback(DHT11_IDX);
+void dhtCallbackT() {
+	dhtCallback(DHT_IDX);
 }
 // DEVICE_1_CALLBACK
-void dht11Callback(const byte deviceIDidx) {
+void dhtCallback(const byte deviceIDidx) {
 	if (DEBUG_DEVICE_HAND) Serial.println("dhtC");
-	dht11Handler(deviceIDidx, COMMAND_PING, 0);
+	dhtHandler(deviceIDidx, COMMAND_PING, 0);
 }
 
 void relayInit(const byte deviceIDidx) {
@@ -125,7 +125,7 @@ byte arduinoHandler(const byte deviceIDidx, const int commandID, const int comma
 	return ERROR;
 }
 
-byte dht11Handler(const byte deviceIDidx, const int commandID, const int commandvalue) {
+byte dhtHandler(const byte deviceIDidx, const int commandID, const int commandvalue) {
 	if (DEBUG_MEMORY) printMem("dhtH ");
 	if (DEBUG_DEVICE_HAND) Serial.print(deviceIDidx);
 	if (DEBUG_DEVICE_HAND) Serial.print(" Cmd ");
@@ -139,7 +139,7 @@ byte dht11Handler(const byte deviceIDidx, const int commandID, const int command
 	case COMMAND_GET_VALUE:
 	case COMMAND_PING:
 		byte chk;
-		chk = dht11.read(DHT11_PIN);
+		chk = dht.read(DHT_PIN);
 
 		switch (chk) {
 		case DHTLIB_OK:
@@ -154,12 +154,12 @@ byte dht11Handler(const byte deviceIDidx, const int commandID, const int command
 		}
 		mdevices[deviceIDidx].setCommand(commandID);
 		mdevices[deviceIDidx].setStatus(STATUS_ON);
-		mdevices[deviceIDidx].setValue((int)dht11.temperature);
+		mdevices[deviceIDidx].setValue((int)dht.temperature);
 		int temp1;
 		int temp2;
-		temp1 = (dht11.temperature - (int)dht11.temperature) * 100;
-		temp2 = (dht11.humidity - (int)dht11.humidity) * 100;
-		sprintf(a, "{\"T\" : \"%0d.%d\" , \"H\" : \"%0d.%d\"}", (int)dht11.temperature, temp1, (int)dht11.humidity, temp2);
+		temp1 = (dht.temperature - (int)dht.temperature) * 100;
+		temp2 = (dht.humidity - (int)dht.humidity) * 100;
+		sprintf(a, "{\"T\" : \"%0d.%d\" , \"H\" : \"%0d.%d\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2);
 		mdevices[deviceIDidx].setExtData(a);
 		if (commandID == COMMAND_STATUSREQUEST || commandID == COMMAND_PING) postMessage(deviceIDidx);
 		return HNDLR_WRITE_RESULT;

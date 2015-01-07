@@ -8,7 +8,7 @@
 #ifndef DEVICEACTIONS_H_
 #define DEVICEACTIONS_H_
 #include "configuration.h"
-#include "dht11.h"
+#include "dht.h"
 #include "Led.h"
 #include "MemoryFree.h"
 #include "InternalTemp.h"
@@ -30,10 +30,10 @@ void arduinoCallbackT();
 void arduinoCallback(const byte deviceIDidx);
 byte arduinoHandler(const byte deviceIDidx, const int commandID, const int commandvalue);
 
-void dht11Init(const byte deviceIDidx) ;
-void dht11CallbackT();
-void dht11Callback(const byte deviceIDidx);
-byte dht11Handler(const byte deviceIDidx, const int commandID, const int commandvalue);
+void dhtInit(const byte deviceIDidx) ;
+void dhtCallbackT();
+void dhtCallback(const byte deviceIDidx);
+byte dhtHandler(const byte deviceIDidx, const int commandID, const int commandvalue);
 
 
 void relayInit(const byte deviceIDidx) ;

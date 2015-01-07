@@ -8,7 +8,7 @@
 #ifndef THERMO_H_
 #define THERMO_H_
 #include "configuration.h"
-#include "dht11.h"
+#include "dht.h"
 #include "Led.h"
 #include "MemoryFree.h"
 #include "InternalTemp.h"

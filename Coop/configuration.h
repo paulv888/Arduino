@@ -57,8 +57,8 @@
 #define TOP_SWITCH 4
 #define BOTTOM_SWITCH 5
 // DHT11 Temp Hum Sensore
-#define DHT11_IDX 3
-#define DHT11_PIN  6
+#define DHT_IDX 3
+#define DHT_PIN  6
 // Relays
 #define RELAY_0_IDX 4
 #define RELAY_0_PIN A3
