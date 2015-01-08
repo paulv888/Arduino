@@ -19,6 +19,8 @@ void thermoCallbackT();
 void thermoCallback(const byte deviceIDidx);
 byte thermoHandler(const byte deviceIDidx, const int commandID, const int commandvalue);
 
+int ReadTemp(const byte deviceIDidx);
+
 extern void ntcCallback(const byte deviceIDidx);
 
 #endif /* THERMO_H_ */

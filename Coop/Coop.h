@@ -15,6 +15,7 @@
 #include "Deviceaction.h"
 #include "Door.h"
 #include "Thermo.h"
+#include "Dark.h"
 
 //end of add your includes here
 

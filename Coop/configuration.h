@@ -41,6 +41,35 @@
 // Device Types
 #define DEVICE_COUNT 9
 
+/*
+ *
+ *
+#define ARDUINO_IDX 0
+#define THERMO_IDX 1
+#define DOOR_IDX 2
+#define DHT_IDX 3
+#define RELAY_0_IDX 4
+#define RELAY_1_IDX 5
+#define RELAY_2_IDX 6
+#define NTC_0_IDX 7
+#define DARK_IDX 8
+*
+#define SERIAL_IN_PIN			0
+#define SERIAL_OUT_PIN			1
+#define DIRECTION_RELAY_PIN 	2
+#define POWER_RELAY_PIN 		3
+#define TOP_SWITCH_PIN 			4
+#define BOTTOM_SWITCH_PIN 		5
+#define DHT_PIN  				6
+#define LED_PIN 				7
+#define NTC_0_PIN 				A0
+#define PHOTO_RESISTOR_PIN 		A1
+#define RELAY_0_PIN			 	A2
+#define RELAY_HEAT_PIN 			A3
+#define RELAY_1_PIN 			A4
+#define RELAY_2_PIN 			A5
+*/
+
 // Arduino Module
 #define ARDUINO_IDX 0
 #define LED_PIN 7
@@ -48,20 +77,22 @@
 #define THERMO_IDX 1
 #define THERMO_THRESHOLD 10
 #define NTC_0_PIN A0
-#define RELAY_HEAT A2
+#define RELAY_HEAT_PIN A3
 
 // Automatic Door
 #define DOOR_IDX 2
-#define DIRECTION_RELAY 2
-#define POWER_RELAY 3
-#define TOP_SWITCH 4
-#define BOTTOM_SWITCH 5
-// DHT11 Temp Hum Sensore
+#define DIRECTION_RELAY_PIN 2
+#define POWER_RELAY_PIN 3
+#define TOP_SWITCH_PIN 4
+#define BOTTOM_SWITCH_PIN 5
+
+// DHT22 Temp Hum Sensor
 #define DHT_IDX 3
 #define DHT_PIN  6
+
 // Relays
 #define RELAY_0_IDX 4
-#define RELAY_0_PIN A3
+#define RELAY_0_PIN A2
 #define RELAY_1_IDX 5
 #define RELAY_1_PIN A4
 #define RELAY_2_IDX 6
@@ -69,8 +100,10 @@
 // NTCs
 #define NTC_0_IDX 7
 //#define NTC_0_PIN A0
-#define NTC_1_IDX 8
-#define NTC_1_PIN A1
+
+// Daylight
+#define DARK_IDX 8
+#define PHOTO_RESISTOR_PIN A1
 
 // Local Errors
 #define INFO_NORMAL 100
@@ -91,10 +124,12 @@
 
 #define DOOR_DELAY_ADDRESS 			 0
 #define NTC_0_ADDRESS 				 2
-#define NTC_1_ADDRESS 				 4
+// FREE								 4
 #define THERMO_SET_ADDRESS 			 6
 #define DOOR_MAX_RUNTIME_ADDRESS 	 8
 #define THERMO_THRESHOLD_ADDRESS 	10
+#define DARK_SET_ADDRESS			12
+#define DARK_THRESHOLD_ADDRESS		14
 
 
 

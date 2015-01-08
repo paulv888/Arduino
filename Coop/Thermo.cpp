@@ -10,18 +10,19 @@ bool runHeater = false;
 /*
  *
  */
+
 void tHndlrValues(const byte deviceIDidx, const int commandID) {
 	char a[MAX_EXT_DATA];
 	mdevices[deviceIDidx].setCommand(commandID);
-	mdevices[deviceIDidx].setValue(mdevices[NTC_0_IDX].commandvalue);
-	sprintf(a, "{\"C\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", mdevices[deviceIDidx].commandvalue, !digitalRead(RELAY_HEAT), EEPROMReadInt(THERMO_SET_ADDRESS), EEPROMReadInt(THERMO_THRESHOLD_ADDRESS));
+	mdevices[deviceIDidx].setValue(ReadTemp(NTC_0_IDX));
+	sprintf(a, "{\"C\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", mdevices[deviceIDidx].commandvalue, !digitalRead(RELAY_HEAT_PIN), EEPROMReadInt(THERMO_SET_ADDRESS), EEPROMReadInt(THERMO_THRESHOLD_ADDRESS));
 	mdevices[deviceIDidx].setExtData(a);
 }
 
 void thermoInit(const byte deviceIDidx) {
 	if (DEBUG_DEVICE_HAND) Serial.println("thermoI");
 	if (DEBUG_DEVICE_HAND) Serial.println(deviceIDidx);
-	pinMode(RELAY_HEAT, OUTPUT);
+	pinMode(RELAY_HEAT_PIN, OUTPUT);
 	thermoHandler(deviceIDidx, COMMAND_ON, 0);
 	postMessage(deviceIDidx);
 }
@@ -31,21 +32,23 @@ void thermoCallbackT() {
 }
 
 void thermoCallback(const byte deviceIDidx) {
+
 	if (mdevices[deviceIDidx].status) {
-		ntcHandler(NTC_0_IDX, COMMAND_GET_VALUE, 0);
-		runHeater = !digitalRead(RELAY_HEAT);
-		if (mdevices[NTC_0_IDX].commandvalue > EEPROMReadInt(THERMO_SET_ADDRESS)) {					// below set point
+		int value;
+		value = ReadTemp(NTC_0_IDX);
+		runHeater = !digitalRead(RELAY_HEAT_PIN);
+		if (value > EEPROMReadInt(THERMO_SET_ADDRESS)) {					// below set point
 			if (!runHeater) {				// switch on
 				runHeater = true;
-				digitalWrite(RELAY_HEAT, LOW);
-				thermoHandler(THERMO_IDX, COMMAND_SET_RESULT, 0);
+				digitalWrite(RELAY_HEAT_PIN, LOW);
+				thermoHandler(deviceIDidx, COMMAND_SET_RESULT, 0);
 			}
 		} else {
-			if (mdevices[NTC_0_IDX].commandvalue <= (EEPROMReadInt(THERMO_SET_ADDRESS) - EEPROMReadInt(THERMO_THRESHOLD_ADDRESS))) {	// above set point plus threshold
+			if (value <= (EEPROMReadInt(THERMO_SET_ADDRESS) - EEPROMReadInt(THERMO_THRESHOLD_ADDRESS))) {	// above set point plus threshold
 				if (runHeater) {				// switch off
 					runHeater = false;
-					digitalWrite(RELAY_HEAT, HIGH);
-					thermoHandler(THERMO_IDX, COMMAND_SET_RESULT, 0);
+					digitalWrite(RELAY_HEAT_PIN, HIGH);
+					thermoHandler(deviceIDidx, COMMAND_SET_RESULT, 0);
 				}
 
 			}
@@ -54,8 +57,8 @@ void thermoCallback(const byte deviceIDidx) {
 	} else {
 		if (runHeater) {				// switch off
 			runHeater = false;
-			digitalWrite(RELAY_HEAT, HIGH);
-			thermoHandler(THERMO_IDX, COMMAND_SET_RESULT, 0);
+			digitalWrite(RELAY_HEAT_PIN, HIGH);
+			thermoHandler(deviceIDidx, COMMAND_SET_RESULT, 0);
 		}
 	}
 // nothing to do
@@ -108,3 +111,19 @@ byte thermoHandler(const byte deviceIDidx, const int commandID, const int comman
 	return ERROR;
 }
 
+int ReadTemp(const byte deviceIDidx) {
+	int value;
+	if (deviceIDidx == NTC_0_IDX) {
+		value = analogRead(NTC_0_PIN);
+		if (value == 1023 || value < 0) {
+			if (DEBUG_DEVICE_HAND) Serial.print("S-ERR");
+			if (DEBUG_DEVICE_HAND) Serial.print(mdevices[deviceIDidx].getName());
+			if (DEBUG_DEVICE_HAND) Serial.print(" ");
+			if (DEBUG_DEVICE_HAND) Serial.println(value);
+			showStatus(SENSOR_ERROR, deviceIDidx);
+			return ERROR;
+		}
+		value = value + EEPROMReadInt(NTC_0_ADDRESS);
+	}
+	return value;
+}
