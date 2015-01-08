@@ -21,6 +21,4 @@ byte thermoHandler(const byte deviceIDidx, const int commandID, const int comman
 
 int ReadTemp(const byte deviceIDidx);
 
-extern void ntcCallback(const byte deviceIDidx);
-
 #endif /* THERMO_H_ */

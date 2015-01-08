@@ -16,7 +16,6 @@
 
 class Device {
 public:
-	Device();
 	void begin(const char* _name, const int _deviceid,  uint8_t _Idx, const long period, void (*_init)(const byte), void (*_callback)(), byte (*_commandHandler)(const byte,const int,const int));
 	const char *getName();
 	int getDeviceid();
@@ -31,6 +30,10 @@ public:
 	byte getPin();
 	void setExtData(const char _value[]);
 	char *getExtData();
+	void setInput(const byte _value);
+	byte getInput();
+	void setType(const byte _value);
+	byte getType();
 	byte (*commandHandler)(const byte, const int, const int) ;
 	int commandvalue;
 	int status;
@@ -43,6 +46,8 @@ protected:
 	int command;
 	byte pin;
 	char temp[10];
+	byte inputIdx;
+	byte type;
 };
 extern Timer timer;
 

@@ -94,8 +94,8 @@ void doorCallback(const byte deviceIDidx) {
 		if (digitalRead(POWER_RELAY_PIN)) {									// We are moving, check if i need to stop
 			if (digitalRead(stopSwitch) == LOW) {	 					// Are we there yet!!!
 				if (DEBUG_DEVICE_HAND) printMem("=DStop ");
-				if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(DOOR_DELAY_ADDRESS));
-				timer.after(EEPROMReadInt(DOOR_DELAY_ADDRESS), delayStopDoor);
+				if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(deviceIDidx * 6 + 0));
+				timer.after(EEPROMReadInt(deviceIDidx * 6 + 0), delayStopDoor);
 				bbreakIsOn = true;
 			}
 
@@ -172,7 +172,7 @@ void startDoor (int commandID) {
 				showStatus(TIMER_ERROR, DOOR_IDX);
 			}
 		}
-		if ((timerMaxStop = timer.after(EEPROMReadInt(DOOR_MAX_RUNTIME_ADDRESS), hardStopDoor)) < 0) {
+		if ((timerMaxStop = timer.after(EEPROMReadInt(DOOR_IDX * 6 + 2), hardStopDoor)) < 0) {
 			if (DEBUG_DEVICE) Serial.print("ETMR");
 			showStatus(TIMER_ERROR, DOOR_IDX);
 		}
@@ -230,11 +230,11 @@ byte doorHandler(const byte deviceIDidx, const int commandID, const int commandv
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_1:
-	     EEPROMWriteInt(DOOR_DELAY_ADDRESS, commandvalue);
+	     EEPROMWriteInt(deviceIDidx * 6 + 0, commandvalue);
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_2:
-	     EEPROMWriteInt(DOOR_MAX_RUNTIME_ADDRESS, commandvalue);
+	     EEPROMWriteInt(deviceIDidx * 6 + 2, commandvalue);
 		return HNDLR_OK;
 		break;
 	case COMMAND_STATUSREQUEST:

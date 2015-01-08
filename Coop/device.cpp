@@ -9,14 +9,9 @@
 #define NULL   ((void *) 0)
 #endif
 
-Device::Device() {
-	commandvalue = NO_VALUE;
-}
-
 void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const long period, void (*_init)(const byte), void (*_callback)(), uint8_t (*_commandHandler)(const uint8_t, const int, const int)) {
 	deviceid = _deviceid;
 	index = _Idx;
-	commandvalue = NO_VALUE;
 
     if (name == NULL) {
     	name = (char*)malloc(strlen(_name)+1);
@@ -74,6 +69,22 @@ void Device::setPin(const byte _value) {
 
 byte Device::getPin() {
 	return 	pin;
+}
+
+void Device::setInput(const byte _value) {
+	inputIdx = _value;
+}
+
+byte Device::getInput() {
+	return 	inputIdx;
+}
+
+void Device::setType(const byte _value) {
+	type = _value;
+}
+
+byte Device::getType() {
+	return 	type;
 }
 
 void Device::setExtData(const char *_value) {

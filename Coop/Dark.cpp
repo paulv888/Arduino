@@ -13,7 +13,7 @@ void darkHndlrValues(const byte deviceIDidx, const int commandID) {
 	char a[MAX_EXT_DATA];
 	int value;
 	mdevices[deviceIDidx].setCommand(commandID);
-	value = analogRead(mdevices[deviceIDidx].getPin());
+	value = analogRead(mdevices[deviceIDidx].getInput());
 	if (value == 1023 || value < 0) {
 		if (DEBUG_DEVICE_HAND) Serial.print("S-ERR");
 		if (DEBUG_DEVICE_HAND) Serial.print(mdevices[deviceIDidx].getName());
@@ -22,7 +22,7 @@ void darkHndlrValues(const byte deviceIDidx, const int commandID) {
 		showStatus(SENSOR_ERROR, deviceIDidx);
 	}
 	mdevices[deviceIDidx].setValue(value);
-	sprintf(a, "{\"C\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", mdevices[deviceIDidx].commandvalue, EEPROMReadInt(DARK_SET_ADDRESS), EEPROMReadInt(DARK_THRESHOLD_ADDRESS));
+	sprintf(a, "{\"C\":\"%i\"}", mdevices[deviceIDidx].commandvalue);
 	mdevices[deviceIDidx].setExtData(a);
 }
 
@@ -45,10 +45,10 @@ void darkCallback(const byte deviceIDidx) {
 	darkHandler(deviceIDidx, COMMAND_GET_VALUE, 0);
 //	Serial.println("c");
 //	Serial.println(mdevices[deviceIDidx].getExtData());
-	if (mdevices[deviceIDidx].commandvalue > EEPROMReadInt(DARK_SET_ADDRESS)) {					// below set point
+	if (mdevices[deviceIDidx].commandvalue > EEPROMReadInt(deviceIDidx * 6 + 0)) {					// below set point
 		mdevices[deviceIDidx].status = STATUS_ON;
 		mdevices[deviceIDidx].setCommand(COMMAND_ON);
-	} else if (mdevices[deviceIDidx].commandvalue <= (EEPROMReadInt(DARK_SET_ADDRESS) - EEPROMReadInt(DARK_THRESHOLD_ADDRESS))) {	// above set point plus threshold
+	} else if (mdevices[deviceIDidx].commandvalue <= (EEPROMReadInt(deviceIDidx * 6 + 0) - EEPROMReadInt(deviceIDidx * 6 + 2))) {	// above set point plus threshold
 		mdevices[deviceIDidx].status = STATUS_OFF;
 		mdevices[deviceIDidx].setCommand(COMMAND_OFF);
 	}
@@ -67,12 +67,12 @@ byte darkHandler(const byte deviceIDidx, const int commandID, const int commandv
 
 	switch (commandID) {
 	case COMMAND_VALUE_1:
-		EEPROMWriteInt(DARK_SET_ADDRESS, commandvalue);
+		EEPROMWriteInt(deviceIDidx * 6 + 0, commandvalue);
 		darkHndlrValues(deviceIDidx, commandID);
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_2:
-	    EEPROMWriteInt(DARK_THRESHOLD_ADDRESS, commandvalue);
+	    EEPROMWriteInt(deviceIDidx * 6 + 2, commandvalue);
 		darkHndlrValues(deviceIDidx, commandID);
 		return HNDLR_OK;
 		break;

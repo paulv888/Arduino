@@ -14,7 +14,7 @@
 //#define DEBUG_DEVICE_HAND true
 //#define DEBUG_WEB true
 //#define DEBUG_DEVICE true
-#define DEBUG_MEMORY true
+//#define DEBUG_MEMORY true
 //#define DEBUG_TIMER true
 
 #ifndef DEBUG_MAIN
@@ -39,7 +39,7 @@
 
 ///////////////////////////////////
 // Device Types
-#define DEVICE_COUNT 9
+#define DEVICE_COUNT 8
 
 /*
  *
@@ -51,8 +51,10 @@
 #define RELAY_0_IDX 4
 #define RELAY_1_IDX 5
 #define RELAY_2_IDX 6
-#define NTC_0_IDX 7
+#define AUTO_FAN_IDX 7
 #define DARK_IDX 8
+*
+#define NTC_0_IDX 7 - Not a device anymore part of Thermo
 *
 #define SERIAL_IN_PIN			0
 #define SERIAL_OUT_PIN			1
@@ -64,15 +66,19 @@
 #define LED_PIN 				7
 #define NTC_0_PIN 				A0
 #define PHOTO_RESISTOR_PIN 		A1
-#define RELAY_0_PIN			 	A2
+#define RELAY_0_PIN			 	A2 -  - Not a device anymore part of Thermo
 #define RELAY_HEAT_PIN 			A3
 #define RELAY_1_PIN 			A4
 #define RELAY_2_PIN 			A5
 */
 
+#define THERMO_HEAT 0
+#define THERMO_COOL 1
+
 // Arduino Module
 #define ARDUINO_IDX 0
 #define LED_PIN 7
+
 // Thermo
 #define THERMO_IDX 1
 #define THERMO_THRESHOLD 10
@@ -90,20 +96,22 @@
 #define DHT_IDX 3
 #define DHT_PIN  6
 
+// Daylight
+#define DARK_IDX 4
+#define PHOTO_RESISTOR_PIN A1
+
 // Relays
-#define RELAY_0_IDX 4
+//#define RELAY_0_IDX 4
 #define RELAY_0_PIN A2
 #define RELAY_1_IDX 5
 #define RELAY_1_PIN A4
 #define RELAY_2_IDX 6
 #define RELAY_2_PIN A5
-// NTCs
-#define NTC_0_IDX 7
-//#define NTC_0_PIN A0
 
-// Daylight
-#define DARK_IDX 8
-#define PHOTO_RESISTOR_PIN A1
+// Auto Fan
+#define AUTO_FAN_IDX 7
+#define NTC_0_IDX 40
+#define NTC_0_PIN A0
 
 // Local Errors
 #define INFO_NORMAL 100
@@ -116,20 +124,21 @@
 #define HNDLR_WRITE_RESULT 1
 #define ERROR 255
 #define HNDLR_OK 2
-#define NO_VALUE -888
 
 #define MAX_EXT_DATA 40
 #define MAX_NAME_LEN 15
 #define MAX_POST_PARAMS 50
 
-#define DOOR_DELAY_ADDRESS 			 0
-#define NTC_0_ADDRESS 				 2
-// FREE								 4
-#define THERMO_SET_ADDRESS 			 6
-#define DOOR_MAX_RUNTIME_ADDRESS 	 8
-#define THERMO_THRESHOLD_ADDRESS 	10
-#define DARK_SET_ADDRESS			12
-#define DARK_THRESHOLD_ADDRESS		14
+
+// Reserve 3 ints (6 bytes) per DeviceIDX -> Max deviceIDX = 1024/6 = 42
+//#define DOOR_DELAY_ADDRESS 			 0
+//#define NTC_0_ADDRESS 				 2
+//// FREE								 4
+//#define THERMO_SET_ADDRESS 			 6
+//#define DOOR_MAX_RUNTIME_ADDRESS 	 8
+//#define THERMO_THRESHOLD_ADDRESS 	10
+//#define DARK_SET_ADDRESS			12
+//#define DARK_THRESHOLD_ADDRESS		14
 
 
 

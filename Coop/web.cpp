@@ -45,7 +45,12 @@ P(TXTVALUE) = "Value";
 P(TXTCOMMAND) = "Command";
 P(TXTINOUT) = "InOut";
 P(TXTEXTDATA) = "ExtData";
-
+P(TXTPAR1) = "Parameter 1";
+P(TXTPAR2) = "Parameter 2";
+P(TXTIND) = "Index";
+P(TXTDEVIND) = "Input Device Index";
+P(TXTOUTPIN) = "Output Pin";
+P(TXTTYPE) = "Type";
 
 int printP(const byte clientsel, const prog_char *str, const bool getLen = false) {
 	// copy data out of program memory into local storage, write out in
@@ -113,6 +118,17 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 
 	if (JSON) len += printP(clientsel, TXTSBRACKETOPEN, getLen);
 
+	if (!JSON) {
+		// Index
+		len += printP(clientsel, TXTIND, getLen);
+		len += printP(clientsel, TXTCOLON, getLen);
+		len += printV(clientsel, deviceidx, getLen);
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+
 	// DeviceID
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTDEVICEID, getLen);
@@ -159,7 +175,7 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 
 	// Value
-	if (mdevices[deviceidx].commandvalue != NO_VALUE) {
+	if (mdevices[deviceidx].commandvalue != 0) {
 		if (JSON) {
 			len += printP(clientsel, TXTCOMMA, getLen);
 		}
@@ -209,6 +225,67 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 	}
 
 	if (JSON) len += printP(clientsel, TXTSBRACKETCLOSE, getLen);
+
+	if (!JSON) {
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+		if (EEPROMReadInt(deviceidx * 6 + 0) !=  65535) {
+			// Parameter 1
+			len += printP(clientsel, TXTPAR1, getLen);
+			len += printP(clientsel, TXTCOLON, getLen);
+			len += printV(clientsel, EEPROMReadInt(deviceidx * 6 + 0), getLen);
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
+		if (EEPROMReadInt(deviceidx * 6 + 2) !=  65535) {
+			// Parameter 2
+			len += printP(clientsel, TXTPAR2, getLen);
+			len += printP(clientsel, TXTCOLON, getLen);
+			len += printV(clientsel, EEPROMReadInt(deviceidx * 6 + 2), getLen);
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
+
+		// In deviceIDX
+		if (mdevices[deviceidx].getInput() != 0) {
+			len += printP(clientsel, TXTDEVIND, getLen);
+			len += printP(clientsel, TXTCOLON, getLen);
+			len += printV(clientsel, mdevices[deviceidx].getInput(), getLen);
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
+
+		// Output Pin
+		if (mdevices[deviceidx].getPin() != 0) {
+			len += printP(clientsel, TXTOUTPIN, getLen);
+			len += printP(clientsel, TXTCOLON, getLen);
+			len += printV(clientsel, mdevices[deviceidx].getPin(), getLen);
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
+
+		// Type
+		if (mdevices[deviceidx].getType() != 0) {
+			len += printP(clientsel, TXTTYPE, getLen);
+			len += printP(clientsel, TXTCOLON, getLen);
+			len += printV(clientsel, mdevices[deviceidx].getType(), getLen);
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
+}
+
 	if (DEBUG_WEB) Serial.println();
 
 	return len;

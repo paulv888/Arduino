@@ -28,13 +28,9 @@ void arduinoCallback(const byte deviceIDidx) {
 }
 
 void aHndlrValues(const byte deviceIDidx, const int commandID, const int commandvalue) {
-	byte states;
 	char a[MAX_EXT_DATA];
-	states = digitalRead(LED_PIN);
-	if (DEBUG_DEVICE_HAND) Serial.print(" Led ");
-	if (DEBUG_DEVICE_HAND) Serial.println(states);
 	mdevices[deviceIDidx].setCommand(commandID);
-	mdevices[deviceIDidx].setStatus(states);
+	mdevices[deviceIDidx].setStatus(digitalRead(LED_PIN));
 	sprintf(a, "{\"M\" : \"%lu\", \"U\" : \"%lu\"}", check_mem(), millis()/1000);
 	mdevices[deviceIDidx].setExtData(a);
 
@@ -58,6 +54,14 @@ byte arduinoHandler(const byte deviceIDidx, const int commandID, const int comma
         digitalWrite(LED_PIN, LOW);
     	aHndlrValues(deviceIDidx, commandID, commandvalue);
 		postMessage(deviceIDidx);
+		return HNDLR_OK;
+		break;
+	case COMMAND_VALUE_1:
+	    EEPROMWriteInt(deviceIDidx * 6 + 0, commandvalue);
+		return HNDLR_OK;
+		break;
+	case COMMAND_VALUE_2:
+	    EEPROMWriteInt(deviceIDidx * 6 + 2, commandvalue);
 		return HNDLR_OK;
 		break;
 	case COMMAND_PING:
@@ -98,14 +102,14 @@ byte dhtHandler(const byte deviceIDidx, const int commandID, const int commandva
 	if (DEBUG_DEVICE_HAND) Serial.print(" Val ");
 	if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
 
-	char a[50];
+	char a[MAX_EXT_DATA];
 	switch (commandID) {
 	case COMMAND_STATUSREQUEST:
 	case COMMAND_GET_VALUE:
 	case COMMAND_PING:
 		byte chk;
+		mdevices[deviceIDidx].setStatus(STATUS_ERROR);
 		chk = dht.read(DHT_PIN);
-
 		switch (chk) {
 		case DHTLIB_OK:
 			//postMessage(deviceIDidx);
@@ -165,7 +169,7 @@ byte ntcHandler(const byte deviceIDidx, const int commandID, const int commandva
 	switch (commandID) {
 	case COMMAND_VALUE_1:
 		if (deviceIDidx == NTC_0_IDX) {
-			EEPROMWriteInt(NTC_0_ADDRESS, commandvalue);
+			EEPROMWriteInt(deviceIDidx * 6 + 0, commandvalue);
 			if (DEBUG_DEVICE_HAND) Serial.print("cval: ");
 			if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
 		}
@@ -186,7 +190,7 @@ byte ntcHandler(const byte deviceIDidx, const int commandID, const int commandva
 			return ERROR;
 		}
 		if (deviceIDidx == NTC_0_IDX) {
-			value = value + EEPROMReadInt(NTC_0_ADDRESS);
+			value = value + EEPROMReadInt(deviceIDidx * 6 + 0);
 //			if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(NTC_0_ADDRESS));
 		}
 //		if (DEBUG_DEVICE_HAND) Serial.print("cval: ");
@@ -216,7 +220,6 @@ void relayCallbackT() {
 
 void relayCallback(const byte deviceIDidx) {
 	if (DEBUG_MEMORY) printMem("RlyC ");
-	relayHandler(RELAY_0_IDX, COMMAND_PING, 0);
 	relayHandler(RELAY_1_IDX, COMMAND_PING, 0);
 	relayHandler(RELAY_2_IDX, COMMAND_PING, 0);
 }
