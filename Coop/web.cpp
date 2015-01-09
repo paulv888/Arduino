@@ -36,6 +36,7 @@ P(TXTPOST) = "POST /cronjobs/70D455DC-ACB4-4525-8A85-E6009AE93AF4/a.php HTTP/1.1
 P(HEADER_ERR_MESS) = "ARD-COOP: Message parse error, check deviceID and commandID";
 P(AOPEN) = "<";
 P(ACLOSE) = ">";
+P(ANBSP) = "&nbsp;&nbsp;&nbsp;";
 P(H3) = "H3";
 P(H6) = "H6";
 P(BR) = "BR";
@@ -47,6 +48,7 @@ P(TXTINOUT) = "InOut";
 P(TXTEXTDATA) = "ExtData";
 P(TXTPAR1) = "Parameter 1";
 P(TXTPAR2) = "Parameter 2";
+P(TXTPAR3) = "Parameter 3";
 P(TXTIND) = "Index";
 P(TXTDEVIND) = "Input Device Index";
 P(TXTOUTPIN) = "Output Pin";
@@ -123,10 +125,7 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 		len += printP(clientsel, TXTIND, getLen);
 		len += printP(clientsel, TXTCOLON, getLen);
 		len += printV(clientsel, deviceidx, getLen);
-		printP(clientsel, AOPEN);
-		printP(clientsel, BR);
-		printP(clientsel, SLASH);
-		printP(clientsel, ACLOSE);
+		printP(clientsel, ANBSP);
 	}
 
 	// DeviceID
@@ -137,16 +136,23 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printV(clientsel, mdevices[deviceidx].getDeviceid(), getLen);
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	if (!JSON) {
+		// Type
+		printP(clientsel, ANBSP);
+		if (mdevices[deviceidx].getType() != 0) {
+			len += printP(clientsel, TXTTYPE, getLen);
+			len += printP(clientsel, TXTCOLON, getLen);
+			len += printV(clientsel, mdevices[deviceidx].getType(), getLen);
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
+	}
 
 	// CommandID
 	if (JSON) {
 		len += printP(clientsel, TXTCOMMA, getLen);
-	}
-	else {
-		printP(clientsel, AOPEN);
-		printP(clientsel, BR);
-		printP(clientsel, SLASH);
-		printP(clientsel, ACLOSE);
 	}
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTCOMMAND , getLen);
@@ -159,12 +165,8 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 	// Status
 	if (JSON) {
 		len += printP(clientsel, TXTCOMMA, getLen);
-	}
-	else {
-		printP(clientsel, AOPEN);
-		printP(clientsel, BR);
-		printP(clientsel, SLASH);
-		printP(clientsel, ACLOSE);
+	} else {
+		printP(clientsel, ANBSP);
 	}
 	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTSTATUS , getLen);
@@ -178,12 +180,8 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 	if (mdevices[deviceidx].commandvalue != 0) {
 		if (JSON) {
 			len += printP(clientsel, TXTCOMMA, getLen);
-		}
-		else {
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
+		} else {
+			printP(clientsel, ANBSP);
 		}
 		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
 		len += printP(clientsel, TXTVALUE , getLen);
@@ -251,6 +249,16 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 			printP(clientsel, SLASH);
 			printP(clientsel, ACLOSE);
 		}
+		if (EEPROMReadInt(deviceidx * 6 + 4) !=  65535) {
+			// Parameter 3
+			len += printP(clientsel, TXTPAR3, getLen);
+			len += printP(clientsel, TXTCOLON, getLen);
+			len += printV(clientsel, EEPROMReadInt(deviceidx * 6 + 2), getLen);
+			printP(clientsel, AOPEN);
+			printP(clientsel, BR);
+			printP(clientsel, SLASH);
+			printP(clientsel, ACLOSE);
+		}
 
 		// In deviceIDX
 		if (mdevices[deviceidx].getInput() != 0) {
@@ -274,16 +282,6 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 			printP(clientsel, ACLOSE);
 		}
 
-		// Type
-		if (mdevices[deviceidx].getType() != 0) {
-			len += printP(clientsel, TXTTYPE, getLen);
-			len += printP(clientsel, TXTCOLON, getLen);
-			len += printV(clientsel, mdevices[deviceidx].getType(), getLen);
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
-		}
 }
 
 	if (DEBUG_WEB) Serial.println();
@@ -297,6 +295,16 @@ void setupWeb(){
 	server.begin();
 	if (DEBUG_WEB) Serial.print("Coop server is at ");
 	if (DEBUG_WEB) Serial.println(Ethernet.localIP());
+}
+
+byte findDeviceIndex(const int _deviceID) {
+	byte found = ERROR;
+	for (byte i = 0; i < DEVICE_COUNT; i++) {
+		if (mdevices[i].getDeviceid() == _deviceID) {
+			return i;
+		}
+	}
+	return found;
 }
 
 void updateWeb(){

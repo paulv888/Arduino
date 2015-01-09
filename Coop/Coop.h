@@ -11,11 +11,9 @@
 #include <EthernetServer.h>
 #include <Timer.h>
 #include "Configuration.h"
-#include "Device.h"
-#include "Deviceaction.h"
+#include "Devicehandler.h"
 #include "Door.h"
 #include "Thermo.h"
-#include "Dark.h"
 
 //end of add your includes here
 

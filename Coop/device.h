@@ -13,10 +13,12 @@
 #include "MemoryFree.h"
 #include "share_commands.h"
 #include "Timer.h"
+#include "dht.h"
+#include "Devicehandler.h"
 
 class Device {
 public:
-	void begin(const char* _name, const int _deviceid,  uint8_t _Idx, const long period, void (*_init)(const byte), void (*_callback)(), byte (*_commandHandler)(const byte,const int,const int));
+	void begin(const char* _name, const int _deviceid,  uint8_t _Idx, const long period, void (*_callback)(), byte (*_commandHandler)(const byte,const int,const int));
 	const char *getName();
 	int getDeviceid();
 	byte getIndex();
@@ -26,6 +28,8 @@ public:
 	char *getCommand();
 	void setValue(const int _value);
 	char *getValue();
+	void setOnOff(const int commandID);
+	void readInput();
 	void setPin(const byte _value);
 	byte getPin();
 	void setExtData(const char _value[]);
@@ -45,10 +49,8 @@ protected:
 	byte index;
 	int command;
 	byte pin;
-	char temp[10];
 	byte inputIdx;
 	byte type;
 };
 extern Timer timer;
-
 #endif /* DEVICE_H_ */

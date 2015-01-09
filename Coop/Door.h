@@ -14,7 +14,6 @@
 #include "InternalTemp.h"
 #include "Web.h"
 
-void doorInit(const byte deviceIDidx) ;
 void doorCallbackT();
 void doorCallback(const byte deviceIDidx);
 byte doorHandler(const byte deviceIDidx, const int commandID, const int commandvalue);

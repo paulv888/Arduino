@@ -39,7 +39,7 @@
 
 ///////////////////////////////////
 // Device Types
-#define DEVICE_COUNT 8
+#define DEVICE_COUNT 9
 
 /*
  *
@@ -53,8 +53,7 @@
 #define RELAY_2_IDX 6
 #define AUTO_FAN_IDX 7
 #define DARK_IDX 8
-*
-#define NTC_0_IDX 7 - Not a device anymore part of Thermo
+#define NTC_0_IDX 9
 *
 #define SERIAL_IN_PIN			0
 #define SERIAL_OUT_PIN			1
@@ -72,8 +71,16 @@
 #define RELAY_2_PIN 			A5
 */
 
-#define THERMO_HEAT 0
-#define THERMO_COOL 1
+#define TYPE_DIGITAL_IO  1
+#define TYPE_ANALOG_IN   2
+#define TYPE_DHT22       3
+#define TYPE_THERMO_HEAT 4
+#define TYPE_THERMO_COOL 5
+#define TYPE_AUTO_DOOR   6
+#define TYPE_ARDUINO     7
+//#define TYPE_
+//#define TYPE_
+//#define TYPE_
 
 // Arduino Module
 #define ARDUINO_IDX 0
@@ -81,7 +88,6 @@
 
 // Thermo
 #define THERMO_IDX 1
-#define THERMO_THRESHOLD 10
 #define NTC_0_PIN A0
 #define RELAY_HEAT_PIN A3
 
@@ -101,7 +107,6 @@
 #define PHOTO_RESISTOR_PIN A1
 
 // Relays
-//#define RELAY_0_IDX 4
 #define RELAY_0_PIN A2
 #define RELAY_1_IDX 5
 #define RELAY_1_PIN A4
@@ -110,7 +115,7 @@
 
 // Auto Fan
 #define AUTO_FAN_IDX 7
-#define NTC_0_IDX 40
+#define NTC_0_IDX 8
 #define NTC_0_PIN A0
 
 // Local Errors
@@ -122,7 +127,7 @@
 
 // Handler return values
 #define HNDLR_WRITE_RESULT 1
-#define ERROR 255
+#define ERROR -1
 #define HNDLR_OK 2
 
 #define MAX_EXT_DATA 40

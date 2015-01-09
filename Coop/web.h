@@ -16,8 +16,6 @@
 //add your includes for the project command here
 #include "Configuration.h"
 #include "Device.h"
-#include "Deviceaction.h"
-//#include "Coop.h"
 #include "MemoryFree.h"
 #include "Utils.h"
 

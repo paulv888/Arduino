@@ -38,22 +38,6 @@ void dHndlrValues(const byte deviceIDidx, const int commandID, const int status,
 	mdevices[deviceIDidx].setExtData(a);
 }
 
-void doorInit(const byte deviceIDidx) {
-
-	if (DEBUG_DEVICE_HAND) Serial.println("DoorI");
-	if (DEBUG_DEVICE_HAND) Serial.println(deviceIDidx);
-
-	pinMode(POWER_RELAY_PIN, OUTPUT);
-	pinMode(DIRECTION_RELAY_PIN, OUTPUT);
-
-	pinMode(TOP_SWITCH_PIN, INPUT);
-	digitalWrite(TOP_SWITCH_PIN, HIGH); // connect internal pull-up
-
-	pinMode(BOTTOM_SWITCH_PIN, INPUT);
-	digitalWrite(BOTTOM_SWITCH_PIN, HIGH); // connect internal pull-up
-
-}
-
 void doorCallbackT() {
 	doorCallback (DOOR_IDX);
 }

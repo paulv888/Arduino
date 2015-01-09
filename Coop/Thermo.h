@@ -14,11 +14,7 @@
 #include "InternalTemp.h"
 #include "Web.h"
 
-void thermoInit(const byte deviceIDidx) ;
 void thermoCallbackT();
 void thermoCallback(const byte deviceIDidx);
-byte thermoHandler(const byte deviceIDidx, const int commandID, const int commandvalue);
-
-int ReadTemp(const byte deviceIDidx);
 
 #endif /* THERMO_H_ */
