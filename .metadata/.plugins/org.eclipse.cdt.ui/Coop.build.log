@@ -2,41 +2,16 @@
 **** Build of configuration Release for project Coop ****
 
 make all 
-Building file: ../Thermo.cpp
-Invoking: AVR C++ Compiler
-avr-g++ -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\SharedFiles" -I"D:\Users\pvloon\My Sources\E-Arduino\SharedFiles" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\arduino-1.0.6\libraries\EEPROM" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Thermo.d" -MT"Thermo.d"  -c -o "Thermo.o" -x c++ "../Thermo.cpp"
-Finished building: ../Thermo.cpp
- 
-Building target: Coop.elf
-../Thermo.cpp: In function 'void thermoCallback(byte)':
-../Thermo.cpp:37: warning: comparison between signed and unsigned integer expressions
-../Thermo.cpp:45: warning: comparison between signed and unsigned integer expressions
-Invoking: AVR C++ Linker
-avr-gcc -Os -Wl,--gc-sections  -Wl,-Map,"D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt",--cref -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -Lm -mmcu=atmega328p  -o"Coop.elf"  ./Timer/Event.o ./Timer/Timer.o  ./SharedFiles/InternalTemp.o ./SharedFiles/MemoryFree.o ./SharedFiles/Utils.o ./SharedFiles/dht11.o  ./SPI/SPI.o  ./EEPROM/EEPROM.o  ./Coop.o ./Device.o ./DeviceAction.o ./Door.o ./Led.o ./Thermo.o ./Web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
-Finished building target: Coop.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S Coop.elf  >"Coop.lss"
-Finished building: Coop.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -O ihex Coop.elf  "Coop.hex"
-Finished building: Coop.hex
- 
-Create eeprom image (ihex format)
-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Coop.elf  "Coop.eep"
-Finished building: Coop.eep
- 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega328p Coop.elf
 AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   21718 bytes (66.3% Full)
+Program:   23112 bytes (70.5% Full)
 (.text + .data + .bootloader)
 
-Data:       1323 bytes (64.6% Full)
+Data:       1309 bytes (63.9% Full)
 (.data + .bss + .noinit)
 
 
