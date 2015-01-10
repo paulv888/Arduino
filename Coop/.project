@@ -99,6 +99,11 @@
 			<locationURI>ArduinoLibPath/EEPROM</locationURI>
 		</link>
 		<link>
+			<name>Mine_ATmega328__3_3V_Ext_8_MHz</name>
+			<type>2</type>
+			<location>D:/Users/pvloon/My Sources/E-Arduino/Mine_ATmega328__3_3V_Ext_8_MHz</location>
+		</link>
+		<link>
 			<name>SPI</name>
 			<type>2</type>
 			<locationURI>ArduinoLibPath/SPI</locationURI>
@@ -107,51 +112,6 @@
 			<name>Timer</name>
 			<type>2</type>
 			<locationURI>PivateLibPath/Timer</locationURI>
-		</link>
-		<link>
-			<name>share_commands.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/share_commands.h</locationURI>
-		</link>
-		<link>
-			<name>SharedFiles/InternalTemp.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/InternalTemp.cpp</locationURI>
-		</link>
-		<link>
-			<name>SharedFiles/InternalTemp.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/InternalTemp.h</locationURI>
-		</link>
-		<link>
-			<name>SharedFiles/MemoryFree.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/MemoryFree.cpp</locationURI>
-		</link>
-		<link>
-			<name>SharedFiles/MemoryFree.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/MemoryFree.h</locationURI>
-		</link>
-		<link>
-			<name>SharedFiles/Utils.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/Utils.cpp</locationURI>
-		</link>
-		<link>
-			<name>SharedFiles/Utils.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/Utils.h</locationURI>
-		</link>
-		<link>
-			<name>SharedFiles/dht11.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/dht11.cpp</locationURI>
-		</link>
-		<link>
-			<name>SharedFiles/dht11.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SharedFiles/dht11.h</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

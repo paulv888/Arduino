@@ -11,7 +11,6 @@
 #include "dht.h"
 #include "Led.h"
 #include "MemoryFree.h"
-#include "InternalTemp.h"
 #include "Web.h"
 
 void thermoCallbackT();

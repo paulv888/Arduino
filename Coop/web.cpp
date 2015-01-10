@@ -229,7 +229,7 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 		printP(clientsel, BR);
 		printP(clientsel, SLASH);
 		printP(clientsel, ACLOSE);
-		if (EEPROMReadInt(deviceidx * 6 + 0) !=  65535) {
+		if (EEPROMReadInt(deviceidx * 6 + 0) !=  FFFF) {
 			// Parameter 1
 			len += printP(clientsel, TXTPAR1, getLen);
 			len += printP(clientsel, TXTCOLON, getLen);
@@ -239,7 +239,7 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 			printP(clientsel, SLASH);
 			printP(clientsel, ACLOSE);
 		}
-		if (EEPROMReadInt(deviceidx * 6 + 2) !=  65535) {
+		if (EEPROMReadInt(deviceidx * 6 + 2) !=  FFFF) {
 			// Parameter 2
 			len += printP(clientsel, TXTPAR2, getLen);
 			len += printP(clientsel, TXTCOLON, getLen);
@@ -249,11 +249,11 @@ int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, c
 			printP(clientsel, SLASH);
 			printP(clientsel, ACLOSE);
 		}
-		if (EEPROMReadInt(deviceidx * 6 + 4) !=  65535) {
+		if (EEPROMReadInt(deviceidx * 6 + 4) !=  FFFF) {
 			// Parameter 3
 			len += printP(clientsel, TXTPAR3, getLen);
 			len += printP(clientsel, TXTCOLON, getLen);
-			len += printV(clientsel, EEPROMReadInt(deviceidx * 6 + 2), getLen);
+			len += printV(clientsel, EEPROMReadInt(deviceidx * 6 + 4), getLen);
 			printP(clientsel, AOPEN);
 			printP(clientsel, BR);
 			printP(clientsel, SLASH);
@@ -340,6 +340,7 @@ client_recv = server.available();
 	    	     		printP(COMMAND_IO_RECV, HEADERPG3);
 
 						for (byte d = 0 ; d < DEVICE_COUNT ;  d++ ) {
+							mdevices[d].readInput();
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, H3);					// <H3>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
@@ -388,15 +389,12 @@ client_recv = server.available();
 								token = strtok(NULL, slash); // value ?
 								commandvalue = atoi(token);
 							}
-							byte (*handler)(const byte ,const int,const int);
-
 							deviceIdx = findDeviceIndex(deviceID);
 							if (DEBUG_WEB) Serial.print("deviceIdx");
 							if (DEBUG_WEB) Serial.println(deviceIdx);
 
 							if (deviceIdx != ERROR) {
-								handler = mdevices[deviceIdx].commandHandler;
-								result = (*handler)(deviceIdx, commandID, commandvalue);
+								result = deviceCommandHandler(deviceIdx, commandID, false, commandvalue);
 							} // return error?
 						}
 

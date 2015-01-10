@@ -13,32 +13,30 @@ DHT dht;
 char a[MAX_EXT_DATA];
 char temp[10];
 
-void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const long period, void (*_callback)(), uint8_t (*_commandHandler)(const uint8_t, const int, const int)) {
+void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const long _period, void (*_polfunction)()) {
 	deviceid = _deviceid;
 	index = _Idx;
 
     if (name == NULL) {
     	name = (char*)malloc(strlen(_name)+1);
     }
-	strncpy (name, _name, MAX_NAME_LEN-1);
-
-	commandHandler = _commandHandler;
+    strncpy (name, _name, MAX_NAME_LEN-1);
 
 	switch (type) {
 	case TYPE_ARDUINO:
-		deviceCommandHandler(_Idx, COMMAND_PING, 0);
+		deviceCommandHandler(_Idx, COMMAND_PING, true);
 		pinMode(getPin(), OUTPUT);
 		break;
 	case TYPE_DIGITAL_IO:
 		pinMode(getPin(), OUTPUT);
 		break;
 	case TYPE_ANALOG_IN:
-		deviceCommandHandler(_Idx, COMMAND_GET_VALUE, 0);
+		deviceCommandHandler(_Idx, COMMAND_GET_VALUE, false);
 		break;
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
 		pinMode(getPin(), OUTPUT);
-		deviceCommandHandler(_Idx, COMMAND_ON, 0);
+		deviceCommandHandler(_Idx, COMMAND_ON, true);
 		break;
 	case TYPE_AUTO_DOOR:
 		pinMode(POWER_RELAY_PIN, OUTPUT);
@@ -52,46 +50,13 @@ void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const l
 		break;
 	}
 
-	if (period > 0) {
-		if (timer.every(period, _callback) < 0) {		// Only for polling mdevices
+	if (_period > 0) {
+		if (timer.every(_period, _polfunction) < 0) {		// Only for polling mdevices
 //			showStatus(TIMER_ERROR, _Idx);
 			if (DEBUG_DEVICE) Serial.print("ETMR");
 			if (DEBUG_DEVICE) Serial.println(_Idx);
 		}
 	}
-}
-
-const char *Device::getName() {
-	return name;
-}
-
-byte Device::getIndex() {
-	return index;
-}
-
-void Device::setStatus(const int _value) {
-	status = _value;
-}
-char *Device::getStatus() {
-	sprintf(temp, "%i", status);
-	return 	temp;
-}
-
-void Device::setCommand(const int _value) {
-	command = _value;
-}
-char *Device::getCommand() {
-	sprintf(temp, "%i", command);
-	return 	temp;
-}
-
-void Device::setValue(const int _value) {
-	commandvalue = _value;
-}
-
-char *Device::getValue() {
-	sprintf(temp, "%i", commandvalue);
-	return 	temp;
 }
 
 void Device::readInput() {
@@ -104,9 +69,10 @@ void Device::readInput() {
 		break;
 	case TYPE_ANALOG_IN:
 		commandvalue = analogRead(getPin());
-		if (EEPROMReadInt(index * 6 + 0) == 65535) {				// No setpoint set
+		if (EEPROMReadInt(index * 6 + 0) == FFFF) {				// No setpoint set
 			status = STATUS_UNKNOWN;
 			sprintf(a, "{\"V\":\"%i\"}", commandvalue);
+			setExtData(a);
 		} else {
 			if (commandvalue > EEPROMReadInt(index * 6 + 0)) {												// below set point
 				status = STATUS_ON;
@@ -114,8 +80,8 @@ void Device::readInput() {
 				status = STATUS_OFF;
 			}
 			sprintf(a, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
+			setExtData(a);
 		}
-		setExtData(a);
 		break;
 	case TYPE_DHT22:
 		byte chk;
@@ -128,7 +94,7 @@ void Device::readInput() {
 			int temp2;
 			temp1 = (dht.temperature - (int)dht.temperature) * 100;
 			temp2 = (dht.humidity - (int)dht.humidity) * 100;
-			if (EEPROMReadInt(index * 6 + 0) == 65535) {				// No setpoint set
+			if (EEPROMReadInt(index * 6 + 0) == FFFF) {				// No setpoint set
 				status = STATUS_UNKNOWN;
 				sprintf(a, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2);
 			} else {
@@ -150,7 +116,7 @@ void Device::readInput() {
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
 		commandvalue = ReadTemp(getInput());
-		sprintf(a, "{\"C\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(RELAY_HEAT_PIN), EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
+		sprintf(a, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(RELAY_HEAT_PIN), EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
 		setExtData(a);
 		break;
 	case TYPE_AUTO_DOOR:
@@ -186,10 +152,44 @@ void Device::setOnOff(const int commandID) {
 		if (commandID == COMMAND_OFF) status = STATUS_OFF;
 		break;
 	case TYPE_AUTO_DOOR:
+		doorOnOff(commandID);
 		break;
 	default:
 		break;
 	}
+}
+
+const char *Device::getName() {
+	return name;
+}
+
+byte Device::getIndex() {
+	return index;
+}
+
+void Device::setStatus(const int _value) {
+	status = _value;
+}
+char *Device::getStatus() {
+	sprintf(temp, "%i", status);
+	return 	temp;
+}
+
+void Device::setCommand(const int _value) {
+	command = _value;
+}
+char *Device::getCommand() {
+	sprintf(temp, "%i", command);
+	return 	temp;
+}
+
+void Device::setValue(const int _value) {
+	commandvalue = _value;
+}
+
+char *Device::getValue() {
+	sprintf(temp, "%i", commandvalue);
+	return 	temp;
 }
 
 void Device::setPin(const byte _value) {

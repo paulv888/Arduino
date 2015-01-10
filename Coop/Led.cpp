@@ -38,11 +38,19 @@ void showStatus(byte Error, byte deviceIDidx) {
 		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
 		mdevices[deviceIDidx].setCommand(COMMAND_SET_RESULT);
 		mdevices[deviceIDidx].setStatus(STATUS_ERROR);
-		sprintf(a, "{\"E\":\"%i\",\"M\":\"%s\"}", DOOR_NOT_MOVING, "Door moving");
+		sprintf(a, "{\"E\":\"%i\",\"M\":\"%s\"}", DOOR_NOT_MOVING, "NOT moving");
     	mdevices[deviceIDidx].setExtData(a);
 		postMessage(deviceIDidx);
 		break;
-
+	case DOOR_TIMEOUT:
+		timer.oscillate(LED_PIN, HIGH, 500, 50, 5);
+		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
+		mdevices[deviceIDidx].setCommand(COMMAND_SET_RESULT);
+		mdevices[deviceIDidx].setStatus(STATUS_ERROR);
+		sprintf(a, "{\"E\":\"%i\",\"M\":\"%s\"}", DOOR_NOT_MOVING, "Timeout");
+    	mdevices[deviceIDidx].setExtData(a);
+		postMessage(deviceIDidx);
+		break;
 	}
 }
 

@@ -11,14 +11,15 @@
 #include "configuration.h"
 #include "Utils.h"
 #include "MemoryFree.h"
-#include "share_commands.h"
+#include "SharedCommands.h"
 #include "Timer.h"
 #include "dht.h"
 #include "Devicehandler.h"
+#include "Door.h"
 
 class Device {
 public:
-	void begin(const char* _name, const int _deviceid,  uint8_t _Idx, const long period, void (*_callback)(), byte (*_commandHandler)(const byte,const int,const int));
+	void begin(const char* _name, const int _deviceid,  uint8_t _Idx, const long period, void (*_polling)());
 	const char *getName();
 	int getDeviceid();
 	byte getIndex();
@@ -38,7 +39,6 @@ public:
 	byte getInput();
 	void setType(const byte _value);
 	byte getType();
-	byte (*commandHandler)(const byte, const int, const int) ;
 	int commandvalue;
 	int status;
 

@@ -124,6 +124,8 @@
 #define TIMER_ERROR 201
 #define SENSOR_ERROR 202
 #define DOOR_NOT_MOVING 203
+#define DOOR_TIMEOUT 204
+
 
 // Handler return values
 #define HNDLR_WRITE_RESULT 1
@@ -135,7 +137,7 @@
 #define MAX_POST_PARAMS 50
 
 
-// Reserve 3 ints (6 bytes) per DeviceIDX -> Max deviceIDX = 1024/6 = 42
+// Reserve 3 ints (6 bytes) per DeviceIDX -> Max deviceIDX = 1024/6 = 170
 //#define DOOR_DELAY_ADDRESS 			 0
 //#define NTC_0_ADDRESS 				 2
 //// FREE								 4
@@ -145,7 +147,7 @@
 //#define DARK_SET_ADDRESS			12
 //#define DARK_THRESHOLD_ADDRESS		14
 
-
+#define FFFF 0XFFFF
 
 #endif /* ARDBrigde_H_ */
 

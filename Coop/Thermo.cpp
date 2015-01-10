@@ -6,15 +6,6 @@
  */
 #include "thermo.h"
 
-void tHndlrValues(const byte deviceIDidx, const int commandID) {
-	char a[MAX_EXT_DATA];
-	mdevices[deviceIDidx].setCommand(commandID);
-	mdevices[deviceIDidx].setValue(ReadTemp(mdevices[deviceIDidx].getInput()));
-	sprintf(a, "{\"C\":\"%i\",\"R\":\"%i\"}", mdevices[deviceIDidx].commandvalue, digitalRead(mdevices[deviceIDidx].getPin()));
-	sprintf(a, "{\"C\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", mdevices[deviceIDidx].commandvalue, !digitalRead(RELAY_HEAT_PIN), EEPROMReadInt(deviceIDidx * 6 + 0), EEPROMReadInt(deviceIDidx * 6 + 2));
-	mdevices[deviceIDidx].setExtData(a);
-}
-
 void thermoCallbackT() {
 	thermoCallback (THERMO_IDX);
 	thermoCallback (AUTO_FAN_IDX);
@@ -32,13 +23,13 @@ void thermoCallback(const byte deviceIDidx) {
 			if (value < EEPROMReadInt(deviceIDidx * 6 + 0)) {					// below set point
 				if (!isRunning) {				// switch on
 					digitalWrite(mdevices[deviceIDidx].getPin(), HIGH);
-					deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, 0);
+					deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, true);
 				}
 			} else {
 				if (value >= (EEPROMReadInt(deviceIDidx * 6 + 0) - EEPROMReadInt(deviceIDidx * 6 + 2))) {	// above set point plus threshold
 					if (isRunning) {				// switch off
 						digitalWrite(mdevices[deviceIDidx].getPin(), LOW);
-						deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, 0);
+						deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, true);
 					}
 
 				}
@@ -48,13 +39,13 @@ void thermoCallback(const byte deviceIDidx) {
 			if (value > EEPROMReadInt(deviceIDidx * 6 + 0)) {					// below set point
 				if (!isRunning) {				// switch on
 					digitalWrite(mdevices[deviceIDidx].getPin(), HIGH);
-					deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, 0);
+					deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, true);
 				}
 			} else {
 				if (value <= (EEPROMReadInt(deviceIDidx * 6 + 0) - EEPROMReadInt(deviceIDidx * 6 + 2))) {	// above set point plus threshold
 					if (isRunning) {				// switch off
 						digitalWrite(mdevices[deviceIDidx].getPin(), LOW);
-						deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, 0);
+						deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, true);
 					}
 
 				}
@@ -64,7 +55,7 @@ void thermoCallback(const byte deviceIDidx) {
 	} else {
 		if (isRunning) {				// switch off
 			digitalWrite(mdevices[deviceIDidx].getPin(), LOW);
-			deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, 0);
+			deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, true);
 		}
 	}
 // nothing to do

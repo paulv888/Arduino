@@ -68,6 +68,7 @@ void hardStopDoor () {
 	timerMaxStop = timer.stop(timerMaxStop);
 	digitalWrite(POWER_RELAY_PIN, LOW);
 	bbreakIsOn = false;
+	showStatus(DOOR_TIMEOUT, DOOR_IDX);
 }
 
 void doorCallback(const byte deviceIDidx) {
@@ -97,7 +98,7 @@ void doorCallback(const byte deviceIDidx) {
 		if (DEBUG_DEVICE_HAND) Serial.print("Change ");
 		if (DEBUG_DEVICE_HAND) Serial.println(lastDoorPosition);
 		dHndlrValues(deviceIDidx, COMMAND_SET_RESULT, lastDoorPosition, 0);
-		postMessage(deviceIDidx);
+		deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, true);
 		showStatus(INFO_NORMAL, deviceIDidx);
 	}
 }
@@ -151,7 +152,7 @@ void startDoor (int commandID) {
 		// If currently closed start reach timer, else give 1 second to start leaving closed
 		if (digitalRead(startSwitch) == LOW) {							   // Currently in Starting postion
 			bcheckStuck = true;
-			if ((timerCheckStuck = timer.after(3000, checkStuck)) < 0) {	// Starts moving timer as well (time /2 clockspeed
+			if ((timerCheckStuck = timer.after(EEPROMReadInt(DOOR_IDX * 6 + 4), checkStuck)) < 0) {	// Starts moving timer as well (time /2 clockspeed
 				if (DEBUG_DEVICE) Serial.print("ETMR");
 				showStatus(TIMER_ERROR, DOOR_IDX);
 			}
@@ -166,76 +167,24 @@ void startDoor (int commandID) {
 	} else {
 		if (DEBUG_DEVICE_HAND) Serial.println("=InStart");
 		dHndlrValues(DOOR_IDX, commandID, doorPosition(), 0);
+		deviceCommandHandler(DOOR_IDX, COMMAND_SET_RESULT, true);
 	}
 }
 
 void postMessageDoor(){
 /*
  * 	No guarantees on state device after 100ms
+ *
+ * 	NO IDEA WHY THIS IS HERE
  */
-	postMessage(DOOR_IDX);
+//	postMessage(DOOR_IDX);
+//	deviceCommandHandler(DOOR_IDX, COMMAND_SET_RESULT, true);
 }
 
-byte doorHandler(const byte deviceIDidx, const int commandID, const int commandvalue) {
-	if (DEBUG_MEMORY) printMem("doorH ");
-	if (DEBUG_DEVICE_HAND) Serial.print(deviceIDidx);
-	if (DEBUG_DEVICE_HAND) Serial.print(" Cmd ");
-	if (DEBUG_DEVICE_HAND) Serial.print(commandID);
-	if (DEBUG_DEVICE_HAND) Serial.print(" Val: ");
-	if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
-
-	switch (commandID) {
-	case COMMAND_ON:													// Open
-		startDoor(commandID);
-		timer.after(10,postMessageDoor);
-		return HNDLR_OK;
-		break;
-	case COMMAND_OFF:												// Closed
-		startDoor(commandID);
-		timer.after(10,postMessageDoor);
-		return HNDLR_OK;
-		break;
-	case COMMAND_STOP:
-    	digitalWrite(POWER_RELAY_PIN, LOW);
-		dHndlrValues(deviceIDidx, commandID, doorPosition(), commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_OK;
-		break;
-	case COMMAND_UP:
-    	digitalWrite(DIRECTION_RELAY_PIN, HIGH);
-		dHndlrValues(deviceIDidx, commandID, doorPosition(), commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_OK;
-		break;
-	case COMMAND_DOWN:
-    	digitalWrite(DIRECTION_RELAY_PIN, LOW);
-		dHndlrValues(deviceIDidx, commandID, doorPosition(), commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_OK;
-		break;
-	case COMMAND_VALUE_1:
-	     EEPROMWriteInt(deviceIDidx * 6 + 0, commandvalue);
-		return HNDLR_OK;
-		break;
-	case COMMAND_VALUE_2:
-	     EEPROMWriteInt(deviceIDidx * 6 + 2, commandvalue);
-		return HNDLR_OK;
-		break;
-	case COMMAND_STATUSREQUEST:
-	case COMMAND_SET_RESULT:
-	case COMMAND_PING:
-		dHndlrValues(deviceIDidx, commandID, doorPosition(), commandvalue);
-		postMessage(deviceIDidx);
-		return HNDLR_WRITE_RESULT;
-		break;
-	case COMMAND_GET_VALUE:
-		dHndlrValues(deviceIDidx, commandID, doorPosition(), commandvalue);
-		return HNDLR_WRITE_RESULT;
-		break;
-	default:
-		return ERROR;
-		break;
-	}
-	return ERROR;
+byte doorOnOff(const int commandID) {
+	startDoor(commandID);
+//	timer.after(10,postMessageDoor);
+	return HNDLR_OK;
 }
+
 
