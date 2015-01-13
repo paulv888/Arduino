@@ -2,16 +2,43 @@
 **** Build of configuration Release for project Coop ****
 
 make all 
+Building file: ../Device.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/Mine_ATmega328__3_3V_Ext_8_MHz/arduino" -I"/Mine_ATmega328__3_3V_Ext_8_MHz/standard" -I"D:\arduino-1.0.6\libraries\EEPROM" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop" -I"D:\Users\pvloon\My Sources\E-Arduino\Ethernet" -I"D:\arduino-1.0.6\libraries\DHT" -I"D:\Users\pvloon\My Sources\Arduino\libraries\Timer" -I"D:\arduino-1.0.6\libraries\SPI" -I"D:\Users\pvloon\My Sources\E-Arduino\Coop\Utils" -I"D:\arduino-1.0.6\hardware\arduino\cores\arduino" -I"D:\arduino-1.0.6\hardware\arduino\variants\standard" -D__IN_ECLIPSE__=1 -DARDUINO=106 -DUSB_PID= -DUSB_VID= -Wall -g2 -gstabs -Os -ffunction-sections -fdata-sections -fno-exceptions -Wno-write-strings -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"Device.d" -MT"Device.d"  -c -o "Device.o" -x c++ "../Device.cpp"
+../Device.cpp: In member function 'void Device::readInput()':
+../Device.cpp:78: warning: comparison between signed and unsigned integer expressions
+../Device.cpp:80: warning: comparison between signed and unsigned integer expressions
+../Device.cpp:102: warning: comparison between signed and unsigned integer expressions
+../Device.cpp:104: warning: comparison between signed and unsigned integer expressions
+Finished building: ../Device.cpp
+ 
+Building target: Coop.elf
+Invoking: AVR C++ Linker
+avr-gcc -Os -Wl,--gc-sections  -Wl,-Map,"D:\Users\pvloon\My Sources\E-Arduino\Coop\Release\mapfile.txt",--cref -L"D:\Users\pvloon\My Sources\E-Arduino\Mine_ATmega328__3_3V_Ext_8_MHz/Release" -L"D:\Users\pvloon\My Sources\E-Arduino\Ethernet\Release" -Lm -mmcu=atmega328p  -o"Coop.elf"  ./Utils/MemoryFree.o ./Utils/Utils.o  ./Timer/Event.o ./Timer/Timer.o  ./SPI/SPI.o  ./EEPROM/EEPROM.o  ./DHT/dht.o  ./Coop.o ./Device.o ./Devicehandler.o ./Door.o ./Led.o ./Thermo.o ./Web.o   -l"Mine_ATmega328__3_3V_Ext_8_MHz" -lEthernet -lm
+Finished building target: Coop.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Coop.elf  >"Coop.lss"
+Finished building: Coop.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Coop.elf  "Coop.hex"
+Finished building: Coop.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Coop.elf  "Coop.eep"
+Finished building: Coop.eep
+ 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega328p Coop.elf
 AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   23112 bytes (70.5% Full)
+Program:   23094 bytes (70.5% Full)
 (.text + .data + .bootloader)
 
-Data:       1309 bytes (63.9% Full)
+Data:       1327 bytes (64.8% Full)
 (.data + .bss + .noinit)
 
 

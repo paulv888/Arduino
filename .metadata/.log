@@ -545,3 +545,197 @@ java.lang.NullPointerException
 	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
 	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2015-01-12 21:04:51.108 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:27:09.471
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:27:09.488
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:27:25.733
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:27:25.735
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:27:37.644
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:27:37.645
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:43:51.814
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:43:51.815
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:51:12.766
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 21:51:12.767
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 23:12:59.370
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 23:12:59.370
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 23:13:25.211
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 23:13:25.212
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 23:27:55.096
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-12 23:27:55.097
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2015-01-13 00:06:08.705 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 00:08:02.653
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 00:08:02.710
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 00:09:21.049
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 00:09:21.050
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 00:25:49.182
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 00:25:49.183
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 01:36:40.474
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 01:36:40.475
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 01:42:13.816
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 01:42:13.817
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 01:59:29.070
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 01:59:29.071
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 02:02:09.318
+!MESSAGE Serial port  not found. Did you select the right one from the project properties -> Arduino -> Arduino?
+
+!ENTRY it.baeyens.core 2 0 2015-01-13 02:02:09.319
+!MESSAGE Failed to handle Com port properly
+!STACK 0
+java.lang.NullPointerException
+	at it.baeyens.arduino.arduino.Serial.setDTR(Serial.java:503)
+	at it.baeyens.arduino.common.Common.ResetArduino(Common.java:469)
+	at it.baeyens.avreclipse.ui.actions.UploadProjectAction$UploadJob.run(UploadProjectAction.java:410)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

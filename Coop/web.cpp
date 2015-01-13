@@ -185,7 +185,7 @@ int printResponse(const byte clientsel, const byte deviceidx, const bool getLen 
 
 	if (DEBUG_WEB) Serial.println();
 
-	return len;
+	return len+1;			// WHYYYYYYYYYYYY was not needed before refactor on 1/13/2015
 }
 
 void printPage(const byte clientsel, const byte deviceidx) {

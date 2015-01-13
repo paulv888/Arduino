@@ -46,7 +46,7 @@ void setup() {
 	mdevices[RELAY_1_IDX].begin(     "Light-A4"     , 205, RELAY_1_IDX     , (long)0            , NULL                  );
 	mdevices[RELAY_2_IDX].setPin(RELAY_2_PIN);
 	mdevices[RELAY_2_IDX].setType(TYPE_DIGITAL_IO);
-	mdevices[RELAY_2_IDX].begin(     "RedLght-A5"   , 206, RELAY_2_IDX     , (long)0            , NULL                  );
+	mdevices[RELAY_2_IDX].begin(     "RedLgt-A5"    , 206, RELAY_2_IDX     , (long)0            , NULL                  );
 
 	mdevices[NTC_0_IDX].setPin(NTC_0_PIN);
 	mdevices[NTC_0_IDX].setType(TYPE_ANALOG_IN);

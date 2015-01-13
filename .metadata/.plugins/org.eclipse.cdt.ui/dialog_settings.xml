@@ -30,6 +30,11 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="printResponse"/>
+			<item value="getPin"/>
+			<item value="darkCallbackT"/>
+			<item value="RELAY_0_PIN"/>
+			<item value="RELAY_0"/>
 			<item value="DOOR_NOT_MOVING"/>
 			<item value="door_moving"/>
 			<item value="COMMAND_SET_RESULT"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="34" version="2.0">
+<workbench progressCount="35" version="2.0">
 <workbenchAdvisor/>
-<window height="1050" maximized="true" width="1589" x="312" y="0">
+<window height="1050" maximized="true" width="1026" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -36,29 +36,39 @@
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Door.cpp" partName="Door.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Door.cpp" title="Door.cpp" tooltip="Coop/Door.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Door.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="1720" selectionTopPixel="780"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Web.cpp" partName="Web.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Web.cpp" title="Web.cpp" tooltip="Coop/Web.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Web.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6490" selectionTopPixel="2222"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Led.cpp" partName="Led.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Led.cpp" title="Led.cpp" tooltip="Coop/Led.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Led.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="1507" selectionTopPixel="266"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Web.h" partName="Web.h" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Web.h" title="Web.h" tooltip="Coop/Web.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Web.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="89"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Coop.cpp" partName="Coop.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Coop.cpp" title="Coop.cpp" tooltip="Coop/Coop.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Coop.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2280" selectionTopPixel="135"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Devicehandler.cpp" partName="Devicehandler.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Devicehandler.cpp" title="Devicehandler.cpp" tooltip="Coop/Devicehandler.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Devicehandler.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="1326" selectionTopPixel="960"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Device.cpp" partName="Device.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Device.cpp" title="Device.cpp" tooltip="Coop/Device.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Device.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="17" selectionOffset="1548" selectionTopPixel="930"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="Configuration.h" partName="Configuration.h" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Configuration.h" title="Configuration.h" tooltip="Coop/Configuration.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Configuration.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2574" selectionTopPixel="1710"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="SharedCommands.h" partName="SharedCommands.h" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Utils/SharedCommands.h" title="SharedCommands.h" tooltip="Coop/Utils/SharedCommands.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Utils/SharedCommands.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="442" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Device.cpp" partName="Device.cpp" path="D:/Users/pvloon/My Sources/E-Arduino/Coop/Device.cpp" title="Device.cpp" tooltip="Coop/Device.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Coop/Device.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1863" selectionTopPixel="480"/>
+<editorState selectionHorizontalPixel="0" selectionLength="18" selectionOffset="783" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -74,17 +84,15 @@
 <view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
+<view IMemento.internal.id="org.eclipse.cdt.ui.pdomSearchViewPage" definitionColumnWidth="150" locationColumnWidth="300" matchColumnWidth="300" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" showEnclosingDefinitions="true"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
-<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="6" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
-<view IMemento.internal.id="org.eclipse.cdt.ui.pdomSearchViewPage" definitionColumnWidth="150" locationColumnWidth="300" matchColumnWidth="300" org.eclipse.search.lastActivation="7" org.eclipse.search.resultpage.layout="2" showEnclosingDefinitions="true"/>
 </viewState>
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
+<category IMemento.internal.id="Warnings (10 items)"/>
 <category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings"/>
-<category IMemento.internal.id="Warnings (9 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="997"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -134,7 +142,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspectives activePart="org.eclipse.ui.views.ContentOutline" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.cdt.internal.ui.CPerspectiveFactory" id="org.eclipse.cdt.ui.CPerspective" label="C/C++"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -194,12 +202,12 @@
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.ui.views.TaskList"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
 <view id="it.baeyens.avreclipse.views.AVRDeviceView"/>
 <view id="it.baeyens.avreclipse.views.supportedmcus"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
 <view id="org.eclipse.ui.views.ProgressView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView"/>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
@@ -225,29 +233,29 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.17862755" ratioLeft="341" ratioRight="1568" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.63169163" ratioLeft="590" ratioRight="344" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.79122055" ratioLeft="739" ratioRight="195" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="it.baeyens.avreclipse.views.AVRDeviceView" label="AVR Device Explorer"/>
 <page content="it.baeyens.avreclipse.views.supportedmcus" label="AVR Supported MCUs"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="7"/>
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
 <part id="6"/>
-<part id="7"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="topRight" ratio="0.81160325" ratioLeft="1301" ratioRight="302" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="topRight" ratio="0.5629393" ratioLeft="881" ratioRight="684" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.cdt.make.ui.views.MakeView" label="Make Target"/>
@@ -266,170 +274,170 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Configuration.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Coop.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Devicehandler.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Device.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Thermo.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Door.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Led.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Timer/Timer.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Led.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Coop.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Web.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Web.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Coop.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Devicehandler.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Device.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Configuration.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Utils/SharedCommands.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Device.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Timer/Timer.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Timer/Timer.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Timer/Event.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Coop/Timer/Event.h"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="D:\arduino-1.0.6\hardware\tools\avr\avr\include\inttypes.h" project="Coop"/>
 </editors>
-<item historyLabel="Devicehandler.cpp" index="0">
+<item historyLabel="Configuration.h" index="0">
 <position/>
 </item>
-<item historyLabel="Device.cpp" index="1">
-<position info="not_deleted" x="532" y="20"/>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="211" y="13"/>
 </item>
-<item historyLabel="Device.cpp" index="1">
-<position info="not_deleted" x="710" y="20"/>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="5159" y="14"/>
 </item>
-<item historyLabel="Device.cpp" index="1">
-<position info="not_deleted" x="857" y="20"/>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="5096" y="14"/>
 </item>
-<item historyLabel="Device.cpp" index="1">
-<position info="not_deleted" x="2319" y="0"/>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="5011" y="16"/>
 </item>
-<item historyLabel="Door.cpp" index="2">
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="5167" y="6"/>
+</item>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="1603" y="6"/>
+</item>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="3588" y="0"/>
+</item>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="3589" y="0"/>
+</item>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="4285" y="16"/>
+</item>
+<item historyLabel="Devicehandler.cpp" index="2">
+<position info="not_deleted" x="990" y="30"/>
+</item>
+<item historyLabel="Coop.cpp" index="1">
+<position info="not_deleted" x="510" y="16"/>
+</item>
+<item historyLabel="Thermo.cpp" index="4">
+<position info="not_deleted" x="1086" y="0"/>
+</item>
+<item historyLabel="Configuration.h" index="0">
 <position/>
 </item>
-<item historyLabel="Devicehandler.cpp" index="0">
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="4285" y="16"/>
+</item>
+<item historyLabel="Configuration.h" index="0">
+<position info="not_deleted" x="3293" y="0"/>
+</item>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="4285" y="16"/>
+</item>
+<item historyLabel="Coop.cpp" index="1">
+<position info="not_deleted" x="707" y="0"/>
+</item>
+<item historyLabel="Configuration.h" index="0">
+<position info="not_deleted" x="2083" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="1">
+<position info="not_deleted" x="1273" y="0"/>
+</item>
+<item historyLabel="Configuration.h" index="0">
+<position info="not_deleted" x="2347" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="1">
+<position info="not_deleted" x="2600" y="0"/>
+</item>
+<item historyLabel="Devicehandler.cpp" index="2">
+<position info="not_deleted" x="2114" y="11"/>
+</item>
+<item historyLabel="Door.cpp" index="5">
+<position info="not_deleted" x="2373" y="6"/>
+</item>
+<item historyLabel="Device.cpp" index="3">
+<position info="not_deleted" x="4285" y="16"/>
+</item>
+<item historyLabel="Coop.cpp" index="1">
+<position info="not_deleted" x="1421" y="0"/>
+</item>
+<item historyLabel="Configuration.h" index="0">
+<position info="not_deleted" x="2370" y="0"/>
+</item>
+<item historyLabel="Coop.cpp" index="6">
+<position info="not_deleted" x="788" y="0"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="6373" y="0"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="11714" y="5"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="11723" y="0"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="6573" y="6"/>
+</item>
+<item historyLabel="Web.h" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="6573" y="6"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="1410" y="71"/>
+</item>
+<item historyLabel="Coop.cpp" index="9">
+<position info="not_deleted" x="1476" y="19"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="6345" y="16"/>
+</item>
+<item historyLabel="Coop.cpp" index="9">
+<position info="not_deleted" x="2280" y="0"/>
+</item>
+<item historyLabel="Web.h" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Web.cpp" index="7">
+<position info="not_deleted" x="6490" y="0"/>
+</item>
+<item historyLabel="Devicehandler.cpp" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Device.cpp" index="11">
 <position/>
 </item>
-<item historyLabel="Devicehandler.cpp" index="0">
-<position info="not_deleted" x="1034" y="206"/>
-</item>
-<item historyLabel="Device.cpp" index="1">
-<position info="not_deleted" x="2319" y="0"/>
-</item>
-<item historyLabel="Led.cpp" index="3">
-<position info="not_deleted" x="1465" y="11"/>
-</item>
-<item historyLabel="Led.cpp" index="3">
-<position info="not_deleted" x="1077" y="11"/>
-</item>
-<item historyLabel="Led.cpp" index="3">
-<position info="not_deleted" x="694" y="11"/>
-</item>
-<item historyLabel="Door.cpp" index="2">
-<position info="not_deleted" x="5531" y="11"/>
-</item>
-<item historyLabel="Door.cpp" index="2">
-<position/>
-</item>
-<item historyLabel="Devicehandler.cpp" index="0">
-<position info="not_deleted" x="1174" y="62"/>
-</item>
-<item historyLabel="Door.cpp" index="2">
-<position info="not_deleted" x="3077" y="0"/>
-</item>
-<item historyLabel="Door.cpp" index="2">
-<position info="not_deleted" x="2312" y="0"/>
-</item>
-<item historyLabel="Led.cpp" index="3">
-<position info="not_deleted" x="1102" y="0"/>
-</item>
-<item historyLabel="Door.cpp" index="2">
-<position info="not_deleted" x="5613" y="0"/>
-</item>
-<item historyLabel="Timer.cpp" index="4">
+<item historyLabel="Configuration.h" index="12">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Door.cpp" index="2">
-<position info="not_deleted" x="5521" y="0"/>
+<item historyLabel="SharedCommands.h" index="13">
+<position info="not_deleted" x="783" y="18"/>
 </item>
-<item historyLabel="Device.cpp" index="1">
-<position info="not_deleted" x="2319" y="0"/>
+<item historyLabel="Device.cpp" index="11">
+<position info="not_deleted" x="818" y="0"/>
 </item>
-<item historyLabel="Door.cpp" index="2">
-<position info="not_deleted" x="1975" y="0"/>
-</item>
-<item historyLabel="Led.cpp" index="5">
-<position info="not_deleted" x="1507" y="12"/>
-</item>
-<item historyLabel="Configuration.h" index="6">
+<item historyLabel="Devicehandler.cpp" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="SharedCommands.h" index="7">
-<position info="not_deleted" x="442" y="0"/>
+<item historyLabel="Devicehandler.cpp" index="10">
+<position info="not_deleted" x="1326" y="20"/>
 </item>
-<item historyLabel="Led.cpp" index="5">
-<position info="not_deleted" x="1507" y="12"/>
+<item historyLabel="Device.cpp" index="11">
+<position info="not_deleted" x="818" y="0"/>
 </item>
-<item historyLabel="Configuration.h" index="6">
-<position info="not_deleted" x="2574" y="0"/>
-</item>
-<item historyLabel="Door.cpp" index="2">
-<position info="not_deleted" x="1971" y="0"/>
-</item>
-<item historyLabel="Led.cpp" index="5">
-<position info="not_deleted" x="1507" y="12"/>
-</item>
-<item historyLabel="Device.cpp" index="8">
-<position info="not_deleted" x="1863" y="0"/>
-</item>
-<item historyLabel="Timer.cpp" index="9">
-<position info="not_deleted" x="3498" y="0"/>
-</item>
-<item historyLabel="Timer.h" index="10">
-<position info="not_deleted" x="1681" y="0"/>
-</item>
-<item historyLabel="Timer.cpp" index="9">
-<position info="not_deleted" x="1535" y="0"/>
-</item>
-<item historyLabel="Event.cpp" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Event.h" index="12">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Timer.cpp" index="9">
-<position info="not_deleted" x="1836" y="0"/>
-</item>
-<item historyLabel="Timer.h" index="10">
-<position info="not_deleted" x="1293" y="0"/>
-</item>
-<item historyLabel="Timer.cpp" index="9">
-<position info="not_deleted" x="1138" y="12"/>
-</item>
-<item historyLabel="Event.cpp" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Event.h" index="12">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Event.h" index="12">
-<position info="not_deleted" x="1162" y="10"/>
-</item>
-<item historyLabel="Event.h" index="12">
-<position info="not_deleted" x="1183" y="11"/>
-</item>
-<item historyLabel="Event.h" index="12">
-<position info="not_deleted" x="1141" y="10"/>
-</item>
-<item historyLabel="inttypes.h" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Event.h" index="12">
-<position info="not_deleted" x="1141" y="10"/>
-</item>
-<item historyLabel="Event.cpp" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Timer.cpp" index="9">
-<position info="not_deleted" x="1138" y="12"/>
-</item>
-<item historyLabel="Device.cpp" index="8">
-<position info="not_deleted" x="1863" y="0"/>
-</item>
-<item active="true" historyLabel="Door.cpp" index="2">
-<position info="not_deleted" x="1971" y="0"/>
+<item active="true" historyLabel="Device.cpp" index="11">
+<position info="not_deleted" x="1548" y="17"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -437,6 +445,13 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="bottom"/>
+<trimItem IMemento.internal.id="topRight"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -449,50 +464,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="inttypes.h" tooltip="D:\arduino-1.0.6\hardware\tools\avr\avr\include\inttypes.h">
-<persistable path="D:\arduino-1.0.6\hardware\tools\avr\avr\include\inttypes.h" project="Coop"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Event.h" tooltip="Coop/Timer/Event.h">
-<persistable path="/Coop/Timer/Event.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Event.cpp" tooltip="Coop/Timer/Event.cpp">
-<persistable path="/Coop/Timer/Event.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Timer.h" tooltip="Coop/Timer/Timer.h">
-<persistable path="/Coop/Timer/Timer.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Timer.cpp" tooltip="Coop/Timer/Timer.cpp">
-<persistable path="/Coop/Timer/Timer.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Device.cpp" tooltip="Coop/Device.cpp">
-<persistable path="/Coop/Device.cpp"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="SharedCommands.h" tooltip="Coop/Utils/SharedCommands.h">
 <persistable path="/Coop/Utils/SharedCommands.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Configuration.h" tooltip="Coop/Configuration.h">
 <persistable path="/Coop/Configuration.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Led.cpp" tooltip="Coop/Led.cpp">
-<persistable path="/Coop/Led.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Devicehandler.h" tooltip="Coop/Devicehandler.h">
-<persistable path="/Coop/Devicehandler.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Door.cpp" tooltip="Coop/Door.cpp">
-<persistable path="/Coop/Door.cpp"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Device.cpp" tooltip="Coop/Device.cpp">
+<persistable path="/Coop/Device.cpp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Devicehandler.cpp" tooltip="Coop/Devicehandler.cpp">
 <persistable path="/Coop/Devicehandler.cpp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Thermo.cpp" tooltip="Coop/Thermo.cpp">
-<persistable path="/Coop/Thermo.cpp"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Coop.cpp" tooltip="Coop/Coop.cpp">
 <persistable path="/Coop/Coop.cpp"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Web.h" tooltip="Coop/Web.h">
+<persistable path="/Coop/Web.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Web.cpp" tooltip="Coop/Web.cpp">
 <persistable path="/Coop/Web.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Thermo.cpp" tooltip="Coop/Thermo.cpp">
+<persistable path="/Coop/Thermo.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Device.h" tooltip="Coop/Device.h">
+<persistable path="/Coop/Device.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="MemoryFree.cpp" tooltip="Coop/Utils/MemoryFree.cpp">
+<persistable path="/Coop/Utils/MemoryFree.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Timer.cpp" tooltip="Coop/Timer/Timer.cpp">
+<persistable path="/Coop/Timer/Timer.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Arduino.h" tooltip="Arduino_Uno/arduino/Arduino.h">
+<persistable path="/Arduino_Uno/arduino/Arduino.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Devicehandler.h" tooltip="Coop/Devicehandler.h">
+<persistable path="/Coop/Devicehandler.h"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="inttypes.h" tooltip="D:\arduino-1.0.6\hardware\tools\avr\avr\include\inttypes.h">
+<persistable path="D:\arduino-1.0.6\hardware\tools\avr\avr\include\inttypes.h" project="Coop"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Event.h" tooltip="Coop/Timer/Event.h">
+<persistable path="/Coop/Timer/Event.h"/>
 </file>
 </mruList>
 </workbench>

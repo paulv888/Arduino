@@ -29,9 +29,10 @@ void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const l
 		break;
 	case TYPE_DIGITAL_IO:
 		pinMode(getPin(), OUTPUT);
+		deviceCommandHandler(_Idx, COMMAND_SET_RESULT, true);
 		break;
 	case TYPE_ANALOG_IN:
-		deviceCommandHandler(_Idx, COMMAND_GET_VALUE, false);
+		deviceCommandHandler(_Idx, COMMAND_SET_RESULT, true);
 		break;
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
