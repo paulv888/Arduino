@@ -114,179 +114,197 @@ int printV(const byte clientsel, const int variable, const bool getLen = false) 
 	return a;
 }
 
-int printResponse(const byte clientsel, const byte deviceidx, const byte JSON, const bool getLen = false) {
+int printResponse(const byte clientsel, const byte deviceidx, const bool getLen = false) {
 
 	int len = 0;
 
-	if (JSON) len += printP(clientsel, TXTSBRACKETOPEN, getLen);
-
-	if (!JSON) {
-		// Index
-		len += printP(clientsel, TXTIND, getLen);
-		len += printP(clientsel, TXTCOLON, getLen);
-		len += printV(clientsel, deviceidx, getLen);
-		printP(clientsel, ANBSP);
-	}
+	len += printP(clientsel, TXTSBRACKETOPEN, getLen);
 
 	// DeviceID
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTDEVICEID, getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTCOLON, getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 	len += printV(clientsel, mdevices[deviceidx].getDeviceid(), getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	if (!JSON) {
-		// Type
-		printP(clientsel, ANBSP);
-		if (mdevices[deviceidx].getType() != 0) {
-			len += printP(clientsel, TXTTYPE, getLen);
-			len += printP(clientsel, TXTCOLON, getLen);
-			len += printV(clientsel, mdevices[deviceidx].getType(), getLen);
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
-		}
-	}
+	len += printP(clientsel, TXTQUOTE, getLen);
 
 	// CommandID
-	if (JSON) {
-		len += printP(clientsel, TXTCOMMA, getLen);
-	}
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTCOMMA, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTCOMMAND , getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTCOLON, getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 	len += printVstr(clientsel, mdevices[deviceidx].getCommand(), getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 
 	// Status
-	if (JSON) {
-		len += printP(clientsel, TXTCOMMA, getLen);
-	} else {
-		printP(clientsel, ANBSP);
-	}
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTCOMMA, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTSTATUS , getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTCOLON, getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 	len += printVstr(clientsel, mdevices[deviceidx].getStatus(), getLen);
-	if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 
 	// Value
 	if (mdevices[deviceidx].commandvalue != 0) {
-		if (JSON) {
-			len += printP(clientsel, TXTCOMMA, getLen);
-		} else {
-			printP(clientsel, ANBSP);
-		}
-		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTCOMMA, getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
 		len += printP(clientsel, TXTVALUE , getLen);
-		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
 		len += printP(clientsel, TXTCOLON, getLen);
-		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
 		len += printVstr(clientsel, mdevices[deviceidx].getValue(), getLen);
-		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
 	}
 
 	// InOut
-	if (JSON) {
-		len += printP(clientsel, TXTCOMMA, getLen);
-		len += printP(clientsel, TXTQUOTE, getLen);
-		len += printP(clientsel, TXTINOUT , getLen);
-		len += printP(clientsel, TXTQUOTE, getLen);
-		len += printP(clientsel, TXTCOLON, getLen);
-		len += printP(clientsel, TXTQUOTE, getLen);
-		len += printVstr(clientsel, "1", getLen);
-		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
-	}
+	len += printP(clientsel, TXTCOMMA, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTINOUT , getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
+	len += printP(clientsel, TXTCOLON, getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
+	len += printVstr(clientsel, "1", getLen);
+	len += printP(clientsel, TXTQUOTE, getLen);
 
 	// ExtData
 	if (printVstr(clientsel, mdevices[deviceidx].getExtData(), true) > 0) {
-		if (JSON) {
-			len += printP(clientsel, TXTCOMMA, getLen);
-		}
-		else {
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
-		}
-		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTCOMMA, getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
 		len += printP(clientsel, TXTEXTDATA , getLen);
-		if (JSON) len += printP(clientsel, TXTQUOTE, getLen);
+		len += printP(clientsel, TXTQUOTE, getLen);
 		len += printP(clientsel, TXTCOLON, getLen);
 		len += printVstr(clientsel, mdevices[deviceidx].getExtData(), getLen);
 	}
 
-	if (JSON) len += printP(clientsel, TXTSBRACKETCLOSE, getLen);
-
-	if (!JSON) {
-		printP(clientsel, AOPEN);
-		printP(clientsel, BR);
-		printP(clientsel, SLASH);
-		printP(clientsel, ACLOSE);
-		if (EEPROMReadInt(deviceidx * 6 + 0) !=  FFFF) {
-			// Parameter 1
-			len += printP(clientsel, TXTPAR1, getLen);
-			len += printP(clientsel, TXTCOLON, getLen);
-			len += printV(clientsel, EEPROMReadInt(deviceidx * 6 + 0), getLen);
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
-		}
-		if (EEPROMReadInt(deviceidx * 6 + 2) !=  FFFF) {
-			// Parameter 2
-			len += printP(clientsel, TXTPAR2, getLen);
-			len += printP(clientsel, TXTCOLON, getLen);
-			len += printV(clientsel, EEPROMReadInt(deviceidx * 6 + 2), getLen);
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
-		}
-		if (EEPROMReadInt(deviceidx * 6 + 4) !=  FFFF) {
-			// Parameter 3
-			len += printP(clientsel, TXTPAR3, getLen);
-			len += printP(clientsel, TXTCOLON, getLen);
-			len += printV(clientsel, EEPROMReadInt(deviceidx * 6 + 4), getLen);
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
-		}
-
-		// In deviceIDX
-		if (mdevices[deviceidx].getInput() != 0) {
-			len += printP(clientsel, TXTDEVIND, getLen);
-			len += printP(clientsel, TXTCOLON, getLen);
-			len += printV(clientsel, mdevices[deviceidx].getInput(), getLen);
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
-		}
-
-		// Output Pin
-		if (mdevices[deviceidx].getPin() != 0) {
-			len += printP(clientsel, TXTOUTPIN, getLen);
-			len += printP(clientsel, TXTCOLON, getLen);
-			len += printV(clientsel, mdevices[deviceidx].getPin(), getLen);
-			printP(clientsel, AOPEN);
-			printP(clientsel, BR);
-			printP(clientsel, SLASH);
-			printP(clientsel, ACLOSE);
-		}
-
-}
+	len += printP(clientsel, TXTSBRACKETCLOSE, getLen);
 
 	if (DEBUG_WEB) Serial.println();
 
 	return len;
+}
+
+void printPage(const byte clientsel, const byte deviceidx) {
+
+	// Index
+	printP(clientsel, TXTIND);
+	printP(clientsel, TXTCOLON);
+	printV(clientsel, deviceidx);
+	printP(clientsel, ANBSP);
+
+	// DeviceID
+	printP(clientsel, TXTDEVICEID);
+	printP(clientsel, TXTCOLON);
+	printV(clientsel, mdevices[deviceidx].getDeviceid());
+
+	// Type
+	printP(clientsel, ANBSP);
+	if (mdevices[deviceidx].getType() != 0) {
+		printP(clientsel, TXTTYPE);
+		printP(clientsel, TXTCOLON);
+		printV(clientsel, mdevices[deviceidx].getType());
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+
+	// CommandID
+	printP(clientsel, TXTCOMMAND );
+	printP(clientsel, TXTCOLON);
+	printVstr(clientsel, mdevices[deviceidx].getCommand());
+
+	// Status
+	printP(clientsel, ANBSP);
+	printP(clientsel, TXTSTATUS );
+	printP(clientsel, TXTCOLON);
+	printVstr(clientsel, mdevices[deviceidx].getStatus());
+
+	// Value
+	if (mdevices[deviceidx].commandvalue != 0) {
+		printP(clientsel, ANBSP);
+		printP(clientsel, TXTVALUE );
+		printP(clientsel, TXTCOLON);
+		printVstr(clientsel, mdevices[deviceidx].getValue());
+	}
+
+	// ExtData
+	if (printVstr(clientsel, mdevices[deviceidx].getExtData(), true) > 0) {
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+		printP(clientsel, TXTEXTDATA );
+		printP(clientsel, TXTCOLON);
+		printVstr(clientsel, mdevices[deviceidx].getExtData());
+	}
+
+
+	printP(clientsel, AOPEN);
+	printP(clientsel, BR);
+	printP(clientsel, SLASH);
+	printP(clientsel, ACLOSE);
+	if (EEPROMReadInt(deviceidx * 6 + 0) !=  FFFF) {
+		// Parameter 1
+		printP(clientsel, TXTPAR1);
+		printP(clientsel, TXTCOLON);
+		printV(clientsel, EEPROMReadInt(deviceidx * 6 + 0));
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+	if (EEPROMReadInt(deviceidx * 6 + 2) !=  FFFF) {
+		// Parameter 2
+		printP(clientsel, TXTPAR2);
+		printP(clientsel, TXTCOLON);
+		printV(clientsel, EEPROMReadInt(deviceidx * 6 + 2));
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+	if (EEPROMReadInt(deviceidx * 6 + 4) !=  FFFF) {
+		// Parameter 3
+		printP(clientsel, TXTPAR3);
+		printP(clientsel, TXTCOLON);
+		printV(clientsel, EEPROMReadInt(deviceidx * 6 + 4));
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+
+	// In deviceIDX
+	if (mdevices[deviceidx].getInput() != 0) {
+		printP(clientsel, TXTDEVIND);
+		printP(clientsel, TXTCOLON);
+		printV(clientsel, mdevices[deviceidx].getInput());
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+
+	// Output Pin
+	if (mdevices[deviceidx].getPin() != 0) {
+		printP(clientsel, TXTOUTPIN);
+		printP(clientsel, TXTCOLON);
+		printV(clientsel, mdevices[deviceidx].getPin());
+		printP(clientsel, AOPEN);
+		printP(clientsel, BR);
+		printP(clientsel, SLASH);
+		printP(clientsel, ACLOSE);
+	}
+
+
+	if (DEBUG_WEB) Serial.println();
+
+	return;
 }
 
 void setupWeb(){
@@ -353,7 +371,7 @@ client_recv = server.available();
 		    	     		printP(COMMAND_IO_RECV, H6);					// <h6>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 
-							printResponse(COMMAND_IO_RECV, d, false, false);
+							printPage(COMMAND_IO_RECV, d);
 
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, BR);
@@ -405,7 +423,7 @@ client_recv = server.available();
 						} else {
 							printP(COMMAND_IO_RECV, HEADER_OK);
 							client_recv.println();
-							if ( result == HNDLR_WRITE_RESULT) printResponse(COMMAND_IO_RECV, deviceIdx, true, false);
+							if ( result == HNDLR_WRITE_RESULT) printResponse(COMMAND_IO_RECV, deviceIdx, false);
 						}
 					}
 					delay(1);
@@ -431,12 +449,12 @@ void postMessage(const byte deviceidx) {
 		int len = 0;
 
 		printP(COMMAND_IO_SEND, TXTPOST);
-		len = printResponse(COMMAND_IO_SEND, deviceidx, true, true);
+		len = printResponse(COMMAND_IO_SEND, deviceidx, true);
 		client_send.println(len);
 		if (DEBUG_WEB) Serial.println(len);
 		client_send.println();
 		if (DEBUG_WEB) Serial.println();
-		printResponse(COMMAND_IO_SEND, deviceidx, true,  false);
+		printResponse(COMMAND_IO_SEND, deviceidx, false);
 		client_send.println();
 
 		delay (3);
