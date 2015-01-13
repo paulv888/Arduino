@@ -41,10 +41,14 @@ void dhtCallback(const byte deviceIDidx) {
 
 
 void darkCallbackT() {
-	darkCallback (DARK_IDX);
+	analogCallback(DARK_IDX);
 }
 
-void darkCallback(const byte deviceIDidx) {
+void waterlevelCallbackT() {
+	analogCallback (WATER_LEVEL_IDX);
+}
+
+void analogCallback(const byte deviceIDidx) {
 	int prev_status = mdevices[deviceIDidx].status;
 	mdevices[deviceIDidx].readInput();
 	if (prev_status != mdevices[deviceIDidx].status) {

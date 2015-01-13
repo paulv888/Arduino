@@ -39,7 +39,7 @@
 
 ///////////////////////////////////
 // Device Types
-#define DEVICE_COUNT 9
+#define DEVICE_COUNT 10
 
 /*
  *
@@ -56,6 +56,7 @@
 #define NTC_0_IDX 9
 *
 #define SERIAL_IN_PIN			0
+#define RELAY_FAN_PIN			0
 #define SERIAL_OUT_PIN			1
 #define DIRECTION_RELAY_PIN 	2
 #define POWER_RELAY_PIN 		3
@@ -65,7 +66,7 @@
 #define LED_PIN 				7
 #define NTC_0_PIN 				A0
 #define PHOTO_RESISTOR_PIN 		A1
-#define RELAY_0_PIN			 	A2 -  - Not a device anymore part of Thermo
+#define PRESSURE_MPX4250GP    	A2
 #define RELAY_HEAT_PIN 			A3
 #define RELAY_1_PIN 			A4
 #define RELAY_2_PIN 			A5
@@ -86,36 +87,44 @@
 #define ARDUINO_IDX 0
 #define LED_PIN 7
 
-// Thermo
-#define THERMO_IDX 1
-#define NTC_0_PIN A0
-#define RELAY_HEAT_PIN A3
-
 // Automatic Door
-#define DOOR_IDX 2
+#define DOOR_IDX 1
 #define DIRECTION_RELAY_PIN 2
 #define POWER_RELAY_PIN 3
 #define TOP_SWITCH_PIN 4
 #define BOTTOM_SWITCH_PIN 5
 
-// DHT22 Temp Hum Sensor
-#define DHT_IDX 3
-#define DHT_PIN  6
+// Water Heater
+#define THERMO_IDX 2
+#define NTC_0_PIN A0
+#define RELAY_HEAT_PIN A3
 
-// Daylight
-#define DARK_IDX 4
+// Auto Fan
+#define AUTO_FAN_IDX 3
+#define RELAY_FAN_PIN 0
+
+// Water Level
+#define WATER_LEVEL_IDX 4
+#define PRESSURE_MPX4250GP    A2
+
+// Daylight Dark
+#define DARK_IDX 5
 #define PHOTO_RESISTOR_PIN A1
 
 // Relays
-#define RELAY_0_PIN A2
-#define RELAY_1_IDX 5
+// Coop Light
+#define RELAY_1_IDX 6
 #define RELAY_1_PIN A4
-#define RELAY_2_IDX 6
+// Red Light
+#define RELAY_2_IDX 7
 #define RELAY_2_PIN A5
 
-// Auto Fan
-#define AUTO_FAN_IDX 7
-#define NTC_0_IDX 8
+// DHT22 Temp Hum Sensor
+#define DHT_IDX 8
+#define DHT_PIN  6
+
+// NTC Temp Sensor
+#define NTC_0_IDX 9
 #define NTC_0_PIN A0
 
 // Local Errors
@@ -151,14 +160,6 @@
 
 #endif /* ARDBrigde_H_ */
 
-// Sensor setting
-/*#define SENSOR_POL_TIME (long)10*1000		// 10 Sec
-#define SENSOR_CALIBRATION_INTERVAL (long)12*60*60*1000		// 12 Hours
-#define SENSOR_THERMISTOR 1
-#define SENSOR_DHT11 2
-#define SWITCH_0 0
-#define SENSOR_THRESHOLD 30
-*/
 
 
 

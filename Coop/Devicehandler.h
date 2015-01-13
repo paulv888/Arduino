@@ -28,7 +28,8 @@ byte deviceCommandHandler(const byte deviceIDidx, const int commandID, const boo
 int ReadTemp(const byte deviceIDidx);
 
 void darkCallbackT();
-void darkCallback(const byte deviceIDidx);
+void waterlevelCallbackT();
+void analogCallback(const byte deviceIDidx);
 
 void arduinoCallbackT();
 void arduinoCallback(const byte deviceIDidx);

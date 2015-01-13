@@ -43,10 +43,10 @@ void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const l
 		pinMode(DIRECTION_RELAY_PIN, OUTPUT);
 
 		pinMode(TOP_SWITCH_PIN, INPUT);
-		digitalWrite(TOP_SWITCH_PIN, HIGH); // connect internal pull-up
+		digitalWrite(TOP_SWITCH_PIN, HIGH); 	// connect internal pull-up
 
 		pinMode(BOTTOM_SWITCH_PIN, INPUT);
-		digitalWrite(BOTTOM_SWITCH_PIN, HIGH); // connect internal pull-up
+		digitalWrite(BOTTOM_SWITCH_PIN, HIGH); 	// connect internal pull-up
 		break;
 	}
 
@@ -116,7 +116,7 @@ void Device::readInput() {
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
 		commandvalue = ReadTemp(getInput());
-		sprintf(a, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(RELAY_HEAT_PIN), EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
+		sprintf(a, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(getPin()), EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
 		setExtData(a);
 		break;
 	case TYPE_AUTO_DOOR:
