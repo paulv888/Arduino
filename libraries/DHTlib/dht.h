@@ -27,7 +27,7 @@
 #define DHTLIB_ERROR_CONNECT        -3
 #define DHTLIB_ERROR_ACK_L          -4
 #define DHTLIB_ERROR_ACK_H          -5
-#define DHTLIB_INVALID_VALUE    -999
+#define DHTLIB_INVALID_VALUE    	-999
 
 #define DHTLIB_DHT11_WAKEUP         18
 #define DHTLIB_DHT_WAKEUP           1

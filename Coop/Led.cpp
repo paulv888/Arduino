@@ -7,7 +7,6 @@
 #include "Led.h"
 
 void showStatus(byte Error, byte deviceIDidx) {
-	char a[MAX_EXT_DATA];
 	switch (Error) {
 	case INFO_NORMAL:
 		timer.oscillate(LED_PIN, HIGH, 500, 2, 2);
@@ -20,8 +19,8 @@ void showStatus(byte Error, byte deviceIDidx) {
 		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
 		mdevices[deviceIDidx].setCommand(COMMAND_SET_RESULT);
 		mdevices[deviceIDidx].setStatus(STATUS_ERROR);
-		sprintf(a, "{\"E\":\"%i\",\"M\":\"%s\"}", SENSOR_ERROR, "Sensor read");
-    	mdevices[deviceIDidx].setExtData(a);
+		sprintf(temp, "{\"E\":\"%i\",\"M\":\"%s\"}", SENSOR_ERROR, "Sensor read");
+    	mdevices[deviceIDidx].setExtData(temp);
 		postMessage(deviceIDidx);
 		break;
 	case TIMER_ERROR:
@@ -29,8 +28,8 @@ void showStatus(byte Error, byte deviceIDidx) {
 		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
 		mdevices[deviceIDidx].setCommand(COMMAND_SET_RESULT);
 		mdevices[deviceIDidx].setStatus(STATUS_ERROR);
-		sprintf(a, "{\"E\":\"%i\",\"M\":\"%s\"}", TIMER_ERROR, "Timer create");
-    	mdevices[deviceIDidx].setExtData(a);
+		sprintf(temp, "{\"E\":\"%i\",\"M\":\"%s\"}", TIMER_ERROR, "Timer create");
+    	mdevices[deviceIDidx].setExtData(temp);
 		postMessage(deviceIDidx);
 		break;
 	case DOOR_NOT_MOVING:
@@ -38,8 +37,8 @@ void showStatus(byte Error, byte deviceIDidx) {
 		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
 		mdevices[deviceIDidx].setCommand(COMMAND_SET_RESULT);
 		mdevices[deviceIDidx].setStatus(STATUS_ERROR);
-		sprintf(a, "{\"E\":\"%i\",\"M\":\"%s\"}", DOOR_NOT_MOVING, "NOT moving");
-    	mdevices[deviceIDidx].setExtData(a);
+		sprintf(temp, "{\"E\":\"%i\",\"M\":\"%s\"}", DOOR_NOT_MOVING, "NOT moving");
+    	mdevices[deviceIDidx].setExtData(temp);
 		postMessage(deviceIDidx);
 		break;
 	case DOOR_TIMEOUT:
@@ -47,8 +46,8 @@ void showStatus(byte Error, byte deviceIDidx) {
 		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
 		mdevices[deviceIDidx].setCommand(COMMAND_SET_RESULT);
 		mdevices[deviceIDidx].setStatus(STATUS_ERROR);
-		sprintf(a, "{\"E\":\"%i\",\"M\":\"%s\"}", DOOR_NOT_MOVING, "Timeout");
-    	mdevices[deviceIDidx].setExtData(a);
+		sprintf(temp, "{\"E\":\"%i\",\"M\":\"%s\"}", DOOR_NOT_MOVING, "Timeout");
+    	mdevices[deviceIDidx].setExtData(temp);
 		postMessage(deviceIDidx);
 		break;
 	}

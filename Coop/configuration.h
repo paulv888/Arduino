@@ -32,9 +32,6 @@
 #ifndef DEBUG_MEMORY
 #define DEBUG_MEMORY false
 #endif
-#ifndef DEBUG_TIMER
-#define DEBUG_TIMER false
-#endif
 
 
 ///////////////////////////////////
@@ -141,9 +138,7 @@
 #define ERROR -1
 #define HNDLR_OK 2
 
-#define MAX_EXT_DATA 40
-#define MAX_NAME_LEN 15
-#define MAX_POST_PARAMS 50
+#define MAX_STRING_LEN 50
 
 
 // Reserve 3 ints (6 bytes) per DeviceIDX -> Max deviceIDX = 1024/6 = 170

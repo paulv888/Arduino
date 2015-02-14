@@ -31,11 +31,10 @@ static int timerMaxStop = -1;
  *
  */
 void dHndlrValues(const byte deviceIDidx, const int commandID, const int status, const int commandvalue) {
-	char a[MAX_EXT_DATA];
 	mdevices[deviceIDidx].setCommand(commandID);
 	mdevices[deviceIDidx].setStatus(status);
-	sprintf(a, "{\"T\":\"%i\",\"B\":\"%i\",\"P\":\"%i\",\"D\":\"%i\"}", digitalRead(TOP_SWITCH_PIN), digitalRead(BOTTOM_SWITCH_PIN), digitalRead(POWER_RELAY_PIN), digitalRead(DIRECTION_RELAY_PIN));
-	mdevices[deviceIDidx].setExtData(a);
+	sprintf(temp, "{\"T\":\"%i\",\"B\":\"%i\",\"P\":\"%i\",\"D\":\"%i\"}", digitalRead(TOP_SWITCH_PIN), digitalRead(BOTTOM_SWITCH_PIN), digitalRead(POWER_RELAY_PIN), digitalRead(DIRECTION_RELAY_PIN));
+	mdevices[deviceIDidx].setExtData(temp);
 }
 
 void doorCallbackT() {

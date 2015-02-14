@@ -67,9 +67,25 @@ int Dht::read11(uint8_t pin)
 
 int Dht::read(uint8_t pin)
 {
-    // READ VALUES
-    int result = _readSensor(pin, DHTLIB_DHT_WAKEUP, DHTLIB_DHT_LEADING_ZEROS);
 
+    // READ VALUES
+    int retry = 3;
+    int result = DHTLIB_INVALID_VALUE;
+    while (result != DHTLIB_OK && retry-- > 0) {
+		result = _readSensor(pin, DHTLIB_DHT_WAKEUP, DHTLIB_DHT_LEADING_ZEROS);
+        if (result != DHTLIB_OK) delay(400);
+    }
+
+    if (result != DHTLIB_OK)
+    {
+        humidity    = DHTLIB_INVALID_VALUE;  // invalid value, or is NaN prefered?
+        temperature = DHTLIB_INVALID_VALUE;  // invalid value
+        return result; // propagate error value
+    }
+
+	
+	
+	
     // these bits are always zero, masking them reduces errors.
     bits[0] &= 0x03;
     bits[2] &= 0x83;

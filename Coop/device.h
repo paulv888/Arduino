@@ -20,8 +20,7 @@
 
 class Device {
 public:
-	void begin(const char* _name, const int _deviceid,  uint8_t _Idx, const long period, void (*_polling)());
-	const char *getName();
+	void begin(const int _deviceid,  uint8_t _Idx, const long period, void (*_polling)());
 	int getDeviceid();
 	byte getIndex();
 	void setStatus(const int _value);
@@ -44,7 +43,6 @@ public:
 	int status;
 
 protected:
-	char *name;
 	char *extdata;
 	int deviceid;
 	byte index;
@@ -54,5 +52,6 @@ protected:
 	byte type;
 };
 extern Timer timer;
+extern char temp[MAX_STRING_LEN];
 #endif /* DEVICE_H_ */
 

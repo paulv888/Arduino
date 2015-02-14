@@ -8,5 +8,3 @@
 #include <Timer.h>
 #include "Coop.h"
 
-
-

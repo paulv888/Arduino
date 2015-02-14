@@ -8,15 +8,11 @@
 
 static byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 static byte ip[] = { 192, 168, 2, 126 };
-static byte sn[] = { 255, 255, 255, 0 };
 static byte vlosite[] = { 192, 168, 2, 101 };
 
 static EthernetServer server(80);      //server port
 static EthernetClient client_recv;
 static EthernetClient client_send;
-
-//char *readString = "123456789012345678901234567890";
-char readString[MAX_POST_PARAMS] ;
 
 
 P(TXTSBRACKETOPEN) = "{";
@@ -51,6 +47,17 @@ P(TXTIND) = "Index";
 P(TXTDEVIND) = "Input Device Index";
 P(TXTOUTPIN) = "Output Pin";
 P(TXTTYPE) = "Type";
+P(DEV_0) = "Arduino-7";
+P(DEV_1) = "Door-2345";
+P(DEV_2) = "Heat-A0/A3";
+P(DEV_3) = "Cool-6/0";
+P(DEV_4) = "Water-A2";
+P(DEV_5) = "DHT22-6";
+P(DEV_6) = "Dark-A1";
+P(DEV_7) = "Light-A4";
+P(DEV_8) = "RedLgt-A5";
+P(DEV_9) = "NTC A0" ;
+
 
 int printP(const byte clientsel, const char *str, const bool getLen = false) {
 	// copy data out of program memory into local storage, write out in
@@ -58,16 +65,15 @@ int printP(const byte clientsel, const char *str, const bool getLen = false) {
 
 	if (!getLen) {
 
-		byte buffer[32];					// PVTODO:: Share buffer
 		size_t bufferEnd = 0;
-		while ((buffer[bufferEnd++] = pgm_read_byte(str++))) {
-			if (bufferEnd == 32) {
+		while ((temp[bufferEnd++] = pgm_read_byte(str++))) {
+			if (bufferEnd == MAX_STRING_LEN) {
 				if (clientsel == COMMAND_IO_RECV) {
-					client_recv.write(buffer, 32);
+					client_recv.write(temp, MAX_STRING_LEN);
 				} else {
-					client_send.write(buffer, 32);
+					client_send.write(temp, MAX_STRING_LEN);
 				}
-	     		if (DEBUG_WEB) Serial.write(buffer, 32);
+	     		if (DEBUG_WEB) Serial.write(temp, MAX_STRING_LEN);
 				bufferEnd = 0;
 			}
 		}
@@ -75,11 +81,11 @@ int printP(const byte clientsel, const char *str, const bool getLen = false) {
 		// write out everything left but trailing NUL
 		if (bufferEnd > 1) {
 			if (clientsel == COMMAND_IO_RECV) {
-				client_recv.write(buffer, bufferEnd - 1);
+				client_recv.write(temp, bufferEnd - 1);
 			} else {
-				client_send.write(buffer, bufferEnd - 1);
+				client_send.write(temp, bufferEnd - 1);
 			}
-     		if (DEBUG_WEB) Serial.write(buffer, bufferEnd - 1);
+     		if (DEBUG_WEB) Serial.write(temp, bufferEnd - 1);
 		}
 	}
 	return strlen_P(str);
@@ -106,9 +112,8 @@ int printV(const byte clientsel, const int variable, const bool getLen = false) 
 		}
 		if (DEBUG_WEB) Serial.print(variable);
 	}
-	char buffer[16];
-	itoa(variable, buffer, 10);
-	byte a = strlen(buffer);
+	itoa(variable, temp, 10);
+	byte a = strlen(temp);
 	return a;
 }
 
@@ -326,7 +331,7 @@ byte findDeviceIndex(const int _deviceID) {
 void updateWeb(){
 //if (DEBUG_MEMORY) printMem(" Web 1 ");
 
-client_recv = server.available();
+	client_recv = server.available();
 	byte cptr;
 	const char *slash = "/";
 	const char *space = " ";
@@ -335,32 +340,63 @@ client_recv = server.available();
 		while (client_recv.connected()) {
 			if (client_recv.available()) {
 				char c = client_recv.read();
+				
 				//read char by char HTTP request
-
-				if (cptr < MAX_POST_PARAMS-1) {
-					readString[cptr++] = c;
+				if (cptr < MAX_STRING_LEN-1) {
+					temp[cptr++] = c;
 				} else {
 					cptr = 0;
 				}
-				readString[cptr] = '\0';
+				temp[cptr] = '\0';
 
 				//if HTTP request has ended
 				if (c == '\n') {
-					if (DEBUG_WEB) Serial.println(readString); //print to serial monitor for debuging
+					if (DEBUG_WEB) Serial.println(temp); //print to serial monitor for debuging
 
-					if (strstr(readString,"GET / ")) { 		// Root requested, then give page, else try to parse post parameters
+					if (strstr(temp,"GET / ")) { 		// Root requested, then give page, else try to parse post parameters
 						if (DEBUG_MEMORY) printMem("WebG ");
 	    	     		printP(COMMAND_IO_RECV, HEADER_OK);
 						client_recv.println();
 	    	     		printP(COMMAND_IO_RECV, HEADERPG2);
 	    	     		printP(COMMAND_IO_RECV, HEADERPG3);
 
-						for (byte d = 0 ; d < DEVICE_COUNT ;  d++ ) {
-							mdevices[d].readInput();
+						for (byte idx = 0 ; idx < DEVICE_COUNT ;  idx++ ) {
+							mdevices[idx].readInput();
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, H3);					// <H3>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
-							client_recv.println(mdevices[d].getName());
+							switch (idx) {
+							case 0:
+								printP(COMMAND_IO_RECV, DEV_0);
+								break;
+							case 1:
+								printP(COMMAND_IO_RECV, DEV_1);
+								break;
+							case 2:
+								printP(COMMAND_IO_RECV, DEV_2);
+								break;
+							case 3:
+								printP(COMMAND_IO_RECV, DEV_3);
+								break;
+							case 4:
+								printP(COMMAND_IO_RECV, DEV_4);
+								break;
+							case 5:
+								printP(COMMAND_IO_RECV, DEV_5);
+								break;
+							case 6:
+								printP(COMMAND_IO_RECV, DEV_6);
+								break;
+							case 7:
+								printP(COMMAND_IO_RECV, DEV_7);
+								break;
+							case 8:
+								printP(COMMAND_IO_RECV, DEV_8);
+								break;
+							case 9:
+								printP(COMMAND_IO_RECV, DEV_9);
+								break;
+							}
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, SLASH);
 		    	     		printP(COMMAND_IO_RECV, H3);					// </H3>
@@ -369,7 +405,7 @@ client_recv = server.available();
 		    	     		printP(COMMAND_IO_RECV, H6);					// <h6>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 
-							printPage(COMMAND_IO_RECV, d);
+							printPage(COMMAND_IO_RECV, idx);
 
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, BR);
@@ -388,8 +424,8 @@ client_recv = server.available();
 						int deviceID = 0;
 						int commandID = 0;
 						int commandvalue = 0;
-						//readString = strtok(readString, " "); // POST /d/203/c/23/v/12 HTTP/1.1
-						char * token = strtok(readString, space); // POST /d/203/c/23/v/12 HTTP/1.1
+						//temp = strtok(temp, " "); // POST /d/203/c/23/v/12 HTTP/1.1
+						char * token = strtok(temp, space); // POST /d/203/c/23/v/12 HTTP/1.1
 						byte deviceIdx = ERROR;
 						byte result = ERROR;
 						if (strcmp(token,"POST") == 0) {
@@ -429,7 +465,7 @@ client_recv = server.available();
 					client_recv.stop();
 					//clearing string for next read
 					cptr = 0;
-					readString[cptr] = '\0';
+					temp[cptr] = '\0';
 				}
 			}
 		}

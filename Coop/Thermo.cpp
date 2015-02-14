@@ -35,7 +35,7 @@ void thermoCallback(const byte deviceIDidx) {
 					}
 
 				}
-			} else {
+			} else {			// COOLING
 				if (value > EEPROMReadInt(deviceIDidx * 6 + 0)) {					// below set point
 					if (!isRunning) {				// switch on
 						digitalWrite(mdevices[deviceIDidx].getPin(), HIGH);

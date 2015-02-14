@@ -12,17 +12,15 @@
 #endif
 
 Dht dht;
-char a[MAX_EXT_DATA];
-char temp[10];
 
-void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const long _period, void (*_polfunction)()) {
+void Device::begin(const int _deviceid, uint8_t _Idx, const long _period, void (*_polfunction)()) {
 	deviceid = _deviceid;
 	index = _Idx;
 
-    if (name == NULL) {
-    	name = (char*)malloc(strlen(_name)+1);
-    }
-    strncpy (name, _name, MAX_NAME_LEN-1);
+//    if (name == NULL) {
+//    	name = (char*)malloc(strlen(_name)+1);
+//    }
+//    strncpy (name, _name, MAX_NAME_LEN-1);
 
 	switch (type) {
 	case TYPE_ARDUINO:
@@ -35,6 +33,9 @@ void Device::begin(const char* _name, const int _deviceid, uint8_t _Idx, const l
 		break;
 	case TYPE_ANALOG_IN:
 		deviceCommandHandler(_Idx, COMMAND_SET_RESULT, true);
+		break;
+	case TYPE_DHT22:
+		deviceCommandHandler(_Idx, COMMAND_PING, true);
 		break;
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
@@ -72,18 +73,18 @@ void Device::readInput() {
 		break;
 	case TYPE_ANALOG_IN:
 		commandvalue = analogRead(getPin());
-		if (EEPROMReadInt(index * 6 + 0) == -1) {				// No setpoint set
+		if (EEPROMReadInt(index * 6 + 0) == FFFF) {				// No setpoint set
 			status = STATUS_UNKNOWN;
-			sprintf(a, "{\"V\":\"%i\"}", commandvalue);
-			setExtData(a);
+			sprintf(temp, "{\"V\":\"%i\"}", commandvalue);
+			setExtData(temp);
 		} else {
 			if (commandvalue > EEPROMReadInt(index * 6 + 0)) {												// below set point
 				status = STATUS_ON;
 			} else if (commandvalue <= (EEPROMReadInt(index * 6 + 0) - EEPROMReadInt(index * 6 + 2))) {		// above set point plus threshold
 				status = STATUS_OFF;
 			}
-			sprintf(a, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
-			setExtData(a);
+			sprintf(temp, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
+			setExtData(temp);
 		}
 		break;
 	case TYPE_DHT22:
@@ -97,18 +98,18 @@ void Device::readInput() {
 			int temp2;
 			temp1 = abs((dht.temperature - (int)dht.temperature) * 100);
 			temp2 = (dht.humidity - (int)dht.humidity) * 100;
-			if (EEPROMReadInt(index * 6 + 0) == -1) {				// No setpoint set
+			if (EEPROMReadInt(index * 6 + 0) == FFFF) {				// No setpoint set
 				status = STATUS_UNKNOWN;
-				sprintf(a, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2);
+				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2);
 			} else {
 				if (commandvalue > EEPROMReadInt(index * 6 + 0)) {												// below set point
 					status = STATUS_ON;
 				} else if (commandvalue <= (EEPROMReadInt(index * 6 + 0) - EEPROMReadInt(index * 6 + 2))) {		// above set point plus threshold
 					status = STATUS_OFF;
 				}
-				sprintf(a, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\",\"S\":\"%u\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2, EEPROMReadInt(index * 6 + 0));
+				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\",\"S\":\"%u\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2, EEPROMReadInt(index * 6 + 0));
 			}
-			setExtData(a);
+			setExtData(temp);
 			break;
 		default:
 			status= STATUS_ERROR;
@@ -119,15 +120,15 @@ void Device::readInput() {
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
 		commandvalue = ReadTemp(getInput());
-		sprintf(a, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(getPin()), EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
-		setExtData(a);
+		sprintf(temp, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(getPin()), EEPROMReadInt(index * 6 + 0), EEPROMReadInt(index * 6 + 2));
+		setExtData(temp);
 		break;
 	case TYPE_AUTO_DOOR:
 		break;
 	case TYPE_ARDUINO:
 		status = digitalRead(getPin());
-		sprintf(a, "{\"M\" : \"%lu\", \"U\" : \"%lu\"}", check_mem(), millis()/1000);
-		setExtData(a);
+		sprintf(temp, "{\"M\" : \"%lu\", \"U\" : \"%lu\"}", check_mem(), millis()/1000);
+		setExtData(temp);
 		break;
 	default:
 		break;
@@ -160,10 +161,6 @@ void Device::setOnOff(const int commandID) {
 	default:
 		break;
 	}
-}
-
-const char *Device::getName() {
-	return name;
 }
 
 byte Device::getIndex() {
@@ -221,10 +218,10 @@ byte Device::getType() {
 
 void Device::setExtData(const char *_value) {
     if (extdata == NULL) {
-    	extdata = (char*)malloc(MAX_EXT_DATA);
+    	extdata = (char*)malloc(MAX_STRING_LEN);
 		if (DEBUG_DEVICE) Serial.println("M-Ext");
     }
-	strncpy (extdata, _value, MAX_EXT_DATA);
+	strncpy (extdata, _value, MAX_STRING_LEN);
 }
 char *Device::getExtData() {
     if (extdata == NULL) {
