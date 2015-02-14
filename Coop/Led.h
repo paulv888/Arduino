@@ -10,8 +10,6 @@
 //add your includes for the project Led here
 #include "SharedCommands.h"
 #include "Configuration.h"
-#include <Event.h>
-#include <Timer.h>
 #include "Web.h"
 
 //end of add your includes here
@@ -32,3 +30,4 @@ extern Timer timer;
 
 
 #endif /* Led_H_ */
+

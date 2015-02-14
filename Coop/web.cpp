@@ -9,8 +9,6 @@
 static byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 static byte ip[] = { 192, 168, 2, 126 };
 static byte sn[] = { 255, 255, 255, 0 };
-static byte gw[] = { 192, 168, 2, 1 };
-static byte dns[] = { 192, 168, 2, 1 };
 static byte vlosite[] = { 192, 168, 2, 101 };
 
 static EthernetServer server(80);      //server port
@@ -54,7 +52,7 @@ P(TXTDEVIND) = "Input Device Index";
 P(TXTOUTPIN) = "Output Pin";
 P(TXTTYPE) = "Type";
 
-int printP(const byte clientsel, const prog_char *str, const bool getLen = false) {
+int printP(const byte clientsel, const char *str, const bool getLen = false) {
 	// copy data out of program memory into local storage, write out in
 	// chunks of 32 bytes to avoid extra short TCP/IP packets
 
@@ -309,7 +307,7 @@ void printPage(const byte clientsel, const byte deviceidx) {
 
 void setupWeb(){
 	// initialize the Ethernet adapter
-	Ethernet.begin(mac, ip, dns, gw, sn );
+	Ethernet.begin(mac, ip );
 	server.begin();
 	if (DEBUG_WEB) Serial.print("Coop server is at ");
 	if (DEBUG_WEB) Serial.println(Ethernet.localIP());
@@ -472,4 +470,5 @@ void postMessage(const byte deviceidx) {
 	client_send.stop();
 //if (retry==0) Reset_AVR();
 }
+
 

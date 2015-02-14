@@ -1,3 +1,4 @@
+
 // Only modify this file to include
 // - function definitions (prototypes)
 // - include files
@@ -6,13 +7,9 @@
 #ifndef WEB_H_
 #define WEB_H_
 #include "Arduino.h"
-#include <Ethernet.h>
-#include <EthernetClient.h>
-#include <EthernetServer.h>
 #include <SPI.h>
-#include "avr/pgmspace.h" // new include
-#include <avr/io.h>
-#include <avr/wdt.h>
+#include <Ethernet.h>
+#include <avr/pgmspace.h>
 //add your includes for the project command here
 #include "Configuration.h"
 #include "Device.h"
@@ -22,7 +19,7 @@
 #define Reset_AVR() wdt_enable(WDTO_30MS); while(1) {}
 
 // declare a static string
-#define P(name) static const prog_char name[] PROGMEM
+#define P(name) static const char name[] PROGMEM
 
 // Workaround for http://gcc.gnu.org/bugzilla/show_bug.cgi?id=34734
 #ifdef PROGMEM
@@ -51,3 +48,4 @@ byte findDevice(uint16_t findwhat);
 
 //Do not add code below this line
 #endif /* WEB_H_ */
+

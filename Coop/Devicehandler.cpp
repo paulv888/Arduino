@@ -112,3 +112,4 @@ byte deviceCommandHandler(const byte deviceIDidx, const int commandID, const boo
 	}
 	return ERROR;
 }
+

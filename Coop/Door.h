@@ -17,3 +17,4 @@ void doorCallback(const byte deviceIDidx);
 byte doorOnOff(const int commandID);
 
 #endif /* DOOR_H_ */
+

@@ -3,74 +3,12 @@
 	<name>Coop</name>
 	<comment></comment>
 	<projects>
-		<project>Mine_ATmega328__3_3V_Ext_8_MHz</project>
-		<project>Ethernet</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
 			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
 			<triggers>clean,full,incremental,</triggers>
 			<arguments>
-				<dictionary>
-					<key>?children?</key>
-					<value>?name?=outputEntries\|?children?=?name?=entry\\\\\\\|\\\|\||</value>
-				</dictionary>
-				<dictionary>
-					<key>?name?</key>
-					<value></value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.append_environment</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.autoBuildTarget</key>
-					<value>all</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildArguments</key>
-					<value></value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildCommand</key>
-					<value>make</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${workspace_loc:/second eclipse test/Release}</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>
-					<value>clean</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.contents</key>
-					<value>org.eclipse.cdt.make.core.activeConfigSettings</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.enableAutoBuild</key>
-					<value>false</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.enableCleanBuild</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.enableFullBuild</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.fullBuildTarget</key>
-					<value>all</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.stopOnError</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
-					<value>true</value>
-				</dictionary>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
@@ -85,33 +23,5 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
-		<nature>it.baeyens.arduinonature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>DHT</name>
-			<type>2</type>
-			<locationURI>ArduinoLibPath/DHT</locationURI>
-		</link>
-		<link>
-			<name>EEPROM</name>
-			<type>2</type>
-			<locationURI>ArduinoLibPath/EEPROM</locationURI>
-		</link>
-		<link>
-			<name>Mine_ATmega328__3_3V_Ext_8_MHz</name>
-			<type>2</type>
-			<location>D:/Users/pvloon/My Sources/E-Arduino/Mine_ATmega328__3_3V_Ext_8_MHz</location>
-		</link>
-		<link>
-			<name>SPI</name>
-			<type>2</type>
-			<locationURI>ArduinoLibPath/SPI</locationURI>
-		</link>
-		<link>
-			<name>Timer</name>
-			<type>2</type>
-			<locationURI>PivateLibPath/Timer</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

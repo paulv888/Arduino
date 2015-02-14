@@ -1,7 +1,5 @@
 description.autobuilding=false
 eclipse.preferences.version=1
-pathvariable.ArduinoLibPath=D\:/arduino-1.0.6/libraries
-pathvariable.CoreArduinoPath=D\:/arduino-1.0.6/hardware/arduino/cores
-pathvariable.PinArduinoPath=D\:/arduino-1.0.6/hardware/arduino/variants
 pathvariable.PivateLibPath=D\:/Users/pvloon/My Sources/Arduino/libraries
+pathvariable.gcc=D\:/arduino-1.6.0/hardware/tools/avr/bin
 version=1

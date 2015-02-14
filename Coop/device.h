@@ -1,3 +1,5 @@
+#include <dht.h>
+
 /*
  * Device.h
  *
@@ -11,9 +13,8 @@
 #include "configuration.h"
 #include "Utils.h"
 #include "MemoryFree.h"
+#include <dht.h>
 #include "SharedCommands.h"
-#include "Timer.h"
-#include "dht.h"
 #include "Devicehandler.h"
 #include "Door.h"
 
@@ -54,3 +55,4 @@ protected:
 };
 extern Timer timer;
 #endif /* DEVICE_H_ */
+

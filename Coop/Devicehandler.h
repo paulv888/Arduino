@@ -8,7 +8,8 @@
 #ifndef DEVICEHANDLER_H_
 #define DEVICEHANDLER_H_
 #include "configuration.h"
-#include "dht.h"
+#include <Event.h>
+#include <Timer.h>
 #include "Led.h"
 #include "MemoryFree.h"
 #include "Web.h"
@@ -40,3 +41,4 @@ void dhtCallback(const byte deviceIDidx);
 class Device;
 extern Device mdevices[];
 #endif /* DEVICEHANDLER_H_ */
+

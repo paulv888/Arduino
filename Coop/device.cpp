@@ -1,3 +1,5 @@
+
+
 /*
  * Device.cpp
  *
@@ -9,7 +11,7 @@
 #define NULL   ((void *) 0)
 #endif
 
-DHT dht;
+Dht dht;
 char a[MAX_EXT_DATA];
 char temp[10];
 
@@ -70,7 +72,7 @@ void Device::readInput() {
 		break;
 	case TYPE_ANALOG_IN:
 		commandvalue = analogRead(getPin());
-		if (EEPROMReadInt(index * 6 + 0) == FFFF) {				// No setpoint set
+		if (EEPROMReadInt(index * 6 + 0) == -1) {				// No setpoint set
 			status = STATUS_UNKNOWN;
 			sprintf(a, "{\"V\":\"%i\"}", commandvalue);
 			setExtData(a);
@@ -93,9 +95,9 @@ void Device::readInput() {
 			commandvalue = ((int)dht.temperature);
 			int temp1;
 			int temp2;
-			temp1 = (dht.temperature - (int)dht.temperature) * 100;
+			temp1 = abs((dht.temperature - (int)dht.temperature) * 100);
 			temp2 = (dht.humidity - (int)dht.humidity) * 100;
-			if (EEPROMReadInt(index * 6 + 0) == FFFF) {				// No setpoint set
+			if (EEPROMReadInt(index * 6 + 0) == -1) {				// No setpoint set
 				status = STATUS_UNKNOWN;
 				sprintf(a, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2);
 			} else {
@@ -235,3 +237,4 @@ char *Device::getExtData() {
 int Device::getDeviceid() {
 	return deviceid;
 }
+

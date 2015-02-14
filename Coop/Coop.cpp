@@ -1,4 +1,11 @@
 // Do not remove the include below
+#include <SPI.h>
+#include <Ethernet.h>
+#include <avr/pgmspace.h>
+#include <EEPROM.h>
+#include <dht.h>
+#include <Event.h>
+#include <Timer.h>
 #include "Coop.h"
 
 
@@ -35,7 +42,7 @@ void setup() {
 
 	mdevices[DHT_IDX].setPin(DHT_PIN);
 	mdevices[DHT_IDX].setType(TYPE_DHT22);
-	mdevices[DHT_IDX].begin(         "DHT22-6"      , 201, DHT_IDX         , (long)15*60*1000   , dhtCallbackT          );
+	mdevices[DHT_IDX].begin(         "DHT22-6"      , 201, DHT_IDX         , (long)60*60*1000   , dhtCallbackT          );
 
 	mdevices[DARK_IDX].setPin(PHOTO_RESISTOR_PIN);
 	mdevices[DARK_IDX].setType(TYPE_ANALOG_IN);
