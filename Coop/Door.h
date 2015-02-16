@@ -12,9 +12,8 @@
 #include "MemoryFree.h"
 #include "Web.h"
 
-void doorCallbackT();
-void doorCallback(const byte deviceIDidx);
-byte doorOnOff(const int commandID);
+void doorTimer(const byte deviceIdx);
+byte doorOnOff(const byte deviceIdx, const int commandID);
 
 #endif /* DOOR_H_ */
 

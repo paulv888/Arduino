@@ -6,104 +6,80 @@
  */
 #include "Devicehandler.h"
 
-int ReadTemp(const byte deviceIDidx) {
-	int value = 0;
-	if (deviceIDidx == NTC_0_IDX) {
-		value = 1024 - analogRead(NTC_0_PIN);
-	}
-	if (deviceIDidx == DHT_IDX) {
-		deviceCommandHandler(deviceIDidx, COMMAND_GET_VALUE, false);
-		if (mdevices[deviceIDidx].status == STATUS_ERROR) {
-			return ERROR;
+void reportTimer(const byte reportType) {
+//#define REPORT_HOURLY 1
+//#define REPORT_DAILY 2
+	if (DEBUG_DEVICE_HAND) Serial.print("Rpt ");
+	for (byte deviceIdx = 0; deviceIdx < DEVICE_COUNT; deviceIdx++) {
+		if (mdevices[deviceIdx].getReportType() == reportType) {
+			if (DEBUG_DEVICE_HAND) Serial.print(deviceIdx);
+			if (DEBUG_DEVICE_HAND) Serial.print("/");
+			deviceCommandHandler(deviceIdx, COMMAND_PING, true);
 		}
-		value = mdevices[deviceIDidx].commandvalue;
 	}
-	return value;
+	if (DEBUG_DEVICE_HAND) Serial.println();
 }
 
-void arduinoCallbackT() {
-	arduinoCallback (ARDUINO_IDX);
-}
-
-void arduinoCallback(const byte deviceIDidx) {
-	if (DEBUG_DEVICE_HAND) Serial.println("ArdC");
-	deviceCommandHandler(deviceIDidx, COMMAND_PING, true);
-}
-
-void dhtCallbackT() {
-	dhtCallback(DHT_IDX);
-}
-
-void dhtCallback(const byte deviceIDidx) {
-	if (DEBUG_DEVICE_HAND) Serial.println("dhtC");
-	deviceCommandHandler(deviceIDidx, COMMAND_PING, true);
-}
-
-
-void darkCallbackT() {
-	analogCallback(DARK_IDX);
-}
-
-void waterlevelCallbackT() {
-	analogCallback (WATER_LEVEL_IDX);
-}
-
-void analogCallback(const byte deviceIDidx) {
-	int prev_status = mdevices[deviceIDidx].status;
-	mdevices[deviceIDidx].readInput();
-	if (prev_status != mdevices[deviceIDidx].status) {
-		deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, true);
+void checkTimer(const byte reportType) {
+	if (DEBUG_DEVICE_HAND) Serial.print("Chk ");
+	for (byte deviceIdx = 0; deviceIdx < DEVICE_COUNT; deviceIdx++) {
+		if (mdevices[deviceIdx].getCheckType() == reportType) {
+			if (DEBUG_DEVICE_HAND) Serial.print(deviceIdx);
+			if (DEBUG_DEVICE_HAND) Serial.print("/");
+			mdevices[deviceIdx].readInput();
+		}
 	}
+	if (DEBUG_DEVICE_HAND) Serial.println();
 }
 
-byte deviceCommandHandler(const byte deviceIDidx, const int commandID, const boolean post, const int commandvalue) {
-	if (DEBUG_MEMORY) printMem("devH ");
-	if (DEBUG_DEVICE_HAND) Serial.print(deviceIDidx);
+byte deviceCommandHandler(const byte deviceIdx, const int commandID, const boolean post, const int commandvalue) {
+	if (DEBUG_MEMORY || DEBUG_DEVICE_HAND) printMem("devH ");
+	if (DEBUG_DEVICE_HAND) Serial.print(deviceIdx);
 	if (DEBUG_DEVICE_HAND) Serial.print(" Cmd ");
 	if (DEBUG_DEVICE_HAND) Serial.print(commandID);
 	if (DEBUG_DEVICE_HAND) Serial.print(" Val: ");
 	if (DEBUG_DEVICE_HAND) Serial.println(commandvalue);
 
-	mdevices[deviceIDidx].setCommand(commandID);
+	mdevices[deviceIdx].setCommand(commandID);
 	switch (commandID) {
 	case COMMAND_ON:
-		mdevices[deviceIDidx].setOnOff(commandID);
-		if (post) postMessage(deviceIDidx);
+		mdevices[deviceIdx].setOnOff(commandID);
+		if (post) postMessage(deviceIdx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_OFF:
-		mdevices[deviceIDidx].setOnOff(commandID);
-		if (post) postMessage(deviceIDidx);
+		mdevices[deviceIdx].setOnOff(commandID);
+		if (post) postMessage(deviceIdx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_1:
-		EEPROMWriteInt(deviceIDidx * 6 + 0, commandvalue);
-		mdevices[deviceIDidx].readInput();
-		if (post) postMessage(deviceIDidx);
+		EEPROMWriteInt(deviceIdx * 6 + 0, commandvalue);
+		mdevices[deviceIdx].readInput();
+		if (post) postMessage(deviceIdx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_2:
-	    EEPROMWriteInt(deviceIDidx * 6 + 2, commandvalue);
-		mdevices[deviceIDidx].readInput();
-		if (post) postMessage(deviceIDidx);
+	    EEPROMWriteInt(deviceIdx * 6 + 2, commandvalue);
+		mdevices[deviceIdx].readInput();
+		if (post) postMessage(deviceIdx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_3:
-	    EEPROMWriteInt(deviceIDidx * 6 + 4, commandvalue);
-		mdevices[deviceIDidx].readInput();
-		if (post) postMessage(deviceIDidx);
+	    EEPROMWriteInt(deviceIdx * 6 + 4, commandvalue);
+		mdevices[deviceIdx].readInput();
+		if (post) postMessage(deviceIdx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_STATUSREQUEST:
 	case COMMAND_SET_RESULT:
 	case COMMAND_PING:
-		mdevices[deviceIDidx].readInput();
-		if (post) postMessage(deviceIDidx);
+		mdevices[deviceIdx].readInput();
+		if (post) postMessage(deviceIdx);
 		return HNDLR_WRITE_RESULT;
 		break;
 	case COMMAND_GET_VALUE:
-		mdevices[deviceIDidx].readInput();
-		if (post) postMessage(deviceIDidx);
+		mdevices[deviceIdx].readInput();
+		if (post) postMessage(deviceIdx);
 		return HNDLR_WRITE_RESULT;
 		break;
 	default:

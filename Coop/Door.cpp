@@ -8,7 +8,6 @@
 
 static byte startSwitch;
 static byte stopSwitch;
-static byte lastDoorPosition = -1;
 static bool bcheckStuck = false;
 static bool bbreakIsOn = false;
 static int timerCheckStuck = -1;
@@ -25,33 +24,18 @@ static int timerMaxStop = -1;
  * 		On opening and still at bottom after 1 sec -> Stop send error
  * 		On closing and still at top after 1 sec -> Stop send error
  *
- */
+ *  Open/close logic
+ *	Start direction
+ *	Start power
+ *	Wait for top/bottom to close
+ *	On close stop power (allow for delay stop)
+ *	Detect if not moving and Alert
+*/
 
 /*
  *
  */
-void dHndlrValues(const byte deviceIDidx, const int commandID, const int status, const int commandvalue) {
-	mdevices[deviceIDidx].setCommand(commandID);
-	mdevices[deviceIDidx].setStatus(status);
-	sprintf(temp, "{\"T\":\"%i\",\"B\":\"%i\",\"P\":\"%i\",\"D\":\"%i\"}", digitalRead(TOP_SWITCH_PIN), digitalRead(BOTTOM_SWITCH_PIN), digitalRead(POWER_RELAY_PIN), digitalRead(DIRECTION_RELAY_PIN));
-	mdevices[deviceIDidx].setExtData(temp);
-}
-
-void doorCallbackT() {
-	doorCallback (DOOR_IDX);
-}
-
-int doorPosition () {
-	if (!digitalRead(TOP_SWITCH_PIN)) {
-		return STATUS_ON;
-	} else if (!digitalRead(BOTTOM_SWITCH_PIN)) {
-		return STATUS_OFF;
-	} else {
-		return STATUS_UNKNOWN;
-	}
-}
-
-void delayStopDoor () {
+void delayStopDoor (const byte deviceIdx) {
 
 	if (DEBUG_DEVICE_HAND) printMem("=There ");
 	timerCheckStuck = timer.stop(timerCheckStuck);
@@ -60,71 +44,59 @@ void delayStopDoor () {
 	bbreakIsOn = false;
 }
 
-void hardStopDoor () {
+void maxRunTime (const byte deviceIdx) {
 
 	if (DEBUG_DEVICE_HAND) printMem("=Max ");
 	timerCheckStuck = timer.stop(timerCheckStuck);
 	timerMaxStop = timer.stop(timerMaxStop);
 	digitalWrite(POWER_RELAY_PIN, LOW);
 	bbreakIsOn = false;
-	showStatus(DOOR_TIMEOUT, DOOR_IDX);
+	showStatus(DOOR_MAX_RUNTIME, deviceIdx);
+	
 }
 
-void doorCallback(const byte deviceIDidx) {
+void doorTimer(const byte deviceIdx) {
 
-//	if (DEBUG_DEVICE_HAND) Serial.println("Checking ");
+	//if (DEBUG_DEVICE_HAND) Serial.print(".");
 
 	if( !bcheckStuck && !bbreakIsOn) {
-		if (digitalRead(POWER_RELAY_PIN)) {									// We are moving, check if i need to stop
-			if (digitalRead(stopSwitch) == LOW) {	 					// Are we there yet!!!
+		if (digitalRead(POWER_RELAY_PIN)) {							// We are moving, check if i need to stop
+			if (digitalRead(stopSwitch) == LOW) {	 				// Are we there yet!!!
 				if (DEBUG_DEVICE_HAND) printMem("=DStop ");
-				if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(deviceIDidx * 6 + 0));
-				timer.after(EEPROMReadInt(deviceIDidx * 6 + 0), delayStopDoor);
+				if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(deviceIdx * 6 + 0));
+				timer.after(EEPROMReadInt(deviceIdx * 6 + 0), delayStopDoor, deviceIdx);
+				// TimerCount = 1
 				bbreakIsOn = true;
 			}
 
 			if (digitalRead(startSwitch) == LOW) {	 					// That is not good
 				if (DEBUG_DEVICE_HAND) printMem("=Strange ");
 				digitalWrite(POWER_RELAY_PIN, LOW);
-				showStatus(DOOR_NOT_MOVING, deviceIDidx);
+				showStatus(DOOR_NOT_MOVING, deviceIdx);
 			}
 		}
 	}															// Monitor status change and post
-
-	if (lastDoorPosition != doorPosition()) {
-		lastDoorPosition = doorPosition();
-
-		if (DEBUG_DEVICE_HAND) Serial.print("Change ");
-		if (DEBUG_DEVICE_HAND) Serial.println(lastDoorPosition);
-		dHndlrValues(deviceIDidx, COMMAND_SET_RESULT, lastDoorPosition, 0);
-		deviceCommandHandler(deviceIDidx, COMMAND_SET_RESULT, true);
-		showStatus(INFO_NORMAL, deviceIDidx);
-	}
+	mdevices[deviceIdx].readInput();
 }
 
-void checkStuck() {										// Allow time for leave current position
+void checkStuck(const byte deviceIdx) {										// Allow time for leave current position
 	if (DEBUG_DEVICE_HAND) printMem("=Strt ");
 
-	// Here is the main open/close logic
-	// Start direction
-	// Start power
-	// Wait for top/bottom to close
-	// On close stop power
-	// Detect if not moving and Alert
-
 	bcheckStuck = false;
-	if (doorPosition() == STATUS_UNKNOWN) {			// No swithes closed = Is Moving
+	mdevices[deviceIdx].readInput();
+	if (mdevices[deviceIdx].status == STATUS_UNKNOWN) {			// No swithes closed = Is Moving
 		if (DEBUG_DEVICE_HAND) Serial.println("=Open");
 	} else {
 		if (digitalRead(startSwitch) == LOW) {
 	    	digitalWrite(POWER_RELAY_PIN, LOW);
-			showStatus(DOOR_NOT_MOVING, DOOR_IDX);
+			timerMaxStop = timer.stop(timerMaxStop);
+			showStatus(DOOR_NOT_MOVING, deviceIdx);
 		}
 	}
 
 }
 
-void startDoor (int commandID) {
+void startDoor (const byte deviceIdx, const int commandID) {
 
 	byte doorDirUp = commandID == COMMAND_ON;						// up = true
 
@@ -151,38 +123,27 @@ void startDoor (int commandID) {
 		// If currently closed start reach timer, else give 1 second to start leaving closed
 		if (digitalRead(startSwitch) == LOW) {							   // Currently in Starting postion
 			bcheckStuck = true;
-			if ((timerCheckStuck = timer.after(EEPROMReadInt(DOOR_IDX * 6 + 4), checkStuck)) < 0) {	// Starts moving timer as well (time /2 clockspeed
+			if ((timerCheckStuck = timer.after(EEPROMReadInt(deviceIdx * 6 + 4), checkStuck, deviceIdx)) < 0) {	// Starts stuck timer 
+			// TimerCount = 2
 				if (DEBUG_DEVICE) Serial.print("ETMR");
-				showStatus(TIMER_ERROR, DOOR_IDX);
+				showStatus(TIMER_ERROR, deviceIdx);
 			}
 		}
-		if ((timerMaxStop = timer.after(EEPROMReadInt(DOOR_IDX * 6 + 2), hardStopDoor)) < 0) {
+		if ((timerMaxStop = timer.after(EEPROMReadInt(deviceIdx * 6 + 2), maxRunTime, deviceIdx)) < 0) {		// Start maxRun timer
+			// TimerCount = 3
 			if (DEBUG_DEVICE) Serial.print("ETMR");
-			showStatus(TIMER_ERROR, DOOR_IDX);
+			showStatus(TIMER_ERROR, deviceIdx);
 		}
 		digitalWrite(POWER_RELAY_PIN, HIGH);
 		if (DEBUG_DEVICE_HAND) Serial.println("Starting");
-		dHndlrValues(DOOR_IDX, commandID, STATUS_UNKNOWN, 0);
 	} else {
-		if (DEBUG_DEVICE_HAND) Serial.println("=InStart");
-		dHndlrValues(DOOR_IDX, commandID, doorPosition(), 0);
-		deviceCommandHandler(DOOR_IDX, COMMAND_SET_RESULT, true);
+		if (DEBUG_DEVICE_HAND) Serial.println("Started");
+		mdevices[deviceIdx].readInput();
 	}
 }
 
-void postMessageDoor(){
-/*
- * 	No guarantees on state device after 100ms
- *
- * 	NO IDEA WHY THIS IS HERE
- */
-//	postMessage(DOOR_IDX);
-//	deviceCommandHandler(DOOR_IDX, COMMAND_SET_RESULT, true);
-}
-
-byte doorOnOff(const int commandID) {
-	startDoor(commandID);
-//	timer.after(10,postMessageDoor);
+byte doorOnOff(const byte deviceIdx, const int commandID) {
+	startDoor(deviceIdx, commandID);
 	return HNDLR_OK;
 }
 

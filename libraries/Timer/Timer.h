@@ -31,19 +31,20 @@
 #define DEBUG_TIMER false
 #endif
 
-#define MAX_NUMBER_OF_EVENTS 10
+#define MAX_NUMBER_OF_EVENTS 9
 
 class Timer {
 
 public:
 	Timer();
 
-	int every(const long period, void (*callback)());
-	int every(const long period, void (*callback)(), const int repeatCount);
-	int after(const long duration, void (*callback)());
-	int oscillate(const int pin, const int startingValue, const long period, const int dutyCycle);
-	int oscillate(const int pin, const int startingValue, const long period, const int dutyCycle, const int repeatCount);
-	void pulse(const int pin, const int startingValue, const long period);
+	int every(const long period, void (*callback)(const byte));
+	int every(const long period, void (*callback)(const byte), const byte parameter);
+	int every(const long period, void (*callback)(const byte), const byte parameter, const int repeatCount);
+	int after(const long duration, void (*callback)(const byte), const byte parameter);
+	int oscillate(const byte pin, const byte startingValue, const long period, const byte dutyCycle);
+	int oscillate(const byte pin, const byte startingValue, const long period, const byte dutyCycle, const int repeatCount);
+	void pulse(const byte pin, const byte startingValue, const long period);
 	int stop(const int id);
 	void update();
 	void updatePeriod(const int id, const long period);

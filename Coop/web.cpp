@@ -23,8 +23,8 @@ P(TXTCOMMA) = " , ";
 P(TXTDEVICEID) = "Device";
 P(HEADER_OK) = "HTTP/1.1 200 OK\nContent-Type: text/html\nConnection: close\n";
 P(HEADER_ERR) = "HTTP/1.1 422 ERROR\nContent-Type: text/html\nConnection: close\n";
-P(HEADERPG2) = "<HTML>\n<HEAD>\n<meta name='apple-mobile-web-app-capable' content='yes' />\n<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\n<link rel='stylesheet' type='text/css' href='http://vlohome.homeip.net/templates/protostar-mod/css/template.css' />\n<TITLE>Aynur's Beautiful Coop</TITLE>\n</HEAD>";
-P(HEADERPG3) = "<BODY class=\"site\">\n<div class=\"body\">\n<H1>Aynur's Beautiful Coop</H1>\n";
+P(HEADERPG2) = "<HTML>\n<HEAD>\n<meta name='apple-mobile-web-app-capable' content='yes' />\n<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\n<link rel='stylesheet' type='text/css' href='http://vlohome.homeip.net/templates/protostar-mod/css/template.css' />\n<TITLE>Aynur's Coop</TITLE>\n</HEAD>";
+P(HEADERPG3) = "<BODY class=\"site\">\n<div class=\"body\">\n<H1>Aynur's Coop</H1>\n";
 P(HEADERPGEND) = "</DIV></BODY>\n</HTML>";
 P(TXTPOST) = "POST /cronjobs/70D455DC-ACB4-4525-8A85-E6009AE93AF4/a.php HTTP/1.1\nHost: vlohome.homeip.net\nContent-Type: text/html\nConnection: close\nContent-Length: ";
 P(HEADER_ERR_MESS) = "ARD-COOP: Message parse error, check deviceID and commandID";
@@ -45,17 +45,17 @@ P(TXTPAR2) = "Parameter 2";
 P(TXTPAR3) = "Parameter 3";
 P(TXTIND) = "Index";
 P(TXTDEVIND) = "Input Device Index";
-P(TXTOUTPIN) = "Output Pin";
+P(TXTPIN) = "Pin";
 P(TXTTYPE) = "Type";
 P(DEV_0) = "Arduino-7";
 P(DEV_1) = "Door-2345";
 P(DEV_2) = "Heat-A0/A3";
-P(DEV_3) = "Cool-6/0";
+P(DEV_3) = "Fan-6/0";
 P(DEV_4) = "Water-A2";
-P(DEV_5) = "DHT22-6";
-P(DEV_6) = "Dark-A1";
-P(DEV_7) = "Light-A4";
-P(DEV_8) = "RedLgt-A5";
+P(DEV_5) = "Dark-A1";
+P(DEV_6) = "Light-A4";
+P(DEV_7) = "RedLgt-A5";
+P(DEV_8) = "DHT22-6";
 P(DEV_9) = "NTC A0" ;
 
 
@@ -129,7 +129,7 @@ int printResponse(const byte clientsel, const byte deviceidx, const bool getLen 
 	printP(clientsel, TXTQUOTE, getLen);
 	len += printP(clientsel, TXTCOLON, getLen);
 	len += printP(clientsel, TXTQUOTE, getLen);
-	len += printV(clientsel, mdevices[deviceidx].getDeviceid(), getLen);
+	len += printV(clientsel, mdevices[deviceidx].getDeviceID(), getLen);
 	len += printP(clientsel, TXTQUOTE, getLen);
 
 	// CommandID
@@ -202,7 +202,7 @@ void printPage(const byte clientsel, const byte deviceidx) {
 	// DeviceID
 	printP(clientsel, TXTDEVICEID);
 	printP(clientsel, TXTCOLON);
-	printV(clientsel, mdevices[deviceidx].getDeviceid());
+	printV(clientsel, mdevices[deviceidx].getDeviceID());
 
 	// Type
 	printP(clientsel, ANBSP);
@@ -293,9 +293,9 @@ void printPage(const byte clientsel, const byte deviceidx) {
 		printP(clientsel, ACLOSE);
 	}
 
-	// Output Pin
+	// Pin
 	if (mdevices[deviceidx].getPin() != 0) {
-		printP(clientsel, TXTOUTPIN);
+		printP(clientsel, TXTPIN);
 		printP(clientsel, TXTCOLON);
 		printV(clientsel, mdevices[deviceidx].getPin());
 		printP(clientsel, AOPEN);
@@ -321,7 +321,7 @@ void setupWeb(){
 byte findDeviceIndex(const int _deviceID) {
 	byte found = ERROR;
 	for (byte i = 0; i < DEVICE_COUNT; i++) {
-		if (mdevices[i].getDeviceid() == _deviceID) {
+		if (mdevices[i].getDeviceID() == _deviceID) {
 			return i;
 		}
 	}
@@ -360,12 +360,12 @@ void updateWeb(){
 	    	     		printP(COMMAND_IO_RECV, HEADERPG2);
 	    	     		printP(COMMAND_IO_RECV, HEADERPG3);
 
-						for (byte idx = 0 ; idx < DEVICE_COUNT ;  idx++ ) {
-							mdevices[idx].readInput();
+						for (byte deviceIdx = 0 ; deviceIdx < DEVICE_COUNT ;  deviceIdx++ ) {
+							mdevices[deviceIdx].readInput();
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, H3);					// <H3>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
-							switch (idx) {
+							switch (deviceIdx) {
 							case 0:
 								printP(COMMAND_IO_RECV, DEV_0);
 								break;
@@ -405,7 +405,7 @@ void updateWeb(){
 		    	     		printP(COMMAND_IO_RECV, H6);					// <h6>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 
-							printPage(COMMAND_IO_RECV, idx);
+							printPage(COMMAND_IO_RECV, deviceIdx);
 
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, BR);
@@ -442,7 +442,7 @@ void updateWeb(){
 								commandvalue = atoi(token);
 							}
 							deviceIdx = findDeviceIndex(deviceID);
-							if (DEBUG_WEB) Serial.print("deviceIdx");
+							if (DEBUG_WEB) Serial.print("Idx ");
 							if (DEBUG_WEB) Serial.println(deviceIdx);
 
 							if (deviceIdx != ERROR) {
@@ -475,7 +475,7 @@ void updateWeb(){
 
 void postMessage(const byte deviceidx) {
 
-	if (DEBUG_MEMORY) printMem("Post");
+	if (DEBUG_MEMORY) printMem("Post ");
 
 	if (client_send.connect(vlosite, 80)) {
 	if (DEBUG_WEB) Serial.println("NewC");

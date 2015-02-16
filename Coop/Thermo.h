@@ -12,8 +12,7 @@
 #include "MemoryFree.h"
 #include "Web.h"
 
-void thermoCallbackT();
-void thermoCallback(const byte deviceIDidx);
+void thermoTimer(const byte deviceIdx);
 
 #endif /* THERMO_H_ */
 

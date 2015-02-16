@@ -32,7 +32,7 @@
 Timer::Timer() {
 }
 
-int Timer::every(const long period, void (*callback)(), const int repeatCount) {
+int Timer::every(const long period, void (*callback)(const byte), const byte parameter, const int repeatCount) {
 	int i = findFreeEventIndex();
 	if (i == -1) {
 		if (DEBUG_TIMER) Serial.println("***TERR");
@@ -48,20 +48,25 @@ int Timer::every(const long period, void (*callback)(), const int repeatCount) {
 	_events[i].period = period;
 	_events[i].repeatCount = repeatCount;
 	_events[i].callback = callback;
+	_events[i].parameter = parameter;
 	_events[i].lastEventTime = millis();
 	_events[i].count = 0;
 	return i;
 }
 
-int Timer::every(const long period, void (*callback)()) {
-	return every(period, callback, -1); // - means forever
+int Timer::every(const long period, void (*callback)(const byte), const byte parameter) {
+	return every(period, callback, parameter, -1); //  means forever
 }
 
-int Timer::after(const long period, void (*callback)()) {
-	return every(period, callback, 2);					// **** 1 off added 1 //
+int Timer::every(const long period, void (*callback)(const byte)) {
+	return every(period, callback, -1, -1); // means no parameter, - means forever
 }
 
-int Timer::oscillate(const int pin, const int startingValue, const long period, const int dutyCycle, const int repeatCount) {
+int Timer::after(const long period, void (*callback)(const byte), const byte parameter) {
+	return every(period, callback, parameter, 2);					// **** 1 off added 1 //
+}
+
+int Timer::oscillate(const byte pin, const byte startingValue, const long period, const byte dutyCycle, const int repeatCount) {
 	int i = findFreeEventIndex();
 	if (i == -1) return -1;
 
@@ -85,11 +90,11 @@ int Timer::oscillate(const int pin, const int startingValue, const long period, 
 	return i;
 }
 
-int Timer::oscillate(const int pin, const int startingValue, const long period, const int dutyCycle) {
+int Timer::oscillate(const byte pin, const byte startingValue, const long period, const byte dutyCycle) {
 	return oscillate(pin, startingValue, period, dutyCycle, -1); // forever
 }
 
-void Timer::pulse(const int pin, const int startingValue, const long period) {
+void Timer::pulse(const byte pin, const byte startingValue, const long period) {
 	oscillate(pin, startingValue, period, 100, 1); // once
 }
 

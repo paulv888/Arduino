@@ -15,7 +15,6 @@
 //#define DEBUG_WEB true
 //#define DEBUG_DEVICE true
 //#define DEBUG_MEMORY true
-//#define DEBUG_TIMER true
 
 #ifndef DEBUG_MAIN
 #define DEBUG_MAIN false
@@ -37,37 +36,6 @@
 ///////////////////////////////////
 // Device Types
 #define DEVICE_COUNT 10
-
-/*
- *
- *
-#define ARDUINO_IDX 0
-#define THERMO_IDX 1
-#define DOOR_IDX 2
-#define DHT_IDX 3
-#define RELAY_0_IDX 4
-#define RELAY_1_IDX 5
-#define RELAY_2_IDX 6
-#define AUTO_FAN_IDX 7
-#define DARK_IDX 8
-#define NTC_0_IDX 9
-*
-#define SERIAL_IN_PIN			0
-#define RELAY_FAN_PIN			0
-#define SERIAL_OUT_PIN			1
-#define DIRECTION_RELAY_PIN 	2
-#define POWER_RELAY_PIN 		3
-#define TOP_SWITCH_PIN 			4
-#define BOTTOM_SWITCH_PIN 		5
-#define DHT_PIN  				6
-#define LED_PIN 				7
-#define NTC_0_PIN 				A0
-#define PHOTO_RESISTOR_PIN 		A1
-#define PRESSURE_MPX4250GP    	A2
-#define RELAY_HEAT_PIN 			A3
-#define RELAY_1_PIN 			A4
-#define RELAY_2_PIN 			A5
-*/
 
 #define TYPE_DIGITAL_IO  1
 #define TYPE_ANALOG_IN   2
@@ -118,7 +86,7 @@
 
 // DHT22 Temp Hum Sensor
 #define DHT_IDX 8
-#define DHT_PIN  6
+#define DHT_PIN 6
 
 // NTC Temp Sensor
 #define NTC_0_IDX 9
@@ -130,8 +98,17 @@
 #define TIMER_ERROR 201
 #define SENSOR_ERROR 202
 #define DOOR_NOT_MOVING 203
-#define DOOR_TIMEOUT 204
+#define DOOR_MAX_RUNTIME 204
 
+// Report types
+#define REPORT_NONE 0
+#define REPORT_HOURLY 1
+#define REPORT_DAILY 2
+
+// Check types
+#define CHECK_NONE 0
+#define CHECK_1_MIN 1
+#define CHECK_OWN_TIMER 2
 
 // Handler return values
 #define HNDLR_WRITE_RESULT 1
@@ -140,22 +117,12 @@
 
 #define MAX_STRING_LEN 50
 
-
-// Reserve 3 ints (6 bytes) per DeviceIDX -> Max deviceIDX = 1024/6 = 170
-//#define DOOR_DELAY_ADDRESS 			 0
-//#define NTC_0_ADDRESS 				 2
-//// FREE								 4
-//#define THERMO_SET_ADDRESS 			 6
-//#define DOOR_MAX_RUNTIME_ADDRESS 	 8
-//#define THERMO_THRESHOLD_ADDRESS 	10
-//#define DARK_SET_ADDRESS			12
-//#define DARK_THRESHOLD_ADDRESS		14
+#define PARAMS_DEVICE 8 // 4 integers
+#define PARAM_1 0
+#define PARAM_2 2
+#define PARAM_3 4
+#define PARAM_4 8
 
 #define FFFF 0XFFFF
 
 #endif /* ARDBrigde_H_ */
-
-
-
-
-

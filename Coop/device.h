@@ -20,24 +20,29 @@
 
 class Device {
 public:
-	void begin(const int _deviceid,  uint8_t _Idx, const long period, void (*_polling)());
-	int getDeviceid();
-	byte getIndex();
-	void setStatus(const int _value);
+	void begin(const int,  const int);
+	void setCheckTimer(const long, void (*)(const byte));
+	void setCheckTimer( const int );
+	int getCheckType();
+
+	void setReportType(byte);
+	byte getReportType();
+	int getDeviceID();
+	void setStatus(const int);
 	char *getStatus();
-	void setCommand(const int _value);
+	void setCommand(const int);
 	char *getCommand();
-	void setValue(const int _value);
+	void setValue(const int);
 	char *getValue();
-	void setOnOff(const int commandID);
+	void setOnOff(const int);
 	void readInput();
-	void setPin(const byte _value);
+	void setPin(const byte);
 	byte getPin();
-	void setExtData(const char _value[]);
+	void setExtData(const char[]);
 	char *getExtData();
-	void setInput(const byte _value);
+	void setInput(const byte);
 	byte getInput();
-	void setType(const byte _value);
+	void setType(const byte);
 	byte getType();
 	int commandvalue;
 	int status;
@@ -45,11 +50,14 @@ public:
 protected:
 	char *extdata;
 	int deviceid;
-	byte index;
+	byte deviceIdx;
 	int command;
 	byte pin;
 	byte inputIdx;
 	byte type;
+	int prev_status;
+	byte reportType;
+	byte checkType;
 };
 extern Timer timer;
 extern char temp[MAX_STRING_LEN];

@@ -1,0 +1,89 @@
+<NotepadPlus>
+    <Project name="Coop">
+        <File name="Configuration.h" />
+        <File name="Coop.cpp" />
+        <File name="Coop.h" />
+        <File name="Coop.ino" />
+        <File name="Device.cpp" />
+        <File name="Device.h" />
+        <File name="Devicehandler.cpp" />
+        <File name="Devicehandler.h" />
+        <File name="Door.cpp" />
+        <File name="Door.h" />
+        <File name="Led.cpp" />
+        <File name="Led.h" />
+        <File name="MemoryFree.cpp" />
+        <File name="MemoryFree.h" />
+        <File name="SharedCommands.h" />
+        <File name="Thermo.cpp" />
+        <File name="Thermo.h" />
+        <File name="Utils.cpp" />
+        <File name="Utils.h" />
+        <File name="Web.cpp" />
+        <File name="Web.h" />
+    </Project>
+    <Project name="Libraries">
+        <Folder name="DHTlib">
+            <Folder name="examples">
+                <Folder name="dht11_test">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\examples\dht11_test\dht11_test.ino" />
+                </Folder>
+                <Folder name="dht21_test">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\examples\dht21_test\dht21_test.ino" />
+                </Folder>
+                <Folder name="dht22_test">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\examples\dht22_test\dht22_test.ino" />
+                </Folder>
+                <Folder name="dht33_test">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\examples\dht33_test\dht33_test.ino" />
+                </Folder>
+                <Folder name="dht44_test">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\examples\dht44_test\dht44_test.ino" />
+                </Folder>
+                <Folder name="dht_test1">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\examples\dht_test1\dht_test1.ino" />
+                </Folder>
+                <Folder name="dht_tuning">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\examples\dht_tuning\dht_tuning.ino" />
+                </Folder>
+            </Folder>
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\dht.cpp" />
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\dht.h" />
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\DHTlib\readme.txt" />
+        </Folder>
+        <Folder name="OneWire">
+            <Folder name="examples">
+                <Folder name="DS18x20_Temperature">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\OneWire\examples\DS18x20_Temperature\DS18x20_Temperature.pde" />
+                </Folder>
+                <Folder name="DS2408_Switch">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\OneWire\examples\DS2408_Switch\DS2408_Switch.pde" />
+                </Folder>
+                <Folder name="DS250x_PROM">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\OneWire\examples\DS250x_PROM\DS250x_PROM.pde" />
+                </Folder>
+            </Folder>
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\OneWire\keywords.txt" />
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\OneWire\OneWire.cpp" />
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\OneWire\OneWire.h" />
+        </Folder>
+        <Folder name="Timer">
+            <Folder name="examples">
+                <Folder name="kitchen_sink">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\Timer\examples\kitchen_sink\kitchen_sink.pde" />
+                </Folder>
+                <Folder name="pin_high_10_mins">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\Timer\examples\pin_high_10_mins\pin_high_10_mins.pde" />
+                </Folder>
+                <Folder name="read_A0_flashLED">
+                    <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\Timer\examples\read_A0_flashLED\read_A0_flashLED.pde" />
+                </Folder>
+            </Folder>
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\Timer\Event.cpp" />
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\Timer\Event.h" />
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\Timer\Timer.cpp" />
+            <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\Timer\Timer.h" />
+        </Folder>
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\libraries\readme.txt" />
+    </Project>
+</NotepadPlus>

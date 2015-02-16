@@ -47,13 +47,14 @@ class Event
 public:
   Event(); 
   void update();
-  int eventType;
+  byte eventType;
   long period;
   long period2;
   int repeatCount;
-  int pin;
-  int pinState;
-  void (*callback)();
+  byte parameter;
+  byte pin;
+  byte pinState;
+  void (*callback)(const byte);
   unsigned long lastEventTime;
   int count;
 };

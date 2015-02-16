@@ -25,18 +25,9 @@ extern "C" {
 } // extern "C"
 #endif
 
-byte deviceCommandHandler(const byte deviceIDidx, const int commandID, const boolean post, const int commandvalue = 0);
-int ReadTemp(const byte deviceIDidx);
-
-void darkCallbackT();
-void waterlevelCallbackT();
-void analogCallback(const byte deviceIDidx);
-
-void arduinoCallbackT();
-void arduinoCallback(const byte deviceIDidx);
-
-void dhtCallbackT();
-void dhtCallback(const byte deviceIDidx);
+byte deviceCommandHandler(const byte deviceIdx, const int commandID, const boolean post, const int commandvalue = 0);
+void checkTimer(const byte deviceIdx);
+void reportTimer(const byte deviceIdx);
 
 class Device;
 extern Device mdevices[];
