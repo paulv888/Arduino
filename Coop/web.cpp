@@ -32,7 +32,7 @@ P(AOPEN) = "<";
 P(ACLOSE) = ">";
 P(ANBSP) = "&nbsp;&nbsp;&nbsp;";
 P(H3) = "H3";
-P(H6) = "H6";
+P(SPAN) = "SPAN";
 P(BR) = "BR";
 P(SLASH) = "/";
 P(TXTSTATUS) = "Status";
@@ -402,7 +402,7 @@ void updateWeb(){
 		    	     		printP(COMMAND_IO_RECV, H3);					// </H3>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
-		    	     		printP(COMMAND_IO_RECV, H6);					// <h6>
+		    	     		printP(COMMAND_IO_RECV, SPAN);					// <SPAN>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 
 							printPage(COMMAND_IO_RECV, deviceIdx);
@@ -413,7 +413,7 @@ void updateWeb(){
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
 		    	     		printP(COMMAND_IO_RECV, SLASH);
-		    	     		printP(COMMAND_IO_RECV, H6);					// </h6>
+		    	     		printP(COMMAND_IO_RECV, SPAN);					// </SPAN>
 		    	     		printP(COMMAND_IO_RECV, ACLOSE);
 						}
 						printP(COMMAND_IO_RECV, HEADERPGEND);
