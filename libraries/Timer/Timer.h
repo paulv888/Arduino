@@ -31,7 +31,7 @@
 #define DEBUG_TIMER false
 #endif
 
-#define MAX_NUMBER_OF_EVENTS 9
+#define MAX_NUMBER_OF_EVENTS 10
 
 class Timer {
 

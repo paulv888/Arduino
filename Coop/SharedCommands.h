@@ -21,6 +21,8 @@
 #define COMMAND_VALUE_1 290
 #define COMMAND_VALUE_2 291
 #define COMMAND_VALUE_3 296
+#define COMMAND_VALUE_4 299
+#define COMMAND_VALUE_5 300
 
 // Command direct (seen from server view)
 #define COMMAND_IO_RECV 1 		// Received or Incoming
@@ -36,6 +38,17 @@
 #define STATUS_UNKNOWN 2
 #define STATUS_ERROR -1
 #define STATUS_NOT_DEFINED 10		// Used for defining status on commands
+
+// Report types
+#define REPORT_NONE 0
+#define REPORT_HOURLY 1
+#define REPORT_DAILY 2
+
+// Check types
+#define CHECK_NONE 0
+#define CHECK_15_SEC 1
+#define CHECK_1_MIN 2
+#define CHECK_OWN_TIMER 3
 
 // Device Types
 /*

@@ -6,27 +6,36 @@
  */
 #include "Devicehandler.h"
 
+void checkTimer(const byte reportType) {
+//#define CHECK_NONE 0
+//#define CHECK_15_SEC 1
+//#define CHECK_1_MIN 2
+//#define CHECK_OWN_TIMER 3
+	if (DEBUG_DEVICE_HAND) Serial.print("Chk ");
+	if (DEBUG_DEVICE_HAND) Serial.print(reportType);
+	if (DEBUG_DEVICE_HAND) Serial.print(":");
+	for (byte deviceIdx = 0; deviceIdx < DEVICE_COUNT; deviceIdx++) {
+		if (EEPROMReadInt(PARAMS(deviceIdx,4)) == reportType) {
+			if (DEBUG_DEVICE_HAND) Serial.print(deviceIdx);
+			if (DEBUG_DEVICE_HAND) Serial.print("/");
+			mdevices[deviceIdx].readInput();
+		}
+	}
+	showStatus(INFO_NORMAL, 0);
+	if (DEBUG_DEVICE_HAND) Serial.println();
+}
+
 void reportTimer(const byte reportType) {
 //#define REPORT_HOURLY 1
 //#define REPORT_DAILY 2
 	if (DEBUG_DEVICE_HAND) Serial.print("Rpt ");
+	if (DEBUG_DEVICE_HAND) Serial.print(reportType);
+	if (DEBUG_DEVICE_HAND) Serial.print(":");
 	for (byte deviceIdx = 0; deviceIdx < DEVICE_COUNT; deviceIdx++) {
-		if (mdevices[deviceIdx].getReportType() == reportType) {
+		if (EEPROMReadInt(PARAMS(deviceIdx,5)) == reportType) {
 			if (DEBUG_DEVICE_HAND) Serial.print(deviceIdx);
 			if (DEBUG_DEVICE_HAND) Serial.print("/");
 			deviceCommandHandler(deviceIdx, COMMAND_PING, true);
-		}
-	}
-	if (DEBUG_DEVICE_HAND) Serial.println();
-}
-
-void checkTimer(const byte reportType) {
-	if (DEBUG_DEVICE_HAND) Serial.print("Chk ");
-	for (byte deviceIdx = 0; deviceIdx < DEVICE_COUNT; deviceIdx++) {
-		if (mdevices[deviceIdx].getCheckType() == reportType) {
-			if (DEBUG_DEVICE_HAND) Serial.print(deviceIdx);
-			if (DEBUG_DEVICE_HAND) Serial.print("/");
-			mdevices[deviceIdx].readInput();
 		}
 	}
 	if (DEBUG_DEVICE_HAND) Serial.println();
@@ -53,19 +62,31 @@ byte deviceCommandHandler(const byte deviceIdx, const int commandID, const boole
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_1:
-		EEPROMWriteInt(deviceIdx * 6 + 0, commandvalue);
+		EEPROMWriteInt(PARAMS(deviceIdx, 1), commandvalue);
 		mdevices[deviceIdx].readInput();
 		if (post) postMessage(deviceIdx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_2:
-	    EEPROMWriteInt(deviceIdx * 6 + 2, commandvalue);
+	    EEPROMWriteInt(PARAMS(deviceIdx, 2), commandvalue);
 		mdevices[deviceIdx].readInput();
 		if (post) postMessage(deviceIdx);
 		return HNDLR_OK;
 		break;
 	case COMMAND_VALUE_3:
-	    EEPROMWriteInt(deviceIdx * 6 + 4, commandvalue);
+	    EEPROMWriteInt(PARAMS(deviceIdx, 3), commandvalue);
+		mdevices[deviceIdx].readInput();
+		if (post) postMessage(deviceIdx);
+		return HNDLR_OK;
+		break;
+	case COMMAND_VALUE_4:
+	    EEPROMWriteInt(PARAMS(deviceIdx, 4), commandvalue);
+		mdevices[deviceIdx].readInput();
+		if (post) postMessage(deviceIdx);
+		return HNDLR_OK;
+		break;
+	case COMMAND_VALUE_5:
+	    EEPROMWriteInt(PARAMS(deviceIdx, 5), commandvalue);
 		mdevices[deviceIdx].readInput();
 		if (post) postMessage(deviceIdx);
 		return HNDLR_OK;

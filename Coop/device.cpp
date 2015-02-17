@@ -9,18 +9,11 @@
 Dht dht;
 
 int ReadTemp(const byte deviceIdx) {
-	int value = 0;
-	if (deviceIdx == NTC_0_IDX) {
-		value = 1024 - analogRead(NTC_0_PIN);
+	mdevices[deviceIdx].readInput();
+	if (mdevices[deviceIdx].status == STATUS_ERROR) {
+		return ERROR;
 	}
-	if (deviceIdx == DHT_IDX) {
-		deviceCommandHandler(deviceIdx, COMMAND_GET_VALUE, false);
-		if (mdevices[deviceIdx].status == STATUS_ERROR) {
-			return ERROR;
-		}
-		value = mdevices[deviceIdx].commandvalue;
-	}
-	return value;
+	return mdevices[deviceIdx].commandvalue;
 }
 
 void Device::begin(const int _deviceid, const int _deviceIdx) {
@@ -47,6 +40,7 @@ void Device::begin(const int _deviceid, const int _deviceIdx) {
 		deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
 		break;
 	case TYPE_ANALOG_IN:
+	case TYPE_NTC:
 		deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
 		break;
 	case TYPE_DHT22:
@@ -108,19 +102,21 @@ void Device::readInput() {
 		status = digitalRead(getPin());
 		break;
 	case TYPE_ANALOG_IN:
+	case TYPE_NTC:
 		commandvalue = analogRead(getPin());
-		if (EEPROMReadInt(deviceIdx * 6 + 0) == FFFF) {				// No setpoint set
+		if (type == TYPE_NTC) commandvalue = 1024 - commandvalue;
+		if (EEPROMReadInt(PARAMS(deviceIdx, 1)) == FFFF) {				// No setpoint set
 			status = STATUS_UNKNOWN;
 			sprintf(temp, "{\"V\":\"%i\"}", commandvalue);
 			setExtData(temp);
 		} else {
 			prev_status = status;
-			if (commandvalue > EEPROMReadInt(deviceIdx * 6 + 0)) {												// below set point
+			if (commandvalue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {												// below set point
 				status = STATUS_ON;
-			} else if (commandvalue <= (EEPROMReadInt(deviceIdx * 6 + 0) - EEPROMReadInt(deviceIdx * 6 + 2))) {		// above set point plus threshold
+			} else if (commandvalue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// above set point plus threshold
 				status = STATUS_OFF;
 			}
-			sprintf(temp, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, EEPROMReadInt(deviceIdx * 6 + 0), EEPROMReadInt(deviceIdx * 6 + 2));
+			sprintf(temp, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, EEPROMReadInt(PARAMS(deviceIdx, 1)), EEPROMReadInt(PARAMS(deviceIdx, 2)));
 			setExtData(temp);
 			if (prev_status != status) {
 				deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
@@ -138,17 +134,17 @@ void Device::readInput() {
 			int temp2;
 			temp1 = abs((dht.temperature - (int)dht.temperature) * 100);
 			temp2 = (dht.humidity - (int)dht.humidity) * 100;
-			if (EEPROMReadInt(deviceIdx * 6 + 0) == FFFF) {				// No setpoint set
+			if (EEPROMReadInt(PARAMS(deviceIdx, 1)) == FFFF) {				// No setpoint set
 				status = STATUS_UNKNOWN;
 				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2);
 			} else {
 				prev_status = status;
-				if (commandvalue > EEPROMReadInt(deviceIdx * 6 + 0)) {												// below set point
+				if (commandvalue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {												// below set point
 					status = STATUS_ON;
-				} else if (commandvalue <= (EEPROMReadInt(deviceIdx * 6 + 0) - EEPROMReadInt(deviceIdx * 6 + 2))) {		// above set point plus threshold
+				} else if (commandvalue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// above set point plus threshold
 					status = STATUS_OFF;
 				}
-				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\",\"S\":\"%u\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2, EEPROMReadInt(deviceIdx * 6 + 0));
+				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\",\"S\":\"%u\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2, EEPROMReadInt(PARAMS(deviceIdx, 1)));
 				if (prev_status != status) {
 					deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
 				}
@@ -164,7 +160,7 @@ void Device::readInput() {
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
 		commandvalue = ReadTemp(getInput());
-		sprintf(temp, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(getPin()), EEPROMReadInt(deviceIdx * 6 + 0), EEPROMReadInt(deviceIdx * 6 + 2));
+		sprintf(temp, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(getPin()), EEPROMReadInt(PARAMS(deviceIdx, 1)), EEPROMReadInt(PARAMS(deviceIdx, 2)));
 		setExtData(temp);
 		break;
 	case TYPE_AUTO_DOOR:
@@ -212,6 +208,7 @@ void Device::setOnOff(const int commandID) {
 		status = digitalRead(getPin());
 		break;
 	case TYPE_ANALOG_IN:
+	case TYPE_NTC:
 		break;
 	case TYPE_DHT22:
 		break;

@@ -63,8 +63,8 @@ void doorTimer(const byte deviceIdx) {
 		if (digitalRead(POWER_RELAY_PIN)) {							// We are moving, check if i need to stop
 			if (digitalRead(stopSwitch) == LOW) {	 				// Are we there yet!!!
 				if (DEBUG_DEVICE_HAND) printMem("=DStop ");
-				if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(deviceIdx * 6 + 0));
-				timer.after(EEPROMReadInt(deviceIdx * 6 + 0), delayStopDoor, deviceIdx);
+				if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(PARAMS(deviceIdx, 1)));
+				timer.after(EEPROMReadInt(PARAMS(deviceIdx, 1)), delayStopDoor, deviceIdx);
 				// TimerCount = 1
 				bbreakIsOn = true;
 			}
@@ -123,13 +123,13 @@ void startDoor (const byte deviceIdx, const int commandID) {
 		// If currently closed start reach timer, else give 1 second to start leaving closed
 		if (digitalRead(startSwitch) == LOW) {							   // Currently in Starting postion
 			bcheckStuck = true;
-			if ((timerCheckStuck = timer.after(EEPROMReadInt(deviceIdx * 6 + 4), checkStuck, deviceIdx)) < 0) {	// Starts stuck timer 
+			if ((timerCheckStuck = timer.after(EEPROMReadInt(PARAMS(deviceIdx, 3)), checkStuck, deviceIdx)) < 0) {	// Starts stuck timer 
 			// TimerCount = 2
 				if (DEBUG_DEVICE) Serial.print("ETMR");
 				showStatus(TIMER_ERROR, deviceIdx);
 			}
 		}
-		if ((timerMaxStop = timer.after(EEPROMReadInt(deviceIdx * 6 + 2), maxRunTime, deviceIdx)) < 0) {		// Start maxRun timer
+		if ((timerMaxStop = timer.after(EEPROMReadInt(PARAMS(deviceIdx, 2)), maxRunTime, deviceIdx)) < 0) {		// Start maxRun timer
 			// TimerCount = 3
 			if (DEBUG_DEVICE) Serial.print("ETMR");
 			showStatus(TIMER_ERROR, deviceIdx);

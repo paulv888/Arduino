@@ -44,6 +44,7 @@
 #define TYPE_THERMO_COOL 5
 #define TYPE_AUTO_DOOR   6
 #define TYPE_ARDUINO     7
+#define TYPE_NTC	     8
 //#define TYPE_
 //#define TYPE_
 //#define TYPE_
@@ -100,16 +101,6 @@
 #define DOOR_NOT_MOVING 203
 #define DOOR_MAX_RUNTIME 204
 
-// Report types
-#define REPORT_NONE 0
-#define REPORT_HOURLY 1
-#define REPORT_DAILY 2
-
-// Check types
-#define CHECK_NONE 0
-#define CHECK_1_MIN 1
-#define CHECK_OWN_TIMER 2
-
 // Handler return values
 #define HNDLR_WRITE_RESULT 1
 #define ERROR -1
@@ -117,11 +108,8 @@
 
 #define MAX_STRING_LEN 50
 
-#define PARAMS_DEVICE 8 // 4 integers
-#define PARAM_1 0
-#define PARAM_2 2
-#define PARAM_3 4
-#define PARAM_4 8
+#define PARAMS_PER_DEVICE 5 // 5 integers
+#define PARAMS(dIdx, Parameter) (dIdx * PARAMS_PER_DEVICE * 2 + (Parameter - 1) * 2)
 
 #define FFFF 0XFFFF
 

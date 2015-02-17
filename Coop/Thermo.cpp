@@ -16,13 +16,13 @@ void thermoTimer(const byte deviceIdx) {
 		mdevices[deviceIdx].readInput();
 		if ((value = mdevices[deviceIdx].commandvalue) != ERROR) {				// Could not read temp, leave as is
 			if (mdevices[deviceIdx].getType() == TYPE_THERMO_HEAT) {
-				if (value < EEPROMReadInt(deviceIdx * 6 + 0)) {					// below set point
+				if (value < EEPROMReadInt(PARAMS(deviceIdx, 1))) {					// below set point
 					if (!isRunning) {					// switch on
 						digitalWrite(mdevices[deviceIdx].getPin(), HIGH);
 						deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
 					}
 				} else {
-					if (value >= (EEPROMReadInt(deviceIdx * 6 + 0) - EEPROMReadInt(deviceIdx * 6 + 2))) {	// above set point plus threshold
+					if (value >= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {	// above set point plus threshold
 						if (isRunning) {				// switch off
 							digitalWrite(mdevices[deviceIdx].getPin(), LOW);
 							deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
@@ -31,13 +31,13 @@ void thermoTimer(const byte deviceIdx) {
 					}
 				}
 			} else {								// COOLING
-				if (value > EEPROMReadInt(deviceIdx * 6 + 0)) {					// below set point
+				if (value > EEPROMReadInt(PARAMS(deviceIdx, 1))) {					// below set point
 					if (!isRunning) {				// switch on
 						digitalWrite(mdevices[deviceIdx].getPin(), HIGH);
 						deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
 					}
 				} else {
-					if (value <= (EEPROMReadInt(deviceIdx * 6 + 0) - EEPROMReadInt(deviceIdx * 6 + 2))) {	// above set point plus threshold
+					if (value <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {	// above set point plus threshold
 						if (isRunning) {				// switch off
 							digitalWrite(mdevices[deviceIdx].getPin(), LOW);
 							deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);

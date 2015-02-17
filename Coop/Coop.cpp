@@ -22,14 +22,12 @@ void setup() {
 	mdevices[ARDUINO_IDX].setPin(LED_PIN);
 	mdevices[ARDUINO_IDX].setType(TYPE_ARDUINO);
 	mdevices[ARDUINO_IDX].begin(       98, ARDUINO_IDX      );
-	mdevices[ARDUINO_IDX].setReportType(REPORT_HOURLY);
 	
 	if (DEBUG_MEMORY) printMem("M0 ");
 
 	mdevices[DOOR_IDX].setType(TYPE_AUTO_DOOR);
 	mdevices[DOOR_IDX].begin(         203, DOOR_IDX         );
 	mdevices[DOOR_IDX].setCheckTimer((long)100         ,  doorTimer );
-	mdevices[DOOR_IDX].setReportType(REPORT_HOURLY);
 	if (DEBUG_MEMORY) printMem("M1 ");
 	// TimerCount = 1
 
@@ -56,22 +54,17 @@ void setup() {
 	mdevices[WATER_LEVEL_IDX].setPin(PRESSURE_MPX4250GP);
 	mdevices[WATER_LEVEL_IDX].setType(TYPE_ANALOG_IN);
 	mdevices[WATER_LEVEL_IDX].begin(   210, WATER_LEVEL_IDX   );
-	mdevices[WATER_LEVEL_IDX].setReportType(REPORT_HOURLY);
-	mdevices[WATER_LEVEL_IDX].setCheckTimer(CHECK_1_MIN);
 	if (DEBUG_MEMORY) printMem("M4 ");
 
 	mdevices[DHT_IDX].setPin(DHT_PIN);
 	mdevices[DHT_IDX].setType(TYPE_DHT22);
 	mdevices[DHT_IDX].begin(           201, DHT_IDX       );
-	mdevices[DHT_IDX].setReportType(REPORT_HOURLY);
-	mdevices[DHT_IDX].setCheckTimer(CHECK_1_MIN);
 
 	if (DEBUG_MEMORY) printMem("M5 ");
 
 	mdevices[DARK_IDX].setPin(PHOTO_RESISTOR_PIN);
 	mdevices[DARK_IDX].setType(TYPE_ANALOG_IN);
 	mdevices[DARK_IDX].begin(          209, DARK_IDX        );
-	mdevices[DARK_IDX].setCheckTimer(CHECK_1_MIN);
 	if (DEBUG_MEMORY) printMem("M6 ");
 
 	mdevices[RELAY_1_IDX].setPin(RELAY_1_PIN);
@@ -84,30 +77,31 @@ void setup() {
 	if (DEBUG_MEMORY) printMem("M8 ");
 
 	mdevices[NTC_0_IDX].setPin(NTC_0_PIN);
-	mdevices[NTC_0_IDX].setType(TYPE_ANALOG_IN);
+	mdevices[NTC_0_IDX].setType(TYPE_NTC);
 	mdevices[NTC_0_IDX].begin(         204, NTC_0_IDX    );
-	mdevices[NTC_0_IDX].setCheckTimer(CHECK_1_MIN);
 	if (DEBUG_MEMORY) printMem("M9 ");
 
 	if (timer.every((long)60*60*1000, reportTimer, REPORT_HOURLY) < 0) {		// Hourly reports
 		showStatus(TIMER_ERROR, ARDUINO_IDX);
-//		Serial.print("ETMR");
-//		Serial.println(ARDUINO_IDX);
 	}
 	// TimerCount = 4
 
 	if (timer.every((long)24*60*60*1000, reportTimer, REPORT_DAILY) < 0) {		// Daily reports
 		showStatus(TIMER_ERROR, ARDUINO_IDX);
-//		Serial.print("ETMR");
-//		Serial.println(ARDUINO_IDX);
 	}
 	// TimerCount = 5
-	if (timer.every((long)1*15*1000, checkTimer, CHECK_1_MIN) < 0) {		// 15 Sec checks
+	if (timer.every((long)1*15*1000, checkTimer, CHECK_15_SEC) < 0) {		// 15 Sec checks
 		showStatus(TIMER_ERROR, ARDUINO_IDX);
 //		Serial.print("ETMR");
 //		Serial.println(ARDUINO_IDX);
 	}
 	// TimerCount = 6
+	if (timer.every((long)1*60*1000, checkTimer, CHECK_1_MIN) < 0) {		// 1 Min checks
+		showStatus(TIMER_ERROR, ARDUINO_IDX);
+//		Serial.print("ETMR");
+//		Serial.println(ARDUINO_IDX);
+	}
+	// TimerCount = 7
 
 
 	showStatus(INFO_NORMAL, 0);
