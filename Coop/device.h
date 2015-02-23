@@ -49,9 +49,9 @@ public:
 
 protected:
 	char *extdata;
-	int deviceid;
+	int deviceID;
 	byte deviceIdx;
-	int command;
+	int commandID;
 	byte pin;
 	byte inputIdx;
 	byte type;

@@ -500,10 +500,9 @@ void postMessage(const byte deviceIdx) {
 	if (DEBUG_MEMORY) printMem("Post ");
 
 	if (client_send.connect(vlosite, 80)) {
-	if (DEBUG_WEB) Serial.println("NewC");
+		if (DEBUG_WEB) Serial.println("NewC");
 
 		int len = 0;
-
 		printP(COMMAND_IO_SEND, TXTPOST);
 		len = printResponse(COMMAND_IO_SEND, deviceIdx, true);
 		client_send.println(len);
@@ -526,6 +525,7 @@ void postMessage(const byte deviceIdx) {
 	delay(1);
 	if (DEBUG_WEB) Serial.println("Disc");
 	client_send.stop();
+	
 //if (retry==0) Reset_AVR();
 }
 

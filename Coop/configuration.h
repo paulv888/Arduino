@@ -12,7 +12,7 @@
 // init debugging
 //#define DEBUG_MAIN true
 //#define DEBUG_DEVICE_HAND true
-//#define DEBUG_WEB true
+#define DEBUG_WEB true
 //#define DEBUG_DEVICE true
 //#define DEBUG_MEMORY true
 

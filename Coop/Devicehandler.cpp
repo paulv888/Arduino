@@ -92,7 +92,6 @@ byte deviceCommandHandler(const byte deviceIdx, const int commandID, const boole
 		return HNDLR_OK;
 		break;
 	case COMMAND_STATUSREQUEST:
-	case COMMAND_SET_RESULT:
 	case COMMAND_PING:
 		mdevices[deviceIdx].readInput();
 		if (post) postMessage(deviceIdx);

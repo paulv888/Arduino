@@ -75,7 +75,7 @@ void doorTimer(const byte deviceIdx) {
 				showStatus(DOOR_NOT_MOVING, deviceIdx);
 			}
 		}
-	}															// Monitor status change and post
+	}										// Monitor status change and post
 	mdevices[deviceIdx].readInput();
 }
 

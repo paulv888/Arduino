@@ -16,11 +16,11 @@ int ReadTemp(const byte deviceIdx) {
 	return mdevices[deviceIdx].commandvalue;
 }
 
-void Device::begin(const int _deviceid, const int _deviceIdx) {
+void Device::begin(const int _deviceID, const int _deviceIdx) {
 /*!
 *		Initializes a device. 
 */
-	deviceid = _deviceid;
+	deviceID = _deviceID;
 	deviceIdx = _deviceIdx;
 	reportType = REPORT_NONE;
 	checkType = CHECK_NONE;
@@ -37,11 +37,11 @@ void Device::begin(const int _deviceid, const int _deviceIdx) {
 		break;
 	case TYPE_DIGITAL_IO:
 		pinMode(getPin(), OUTPUT);
-		deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
+		deviceCommandHandler(deviceIdx, COMMAND_PING, true);
 		break;
 	case TYPE_ANALOG_IN:
 	case TYPE_NTC:
-		deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
+		deviceCommandHandler(deviceIdx, COMMAND_PING, true);
 		break;
 	case TYPE_DHT22:
 		deviceCommandHandler(deviceIdx, COMMAND_PING, true);
@@ -111,15 +111,17 @@ void Device::readInput() {
 			setExtData(temp);
 		} else {
 			prev_status = status;
-			if (commandvalue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {												// below set point
+			if (commandvalue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {														// Above set point
 				status = STATUS_ON;
-			} else if (commandvalue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// above set point plus threshold
+			}
+			if (commandvalue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// Below set point and threshold
 				status = STATUS_OFF;
 			}
 			sprintf(temp, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, EEPROMReadInt(PARAMS(deviceIdx, 1)), EEPROMReadInt(PARAMS(deviceIdx, 2)));
 			setExtData(temp);
 			if (prev_status != status) {
-				deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
+				commandID = COMMAND_SET_RESULT;
+				postMessage(deviceIdx);
 			}
 		}
 		break;
@@ -141,12 +143,14 @@ void Device::readInput() {
 				prev_status = status;
 				if (commandvalue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {												// below set point
 					status = STATUS_ON;
-				} else if (commandvalue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// above set point plus threshold
+				} 
+				if (commandvalue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// above set point plus threshold
 					status = STATUS_OFF;
 				}
 				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\",\"S\":\"%u\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2, EEPROMReadInt(PARAMS(deviceIdx, 1)));
 				if (prev_status != status) {
-					deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
+					commandID = COMMAND_SET_RESULT;
+					postMessage(deviceIdx);
 				}
 			}
 			setExtData(temp);
@@ -179,7 +183,8 @@ void Device::readInput() {
 		if (prev_status != status) {
 			if (DEBUG_DEVICE_HAND) Serial.print("Change ");
 			if (DEBUG_DEVICE_HAND) Serial.println(status);
-			deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
+			commandID = COMMAND_SET_RESULT;
+			postMessage(deviceIdx);
 		}
 		break;
 	case TYPE_ARDUINO:
@@ -188,7 +193,8 @@ void Device::readInput() {
 		sprintf(temp, "{\"M\" : \"%lu\", \"U\" : \"%lu\"}", check_mem(), millis()/1000);
 		setExtData(temp);
 		if (prev_status != status) {
-			deviceCommandHandler(deviceIdx, COMMAND_SET_RESULT, true);
+			commandID = COMMAND_SET_RESULT;
+			postMessage(deviceIdx);
 		}
 		break;
 	default:
@@ -196,9 +202,9 @@ void Device::readInput() {
 	}
 }
 
-void Device::setOnOff(const int commandID) {
+void Device::setOnOff(const int _commandID) {
 
-	setCommand(commandID);
+	commandID = _commandID;
 
 	switch (type) {
 	case TYPE_ARDUINO:
@@ -234,10 +240,10 @@ char *Device::getStatus() {
 }
 
 void Device::setCommand(const int _value) {
-	command = _value;
+	commandID = _value;
 }
 char *Device::getCommand() {
-	sprintf(temp, "%i", command);
+	sprintf(temp, "%i", commandID);
 	return 	temp;
 }
 
@@ -290,6 +296,6 @@ char *Device::getExtData() {
 
 
 int Device::getDeviceID() {
-	return deviceid;
+	return deviceID;
 }
 
