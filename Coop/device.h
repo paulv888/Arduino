@@ -44,10 +44,12 @@ public:
 	byte getInput();
 	void setType(const byte);
 	byte getType();
-	int commandvalue;
+	int commandValue;
 	int status;
 
 protected:
+	bool checkCommandValue();
+	void checkStatus();
 	char *extdata;
 	int deviceID;
 	byte deviceIdx;
@@ -55,7 +57,8 @@ protected:
 	byte pin;
 	byte inputIdx;
 	byte type;
-	int prev_status;
+	int previousStatus;
+	int previousCommandValue;
 	byte reportType;
 	byte checkType;
 };

@@ -155,7 +155,7 @@ int printResponse(const byte clientsel, const byte deviceIdx, const bool getLen 
 	len += printP(clientsel, TXTQUOTE, getLen);
 
 	// Value
-	if (mdevices[deviceIdx].commandvalue != 0) {
+	if (mdevices[deviceIdx].commandValue != 0) {
 		len += printP(clientsel, TXTCOMMA, getLen);
 		len += printP(clientsel, TXTQUOTE, getLen);
 		len += printP(clientsel, TXTVALUE , getLen);
@@ -230,7 +230,7 @@ void printPage(const byte clientsel, const byte deviceIdx) {
 	printVstr(clientsel, mdevices[deviceIdx].getStatus());
 
 	// Value
-	if (mdevices[deviceIdx].commandvalue != 0) {
+	if (mdevices[deviceIdx].commandValue != 0) {
 		printP(clientsel, ANBSP);
 		printP(clientsel, TXTVALUE );
 		printP(clientsel, TXTCOLON);
@@ -445,7 +445,7 @@ void updateWeb(){
 						if (DEBUG_MEMORY) printMem("WebP ");
 						int deviceID = 0;
 						int commandID = 0;
-						int commandvalue = 0;
+						int commandValue = 0;
 						//temp = strtok(temp, " "); // POST /d/203/c/23/v/12 HTTP/1.1
 						char * token = strtok(temp, space); // POST /d/203/c/23/v/12 HTTP/1.1
 						byte deviceIdx = ERROR;
@@ -461,14 +461,14 @@ void updateWeb(){
 							token = strtok(NULL, slash); // v
 							if (token != NULL) {
 								token = strtok(NULL, slash); // value ?
-								commandvalue = atoi(token);
+								commandValue = atoi(token);
 							}
 							deviceIdx = findDeviceIndex(deviceID);
 							if (DEBUG_WEB) Serial.print("Idx ");
 							if (DEBUG_WEB) Serial.println(deviceIdx);
 
 							if (deviceIdx != ERROR) {
-								result = deviceCommandHandler(deviceIdx, commandID, false, commandvalue);
+								result = deviceCommandHandler(deviceIdx, commandID, false, commandValue);
 							} // return error?
 						}
 

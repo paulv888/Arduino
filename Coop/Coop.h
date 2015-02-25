@@ -8,7 +8,6 @@
 #include "Configuration.h"
 #include "Devicehandler.h"
 #include "Door.h"
-#include "Thermo.h"
 
 //end of add your includes here
 

@@ -10,7 +10,6 @@ void checkTimer(const byte reportType) {
 //#define CHECK_NONE 0
 //#define CHECK_15_SEC 1
 //#define CHECK_1_MIN 2
-//#define CHECK_OWN_TIMER 3
 	if (DEBUG_DEVICE_HAND) Serial.print("Chk ");
 	if (DEBUG_DEVICE_HAND) Serial.print(reportType);
 	if (DEBUG_DEVICE_HAND) Serial.print(":");

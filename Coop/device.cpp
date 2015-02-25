@@ -8,13 +8,14 @@
 
 Dht dht;
 
-int ReadTemp(const byte deviceIdx) {
+int readTemp(const byte deviceIdx) {
 	mdevices[deviceIdx].readInput();
 	if (mdevices[deviceIdx].status == STATUS_ERROR) {
 		return ERROR;
 	}
-	return mdevices[deviceIdx].commandvalue;
+	return mdevices[deviceIdx].commandValue;
 }
+
 
 void Device::begin(const int _deviceID, const int _deviceIdx) {
 /*!
@@ -24,32 +25,30 @@ void Device::begin(const int _deviceID, const int _deviceIdx) {
 	deviceIdx = _deviceIdx;
 	reportType = REPORT_NONE;
 	checkType = CHECK_NONE;
-
-//    if (name == NULL) {
-//    	name = (char*)malloc(strlen(_name)+1);
-//    }
-//    strncpy (name, _name, MAX_NAME_LEN-1);
+	previousCommandValue = 0;
+	previousStatus = STATUS_ERROR;
 
 	switch (type) {
 	case TYPE_ARDUINO:
-		deviceCommandHandler(deviceIdx, COMMAND_PING, true);
 		pinMode(getPin(), OUTPUT);
+		readInput();
 		break;
 	case TYPE_DIGITAL_IO:
 		pinMode(getPin(), OUTPUT);
-		deviceCommandHandler(deviceIdx, COMMAND_PING, true);
+		readInput();
 		break;
 	case TYPE_ANALOG_IN:
 	case TYPE_NTC:
-		deviceCommandHandler(deviceIdx, COMMAND_PING, true);
+		readInput();
 		break;
 	case TYPE_DHT22:
-		deviceCommandHandler(deviceIdx, COMMAND_PING, true);
+		readInput();
 		break;
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
 		pinMode(getPin(), OUTPUT);
 		deviceCommandHandler(deviceIdx, COMMAND_ON, true);
+		readInput();
 		break;
 	case TYPE_AUTO_DOOR:
 		pinMode(POWER_RELAY_PIN, OUTPUT);
@@ -60,6 +59,7 @@ void Device::begin(const int _deviceID, const int _deviceIdx) {
 
 		pinMode(BOTTOM_SWITCH_PIN, INPUT);
 		digitalWrite(BOTTOM_SWITCH_PIN, HIGH); 	// connect internal pull-up
+		readInput();
 		break;
 	}
 }
@@ -95,34 +95,31 @@ void Device::readInput() {
 /*!
 *		Reads current input value of device	
 */
-	commandvalue = 0;
-
+	commandValue = 0;
+	int prevRunning;
+	
 	switch (type) {
 	case TYPE_DIGITAL_IO:
 		status = digitalRead(getPin());
 		break;
 	case TYPE_ANALOG_IN:
 	case TYPE_NTC:
-		commandvalue = analogRead(getPin());
-		if (type == TYPE_NTC) commandvalue = 1024 - commandvalue;
+		commandValue = analogRead(getPin());
+		if (type == TYPE_NTC) commandValue = 1024 - commandValue;
 		if (EEPROMReadInt(PARAMS(deviceIdx, 1)) == FFFF) {				// No setpoint set
 			status = STATUS_UNKNOWN;
-			sprintf(temp, "{\"V\":\"%i\"}", commandvalue);
+			sprintf(temp, "{\"V\":\"%i\"}", commandValue);
 			setExtData(temp);
 		} else {
-			prev_status = status;
-			if (commandvalue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {														// Above set point
+			if (commandValue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {														// Above set point
 				status = STATUS_ON;
 			}
-			if (commandvalue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// Below set point and threshold
+			if (commandValue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// Below set point and threshold
 				status = STATUS_OFF;
 			}
-			sprintf(temp, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, EEPROMReadInt(PARAMS(deviceIdx, 1)), EEPROMReadInt(PARAMS(deviceIdx, 2)));
+			sprintf(temp, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandValue, EEPROMReadInt(PARAMS(deviceIdx, 1)), EEPROMReadInt(PARAMS(deviceIdx, 2)));
 			setExtData(temp);
-			if (prev_status != status) {
-				commandID = COMMAND_SET_RESULT;
-				postMessage(deviceIdx);
-			}
+			checkStatus();
 		}
 		break;
 	case TYPE_DHT22:
@@ -131,7 +128,7 @@ void Device::readInput() {
 		chk = dht.read(getPin());
 		switch (chk) {
 		case DHTLIB_OK:
-			commandvalue = ((int)dht.temperature);
+			commandValue = ((int)dht.temperature);
 			int temp1;
 			int temp2;
 			temp1 = abs((dht.temperature - (int)dht.temperature) * 100);
@@ -140,18 +137,14 @@ void Device::readInput() {
 				status = STATUS_UNKNOWN;
 				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2);
 			} else {
-				prev_status = status;
-				if (commandvalue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {												// below set point
+				if (commandValue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {												// below set point
 					status = STATUS_ON;
 				} 
-				if (commandvalue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// above set point plus threshold
+				if (commandValue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// above set point plus threshold
 					status = STATUS_OFF;
 				}
 				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\",\"S\":\"%u\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2, EEPROMReadInt(PARAMS(deviceIdx, 1)));
-				if (prev_status != status) {
-					commandID = COMMAND_SET_RESULT;
-					postMessage(deviceIdx);
-				}
+				checkStatus();
 			}
 			setExtData(temp);
 			break;
@@ -163,12 +156,40 @@ void Device::readInput() {
 		break;
 	case TYPE_THERMO_HEAT:
 	case TYPE_THERMO_COOL:
-		commandvalue = ReadTemp(getInput());
-		sprintf(temp, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandvalue, digitalRead(getPin()), EEPROMReadInt(PARAMS(deviceIdx, 1)), EEPROMReadInt(PARAMS(deviceIdx, 2)));
+		commandValue = readTemp(getInput());
+		prevRunning = digitalRead(getPin());
+		if (status) {					// Enabled or Not
+			if (commandValue != ERROR) {							// Could not read temp, leave as is
+				if (getType() == TYPE_THERMO_COOL) {
+					if (commandValue >= EEPROMReadInt(PARAMS(deviceIdx, 1))) {						// Switch on if above set point
+						digitalWrite(getPin(), HIGH);
+					}
+					if (commandValue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {	// Switch off if below threshold
+						digitalWrite(getPin(), LOW);
+					}
+				} 
+				if (getType() == TYPE_THERMO_HEAT) {
+					if (commandValue <= EEPROMReadInt(PARAMS(deviceIdx, 1))) {						// 	Switch on if below set point
+						digitalWrite(getPin(), HIGH);
+					}
+					if (commandValue >= (EEPROMReadInt(PARAMS(deviceIdx, 1)) + EEPROMReadInt(PARAMS(deviceIdx, 2)))) {	// Switch off if above threshold
+						digitalWrite(getPin(), LOW);
+					}
+				}
+			}			// If Error read fall trough
+		} else {
+			digitalWrite(mdevices[deviceIdx].getPin(), LOW);
+		}
+		sprintf(temp, "{\"V\":\"%i\",\"R\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandValue, digitalRead(getPin()), EEPROMReadInt(PARAMS(deviceIdx, 1)), EEPROMReadInt(PARAMS(deviceIdx, 2)));
 		setExtData(temp);
+		if ((prevRunning != digitalRead(getPin())) || checkCommandValue()) {
+			int previousCommandID = commandID;
+			setCommand(COMMAND_SET_RESULT);
+			postMessage(deviceIdx);
+			commandID = previousCommandID;
+		}	
 		break;
 	case TYPE_AUTO_DOOR:
-		prev_status = status;
 		if (!digitalRead(TOP_SWITCH_PIN)) {
 			status = STATUS_ON;
 		} else if (!digitalRead(BOTTOM_SWITCH_PIN)) {
@@ -179,23 +200,13 @@ void Device::readInput() {
 		
 		sprintf(temp, "{\"T\":\"%i\",\"B\":\"%i\",\"P\":\"%i\",\"D\":\"%i\"}", digitalRead(TOP_SWITCH_PIN), digitalRead(BOTTOM_SWITCH_PIN), digitalRead(POWER_RELAY_PIN), digitalRead(DIRECTION_RELAY_PIN));
 		setExtData(temp);
-
-		if (prev_status != status) {
-			if (DEBUG_DEVICE_HAND) Serial.print("Change ");
-			if (DEBUG_DEVICE_HAND) Serial.println(status);
-			commandID = COMMAND_SET_RESULT;
-			postMessage(deviceIdx);
-		}
+		checkStatus();
 		break;
 	case TYPE_ARDUINO:
-		prev_status = status;
 		status = digitalRead(getPin());
 		sprintf(temp, "{\"M\" : \"%lu\", \"U\" : \"%lu\"}", check_mem(), millis()/1000);
 		setExtData(temp);
-		if (prev_status != status) {
-			commandID = COMMAND_SET_RESULT;
-			postMessage(deviceIdx);
-		}
+		checkStatus();
 		break;
 	default:
 		break;
@@ -248,11 +259,11 @@ char *Device::getCommand() {
 }
 
 void Device::setValue(const int _value) {
-	commandvalue = _value;
+	commandValue = _value;
 }
 
 char *Device::getValue() {
-	sprintf(temp, "%i", commandvalue);
+	sprintf(temp, "%i", commandValue);
 	return 	temp;
 }
 
@@ -299,3 +310,22 @@ int Device::getDeviceID() {
 	return deviceID;
 }
 
+bool Device::checkCommandValue(){ 
+	if (EEPROMReadInt(PARAMS(deviceIdx, 2)) != FFFF) {				// Threshold set
+		if (abs(previousCommandValue - commandValue) >= (EEPROMReadInt(PARAMS(deviceIdx, 2)))) {
+			previousCommandValue = commandValue;
+			return true;
+		}
+	}
+	return false;
+}
+
+void Device::checkStatus() {
+	int previousCommandID = commandID;
+	if (previousStatus != status || checkCommandValue()) {
+		previousStatus = status;
+		commandID = COMMAND_SET_RESULT;
+		postMessage(deviceIdx);
+	}
+	commandID = previousCommandID;
+}
