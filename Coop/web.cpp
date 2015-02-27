@@ -334,7 +334,9 @@ void printPage(const byte clientsel, const byte deviceIdx) {
 
 void setupWeb(){
 	// initialize the Ethernet adapter
+	if (DEBUG_MEMORY) printMem("SW1 ");
 	Ethernet.begin(mac, ip );
+	if (DEBUG_MEMORY) printMem("SW2 ");
 	server.begin();
 	if (DEBUG_WEB) Serial.print("Coop server is at ");
 	if (DEBUG_WEB) Serial.println(Ethernet.localIP());
@@ -494,7 +496,6 @@ void updateWeb(){
 	}
 }
 
-
 void postMessage(const byte deviceIdx) {
 
 	if (DEBUG_MEMORY) printMem("Post ");
@@ -520,13 +521,13 @@ void postMessage(const byte deviceIdx) {
 
 	} else {
 		if (DEBUG_WEB) Serial.println("Fail");
+		showStatus(NET_ERROR, 0);
+		Reset_AVR();
 	}
 
 	delay(1);
 	if (DEBUG_WEB) Serial.println("Disc");
 	client_send.stop();
-	
-//if (retry==0) Reset_AVR();
 }
 
 

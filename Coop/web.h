@@ -10,6 +10,7 @@
 #include <SPI.h>
 #include <Ethernet.h>
 #include <avr/pgmspace.h>
+#include <avr/wdt.h>  
 //add your includes for the project command here
 #include "Configuration.h"
 #include "Device.h"

@@ -11,6 +11,9 @@ void showStatus(byte Error, byte deviceIdx) {
 	case INFO_NORMAL:
 		timer.oscillate(LED_PIN, HIGH, 500, 2, 2);
 		break;
+	case NET_ERROR:
+		timer.oscillate(LED_PIN, HIGH, 500, 50, 3);
+		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
 	case SENSOR_ERROR:
 		timer.oscillate(LED_PIN, HIGH, 500, 50, 4);
 		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");

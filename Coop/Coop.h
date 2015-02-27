@@ -5,6 +5,14 @@
 // In the appropriate section
 #ifndef Coop_H_
 #define Coop_H_
+#include <SPI.h>
+#include <Ethernet.h>
+#include <avr/pgmspace.h>
+#include <EEPROM.h>
+#include <dht.h>
+#include <Event.h>
+#include <Timer.h>
+#include <avr/wdt.h>  
 #include "Configuration.h"
 #include "Devicehandler.h"
 #include "Door.h"

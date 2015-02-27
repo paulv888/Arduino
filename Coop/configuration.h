@@ -100,6 +100,7 @@
 #define SENSOR_ERROR 202
 #define DOOR_NOT_MOVING 203
 #define DOOR_MAX_RUNTIME 204
+#define NET_ERROR 205
 
 // Handler return values
 #define HNDLR_WRITE_RESULT 1
