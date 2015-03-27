@@ -4,9 +4,15 @@
  *  Created on: Sep 2, 2012
  *      Author: pvloon
  */
-#include "device.h"
+#include "Device.h"
 
-Dht dht;
+//Dht dht;
+
+// Setup a oneWire instance to communicate with any OneWire devices 
+// (not just Maxim/Dallas temperature ICs)
+OneWire oneWire(ONE_WIRE_BUS);
+// Pass our oneWire reference to Dallas Temperature.
+DallasTemperature sensors(&oneWire);
 
 int readTemp(const byte deviceIdx) {
 	mdevices[deviceIdx].readInput();
@@ -50,6 +56,7 @@ void Device::begin(const int _deviceID, const int _deviceIdx) {
 		deviceCommandHandler(deviceIdx, COMMAND_ON, true);
 		readInput();
 		break;
+#ifdef COOP		
 	case TYPE_AUTO_DOOR:
 		pinMode(POWER_RELAY_PIN, OUTPUT);
 		pinMode(DIRECTION_RELAY_PIN, OUTPUT);
@@ -61,6 +68,12 @@ void Device::begin(const int _deviceID, const int _deviceIdx) {
 		digitalWrite(BOTTOM_SWITCH_PIN, HIGH); 	// connect internal pull-up
 		readInput();
 		break;
+#endif
+	case TYPE_TEMP_18B20:
+		sensors.begin();
+		readInput();
+		break;
+
 	}
 }
 
@@ -74,8 +87,8 @@ void Device::setCheckTimer( const long _period, void (*_function)(const byte)) {
 	if (_period > 0) {
 		if (timer.every(_period, _function, deviceIdx) < 0) {		// Only for polling mdevices
 			showStatus(TIMER_ERROR, deviceIdx);
-//			Serial.print("ETMR");
-//			Serial.println(deviceIdx);
+//			dbg.print("ETMR");
+//			dbg.println(deviceIdx);
 		}
 	}
 }
@@ -122,6 +135,7 @@ void Device::readInput() {
 			checkStatus();
 		}
 		break;
+#ifdef COOP		
 	case TYPE_DHT22:
 		byte chk;
 		status = STATUS_ERROR;
@@ -136,7 +150,6 @@ void Device::readInput() {
 			if (EEPROMReadInt(PARAMS(deviceIdx, 1)) == FFFF) {				// No setpoint set
 				status = STATUS_UNKNOWN;
 				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2);
-				setExtData(temp);
 			} else {
 				if (commandValue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {												// below set point
 					status = STATUS_ON;
@@ -145,9 +158,9 @@ void Device::readInput() {
 					status = STATUS_OFF;
 				}
 				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\",\"S\":\"%u\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2, EEPROMReadInt(PARAMS(deviceIdx, 1)));
-				setExtData(temp);
 				checkStatus();
 			}
+			setExtData(temp);
 			break;
 		default:
 			status= STATUS_ERROR;
@@ -203,11 +216,35 @@ void Device::readInput() {
 		setExtData(temp);
 		checkStatus();
 		break;
+#endif
 	case TYPE_ARDUINO:
 		status = digitalRead(getPin());
 		sprintf(temp, "{\"M\" : \"%lu\", \"U\" : \"%lu\"}", check_mem(), millis()/1000);
 		setExtData(temp);
 		checkStatus();
+		break;
+	case TYPE_TEMP_18B20:
+		float tempC; 
+		int temp1;
+		tempC = sensors.getTempCByIndex(0);		// Dev 0 on Wire
+		commandValue = ((int)tempC);
+//		commandvalue = dtostrf(tempC, 4, 1, buffer);
+		temp1 = abs((tempC - (int)tempC) * 100);
+		if (EEPROMReadInt(PARAMS(deviceIdx, 1)) == FFFF) {				// No setpoint set
+			status = STATUS_UNKNOWN;
+			sprintf(temp, "{\"T\":\"%0d.%d\"}", (int)tempC, temp1);
+			setExtData(temp);
+		} else {
+			if (commandValue > EEPROMReadInt(PARAMS(deviceIdx, 1))) {												// below set point
+				status = STATUS_ON;
+			} 
+			if (commandValue <= (EEPROMReadInt(PARAMS(deviceIdx, 1)) - EEPROMReadInt(PARAMS(deviceIdx, 2)))) {		// above set point plus threshold
+				status = STATUS_OFF;
+			}
+			sprintf(temp, "{\"T\":\"%0d.%d\",\"S\":\"%u\"}", (int)tempC, temp1, EEPROMReadInt(PARAMS(deviceIdx, 1)));
+			setExtData(temp);
+			checkStatus();
+		}
 		break;
 	default:
 		break;
@@ -228,6 +265,7 @@ void Device::setOnOff(const int _commandID) {
 	case TYPE_ANALOG_IN:
 	case TYPE_NTC:
 		break;
+#ifdef COOP		
 	case TYPE_DHT22:
 		break;
 	case TYPE_THERMO_HEAT:
@@ -238,6 +276,7 @@ void Device::setOnOff(const int _commandID) {
 	case TYPE_AUTO_DOOR:
 		doorOnOff(deviceIdx, commandID);
 		break;
+#endif
 	default:
 		break;
 	}
@@ -295,7 +334,7 @@ byte Device::getType() {
 void Device::setExtData(const char *_value) {
     if (extdata == NULL) {
     	extdata = (char*)malloc(MAX_STRING_LEN);
-		if (DEBUG_DEVICE) Serial.println("M-Ext");
+		if (DEBUG_DEVICE) dbg.println("M-Ext");
     }
 	strncpy (extdata, _value, MAX_STRING_LEN);
 }

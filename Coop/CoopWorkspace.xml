@@ -15,8 +15,6 @@
         <File name="MemoryFree.cpp" />
         <File name="MemoryFree.h" />
         <File name="SharedCommands.h" />
-        <File name="Thermo.cpp" />
-        <File name="Thermo.h" />
         <File name="Utils.cpp" />
         <File name="Utils.h" />
         <File name="Web.cpp" />
@@ -118,7 +116,6 @@
             <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\includes\shared_db.php" />
             <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\includes\duskdawn.php" />
             <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\includes\timers.php" />
-            <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\includes\weather_old.php" />
             <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\includes\mysendmail.php" />
             <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\includes\yahoostreamer.php" />
             <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\includes\shared_file.php" />
@@ -282,5 +279,26 @@
         <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\process.php" />
         <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\includes.php" />
         <File name="V:\cronjobs\70D455DC-ACB4-4525-8A85-E6009AE93AF4\monitor_devicesTimeOut.php" />
+    </Project>
+    <Project name="WifiMini">
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Configuration.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Device.cpp" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Device.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Devicehandler.cpp" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Devicehandler.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Led.cpp" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Led.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\MemoryFree.cpp" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\MemoryFree.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\SharedCommands.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Utils.cpp" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Utils.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Web.cpp" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Web.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\WifiMini.cpp" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\WifiMini.h" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\wifimini.ino" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Wifi.cpp" />
+        <File name="D:\Users\pvloon\My Sources\E-Arduino\WifiMini\Wifi.h" />
     </Project>
 </NotepadPlus>
