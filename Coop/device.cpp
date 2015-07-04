@@ -54,11 +54,11 @@ void Device::begin(const int _deviceID, const int _deviceIdx) {
 		pinMode(POWER_RELAY_PIN, OUTPUT);
 		pinMode(DIRECTION_RELAY_PIN, OUTPUT);
 
-		pinMode(TOP_SWITCH_PIN, INPUT);
-		digitalWrite(TOP_SWITCH_PIN, HIGH); 	// connect internal pull-up
+		pinMode(TOP_SWITCH_PIN, INPUT_PULLUP);
+		//digitalWrite(TOP_SWITCH_PIN, HIGH); 	// connect internal pull-up
 
-		pinMode(BOTTOM_SWITCH_PIN, INPUT);
-		digitalWrite(BOTTOM_SWITCH_PIN, HIGH); 	// connect internal pull-up
+		pinMode(BOTTOM_SWITCH_PIN, INPUT_PULLUP);
+		//digitalWrite(BOTTOM_SWITCH_PIN, HIGH); 	// connect internal pull-up
 		readInput();
 		break;
 	}

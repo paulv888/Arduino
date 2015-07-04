@@ -98,6 +98,16 @@ void checkStuck(const byte deviceIdx) {										// Allow time for leave current
 
 void startDoor (const byte deviceIdx, const int commandID) {
 
+	//   bottom LOW  top LOW  -> Not good Open & Close, why stuck switch????
+	//   bottom LOW  top HIGH -> Door Closed
+	//   bottom HIGH top LOW  -> Door Open
+	//   bottom HIGH top HIGH -> Door Moving
+
+	//   startSwitch LOW  stopSwitch LOW  -> Stuck Switch
+	//   startSwitch LOW  stopSwitch HIGH -> Start Position
+	//   startSwitch HIGH stopSwitch LOW  -> Reached End
+	//   startSwitch HIGH stopSwitch HIGH -> Door Moving
+
 	byte doorDirUp = commandID == COMMAND_ON;						// up = true
 
 	timerCheckStuck = timer.stop(timerCheckStuck);
@@ -106,16 +116,16 @@ void startDoor (const byte deviceIdx, const int commandID) {
 	if (doorDirUp) {
 		if (DEBUG_DEVICE_HAND) Serial.println("Up");
 		startSwitch = BOTTOM_SWITCH_PIN;
-		stopSwitch = TOP_SWITCH_PIN;
+		stopSwitch  = TOP_SWITCH_PIN;
 	} else {
 		if (DEBUG_DEVICE_HAND) Serial.println("Down");
 		startSwitch = TOP_SWITCH_PIN;
-		stopSwitch = BOTTOM_SWITCH_PIN;
+		stopSwitch  = BOTTOM_SWITCH_PIN;
 	}
 
 	if (DEBUG_DEVICE_HAND) Serial.println(digitalRead(stopSwitch));
 
-	if (digitalRead(stopSwitch) != LOW) {									// Currently NOT reached
+	if (digitalRead(stopSwitch) == HIGH) {									// Currently NOT reached
 
 		digitalWrite(DIRECTION_RELAY_PIN, doorDirUp);  						// Direction
 		delay (100);
@@ -137,7 +147,7 @@ void startDoor (const byte deviceIdx, const int commandID) {
 		digitalWrite(POWER_RELAY_PIN, HIGH);
 		if (DEBUG_DEVICE_HAND) Serial.println("Starting");
 	} else {
-		if (DEBUG_DEVICE_HAND) Serial.println("Started");
+		if (DEBUG_DEVICE_HAND) Serial.println("Reached");
 		mdevices[deviceIdx].readInput();
 	}
 }
