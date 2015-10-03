@@ -64,7 +64,11 @@ void doorTimer(const byte deviceIdx) {
 			if (digitalRead(stopSwitch) == LOW) {	 				// Are we there yet!!!
 				if (DEBUG_DEVICE_HAND) printMem("=DStop ");
 				if (DEBUG_DEVICE_HAND) Serial.println(EEPROMReadInt(PARAMS(deviceIdx, 1)));
-				timer.after(EEPROMReadInt(PARAMS(deviceIdx, 1)), delayStopDoor, deviceIdx);
+				if (EEPROMReadInt(PARAMS(deviceIdx, 1)) == FFFF) {				// Delaystop set
+					delayStopDoor(deviceIdx);
+				} else {
+					timer.after(EEPROMReadInt(PARAMS(deviceIdx, 1)), delayStopDoor, deviceIdx);
+				}
 				// TimerCount = 1
 				bbreakIsOn = true;
 			}
@@ -72,7 +76,7 @@ void doorTimer(const byte deviceIdx) {
 			if (digitalRead(startSwitch) == LOW) {	 					// That is not good
 				if (DEBUG_DEVICE_HAND) printMem("=Strange ");
 				digitalWrite(POWER_RELAY_PIN, LOW);
-				showStatus(DOOR_NOT_MOVING, deviceIdx);
+				showStatus(DOOR_BOTH_LOW, deviceIdx);
 			}
 		}
 	}										// Monitor status change and post

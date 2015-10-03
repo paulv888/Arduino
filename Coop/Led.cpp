@@ -41,6 +41,15 @@ void showStatus(byte Error, byte deviceIdx) {
     	mdevices[deviceIdx].setExtData(temp);
 		postMessage(deviceIdx);
 		break;
+	case DOOR_BOTH_LOW:
+		timer.oscillate(LED_PIN, HIGH, 500, 50, 5);
+		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");
+		mdevices[deviceIdx].setCommand(COMMAND_SET_RESULT);
+		mdevices[deviceIdx].setStatus(STATUS_ERROR);
+		sprintf(temp, "{\"E\":\"%i\",\"M\":\"%s\"}", DOOR_BOTH_LOW, "Both Low");
+    	mdevices[deviceIdx].setExtData(temp);
+		postMessage(deviceIdx);
+		break;
 	case DOOR_MAX_RUNTIME:
 		timer.oscillate(LED_PIN, HIGH, 500, 50, 5);
 		if (DEBUG_DEVICE_HAND) Serial.println("ERR!");

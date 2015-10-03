@@ -42,18 +42,18 @@ void setup() {
 	if (DEBUG_MEMORY) printMem("M2 ");
 	// TimerCount = 1
 
-	wdt_reset(); 
-	mdevices[NTC_0_IDX].setPin(NTC_0_PIN);
-	mdevices[NTC_0_IDX].setType(TYPE_NTC);
-	mdevices[NTC_0_IDX].begin(         204, NTC_0_IDX    );
-	if (DEBUG_MEMORY) printMem("M3 ");
+	// wdt_reset(); 
+	// mdevices[NTC_0_IDX].setPin(NTC_0_PIN);
+	// mdevices[NTC_0_IDX].setType(TYPE_NTC);
+	// mdevices[NTC_0_IDX].begin(         204, NTC_0_IDX    );
+	// if (DEBUG_MEMORY) printMem("M3 ");
 
-	wdt_reset(); 
-	mdevices[THERMO_IDX].setPin(RELAY_HEAT_PIN);
-	mdevices[THERMO_IDX].setInput(NTC_0_IDX);
-	mdevices[THERMO_IDX].setType(TYPE_THERMO_HEAT);
-	mdevices[THERMO_IDX].begin(        202, THERMO_IDX       );
-	if (DEBUG_MEMORY) printMem("M4 ");
+	// wdt_reset(); 
+	// mdevices[THERMO_IDX].setPin(RELAY_HEAT_PIN);
+	// mdevices[THERMO_IDX].setInput(NTC_0_IDX);
+	// mdevices[THERMO_IDX].setType(TYPE_THERMO_HEAT);
+	// mdevices[THERMO_IDX].begin(        202, THERMO_IDX       );
+	// if (DEBUG_MEMORY) printMem("M4 ");
 	// TimerCount = 2
 
 	if (DEBUG_MAIN || DEBUG_DEVICE_HAND || DEBUG_WEB || DEBUG_DEVICE || DEBUG_MEMORY) {
@@ -74,11 +74,11 @@ void setup() {
 	if (DEBUG_MEMORY) printMem("M6 ");
 	// TimerCount = 3 (could combine)
 
-	wdt_reset(); 
-	mdevices[WATER_LEVEL_IDX].setPin(PRESSURE_MPX4250GP);
-	mdevices[WATER_LEVEL_IDX].setType(TYPE_ANALOG_IN);
-	mdevices[WATER_LEVEL_IDX].begin(   210, WATER_LEVEL_IDX   );
-	if (DEBUG_MEMORY) printMem("M7 ");
+	// wdt_reset(); 
+	// mdevices[WATER_LEVEL_IDX].setPin(PRESSURE_MPX4250GP);
+	// mdevices[WATER_LEVEL_IDX].setType(TYPE_ANALOG_IN);
+	// mdevices[WATER_LEVEL_IDX].begin(   210, WATER_LEVEL_IDX   );
+	// if (DEBUG_MEMORY) printMem("M7 ");
 
 	wdt_reset(); 
 	mdevices[DARK_IDX].setPin(PHOTO_RESISTOR_PIN);
