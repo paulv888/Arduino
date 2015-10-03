@@ -4,7 +4,7 @@
  *  Created on: Sep 2, 2012
  *      Author: pvloon
  */
-#include "device.h"
+#include "Device.h"
 
 Dht dht;
 

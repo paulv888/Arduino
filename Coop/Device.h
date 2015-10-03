@@ -10,7 +10,7 @@
 #define DEVICE_H_
 #include "Arduino.h"
 //add your includes for the project command here
-#include "configuration.h"
+#include "Configuration.h"
 #include "Utils.h"
 #include "MemoryFree.h"
 #include <dht.h>

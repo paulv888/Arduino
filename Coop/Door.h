@@ -7,7 +7,7 @@
 
 #ifndef DOOR_H_
 #define DOOR_H_
-#include "configuration.h"
+#include "Configuration.h"
 #include "Led.h"
 #include "MemoryFree.h"
 #include "Web.h"

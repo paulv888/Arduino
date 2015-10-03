@@ -7,7 +7,7 @@
 
 #ifndef DEVICEHANDLER_H_
 #define DEVICEHANDLER_H_
-#include "configuration.h"
+#include "Configuration.h"
 #include <Event.h>
 #include <Timer.h>
 #include "Led.h"
