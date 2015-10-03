@@ -14,7 +14,7 @@ void setup() {
 	if (DEBUG_MEMORY) printMem("S ");
 
 	// Init Web
-	wdt_reset(); 
+//	wdt_reset(); 
 	setupWeb();
 
 	wdt_reset(); 
