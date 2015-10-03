@@ -412,13 +412,13 @@ void updateWeb(){
 								printP(COMMAND_IO_RECV, DEV_6);
 								break;
 							case 7:
-								printP(COMMAND_IO_RECV, DEV_7);
+								//printP(COMMAND_IO_RECV, DEV_7);
 								break;
 							case 8:
-								printP(COMMAND_IO_RECV, DEV_8);
+								//printP(COMMAND_IO_RECV, DEV_8);
 								break;
 							case 9:
-								printP(COMMAND_IO_RECV, DEV_9);
+								//printP(COMMAND_IO_RECV, DEV_9);
 								break;
 							}
 		    	     		printP(COMMAND_IO_RECV, AOPEN);
