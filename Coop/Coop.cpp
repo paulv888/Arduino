@@ -38,7 +38,7 @@ void setup() {
 	wdt_reset(); 
 	mdevices[DOOR_IDX].setType(TYPE_AUTO_DOOR);
 	mdevices[DOOR_IDX].begin(         203, DOOR_IDX         );
-	mdevices[DOOR_IDX].setCheckTimer((long)100         ,  doorTimer );
+	mdevices[DOOR_IDX].setCheckTimer((long)30         ,  doorTimer );
 	if (DEBUG_MEMORY) printMem("M2 ");
 	// TimerCount = 1
 

@@ -51,14 +51,14 @@ P(TXTPIN) = "Pin";
 P(TXTTYPE) = "Type";
 P(DEV_0) = "Arduino-7";
 P(DEV_1) = "Door-2345";
-P(DEV_2) = "Heat-A0/A3";
-P(DEV_3) = "Fan-6/0";
-P(DEV_4) = "Water-A2";
-P(DEV_5) = "Dark-A1";
-P(DEV_6) = "Light-A4";
-P(DEV_7) = "RedLgt-A5";
-P(DEV_8) = "DHT22-6";
-P(DEV_9) = "NTC A0" ;
+//P(DEV_2) = "Heat-A0/A3";
+P(DEV_2) = "Fan-6/0";
+//P(DEV_4) = "Water-A2";
+P(DEV_3) = "Dark-A1";
+P(DEV_4) = "Light-A4";
+P(DEV_5) = "RedLgt-A5";
+P(DEV_6) = "DHT22-6";
+//P(DEV_9) = "NTC A0" ;
 
 
 int printP(const byte clientsel, const char *str, const bool getLen = false) {
