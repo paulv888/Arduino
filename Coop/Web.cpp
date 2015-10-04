@@ -506,17 +506,14 @@ void postMessage(const byte deviceIdx) {
 		int len = 0;
 		printP(COMMAND_IO_SEND, TXTPOST);
 		len = printResponse(COMMAND_IO_SEND, deviceIdx, true);
-		timer.update();
 		client_send.println(len);
 		if (DEBUG_WEB) Serial.println(len);
 		client_send.println();
 		if (DEBUG_WEB) Serial.println();
-		timer.update();
 		printResponse(COMMAND_IO_SEND, deviceIdx, false);
 		client_send.println();
 
 		delay (3);
-		timer.update();
 		while (client_send.available()) {
 			char c = client_send.read();
 			if (DEBUG_WEB) Serial.print(c);
