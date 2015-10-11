@@ -101,6 +101,9 @@ byte deviceCommandHandler(const byte deviceIdx, const int commandID, const boole
 		if (post) postMessage(deviceIdx);
 		return HNDLR_WRITE_RESULT;
 		break;
+	case COMMAND_RESET:
+		Reset_AVR()
+		break;
 	default:
 		return ERROR;
 		break;

@@ -23,6 +23,7 @@
 #define COMMAND_VALUE_3 296
 #define COMMAND_VALUE_4 299
 #define COMMAND_VALUE_5 300
+#define COMMAND_RESET 323
 
 // Command direct (seen from server view)
 #define COMMAND_IO_RECV 1 		// Received or Incoming

@@ -50,6 +50,7 @@ public:
 protected:
 	bool checkCommandValue();
 	void checkStatus();
+	void checkStatusOrCommandValue();
 	char *extdata;
 	int deviceID;
 	byte deviceIdx;

@@ -68,9 +68,8 @@ void doorTimer(const byte deviceIdx) {
 					delayStopDoor(deviceIdx);
 				} else {
 					timer.after(EEPROMReadInt(PARAMS(deviceIdx, 1)), delayStopDoor, deviceIdx);
+					bbreakIsOn = true;
 				}
-				// TimerCount = 1
-				bbreakIsOn = true;
 			}
 
 			if (digitalRead(startSwitch) == LOW) {	 					// That is not good

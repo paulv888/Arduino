@@ -119,7 +119,7 @@ void Device::readInput() {
 			}
 			sprintf(temp, "{\"V\":\"%i\",\"S\":\"%u\",\"T\":\"%u\"}", commandValue, EEPROMReadInt(PARAMS(deviceIdx, 1)), EEPROMReadInt(PARAMS(deviceIdx, 2)));
 			setExtData(temp);
-			checkStatus();
+			checkStatusOrCommandValue();
 		}
 		break;
 	case TYPE_DHT22:
@@ -146,7 +146,7 @@ void Device::readInput() {
 				}
 				sprintf(temp, "{\"T\":\"%0d.%d\",\"H\":\"%0d.%d\",\"S\":\"%u\"}", (int)dht.temperature, temp1, (int)dht.humidity, temp2, EEPROMReadInt(PARAMS(deviceIdx, 1)));
 				setExtData(temp);
-				checkStatus();
+				checkStatusOrCommandValue();
 			}
 			break;
 		default:
@@ -322,6 +322,16 @@ bool Device::checkCommandValue(){
 }
 
 void Device::checkStatus() {
+	int previousCommandID = commandID;
+	if (previousStatus != status) {
+		previousStatus = status;
+		commandID = COMMAND_SET_RESULT;
+		postMessage(deviceIdx);
+	}
+	commandID = previousCommandID;
+}
+
+void Device::checkStatusOrCommandValue() {
 	int previousCommandID = commandID;
 	if (previousStatus != status || checkCommandValue()) {
 		previousStatus = status;
