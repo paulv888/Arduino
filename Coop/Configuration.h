@@ -46,6 +46,7 @@
 #define TYPE_AUTO_DOOR   6
 #define TYPE_ARDUINO     7
 #define TYPE_NTC	     8
+#define TYPE_DIGITAL_IO_NEG  9
 //#define TYPE_
 //#define TYPE_
 //#define TYPE_

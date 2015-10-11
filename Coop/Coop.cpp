@@ -26,7 +26,7 @@ void setup() {
 
 	wdt_reset(); 
 	mdevices[RELAY_1_IDX].setPin(RELAY_1_PIN);
-	mdevices[RELAY_1_IDX].setType(TYPE_DIGITAL_IO);
+	mdevices[RELAY_1_IDX].setType(TYPE_DIGITAL_IO_NEG);
 	mdevices[RELAY_1_IDX].begin(       205, RELAY_1_IDX );
 	
 	wdt_reset(); 

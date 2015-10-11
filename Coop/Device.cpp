@@ -37,6 +37,11 @@ void Device::begin(const int _deviceID, const int _deviceIdx) {
 		pinMode(getPin(), OUTPUT);
 		readInput();
 		break;
+	case TYPE_DIGITAL_IO_NEG:
+		pinMode(getPin(), OUTPUT);
+		digitalWrite(getPin(),HIGH);
+		readInput();
+		break;
 	case TYPE_ANALOG_IN:
 	case TYPE_NTC:
 		readInput();
@@ -100,6 +105,7 @@ void Device::readInput() {
 	
 	switch (type) {
 	case TYPE_DIGITAL_IO:
+	case TYPE_DIGITAL_IO_NEG:
 		status = digitalRead(getPin());
 		break;
 	case TYPE_ANALOG_IN:
@@ -221,6 +227,7 @@ void Device::setOnOff(const int _commandID) {
 	switch (type) {
 	case TYPE_ARDUINO:
 	case TYPE_DIGITAL_IO:
+	case TYPE_DIGITAL_IO_NEG:
 		if (commandID == COMMAND_ON) digitalWrite(getPin(), HIGH);
 		if (commandID == COMMAND_OFF) digitalWrite(getPin(), LOW);
 		status = digitalRead(getPin());
