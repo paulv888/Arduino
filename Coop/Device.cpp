@@ -205,7 +205,7 @@ void Device::readInput() {
 		break;
 	case TYPE_ARDUINO:
 		status = digitalRead(getPin());
-		sprintf(temp, "{\"M\" : \"%lu\", \"U\" : \"%lu\"}", check_mem(), millis()/1000);
+		sprintf(temp, "{\"R\":\"%i\",\"M\":\"%lu\",\"U\":\"%lu\"}", RELEASE, check_mem(), millis()/1000);
 		setExtData(temp);
 		checkStatus();
 		break;
