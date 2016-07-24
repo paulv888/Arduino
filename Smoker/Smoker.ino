@@ -27,14 +27,14 @@
 //  Thermocouples
 //
 #include "max6675.h"
-int thermoCS1 = 4;
-int thermoCS2 = 5;
-int thermoCS3 = 6;
-int thermoDO = 7;
-int thermoCLK = 8;
-MAX6675 thermocouple1(thermoCLK, thermoCS1, thermoDO);
-MAX6675 thermocouple2(thermoCLK, thermoCS2, thermoDO);
-MAX6675 thermocouple3(thermoCLK, thermoCS3, thermoDO);
+#define MAX_CS1 4
+#define MAX_CS2 5
+#define MAX_CS3 6
+#define MAX_DO  7
+#define MAX_CLK 8
+MAX6675 thermocouple1(MAX_CLK, MAX_CS1, MAX_DO);
+MAX6675 thermocouple2(MAX_CLK, MAX_CS2, MAX_DO);
+MAX6675 thermocouple3(MAX_CLK, MAX_CS3, MAX_DO);
 
 //
 //  DHT22
@@ -53,6 +53,51 @@ DHT dht(DHTPIN, DHTTYPE);
 #define CMD_DIGITAL_READ   2
 #define CMD_ANALOG_WRITE   3
 #define CMD_ANALOG_READ    4
+
+
+ /*The circuit:
+ * LCD RS pin to digital pin 21
+ * LCD Enable pin to digital pin 20
+ * LCD D4 pin to digital pin 17
+ * LCD D5 pin to digital pin 9
+ * LCD D6 pin to digital pin 3
+ * LCD D7 pin to digital pin 2
+ * LCD R/W pin to ground
+ * LCD VSS pin to ground
+ * LCD VCC pin to 5V
+ * 10K resistor:
+ * ends to +5V and ground
+ * wiper to LCD VO pin (pin 3)
+
+ Library originally added 18 Apr 2008
+ by David A. Mellis
+ library modified 5 Jul 2009
+ by Limor Fried (http://www.ladyada.net)
+ example added 9 Jul 2009
+ by Tom Igoe
+ modified 22 Nov 2010
+ by Tom Igoe
+
+ This example code is in the public domain.
+
+ http://www.arduino.cc/en/Tutorial/LiquidCrystal
+ */
+
+// include the library code:
+#include <LiquidCrystal.h>
+
+#define LCD_RS 10
+#define LCD_EN 14
+#define LCD_D4 17
+#define LCD_D5 9
+#define LCD_D6 3
+#define LCD_D7 2
+#define LCD_WIDTH 16
+#define LCD_HEIGHT 2
+ 
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
 
 #define DEBUG 1
 
@@ -76,6 +121,10 @@ void setup()
   delay(10);
   if (DEBUG) Serial.println("Booted...");
   //dht.begin();
+  lcd.begin(LCD_WIDTH,LCD_HEIGHT);
+  // Print a message to the LCD.
+  lcd.print("System Ready!!!");
+
 }
 
 void loop() {
@@ -84,42 +133,41 @@ void loop() {
   
    delay(2000);
 
-   Serial.print("1) C = "); 
-   Serial.println(thermocouple1.readCelsius());
-   Serial.print("2) C = "); 
-   Serial.println(thermocouple2.readCelsius());
-   Serial.print("3) C = "); 
-   Serial.println(thermocouple3.readCelsius());
+  int ts = thermocouple1.readCelsius();
+  int t1 = thermocouple2.readCelsius();
+  int t2 = thermocouple3.readCelsius();
+  int h = dht.readHumidity();
+  int to = dht.readTemperature();
 
-  // Reading temperature or humidity takes about 250 milliseconds!
-  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-//    byte chk;
-    //status = STATUS_ERROR;
-//    chk = dht.read(DHTPIN);
-//    if (chk == DHTLIB_OK) {
-//      int temp1;
-//      int temp2;
-//      temp1 = abs((dht.temperature - (int)dht.temperature) * 100);
-//      temp2 = (dht.humidity - (int)dht.humidity) * 100;
-//    }
-
-  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-  float h = dht.readHumidity();
-  // Read temperature as Celsius (the default)
-  float t = dht.readTemperature();
-
-  // Check if any reads failed and exit early (to try again).
-  //if (isnan(h) || isnan(t)) {
-    //Serial.println("Failed to read from DHT sensor!");
-    //return;
-  //}
-
+  Serial.print("S) C = ");  
+  Serial.println(ts);
+  Serial.print("1) C = "); 
+  Serial.println(t1);
+  Serial.print("2) C = "); 
+  Serial.println(t2);
   Serial.print("Hum:   ");
   Serial.println(h);
-  Serial.print("4) C = "); 
-  Serial.println(t);
+  Serial.print("O) C = "); 
+  Serial.println(to);
   Serial.println();
-     
+
+
+  //0123456789012345
+  //A123  B123  C123  
+  //O12   S123  S123
+
+  
+  char buffer [16];
+  lcd.clear();
+  sprintf(buffer, "A%3d  B%3d  C%3d", ts, t1, t2);
+  lcd.print(buffer);
+
+  int s1 = 200;
+  int s2 = -1;
+  lcd.setCursor(0,1);
+  sprintf(buffer, "O%3d  S%3d  S%3d", to, s1, s2);
+  lcd.print(buffer);
+   
 }
 
 void receiveEvent(int count)
