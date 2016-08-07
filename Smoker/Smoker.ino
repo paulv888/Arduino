@@ -129,9 +129,9 @@ byte sMeat1;
 byte sMeat2;
 byte sSmoke;
 
-char* onoff[]={" ", "*"};
+char* onoff[]={"_", "*"};
 
-#define DEBUG 1
+#define DEBUG 0
 
 #define DEBUGPRINT_LF(STR) \
   {  \
@@ -177,8 +177,8 @@ void loop() {
 
 
   //0123456789012345
-  //S123 B123 C123  
-  //s12  S123 S123
+  //123-123*123-123*
+  //123-123_123-123*
 
   tSmoker = (int)thermocouple1.readCelsius();
   if (tSmoker <= EEPROMReadInt(PARAMS(DEVICE_0, SMOKER))) {            //  Switch on if below set point
