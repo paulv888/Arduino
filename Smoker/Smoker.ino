@@ -23,6 +23,20 @@
 // That way, you can skip levelconverters on I2C.
 // Arduino Mini Pro uses A4 and A5 for I2C bus. ESP I2C can be configured but they are on GPIO-4 and GPIO-5 by default.
 
+#include "Utils.h"
+//
+// General
+//
+#define SMOKER 0
+#define MEAT1 1
+#define MEAT2 2
+#define SMOKE 3
+#define SMOKER_THRESHOLD 4
+#define MEAT1_THRESHOLD 5
+#define MEAT2_THRESHOLD 6
+#define SMOKE_THRESHOLD 7
+#define DEVICE_0 0
+
 //
 //  Thermocouples
 //
@@ -39,11 +53,17 @@ MAX6675 thermocouple3(MAX_CLK, MAX_CS3, MAX_DO);
 //
 //  DHT22
 //
-#include <DHT.h>
-#define DHTPIN            16        // Pin which is connected to the DHT sensor.
-#define DHTTYPE           DHT22     // DHT 22 (AM2302)
-DHT dht(DHTPIN, DHTTYPE);
+//#include <DHT.h>
+//#define DHTPIN            16        // Pin which is connected to the DHT sensor.
+//#define DHTTYPE           DHT22     // DHT 22 (AM2302)
+//DHT dht(DHTPIN, DHTTYPE);
 
+//
+// Dust GP2Y1010AU0F
+//
+#define DUST_LED_OUT 15
+#define DUST_AN_IN 20
+#define DUST_SAMPLING_TIME 280
 
 #include <Wire.h>
 #define I2C_MSG_IN_SIZE    4
@@ -94,10 +114,22 @@ DHT dht(DHTPIN, DHTTYPE);
 #define LCD_D7 2
 #define LCD_WIDTH 16
 #define LCD_HEIGHT 2
- 
+
+
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
+
+int tSmoker;
+int tMeat1;
+int tMeat2;
+int dSmoke;
+byte sSmoker;
+byte sMeat1;
+byte sMeat2;
+byte sSmoke;
+
+char* onoff[]={" ", "*"};
 
 #define DEBUG 1
 
@@ -121,51 +153,78 @@ void setup()
   delay(10);
   if (DEBUG) Serial.println("Booted...");
   //dht.begin();
+  pinMode(DUST_LED_OUT, OUTPUT);
+  
   lcd.begin(LCD_WIDTH,LCD_HEIGHT);
   // Print a message to the LCD.
   lcd.print("System Ready!!!");
-
 }
 
 void loop() {
   
   // basic readout test, just print the current temp
   
-   delay(2000);
+   delay(1000);
 
-  int ts = thermocouple1.readCelsius();
-  int t1 = thermocouple2.readCelsius();
-  int t2 = thermocouple3.readCelsius();
-  int h = dht.readHumidity();
-  int to = dht.readTemperature();
 
-  Serial.print("S) C = ");  
-  Serial.println(ts);
+  /*Serial.print("S) C = ");  
+  Serial.println(tSmoker);
   Serial.print("1) C = "); 
-  Serial.println(t1);
+  Serial.println(tMeat1);
   Serial.print("2) C = "); 
-  Serial.println(t2);
-  Serial.print("Hum:   ");
-  Serial.println(h);
-  Serial.print("O) C = "); 
-  Serial.println(to);
-  Serial.println();
+  Serial.println(tMeat2);
+  Serial.println();*/
 
 
   //0123456789012345
-  //A123  B123  C123  
-  //O12   S123  S123
+  //S123 B123 C123  
+  //s12  S123 S123
+
+  tSmoker = (int)thermocouple1.readCelsius();
+  if (tSmoker <= EEPROMReadInt(PARAMS(DEVICE_0, SMOKER))) {            //  Switch on if below set point
+    sSmoker = 1;
+  } else if (tSmoker >= (EEPROMReadInt(PARAMS(DEVICE_0, SMOKER)) + EEPROMReadInt(PARAMS(DEVICE_0, SMOKER_THRESHOLD)))) {  // Switch off if above threshold
+    sSmoker = 0;
+  }
+
+  tMeat1 = (int)thermocouple2.readCelsius();
+  if (tMeat1 <= EEPROMReadInt(PARAMS(DEVICE_0, MEAT1))) {            //  Switch on if below set point
+    sMeat1 = 1;
+  } else if (tMeat1 >= (EEPROMReadInt(PARAMS(DEVICE_0, MEAT1)) + EEPROMReadInt(PARAMS(DEVICE_0, MEAT1_THRESHOLD)))) {  // Switch off if above threshold
+    sMeat1 = 0;
+  }
+
+  tMeat2 = (int)thermocouple2.readCelsius();
+  if (tMeat2 <= EEPROMReadInt(PARAMS(DEVICE_0, MEAT2))) {            //  Switch on if below set point
+    sMeat2 = 1;
+  } else if (tMeat2 >= (EEPROMReadInt(PARAMS(DEVICE_0, MEAT2)) + EEPROMReadInt(PARAMS(DEVICE_0, MEAT2_THRESHOLD)))) {  // Switch off if above threshold
+    sMeat2 = 0;
+  }
+
+
+  digitalWrite(DUST_LED_OUT,LOW); // power on the LED
+  delayMicroseconds(DUST_SAMPLING_TIME);
+ 
+  dSmoke = analogRead(DUST_AN_IN); // read the dust value
+ 
+  delayMicroseconds(40);
+  digitalWrite(DUST_LED_OUT,HIGH); // turn the LED off
+ 
+ 
+  if (dSmoke <= EEPROMReadInt(PARAMS(DEVICE_0, SMOKE))) {            //  Switch on if below set point
+    sSmoke = 1;
+  } else if (dSmoke >= (EEPROMReadInt(PARAMS(DEVICE_0, SMOKE)) + EEPROMReadInt(PARAMS(DEVICE_0, SMOKE_THRESHOLD)))) {  // Switch off if above threshold
+    sSmoke = 0;
+  }
 
   
   char buffer [16];
   lcd.clear();
-  sprintf(buffer, "A%3d  B%3d  C%3d", ts, t1, t2);
+  sprintf(buffer, "%3d-%3d%s%3d-%3d%s", EEPROMReadInt(PARAMS(DEVICE_0, SMOKER)), tSmoker, onoff[sSmoker], EEPROMReadInt(PARAMS(DEVICE_0, SMOKE)), dSmoke, onoff[sSmoke]);
   lcd.print(buffer);
 
-  int s1 = 200;
-  int s2 = -1;
   lcd.setCursor(0,1);
-  sprintf(buffer, "O%3d  S%3d  S%3d", to, s1, s2);
+  sprintf(buffer, "%3d-%3d%s%3d-%3d%s", EEPROMReadInt(PARAMS(DEVICE_0, MEAT1)), tMeat1, onoff[sMeat1], EEPROMReadInt(PARAMS(DEVICE_0, MEAT2)), tMeat2, onoff[sMeat2]);
   lcd.print(buffer);
    
 }
@@ -177,6 +236,8 @@ void receiveEvent(int count)
     byte cmd = Wire.read();
     byte port = Wire.read();
     int value = Wire.read();
+    value += Wire.read()*256;
+
     if (DEBUG) DEBUGPRINT("cmd: ");
     if (DEBUG) DEBUGPRINT(cmd);
     if (DEBUG) DEBUGPRINT(" port: ");
@@ -184,7 +245,6 @@ void receiveEvent(int count)
     if (DEBUG) DEBUGPRINT(" value: ");
     if (DEBUG) DEBUGPRINT_LF(value);
     
-    value += Wire.read()*256;
     switch(cmd)
       {
         case CMD_DIGITAL_WRITE:
@@ -193,42 +253,53 @@ void receiveEvent(int count)
           break;
         case CMD_DIGITAL_READ:
           //pinMode(port,INPUT_PULLUP);
-          //clearSendBuffer();
+          clearSendBuffer();
           //sendBuffer[0] = digitalRead(port);
+          int Status;
+          switch(port)
+            {
+              case SMOKER:
+                Status = sSmoker;
+              break;
+              case MEAT1:
+                Status = sMeat1;
+              break;
+              case MEAT2:
+                Status = sMeat2;
+              break;
+              case SMOKE:
+                Status = sSmoke;
+              break;
+            }
+          sendBuffer[0] = Status;
           if (DEBUG) DEBUGPRINT("Send: ");
           if (DEBUG) DEBUGPRINT_LF(sendBuffer[0]);
           break;
         case CMD_ANALOG_WRITE:
           //analogWrite(port,value);
+          EEPROMWriteInt(PARAMS(DEVICE_0, port), value);
           break;
         case CMD_ANALOG_READ:
-          //clearSendBuffer();
-          // int valueRead = analogRead(port);
-          // sendBuffer[0] = valueRead & 0xff;
-          // sendBuffer[1] = valueRead >> 8;
-		  
-		    // request to all devices on the bus
-		  //Serial.print("Requesting temperatures...");
-		  //sensors.requestTemperatures(); // Send the command to get temperatures
-		  //Serial.println("DONE");
-  
-		  // It responds almost immediately. Let's print out the data
-		//float tempC = sensors.getTempC(insideThermometer);
-		//DEBUGPRINT_LF(tempC);
-		//int temp1 = abs((tempC - (int)tempC) * 100);
-		//DEBUGPRINT_LF(temp1);
-      //  sendBuffer[0] = (int)tempC & 0xff;
-      //  sendBuffer[1] = (int)tempC >> 8;
-      //  sendBuffer[2] = (int)temp1 & 0xff;
-      //  sendBuffer[3] = (int)temp1 >> 8;
-		//sprintf(sendBuffer, "Temp: %0d.%d", (int)tempC, temp1);
-		//DEBUGPRINT_LF(sendBuffer);
-        if (DEBUG) DEBUGPRINT("Send: ");
-        if (DEBUG) DEBUGPRINT(sendBuffer[0]);
-        if (DEBUG) DEBUGPRINT(sendBuffer[1]);
-        if (DEBUG) DEBUGPRINT(".");
-        if (DEBUG) DEBUGPRINT(sendBuffer[2]);
-        if (DEBUG) DEBUGPRINT_LF(sendBuffer[3]);
+          // Only getting delay(1) to set return values
+          clearSendBuffer();
+          int valueRead; // = analogRead(port);
+          switch(port)
+            {
+              case SMOKER:
+                valueRead = tSmoker;
+              break;
+              case MEAT1:
+                valueRead = tMeat1;
+              break;
+              case MEAT2:
+                valueRead = tMeat2;
+              break;
+              case SMOKE:
+                valueRead = dSmoke;
+              break;
+            }
+          sendBuffer[0] = valueRead & 0xff;
+          sendBuffer[1] = valueRead >> 8;
           break;
       }
   }
