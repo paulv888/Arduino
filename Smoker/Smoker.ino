@@ -16,6 +16,8 @@
  *
  * Additional information about licensing can be found at : http://www.gnu.org/licenses
  **********************************************************************************************************************/
+//#include <avr/io.h>
+//#include <avr/wdt.h>
 
 // This file is to be loaded onto an Arduino Pro Mini so it will act as a simple IO extender to the ESP module.
 // Communication between ESP and Arduino is using the I2C bus, so only two wires needed.
@@ -119,6 +121,9 @@ MAX6675 thermocouple3(MAX_CLK, MAX_CS3, MAX_DO);
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
+char* onoff[]={"_", "*"};
+int c = 0;
+
 
 int tSmoker;
 int tMeat1;
@@ -128,8 +133,7 @@ byte sSmoker;
 byte sMeat1;
 byte sMeat2;
 byte sSmoke;
-
-char* onoff[]={"_", "*"};
+int toggle = 0;
 
 #define DEBUG 0
 
@@ -146,6 +150,9 @@ volatile uint8_t sendBuffer[I2C_MSG_OUT_SIZE];
 
 void setup()
 {
+//MCUSR = 0;
+//wdt_disable( );
+//  wdt_enable(WDTO_8S);
   Wire.begin(0x7f);
   Wire.onReceive(receiveEvent);
   Wire.onRequest(requestEvent);
@@ -158,15 +165,15 @@ void setup()
   lcd.begin(LCD_WIDTH,LCD_HEIGHT);
   // Print a message to the LCD.
   lcd.print("System Ready!!!");
+  lcd.blink();
+  //wdt_reset(); 
 }
 
 void loop() {
   
   // basic readout test, just print the current temp
+
   
-   delay(1000);
-
-
   /*Serial.print("S) C = ");  
   Serial.println(tSmoker);
   Serial.print("1) C = "); 
@@ -180,26 +187,41 @@ void loop() {
   //123-123*123-123*
   //123-123_123-123*
 
+  if (DEBUG) Serial.println("tSmoker");
+ 
   tSmoker = (int)thermocouple1.readCelsius();
   if (tSmoker <= EEPROMReadInt(PARAMS(DEVICE_0, SMOKER))) {            //  Switch on if below set point
     sSmoker = 1;
   } else if (tSmoker >= (EEPROMReadInt(PARAMS(DEVICE_0, SMOKER)) + EEPROMReadInt(PARAMS(DEVICE_0, SMOKER_THRESHOLD)))) {  // Switch off if above threshold
     sSmoker = 0;
   }
+ if (DEBUG) Serial.print("Smoker ");
+ if (DEBUG) Serial.print(tSmoker);
+ if (DEBUG) Serial.print(" ");
+ if (DEBUG) Serial.println(sSmoker);
+ 
 
   tMeat1 = (int)thermocouple2.readCelsius();
   if (tMeat1 <= EEPROMReadInt(PARAMS(DEVICE_0, MEAT1))) {            //  Switch on if below set point
-    sMeat1 = 1;
-  } else if (tMeat1 >= (EEPROMReadInt(PARAMS(DEVICE_0, MEAT1)) + EEPROMReadInt(PARAMS(DEVICE_0, MEAT1_THRESHOLD)))) {  // Switch off if above threshold
     sMeat1 = 0;
+  } else if (tMeat1 >= (EEPROMReadInt(PARAMS(DEVICE_0, MEAT1)) + EEPROMReadInt(PARAMS(DEVICE_0, MEAT1_THRESHOLD)))) {  // Switch off if above threshold
+    sMeat1 = 1;
   }
+ if (DEBUG) Serial.print("Meat1 ");
+ if (DEBUG) Serial.print(tMeat1);
+ if (DEBUG) Serial.print(" ");
+ if (DEBUG) Serial.println(sMeat1);
 
   tMeat2 = (int)thermocouple2.readCelsius();
   if (tMeat2 <= EEPROMReadInt(PARAMS(DEVICE_0, MEAT2))) {            //  Switch on if below set point
-    sMeat2 = 1;
-  } else if (tMeat2 >= (EEPROMReadInt(PARAMS(DEVICE_0, MEAT2)) + EEPROMReadInt(PARAMS(DEVICE_0, MEAT2_THRESHOLD)))) {  // Switch off if above threshold
     sMeat2 = 0;
+  } else if (tMeat2 >= (EEPROMReadInt(PARAMS(DEVICE_0, MEAT2)) + EEPROMReadInt(PARAMS(DEVICE_0, MEAT2_THRESHOLD)))) {  // Switch off if above threshold
+    sMeat2 = 1;
   }
+ if (DEBUG) Serial.print("Meat2 ");
+ if (DEBUG) Serial.print(tMeat2);
+ if (DEBUG) Serial.print(" ");
+ if (DEBUG) Serial.println(sMeat2);
 
 
   digitalWrite(DUST_LED_OUT,LOW); // power on the LED
@@ -212,27 +234,47 @@ void loop() {
  
  
   if (dSmoke <= EEPROMReadInt(PARAMS(DEVICE_0, SMOKE))) {            //  Switch on if below set point
-    sSmoke = 1;
-  } else if (dSmoke >= (EEPROMReadInt(PARAMS(DEVICE_0, SMOKE)) + EEPROMReadInt(PARAMS(DEVICE_0, SMOKE_THRESHOLD)))) {  // Switch off if above threshold
     sSmoke = 0;
+  } else if (dSmoke >= (EEPROMReadInt(PARAMS(DEVICE_0, SMOKE)) + EEPROMReadInt(PARAMS(DEVICE_0, SMOKE_THRESHOLD)))) {  // Switch off if above threshold
+    sSmoke = 1;
   }
+ if (DEBUG) Serial.print("Smoke ");
+ if (DEBUG) Serial.print(dSmoke);
+ if (DEBUG) Serial.print(" ");
+ if (DEBUG) Serial.println(sSmoke);
 
-  
+
   char buffer [16];
-  lcd.clear();
+  //lcd.clear();
+  lcd.setCursor(0,0);
   sprintf(buffer, "%3d-%3d%s%3d-%3d%s", EEPROMReadInt(PARAMS(DEVICE_0, SMOKER)), tSmoker, onoff[sSmoker], EEPROMReadInt(PARAMS(DEVICE_0, SMOKE)), dSmoke, onoff[sSmoke]);
   lcd.print(buffer);
 
   lcd.setCursor(0,1);
   sprintf(buffer, "%3d-%3d%s%3d-%3d%s", EEPROMReadInt(PARAMS(DEVICE_0, MEAT1)), tMeat1, onoff[sMeat1], EEPROMReadInt(PARAMS(DEVICE_0, MEAT2)), tMeat2, onoff[sMeat2]);
   lcd.print(buffer);
-   
+  lcd.setCursor(c % 16, (int)c / 16);
+  
+  toggle = 1 - toggle;
+  if (toggle && (sMeat1 || sMeat2 || !sSmoke)) {
+    lcd.noDisplay();
+    delay(500);
+    lcd.display();
+    delay(1000);
+  } else {
+    lcd.display();
+    delay(1500);
+  }
 }
 
 void receiveEvent(int count)
 {
+  //if (DEBUG) Serial.println("receiveEvent");
+  if (c++>31) c = 0;
+  //wdt_reset();
   if (count == I2C_MSG_IN_SIZE)
   {
+    
     byte cmd = Wire.read();
     byte port = Wire.read();
     int value = Wire.read();
@@ -307,13 +349,19 @@ void receiveEvent(int count)
 
 void clearSendBuffer()
 {
+  //if (DEBUG) Serial.println("clearSendBuffer");
   for(byte x=0; x < sizeof(sendBuffer); x++)
     sendBuffer[x]=0;
 }
 
 void requestEvent()
 {
+  //if (DEBUG) Serial.println("requestEvent");
   Wire.write((const uint8_t*)sendBuffer,sizeof(sendBuffer));
 }
-// function to print a device address
 
+// function to print a device address
+void softReset()
+{
+  asm volatile ("  jmp 0");  
+}    
