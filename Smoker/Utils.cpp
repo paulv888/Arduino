@@ -69,3 +69,19 @@ int EEPROMReadInt(int p_address) {
 	return ((lowByte << 0) & 0xFF) + ((highByte << 8) & 0xFF00);
 }
 
+int toFahrenheit(int temp, byte celcius)
+{
+  if (celcius)
+    return temp;
+  else
+    return (int)(temp * 9.0)/ 5.0 + 32;
+}
+
+int toCelcius(int temp, byte celcius)
+{
+  if (celcius)
+    return temp;
+  else
+    return (int)(temp - 32) * (5.0 / 9.0);
+}
+
