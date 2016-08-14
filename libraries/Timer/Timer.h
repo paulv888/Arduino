@@ -47,6 +47,7 @@ public:
 	void pulse(const byte pin, const byte startingValue, const long period);
 	int stop(const int id);
 	void update();
+	void reset(const int id);
 	void updatePeriod(const int id, const long period);
 
 protected:

@@ -103,6 +103,10 @@ int Timer::stop(const int id) {
 	return -1;
 }
 
+void Timer::reset(const int id) {
+	if (id>=0) _events[id].lastEventTime = millis();
+}
+
 void Timer::update() {
 	for (int i = 0; i < MAX_NUMBER_OF_EVENTS; i++) {
 		if (_events[i].eventType != EVENT_NONE) {
