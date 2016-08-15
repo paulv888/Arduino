@@ -173,18 +173,6 @@ void loop()
 
 
 void readValues() {
-  /*Serial.print("S) C = ");  
-  Serial.println(tSmoker);
-  Serial.print("1) C = "); 
-  Serial.println(tMeat1);
-  Serial.print("2) C = "); 
-  Serial.println(tMeat2);
-  Serial.println();*/
-
-
-  //0123456789012345
-  //123-123*123-123*
-  //123-123_123-123*
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)) > 0) { 
     tSmoker = (int)thermocouple1.readCelsius();
@@ -197,10 +185,10 @@ void readValues() {
     tSmoker = 0;
     sSmoker = 0;
   }
-  if (DEBUG) Serial.print("Smoker ");
-  if (DEBUG) Serial.print(tSmoker);
-  if (DEBUG) Serial.print(" ");
-  if (DEBUG) Serial.println(sSmoker);
+  DEBUGPRINT("Smoker ");
+  DEBUGPRINT(tSmoker);
+  DEBUGPRINT(" ");
+  DEBUGPRINT_LF(sSmoker);
  
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)) > 0) {            //  Enabled
@@ -214,10 +202,10 @@ void readValues() {
     tMeat1 = 0;
     sMeat1 = 0;
   }
-  if (DEBUG) Serial.print("Meat1  ");
-  if (DEBUG) Serial.print(tMeat1);
-  if (DEBUG) Serial.print(" ");
-  if (DEBUG) Serial.println(sMeat1);
+  DEBUGPRINT("Meat1  ");
+  DEBUGPRINT(tMeat1);
+  DEBUGPRINT(" ");
+  DEBUGPRINT_LF(sMeat1);
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)) > 0) {            //  Enabled
     tMeat2 = (int)thermocouple3.readCelsius();
@@ -230,10 +218,10 @@ void readValues() {
     tMeat2 = 0;
     sMeat2 = 0;
   }
-  if (DEBUG) Serial.print("Meat2  ");
-  if (DEBUG) Serial.print(tMeat2);
-  if (DEBUG) Serial.print(" ");
-  if (DEBUG) Serial.println(sMeat2);
+  DEBUGPRINT("Meat2  ");
+  DEBUGPRINT(tMeat2);
+  DEBUGPRINT(" ");
+  DEBUGPRINT_LF(sMeat2);
 
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)) > 0) {            //  Switch on if below set point
@@ -256,10 +244,10 @@ void readValues() {
     dSmoke = 0;
     sSmoke = 1;
   }
-  if (DEBUG) Serial.print("Smoke  ");
-  if (DEBUG) Serial.print(dSmoke);
-  if (DEBUG) Serial.print(" ");
-  if (DEBUG) Serial.println(sSmoke);
+  DEBUGPRINT("Smoke  ");
+  DEBUGPRINT(dSmoke);
+  DEBUGPRINT(" ");
+  DEBUGPRINT_LF(sSmoke);
 
 }
 
@@ -304,7 +292,12 @@ void receiveEvent(int count)
     int value = Wire.read();
     value += Wire.read()*256;
 
-    DEBUGPRINT("cmd: ");
+//#define CMD_DIGITAL_WRITE  1
+//#define CMD_DIGITAL_READ   2
+//#define CMD_ANALOG_WRITE   3
+//#define CMD_ANALOG_READ    4
+
+	DEBUGPRINT("cmd: ");
     DEBUGPRINT(cmd);
     DEBUGPRINT(" port: ");
     DEBUGPRINT(port);
@@ -340,8 +333,8 @@ void receiveEvent(int count)
               
             }
           sendBuffer[0] = Status;
-          if (DEBUG) DEBUGPRINT("Send Status: ");
-          if (DEBUG) DEBUGPRINT_LF(sendBuffer[0]);
+          DEBUGPRINT("Send Status: ");
+          DEBUGPRINT_LF(sendBuffer[0]);
           break;
         case CMD_ANALOG_WRITE:
           //analogWrite(port,value);
@@ -368,8 +361,8 @@ void receiveEvent(int count)
             }
           sendBuffer[0] = valueRead & 0xff;
           sendBuffer[1] = valueRead >> 8;
-          if (DEBUG) DEBUGPRINT("Send Value: ");
-          if (DEBUG) DEBUGPRINT_LF(valueRead);
+          DEBUGPRINT("Send Value: ");
+          DEBUGPRINT_LF(valueRead);
           break;
       }
   }

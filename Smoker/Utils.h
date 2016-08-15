@@ -13,8 +13,6 @@
 #define PARAMS_PER_DEVICE 8 // 16 integers
 #define PARAMS(dIdx, Parameter) (dIdx * PARAMS_PER_DEVICE * 2 + (Parameter - 1) * 2)
 
-#define DEBUG 1
-
 #define DEBUGPRINT_LF(STR) \
   {  \
     if (DEBUG) Serial.println(STR); \

@@ -8,16 +8,7 @@
 #ifndef Configuration_H_
 #define Configuration_H_
 
-#define DEBUG 1
-
-#define DEBUGPRINT_LF(STR) \
-  {  \
-    if (DEBUG) Serial.println(STR); \
-  }
-#define DEBUGPRINT(STR) \
-  { \
-    if (DEBUG) Serial.print(STR); \
-  }
+#define DEBUG 0
 
 //
 // General
