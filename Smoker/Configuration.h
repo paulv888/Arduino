@@ -13,6 +13,7 @@
 //
 // General
 //
+#define ANALOG_V 0
 #define SMOKER 0
 #define MEAT1 1
 #define MEAT2 2
@@ -21,10 +22,11 @@
 #define MEAT1_THRESHOLD 5
 #define MEAT2_THRESHOLD 6
 #define SMOKE_THRESHOLD 7
-#define CELCIUS 5
-#define ANALOG_V 0
-#define BINARY_V 1
 
+
+#define BINARY_V 1
+#define PHASE 1
+#define CELCIUS 2
 
 
 #endif /* Configuration_H_ */

@@ -166,7 +166,7 @@ void loop()
     if(btn_push != 'N') //enter menu mode
       doMenu();
 
-    readValues();
+    if (EEPROMReadInt(PARAMS(BINARY_V, PHASE)) != 0) readValues();
     displayValues();
     delay(1000);
 }  
@@ -174,6 +174,9 @@ void loop()
 
 void readValues() {
 
+  DEBUGPRINT("Phase ");
+  DEBUGPRINT_LF(EEPROMReadInt(PARAMS(BINARY_V, PHASE)));
+	
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)) > 0) { 
     tSmoker = (int)thermocouple1.readCelsius();
     if (tSmoker <= EEPROMReadInt(PARAMS(ANALOG_V, SMOKER))) {            //  Switch on if below set point
@@ -252,31 +255,60 @@ void readValues() {
 }
 
 void displayValues() {
-  char buffer [16];
-  //lcd.clear();
-  lcd.setCursor(0,0);
-  sprintf(buffer, "%3d-%3d%s%3d-%3d%s", (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), 
-		         (int)toFahrenheit(tSmoker,EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sSmoker], EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)), dSmoke, onoff[sSmoke]);
-  lcd.print(buffer);
-
-  lcd.setCursor(0,1);
-  sprintf(buffer, "%3d-%3d%s%3d-%3d%s", 
-		        (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))),
-		        (int)toFahrenheit(tMeat1, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sMeat1], 
-		        (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))),
-		        (int)toFahrenheit(tMeat2, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sMeat2]);
-  lcd.print(buffer);
-  lcd.setCursor(c % 16, (int)c / 16);
+	char line1[32] = "               ";
+	char line2[32] = "               ";
+	//lcd.clear();
   
-  toggle = 1 - toggle;
-  if (toggle && (sMeat1 || sMeat2 || !sSmoke)) {
-    lcd.noDisplay();
-    delay(500);
-    lcd.display();
-  } else {
-    lcd.display();
-    delay(500);
-  }
+	toggle = 1 - toggle;
+	switch (EEPROMReadInt(PARAMS(BINARY_V, PHASE))) {
+		case 0 : 	// Off
+			toggle = 0;
+			sprintf(line2, "%s", "Off           ");
+			break; 
+		case 1 :	// Pre - Heat
+			toggle = toggle && (!sSmoker && sSmoke);
+			sprintf(line1, "%3d-%3d%s%3d-%3d%s", (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), 
+				 (int)toFahrenheit(tSmoker,EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sSmoker], EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)), dSmoke, onoff[sSmoke]);
+			sprintf(line2, "%s", "Pre-Heating    ");
+			break; 
+		case 2 :	// Running
+			toggle = toggle && (sMeat1 || sMeat2 || !sSmoke);
+			sprintf(line1, "%3d-%3d%s%3d-%3d%s", (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), 
+				 (int)toFahrenheit(tSmoker,EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sSmoker], EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)), dSmoke, onoff[sSmoke]);
+			sprintf(line2, "%3d-%3d%s%3d-%3d%s", 
+				(int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))),
+				(int)toFahrenheit(tMeat1, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sMeat1], 
+				(int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))),
+				(int)toFahrenheit(tMeat2, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sMeat2]);
+		   break; 
+		case 3 :	// Cooldown
+			toggle = 0;
+			sprintf(line1, "%3d-%3d%s%3d-%3d%s", (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), 
+				 (int)toFahrenheit(tSmoker,EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sSmoker], EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)), dSmoke, "x");
+			sprintf(line2, "%3d-%3d%s%3d-%3d%s", 
+				(int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))),
+				(int)toFahrenheit(tMeat1, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), "x", 
+				(int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))),
+				(int)toFahrenheit(tMeat2, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), "x");
+		   break; 
+	}
+	
+
+	lcd.setCursor(0,0);
+	lcd.print(line1);
+	lcd.setCursor(0,1);
+	lcd.print(line2);
+	lcd.setCursor(c % 16, (int)c / 16);
+
+
+	if (toggle) {
+		lcd.noDisplay();
+		delay(500);
+		lcd.display();
+	} else {
+		lcd.display();
+		delay(500);
+	}
 }
 void receiveEvent(int count)
 {
@@ -297,12 +329,12 @@ void receiveEvent(int count)
 //#define CMD_ANALOG_WRITE   3
 //#define CMD_ANALOG_READ    4
 
-	DEBUGPRINT("cmd: ");
+	/*DEBUGPRINT("cmd: ");
     DEBUGPRINT(cmd);
     DEBUGPRINT(" port: ");
     DEBUGPRINT(port);
     DEBUGPRINT(" value: ");
-    DEBUGPRINT_LF(value);
+    DEBUGPRINT_LF(value);*/
     
     switch(cmd)
       {
@@ -333,8 +365,8 @@ void receiveEvent(int count)
               
             }
           sendBuffer[0] = Status;
-          DEBUGPRINT("Send Status: ");
-          DEBUGPRINT_LF(sendBuffer[0]);
+          //DEBUGPRINT("Send Status: ");
+          //DEBUGPRINT_LF(sendBuffer[0]);
           break;
         case CMD_ANALOG_WRITE:
           //analogWrite(port,value);
