@@ -10,9 +10,14 @@ int keypad_value = 0;
 Timer timer;
 
 char* fc[]={"F", "C"};
-char *options_fc[] = { "Celcius        ", "Fahrenheit     "};
+char *options_fc[] = { "Celcius         ",
+					   "Fahrenheit      "};
 char* ph[]={"O", "P", "R", "C"};
-char *options_ph[] = { "Off            ", "Pre-heating    ","Running        ","Cooldown     "};
+char *options_ph[] = { "Off             ", 
+					   "Pre-heating     ",
+					   "Running         ",
+					   "Cooldown        "};
+
 byte menuTimeOut;
 static int timerMenuTimeout = -1;
 

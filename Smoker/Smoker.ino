@@ -129,6 +129,8 @@ byte sSmoke;
 int toggle = 0;
 byte espReady = 0;
 
+extern char *options_ph[];
+
 volatile uint8_t sendBuffer[I2C_MSG_OUT_SIZE];
 
 void setup()
@@ -151,7 +153,7 @@ void setup()
   readValues();
   waitOnESP();
   lcd.clear();
-  lcd.print("System Ready!!!");
+  lcd.print("System Ready!!! ");
   lcd.blink();
   delay(500);
   pinMode(KEYPAD_PIN, INPUT); // sets analog pin for input 
@@ -255,21 +257,21 @@ void readValues() {
 }
 
 void displayValues() {
-	char line1[32] = "               ";
-	char line2[32] = "               ";
+	char line1[] = "                ";
+	char line2[] = "                ";
 	//lcd.clear();
   
 	toggle = 1 - toggle;
 	switch (EEPROMReadInt(PARAMS(BINARY_V, PHASE))) {
 		case 0 : 	// Off
 			toggle = 0;
-			sprintf(line2, "%s", "Off           ");
+			sprintf(line2, "%s", options_ph[0]);
 			break; 
 		case 1 :	// Pre - Heat
 			toggle = toggle && (!sSmoker && sSmoke);
 			sprintf(line1, "%3d-%3d%s%3d-%3d%s", (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), 
 				 (int)toFahrenheit(tSmoker,EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), onoff[sSmoker], EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)), dSmoke, onoff[sSmoke]);
-			sprintf(line2, "%s", "Pre-Heating    ");
+			sprintf(line2, "%s", options_ph[1]);
 			break; 
 		case 2 :	// Running
 			toggle = toggle && (sMeat1 || sMeat2 || !sSmoke);
