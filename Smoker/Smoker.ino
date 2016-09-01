@@ -107,6 +107,8 @@ MAX6675 thermocouple3(MAX_CLK, MAX_CS3, MAX_DO);
 #define LCD_WIDTH 16
 #define LCD_HEIGHT 2
 
+#define NUM_SAMPLES 10
+
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
@@ -114,13 +116,13 @@ char* onoff[]={"_", "*"};
 int c = 0;
 
 int tSmoker;
-int tSmokersamples[4];
+int tSmokersamples[NUM_SAMPLES-1];
 int tMeat1;
-int tMeat1samples[4];
+int tMeat1samples[NUM_SAMPLES-1];
 int tMeat2;
-int tMeat2samples[4];
+int tMeat2samples[NUM_SAMPLES-1];
 int dSmoke;
-int dSmokesamples[4];
+int dSmokesamples[NUM_SAMPLES-1];
 byte sSmoker;
 byte sMeat1;
 byte sMeat2;
@@ -169,9 +171,9 @@ void loop()
       doMenu();
 
     if (EEPROMReadInt(PARAMS(BINARY_V, PHASE)) != 0) {
-		for(int sample=0; sample < 5; sample++) {
+		for(int sample=0; sample < NUM_SAMPLES; sample++) {
 			readValues(sample);
-		    delay(500);
+		    delay(100);
 		}
 	}
 	avgValues();
@@ -183,41 +185,24 @@ void loop()
 
 void readValues(int sample) {
 
-  DEBUGPRINT("Phase ");
-  DEBUGPRINT_LF(EEPROMReadInt(PARAMS(BINARY_V, PHASE)));
-
-
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)) > 0) { 
     tSmokersamples[sample] = (int)thermocouple1.readCelsius();
   } else {
     tSmokersamples[sample] = 0;
   }
-  DEBUGPRINT("Smoker ");
-  DEBUGPRINT(sample);
-  DEBUGPRINT(" ");
-  DEBUGPRINT_LF(tSmokersamples[sample]);
- 
+
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)) > 0) {            //  Enabled
     tMeat1samples[sample] = (int)thermocouple2.readCelsius();
   } else {
     tMeat1samples[sample] = 0;
   }
-  DEBUGPRINT("Meat1  ");
-  DEBUGPRINT(sample);
-  DEBUGPRINT(" ");
-  DEBUGPRINT_LF(tMeat1samples[sample]);
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)) > 0) {            //  Enabled
     tMeat2samples[sample] = (int)thermocouple3.readCelsius();
   } else {
     tMeat2samples[sample] = 0;
   }
-  DEBUGPRINT("Meat2  ");
-  DEBUGPRINT(sample);
-  DEBUGPRINT(" ");
-  DEBUGPRINT_LF(tMeat2samples[sample]);
-
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)) > 0) {            //  Switch on if below set point
     digitalWrite(DUST_LED_OUT,LOW); // power on the LED
@@ -228,11 +213,6 @@ void readValues(int sample) {
   } else {
     dSmokesamples[sample] = 0;
   }
-  DEBUGPRINT("Smoke  ");
-  DEBUGPRINT(sample);
-  DEBUGPRINT(" ");
-  DEBUGPRINT_LF(dSmokesamples[sample]);
-
 }
 
 void avgValues(){
@@ -240,24 +220,46 @@ int tSmokert = 0;
 int tMeat1t = 0;
 int tMeat2t = 0;
 int dSmoket = 0;
-	for(int sample=0; sample < 5; sample++) {
+
+	DEBUGPRINT("Sample ");
+	DEBUGPRINT("Smoker ");
+	DEBUGPRINT("Meat1  ");
+	DEBUGPRINT("Meat2  ");
+	DEBUGPRINT_LF("Smoke  ");
+
+	for(int sample=0; sample < NUM_SAMPLES; sample++) {
 		tSmokert += tSmokersamples[sample];
 		tMeat1t += tMeat1samples[sample];
 		tMeat2t += tMeat2samples[sample];
 		dSmoket += dSmokesamples[sample];
+		DEBUGPRINT(sample);
+		DEBUGPRINT(" ");
+		DEBUGPRINT(tSmokersamples[sample]);
+		DEBUGPRINT(" ");
+		DEBUGPRINT(tMeat1samples[sample]);
+		DEBUGPRINT(" ");
+		DEBUGPRINT(tMeat2samples[sample]);
+		DEBUGPRINT(" ");
+		DEBUGPRINT_LF(dSmokesamples[sample]);
 	}
-	tSmoker = tSmokert / 5;
-	tMeat1 = tMeat1t / 5;
-	tMeat2 = tMeat2t / 5;
-	dSmoket = dSmoket / 5;
+	tSmoker = tSmokert / NUM_SAMPLES;
+	tMeat1  = tMeat1t  / NUM_SAMPLES;
+	tMeat2  = tMeat2t  / NUM_SAMPLES;
+	dSmoket = dSmoket  / NUM_SAMPLES;
+	DEBUGPRINT("Avg ");
+	DEBUGPRINT(tSmoker);
+	DEBUGPRINT(" ");
+	DEBUGPRINT(tMeat1);
+	DEBUGPRINT(" ");
+	DEBUGPRINT(tMeat2);
+	DEBUGPRINT(" ");
+	DEBUGPRINT_LF(dSmoke);
 }
 	
 void setStates() {
 
   DEBUGPRINT("Phase ");
   DEBUGPRINT_LF(EEPROMReadInt(PARAMS(BINARY_V, PHASE)));
-
-  	
 	
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)) > 0) { 
     if (tSmoker <= EEPROMReadInt(PARAMS(ANALOG_V, SMOKER))) {            //  Switch on if below set point
