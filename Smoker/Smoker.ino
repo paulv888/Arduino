@@ -114,14 +114,13 @@ char* onoff[]={"_", "*"};
 int c = 0;
 
 int tSmoker;
+int tSmokersamples[4];
 int tMeat1;
+int tMeat1samples[4];
 int tMeat2;
+int tMeat2samples[4];
 int dSmoke;
-int dSmoke0;
-int dSmoke1;
-int dSmoke2;
-int dSmoke3;
-int dSmoke4;
+int dSmokesamples[4];
 byte sSmoker;
 byte sMeat1;
 byte sMeat2;
@@ -150,7 +149,7 @@ void setup()
   lcd.begin(LCD_WIDTH,LCD_HEIGHT);
   // Print a message to the LCD.
   //wdt_reset(); 
-  readValues();
+  //readValues();
   waitOnESP();
   lcd.clear();
   lcd.print("System Ready!!! ");
@@ -164,30 +163,109 @@ void setup()
 // basic readout test, just print the current temp
 void loop()
 {
+	int sample;
     char btn_push = readKeypad();
     if(btn_push != 'N') //enter menu mode
       doMenu();
 
-    if (EEPROMReadInt(PARAMS(BINARY_V, PHASE)) != 0) readValues();
+    if (EEPROMReadInt(PARAMS(BINARY_V, PHASE)) != 0) {
+		for(int sample=0; sample < 5; sample++) {
+			readValues(sample);
+		    delay(500);
+		}
+	}
+	avgValues();
+	setStates();
     displayValues();
-    delay(1000);
+    //delay(0);
 }  
 
 
-void readValues() {
+void readValues(int sample) {
 
   DEBUGPRINT("Phase ");
   DEBUGPRINT_LF(EEPROMReadInt(PARAMS(BINARY_V, PHASE)));
+
+
+  if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)) > 0) { 
+    tSmokersamples[sample] = (int)thermocouple1.readCelsius();
+  } else {
+    tSmokersamples[sample] = 0;
+  }
+  DEBUGPRINT("Smoker ");
+  DEBUGPRINT(sample);
+  DEBUGPRINT(" ");
+  DEBUGPRINT_LF(tSmokersamples[sample]);
+ 
+
+  if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)) > 0) {            //  Enabled
+    tMeat1samples[sample] = (int)thermocouple2.readCelsius();
+  } else {
+    tMeat1samples[sample] = 0;
+  }
+  DEBUGPRINT("Meat1  ");
+  DEBUGPRINT(sample);
+  DEBUGPRINT(" ");
+  DEBUGPRINT_LF(tMeat1samples[sample]);
+
+  if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)) > 0) {            //  Enabled
+    tMeat2samples[sample] = (int)thermocouple3.readCelsius();
+  } else {
+    tMeat2samples[sample] = 0;
+  }
+  DEBUGPRINT("Meat2  ");
+  DEBUGPRINT(sample);
+  DEBUGPRINT(" ");
+  DEBUGPRINT_LF(tMeat2samples[sample]);
+
+
+  if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)) > 0) {            //  Switch on if below set point
+    digitalWrite(DUST_LED_OUT,LOW); // power on the LED
+    delayMicroseconds(DUST_SAMPLING_TIME);
+    dSmokesamples[sample] = analogRead(DUST_AN_IN); // read the dust value
+    delayMicroseconds(40);
+    digitalWrite(DUST_LED_OUT,HIGH); // turn the LED off
+  } else {
+    dSmokesamples[sample] = 0;
+  }
+  DEBUGPRINT("Smoke  ");
+  DEBUGPRINT(sample);
+  DEBUGPRINT(" ");
+  DEBUGPRINT_LF(dSmokesamples[sample]);
+
+}
+
+void avgValues(){
+int tSmokert = 0;
+int tMeat1t = 0;
+int tMeat2t = 0;
+int dSmoket = 0;
+	for(int sample=0; sample < 5; sample++) {
+		tSmokert += tSmokersamples[sample];
+		tMeat1t += tMeat1samples[sample];
+		tMeat2t += tMeat2samples[sample];
+		dSmoket += dSmokesamples[sample];
+	}
+	tSmoker = tSmokert / 5;
+	tMeat1 = tMeat1t / 5;
+	tMeat2 = tMeat2t / 5;
+	dSmoket = dSmoket / 5;
+}
+	
+void setStates() {
+
+  DEBUGPRINT("Phase ");
+  DEBUGPRINT_LF(EEPROMReadInt(PARAMS(BINARY_V, PHASE)));
+
+  	
 	
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)) > 0) { 
-    tSmoker = (int)thermocouple1.readCelsius();
     if (tSmoker <= EEPROMReadInt(PARAMS(ANALOG_V, SMOKER))) {            //  Switch on if below set point
       sSmoker = 1;
     } else if (tSmoker >= (EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)) + EEPROMReadInt(PARAMS(ANALOG_V, SMOKER_THRESHOLD)))) {  // Switch off if above threshold
       sSmoker = 0;
     }
   } else {
-    tSmoker = 0;
     sSmoker = 0;
   }
   DEBUGPRINT("Smoker ");
@@ -197,14 +275,12 @@ void readValues() {
  
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)) > 0) {            //  Enabled
-    tMeat1 = (int)thermocouple2.readCelsius();
     if (tMeat1 <= EEPROMReadInt(PARAMS(ANALOG_V, MEAT1))) {            //  Switch on if below set point
       sMeat1 = 0;
     } else if (tMeat1 >= (EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)) + EEPROMReadInt(PARAMS(ANALOG_V, MEAT1_THRESHOLD)))) {  // Switch off if above threshold
       sMeat1 = 1;
     }
   } else {
-    tMeat1 = 0;
     sMeat1 = 0;
   }
   DEBUGPRINT("Meat1  ");
@@ -213,14 +289,12 @@ void readValues() {
   DEBUGPRINT_LF(sMeat1);
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)) > 0) {            //  Enabled
-    tMeat2 = (int)thermocouple3.readCelsius();
     if (tMeat2 <= EEPROMReadInt(PARAMS(ANALOG_V, MEAT2))) {            //  Switch on if below set point
       sMeat2 = 0;
     } else if (tMeat2 >= (EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)) + EEPROMReadInt(PARAMS(ANALOG_V, MEAT2_THRESHOLD)))) {  // Switch off if above threshold
       sMeat2 = 1;
     }
   } else {
-    tMeat2 = 0;
     sMeat2 = 0;
   }
   DEBUGPRINT("Meat2  ");
@@ -230,23 +304,12 @@ void readValues() {
 
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)) > 0) {            //  Switch on if below set point
-    dSmoke4 = dSmoke3;
-    dSmoke3 = dSmoke2;
-    dSmoke2 = dSmoke1;
-    dSmoke1 = dSmoke0;
-    digitalWrite(DUST_LED_OUT,LOW); // power on the LED
-    delayMicroseconds(DUST_SAMPLING_TIME);
-    dSmoke0 = analogRead(DUST_AN_IN); // read the dust value
-    dSmoke = (int)(dSmoke0 + dSmoke1 + dSmoke2 + dSmoke3 + dSmoke4) / 5;
-    delayMicroseconds(40);
-    digitalWrite(DUST_LED_OUT,HIGH); // turn the LED off
     if (dSmoke <= EEPROMReadInt(PARAMS(ANALOG_V, SMOKE))) {            //  Switch on if below set point
       sSmoke = 0;
     } else if (dSmoke >= (EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)) + EEPROMReadInt(PARAMS(ANALOG_V, SMOKE_THRESHOLD)))) {  // Switch off if above threshold
       sSmoke = 1;
     }
   } else {
-    dSmoke = 0;
     sSmoke = 1;
   }
   DEBUGPRINT("Smoke  ");

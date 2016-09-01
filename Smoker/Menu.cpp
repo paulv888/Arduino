@@ -10,8 +10,8 @@ int keypad_value = 0;
 Timer timer;
 
 char* fc[]={"F", "C"};
-char *options_fc[] = { "Celcius         ",
-					   "Fahrenheit      "};
+char *options_fc[] = { "Fahrenheit      ",
+					   "Celcius         "};
 char* ph[]={"O", "P", "R", "C"};
 char *options_ph[] = { "Off             ", 
 					   "Pre-heating     ",
@@ -22,13 +22,14 @@ byte menuTimeOut;
 static int timerMenuTimeout = -1;
 
 #define MAIN_MENU_ITEMS 6
-char* menu[]={"1. Smoker temp  ",
-			  "2. Meat 1 temp  ",
-			  "3. Meat 2 temp  ",
-			  "4. Smoke density",
-			  "5. Phase (%s)   ",
-			  "6. F/C (%s)     ",
-			  "                "};
+#define MENU_KEYS 6
+char* menu[]={"Phase (%s)    ",
+			  "Smoker temp  ",
+			  "Meat 1 temp  ",
+			  "Meat 2 temp  ",
+			  "Smoke density",
+			  "F/C (%s)      ",
+			  "     S  B  U  D "};
 
 void waitBtnRelease()
 {
@@ -44,9 +45,9 @@ char readKeypad()
   /* Keypad button analog Value
   no button pressed 0
   select/right  582
-  left          679
-  down          816
-  up           1022
+  back          679
+  up            816
+  down         1022
   right   xxx
   */
   keypad_value = analogRead(KEYPAD_PIN);
@@ -55,10 +56,10 @@ char readKeypad()
   
   if(keypad_value > 900) {
 	timer.reset(timerMenuTimeout);
-    return 'U';
+    return 'D';
   } else if(keypad_value > 700) {
 	timer.reset(timerMenuTimeout);
-    return 'D';
+    return 'U';
   } else if(keypad_value > 630) {
 	timer.reset(timerMenuTimeout);
     return 'L';
@@ -75,10 +76,13 @@ int menuValue(char* text, int param, int min, int max)
     char buffer [16];
 	lcd.clear();
     do {
+		lcd.setCursor(0,1);
+		lcd.print(menu[MENU_KEYS]);
+
   		lcd.setCursor(0,0);
   		sprintf(buffer, "%s: %3d", text, param);
   		lcd.print(buffer);
-		
+
 
 		btn_push = readKeypad();
 	  	//waitBtnRelease();
@@ -104,6 +108,9 @@ int menuOptions(char *options[], int option, int numOptions)
 	char btn_push;
     lcd.clear();
     do {
+		lcd.setCursor(0,1);
+		lcd.print(menu[MENU_KEYS]);
+
 		lcd.setCursor(0,0);
 		lcd.print(options[option]);
 
@@ -121,6 +128,7 @@ int menuOptions(char *options[], int option, int numOptions)
 		}
 		delay(100);
     } while (btn_push != 'L');
+  	return option;
 }
 
 void menuTimeout(byte dummy) {
@@ -144,25 +152,31 @@ void doMenu()
 		lcd.setCursor(0,0);
 		switch (mainMenuPage)
 		{
-			case 0:
 			case 1:
 			case 2:
 			case 3:
+			case 4:
+				lcd.print(mainMenuPage+1);
+				lcd.print(". ");
 				lcd.print(menu[mainMenuPage]);
 				lcd.setCursor(0,1);
-				lcd.print(menu[mainMenuPage+1]);
+				lcd.print(menu[MENU_KEYS]);
 				break;
-			case 4:
+			case 0:
 				sprintf(buffer, menu[mainMenuPage], ph[EEPROMReadInt(PARAMS(BINARY_V, PHASE))]);
+				lcd.print(mainMenuPage+1);
+				lcd.print(". ");
 				lcd.print(buffer);
 				lcd.setCursor(0,1);
-				lcd.print(menu[mainMenuPage+1]);
+				lcd.print(menu[MENU_KEYS]);
 			  break;
 			case 5:
 				sprintf(buffer, menu[mainMenuPage], fc[EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))]);
+				lcd.print(mainMenuPage+1);
+				lcd.print(". ");
 				lcd.print(buffer);
 				lcd.setCursor(0,1);
-				lcd.print(menu[mainMenuPage+1]);
+				lcd.print(menu[MENU_KEYS]);
 			  break;
 		}
 		lcd.setCursor(15,0);
@@ -184,24 +198,24 @@ void doMenu()
 			switch (mainMenuPage)
 			{
 				case 0:
+					mval = menuOptions(options_ph, EEPROMReadInt(PARAMS(BINARY_V, PHASE)), (int)4);
+					EEPROMWriteInt(PARAMS(BINARY_V, PHASE), mval);
+					break;
+				case 1:
 					mval = menuValue("Smoker", (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, SMOKER)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), 0, 300);
 					EEPROMWriteInt(PARAMS(ANALOG_V,SMOKER), (int)toCelcius(mval, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))));
 					break;
-				case 1:
+				case 2:
 					mval = menuValue("Meat 1", (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), 0, 200);
 					EEPROMWriteInt(PARAMS(ANALOG_V,MEAT1), (int)toCelcius(mval, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))));
 					break;
-				case 2:
+				case 3:
 					mval = menuValue("Meat 2", (int)toFahrenheit(EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)), EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))), 0, 200);
 					EEPROMWriteInt(PARAMS(ANALOG_V,MEAT2), (int)toCelcius(mval, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS))));
 					break;
-				case 3:
+				case 4:
 					mval = menuValue("Smoke", EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)), 0, 700);
 					EEPROMWriteInt(PARAMS(ANALOG_V,SMOKE), mval);
-					break;
-				case 4:
-					mval = menuOptions(options_ph, EEPROMReadInt(PARAMS(BINARY_V, PHASE)), (int)4);
-					EEPROMWriteInt(PARAMS(BINARY_V, PHASE), mval);
 					break;
 				case 5:
 					mval = menuOptions(options_fc, EEPROMReadInt(PARAMS(BINARY_V, CELCIUS)), (int)2);
