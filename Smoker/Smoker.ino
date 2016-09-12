@@ -55,7 +55,7 @@ MAX6675 thermocouple3(MAX_CLK, MAX_CS3, MAX_DO);
 //
 #define DUST_LED_OUT 15
 #define DUST_AN_IN 20
-#define DUST_SAMPLING_TIME 280
+#define DUST_SAMPLING_TIME 25
 
 #include <Wire.h>
 #define I2C_MSG_IN_SIZE    4
@@ -147,7 +147,7 @@ void setup()
   DEBUGPRINT_LF ("Booted...");
   //dht.begin();
   pinMode(DUST_LED_OUT, OUTPUT);
-  
+  EEPROMWriteInt(PARAMS(ANALOG_V, SMOKE_SAMPLE_TIME), DUST_SAMPLING_TIME);
   lcd.begin(LCD_WIDTH,LCD_HEIGHT);
   // Print a message to the LCD.
   //wdt_reset(); 
@@ -206,7 +206,7 @@ void readValues(int sample) {
 
   if (EEPROMReadInt(PARAMS(ANALOG_V, SMOKE)) > 0) {            //  Switch on if below set point
     digitalWrite(DUST_LED_OUT,LOW); // power on the LED
-    delayMicroseconds(DUST_SAMPLING_TIME);
+    delayMicroseconds(EEPROMReadInt(PARAMS(ANALOG_V, SMOKE_SAMPLE_TIME)));
     dSmokesamples[sample] = analogRead(DUST_AN_IN); // read the dust value
     delayMicroseconds(40);
     digitalWrite(DUST_LED_OUT,HIGH); // turn the LED off
@@ -270,6 +270,9 @@ void setStates() {
   } else {
     sSmoker = 0;
   }
+  if (EEPROMReadInt(PARAMS(BINARY_V, PHASE)) == 0 || EEPROMReadInt(PARAMS(BINARY_V, PHASE)) == 3)  {  // Off or Cooldown
+    sSmoker = 0;
+  }
   DEBUGPRINT("Smoker ");
   DEBUGPRINT(tSmoker);
   DEBUGPRINT(" ");
@@ -279,7 +282,7 @@ void setStates() {
   if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)) > 0) {            //  Enabled
     if (tMeat1 <= EEPROMReadInt(PARAMS(ANALOG_V, MEAT1))) {            //  Switch on if below set point
       sMeat1 = 0;
-    } else if (tMeat1 >= (EEPROMReadInt(PARAMS(ANALOG_V, MEAT1)) + EEPROMReadInt(PARAMS(ANALOG_V, MEAT1_THRESHOLD)))) {  // Switch off if above threshold
+    } else if (tMeat1 >= EEPROMReadInt(PARAMS(ANALOG_V, MEAT1))) {  // Switch off if above threshold
       sMeat1 = 1;
     }
   } else {
@@ -293,7 +296,7 @@ void setStates() {
   if (EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)) > 0) {            //  Enabled
     if (tMeat2 <= EEPROMReadInt(PARAMS(ANALOG_V, MEAT2))) {            //  Switch on if below set point
       sMeat2 = 0;
-    } else if (tMeat2 >= (EEPROMReadInt(PARAMS(ANALOG_V, MEAT2)) + EEPROMReadInt(PARAMS(ANALOG_V, MEAT2_THRESHOLD)))) {  // Switch off if above threshold
+    } else if (tMeat2 >= EEPROMReadInt(PARAMS(ANALOG_V, MEAT2))) {  // Switch off if above threshold
       sMeat2 = 1;
     }
   } else {

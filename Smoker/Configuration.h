@@ -19,9 +19,10 @@
 #define MEAT2 2
 #define SMOKE 3
 #define SMOKER_THRESHOLD 4
-#define MEAT1_THRESHOLD 5
-#define MEAT2_THRESHOLD 6
-#define SMOKE_THRESHOLD 7
+#define SMOKE_THRESHOLD 5
+#define SMOKE_SAMPLE_TIME 6
+//#define MEAT1_THRESHOLD 7
+//#define MEAT2_THRESHOLD 8
 
 
 #define BINARY_V 1
