@@ -35,7 +35,7 @@
 
 ///////////////////////////////////
 // Device Types
-#define RELEASE 3
+#define RELEASE 5
 #define DEVICE_COUNT 7
 
 #define TYPE_DIGITAL_IO  1
