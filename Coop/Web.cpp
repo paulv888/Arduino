@@ -7,8 +7,8 @@
 #include "Web.h"
 
 static byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-static byte ip[] = { 192, 168, 2, 126 };
-static byte vlosite[] = { 192, 168, 2, 101 };
+static byte ip[] = { 192, 168, 2, 26 };
+static byte vlosite[] = { 192, 168, 2, 11 };
 
 static EthernetServer server(80);      //server port
 static EthernetClient client_recv;
@@ -26,7 +26,7 @@ P(HEADER_ERR) = "HTTP/1.1 422 ERROR\nContent-Type: text/html\nConnection: close\
 P(HEADERPG2) = "<HTML>\n<HEAD>\n<meta name='apple-mobile-web-app-capable' content='yes' />\n<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\n<link rel='stylesheet' type='text/css' href='http://vlohome.homeip.net/templates/protostar-mod/css/template.css' />\n<TITLE>Aynur's Coop</TITLE>\n</HEAD>";
 P(HEADERPG3) = "<BODY class=\"site\">\n<div class=\"body\">\n<H1>Aynur's Coop</H1>\n";
 P(HEADERPGEND) = "</DIV></BODY>\n</HTML>";
-P(TXTPOST) = "POST /a.php HTTP/1.1\nHost: vlohome.homeip.net\nContent-Type: text/html\nConnection: close\nContent-Length: ";
+P(TXTPOST) = "POST /coop.php HTTP/1.1\r\nHost: 192.168.2.11\r\nContent-Type: application/json\r\nConnection: close\r\nContent-Length: ";
 P(HEADER_ERR_MESS) = "ARD-COOP: Message parse error, check deviceID and commandID";
 P(AOPEN) = "<";
 P(ACLOSE) = ">";
