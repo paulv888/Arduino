@@ -58,6 +58,7 @@ P(DEV_3) = "Dark-A1";
 P(DEV_4) = "Light-A4";
 P(DEV_5) = "RedLgt-A5";
 P(DEV_6) = "DHT22-6";
+P(DEV_7) = "Rely-3";
 //P(DEV_9) = "NTC A0" ;
 
 
@@ -412,7 +413,7 @@ void updateWeb(){
 								printP(COMMAND_IO_RECV, DEV_6);
 								break;
 							case 7:
-								//printP(COMMAND_IO_RECV, DEV_7);
+								printP(COMMAND_IO_RECV, DEV_7);
 								break;
 							case 8:
 								//printP(COMMAND_IO_RECV, DEV_8);

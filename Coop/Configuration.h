@@ -35,8 +35,8 @@
 
 ///////////////////////////////////
 // Device Types
-#define RELEASE 5
-#define DEVICE_COUNT 7
+#define RELEASE 6
+#define DEVICE_COUNT 8
 
 #define TYPE_DIGITAL_IO  1
 #define TYPE_ANALOG_IN   2
@@ -90,6 +90,10 @@
 // DHT22 Temp Hum Sensor
 #define DHT_IDX 6
 #define DHT_PIN 6
+
+// Fan Relay
+#define RELAY_3_IDX 7
+//#define 7 0
 
 // NTC Temp Sensor
 // #define NTC_0_IDX 9

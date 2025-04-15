@@ -25,8 +25,9 @@ void checkTimer(const byte reportType) {
 }
 
 void reportTimer(const byte reportType) {
-//#define REPORT_HOURLY 1
-//#define REPORT_DAILY 2
+//#define REPORT_10MIN 1
+//#define REPORT_HOURLY 2
+//#define REPORT_DAILY 3
 	if (DEBUG_DEVICE_HAND) Serial.print("Rpt ");
 	if (DEBUG_DEVICE_HAND) Serial.print(reportType);
 	if (DEBUG_DEVICE_HAND) Serial.print(":");

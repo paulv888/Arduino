@@ -86,8 +86,16 @@ void setup() {
 	mdevices[DARK_IDX].begin(          209, DARK_IDX    );
 	if (DEBUG_MEMORY) printMem("M8 ");
 
+	wdt_reset(); 
+	mdevices[RELAY_3_IDX].setPin(RELAY_FAN_PIN);
+	mdevices[RELAY_3_IDX].setType(TYPE_DIGITAL_IO);
+	mdevices[RELAY_3_IDX].begin(       386, RELAY_3_IDX  );
 
 	wdt_reset(); 
+	if (timer.every((long)10*60*1000, reportTimer, REPORT_10MIN) < 0) {	// 10MIN reports
+		showStatus(TIMER_ERROR, ARDUINO_IDX);
+	}
+
 	if (timer.every((long)60*60*1000 + (long)55*1000, reportTimer, REPORT_HOURLY) < 0) {	// Hourly reports
 		showStatus(TIMER_ERROR, ARDUINO_IDX);
 	}

@@ -42,8 +42,9 @@
 
 // Report types
 #define REPORT_NONE 0
-#define REPORT_HOURLY 1
-#define REPORT_DAILY 2
+#define REPORT_10MIN 1
+#define REPORT_HOURLY 2
+#define REPORT_DAILY 3
 
 // Check types
 #define CHECK_NONE 0
