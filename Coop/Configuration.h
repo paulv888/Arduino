@@ -87,13 +87,14 @@
 #define RELAY_2_IDX 5
 #define RELAY_2_PIN A5
 
+// Fan Relay
+#define RELAY_3_IDX 6
+//#define RELAY_FAN_PIN 0
+
 // DHT22 Temp Hum Sensor
-#define DHT_IDX 6
+#define DHT_IDX 7
 #define DHT_PIN 6
 
-// Fan Relay
-#define RELAY_3_IDX 7
-//#define 7 0
 
 // NTC Temp Sensor
 // #define NTC_0_IDX 9

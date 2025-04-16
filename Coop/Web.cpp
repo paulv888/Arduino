@@ -7,7 +7,7 @@
 #include "Web.h"
 
 static byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-static byte ip[] = { 192, 168, 2, 26 };
+static byte ip[] = { 192, 168, 2, 25 };
 static byte vlosite[] = { 192, 168, 2, 11 };
 
 static EthernetServer server(80);      //server port
@@ -57,8 +57,8 @@ P(DEV_2) = "Fan-6/0";
 P(DEV_3) = "Dark-A1";
 P(DEV_4) = "Light-A4";
 P(DEV_5) = "RedLgt-A5";
-P(DEV_6) = "DHT22-6";
-P(DEV_7) = "Rely-3";
+P(DEV_6) = "Rely-3";
+P(DEV_7) = "DHT22-6";
 //P(DEV_9) = "NTC A0" ;
 
 
